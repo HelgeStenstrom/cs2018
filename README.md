@@ -1,2 +1,2 @@
 # cs2018
-Kurs i C#, Luleå
+Kurs i C#, Malmö

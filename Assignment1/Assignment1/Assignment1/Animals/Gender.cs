@@ -8,6 +8,9 @@ namespace Assignment1.Animals
 {
     enum Gender
     {
+        Female,
+        Male,
+        Unknown
         // TODO: gender enligt assignment
     }
 }

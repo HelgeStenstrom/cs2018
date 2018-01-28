@@ -29,5 +29,29 @@ namespace UnitTests
             Assert.AreEqual("Bird", eagle.Virtuell());
         }
 
+        [TestMethod]
+        public void UniqueAnimals()
+        {
+            int last = Animal.LastAssignedIdNumber;
+            //string expected = $"A{last}";
+            string given = "A";
+            Animal a = new Eagle(given);
+            var x = a.RowStrings;
+            var id = x[1];
+            Assert.AreEqual(given, x[0]);
+            Assert.AreEqual($"A{last}", id);
+            Assert.AreEqual(last + 1, Animal.LastAssignedIdNumber);
+
+            last += 1;
+            a = new Cat(given);
+            x = a.RowStrings;
+            id = x[1];
+
+            Assert.AreEqual(given, x[0]);
+            Assert.AreEqual($"A{last}", id);
+            Assert.AreEqual(last + 1, Animal.LastAssignedIdNumber);
+
+
+        }
     }
 }

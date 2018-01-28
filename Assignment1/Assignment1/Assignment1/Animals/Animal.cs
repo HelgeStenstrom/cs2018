@@ -37,5 +37,10 @@
             NickName
         };
 
+        public static int LastAssignedIdNumber
+        {
+            get => lastAssignedIdNumber;
+            //set => lastAssignedIdNumber = value;
+        }
     }
 }

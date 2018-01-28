@@ -45,20 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
+    <Compile Include="Animals\Animal.cs" />
     <Compile Include="AnimalManager.cs" />
-    <Compile Include="Bear.cs" />
-    <Compile Include="Bird.cs" />
-    <Compile Include="Cat.cs" />
-    <Compile Include="Eagle.cs" />
+    <Compile Include="Animals\AnimalCategory.cs" />
+    <Compile Include="Animals\Bear.cs" />
+    <Compile Include="Animals\Bird.cs" />
+    <Compile Include="Animals\Cat.cs" />
+    <Compile Include="Animals\Eagle.cs" />
+    <Compile Include="Animals\Gender.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mammal.cs" />
-    <Compile Include="Penguin.cs" />
+    <Compile Include="Animals\Mammal.cs" />
+    <Compile Include="Animals\Penguin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

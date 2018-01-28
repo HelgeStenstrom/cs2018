@@ -2,5 +2,6 @@
 {
     public class Bird : Animal
     {
+        private double wingSpan;
     }
 }

@@ -2,5 +2,6 @@
 {
     public class Bear : Mammal
     {
+        private int blueBerriesEaten;
     }
 }

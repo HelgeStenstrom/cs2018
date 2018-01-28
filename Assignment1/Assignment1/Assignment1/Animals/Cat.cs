@@ -2,5 +2,6 @@
 {
     public class Cat : Mammal
     {
+        private int miceEaten;
     }
 }

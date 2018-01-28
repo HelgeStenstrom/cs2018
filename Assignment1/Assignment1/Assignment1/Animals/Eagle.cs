@@ -2,5 +2,6 @@
 {
     public class Eagle : Bird
     {
+        private double flightSpeed;
     }
 }

@@ -5,6 +5,8 @@ namespace Assignment1
 {
     class AnimalManager
     {
+        // TODO: Ska skapa animal IDs, unika för varje djur (individ)
+
         List<Animal> _animals;
 
         public AnimalManager()

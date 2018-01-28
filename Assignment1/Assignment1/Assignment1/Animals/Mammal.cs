@@ -2,5 +2,6 @@
 {
     public class Mammal : Animal
     {
+        private int toothCount; // Number of teeth.
     }
 }

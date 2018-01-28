@@ -6,6 +6,7 @@
 
         public Bear(string givenId) : base(givenId)
         {
+
         }
     }
 }

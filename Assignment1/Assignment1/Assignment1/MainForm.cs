@@ -20,16 +20,21 @@ namespace Assignment1
         private void InitializeGui()
         {
             InitGenderBox();
-            InitCatetoryBox();
+            InitCategoryBox();
             //lbCategory.Items.Clear();
             //lbAnimalCategory.Items.Clear();
 //            throw new NotImplementedException();
         }
 
-        private void InitCatetoryBox()
+        private void InitCategoryBox()
         {
             cbxCategory.DataSource = Enum.GetValues(typeof(AnimalCategory));
-            //throw new NotImplementedException();
+            // TODO: se om raderna nedan kan parametriseras och göras till en funktion.
+            lbxCategory.Items.Clear();
+            foreach (var item in AnimalManager.MainTypes())
+            {
+                lbxCategory.Items.Add(item.Name);
+            }
         }
 
         private void InitGenderBox()

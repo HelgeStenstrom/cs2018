@@ -2,7 +2,10 @@
 {
     public enum AnimalCategory
     {
+        Bird,
+        // Insect,
         Mammal,
-        Bird
+        // Fish,
+        // Reptile
     }
 }

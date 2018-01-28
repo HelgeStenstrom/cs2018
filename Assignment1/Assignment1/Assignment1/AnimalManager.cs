@@ -51,5 +51,45 @@ namespace Assignment1
         }
 
 
+
+        public static List<Type> MainTypes()
+        {
+            List<Type> species = new List<Type>();
+            species.Add(typeof(Mammal));
+            species.Add(typeof(Bird));
+            return species;
+        }
+        public static List<Type> Species()
+        {
+            List<Type> species = new List<Type>();
+            species.Add(typeof(Cat));
+            species.Add(typeof(Bear));
+            species.Add(typeof(Eagle));
+            species.Add(typeof(Penguin));
+            return species;
+        }
+
+        public static List<Type> OfCategory(Type baseType)
+        {
+            List<Type> subtypes = new List<Type>();
+            foreach (Type t in Species())
+            {
+                if (t.IsSubclassOf(baseType))
+                    subtypes.Add(t);
+            }
+            return subtypes;
+        }
+
+        public static List<String> TypeNames(List<Type> types)
+        {
+            List<string> names = new List<string>();
+            foreach (Type t in types)
+            {
+                names.Add(t.Name);
+            }
+            return names;
+        }
+
+
     }
 }

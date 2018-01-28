@@ -2,6 +2,10 @@
 {
     public class Bear : Mammal
     {
-        private int blueBerriesEaten;
+        public int BlueBerriesEaten { get; }
+
+        public Bear(string givenId) : base(givenId)
+        {
+        }
     }
 }

@@ -2,7 +2,11 @@
 {
     public class Penguin : Bird
     {
-        private double runSpeed;
-        private double swimSpeed;
+        public double RunSpeed { get; }
+        public double SwimSpeed { get; }
+
+        public Penguin(string givenId) : base(givenId)
+        {
+        }
     }
 }

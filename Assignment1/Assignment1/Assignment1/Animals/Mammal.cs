@@ -2,11 +2,15 @@
 {
     public class Mammal : Animal
     {
-        private int toothCount; // Number of teeth.
+        public int ToothCount { get; }
 
         public override string Abstrakt()
         {
             throw new System.NotImplementedException();
+        }
+
+        public Mammal(string givenId) : base(givenId)
+        {
         }
     }
 }

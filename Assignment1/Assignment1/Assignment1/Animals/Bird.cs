@@ -2,7 +2,7 @@
 {
     public class Bird : Animal
     {
-        private double wingSpan;
+        public double WingSpan { get; }
 
         public override string Abstrakt()
         {
@@ -12,6 +12,10 @@
         public override string Virtuell()
         {
             return "Bird";
+        }
+
+        public Bird(string givenId) : base(givenId)
+        {
         }
     }
 }

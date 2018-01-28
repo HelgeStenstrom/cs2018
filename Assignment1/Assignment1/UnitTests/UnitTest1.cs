@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assignment1;
 
 namespace UnitTests
@@ -19,14 +18,14 @@ namespace UnitTests
         [TestMethod]
         public void typeCast()
         {
-            Animal eagle = new Eagle();
+            Animal eagle = new Eagle("givenId");
             ((Eagle)eagle).FlightSpeed = 10;
         }
 
         [TestMethod]
         public void TestOverride()
         {
-            Animal eagle = new Eagle();
+            Animal eagle = new Eagle("givenId");
             Assert.AreEqual("Bird", eagle.Virtuell());
         }
 

@@ -1,5 +1,4 @@
-﻿using Assignment1.Animals;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 // TODO: Man ska kunna lägga till nya djur

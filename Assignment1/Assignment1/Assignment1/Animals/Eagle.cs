@@ -2,8 +2,10 @@
 {
     public class Eagle : Bird
     {
-        private double flightSpeed;
+        public double FlightSpeed { get; set; }
 
-        public double FlightSpeed { get => flightSpeed; set => flightSpeed = value; }
+        public Eagle(string givenId) : base(givenId)
+        {
+        }
     }
 }

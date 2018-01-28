@@ -1,7 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance.csproj", "{C1825CE9-CE8C-41DE-8542-8CA6A87850FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceTests", "..\InheritanceTests\InheritanceTests.csproj", "{F6E44C2D-41AF-4524-95E1-AF046BC11AF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +17,15 @@ Global
 		{C1825CE9-CE8C-41DE-8542-8CA6A87850FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1825CE9-CE8C-41DE-8542-8CA6A87850FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1825CE9-CE8C-41DE-8542-8CA6A87850FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E44C2D-41AF-4524-95E1-AF046BC11AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E44C2D-41AF-4524-95E1-AF046BC11AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E44C2D-41AF-4524-95E1-AF046BC11AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E44C2D-41AF-4524-95E1-AF046BC11AF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE702A24-4BF8-4F20-89B1-DEA46604A333}
 	EndGlobalSection
 EndGlobal

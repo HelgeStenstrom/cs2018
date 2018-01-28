@@ -1,70 +1,67 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Font Name="Tahoma" Size="8.4" />
   <Class Name="Inheritance.Address" Collapsed="true">
     <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Address.cs</FileName>
       <HashCode>AAAAAQAAAAAAAAAMAAAACAAAAgIAAgADAAIAAAAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Chief" Collapsed="true">
     <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Chief.cs</FileName>
       <HashCode>AAAAAAAACAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chief.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Contact" Collapsed="true">
     <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Contact.cs</FileName>
       <HashCode>AgAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Contact.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Creature" Collapsed="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Creature.cs</FileName>
-      <HashCode>AAAAAAAAAAAAAAAAAQAQAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Sort" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Inheritance.Customer" Collapsed="true">
     <Position X="6.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Customer.cs</FileName>
       <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Person" Collapsed="true">
     <Position X="2.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAIEAEAAAAAAAEAUAEAIAAAAAAAAACAAAAAAAAACE=</HashCode>
       <FileName>Person.cs</FileName>
-      <HashCode>AAAAIEAAAABAAAAEAUAEAAAABAAAAAACAAAAAAAAACE=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Salesman" Collapsed="true">
     <Position X="4.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIAAAACAA=</HashCode>
       <FileName>Salesman.cs</FileName>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAA=</HashCode>
     </TypeIdentifier>
   </Class>
   <Class Name="Inheritance.Employee" Collapsed="true">
     <Position X="2.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
+      <HashCode>AAAAACAAAAAgAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Employee.cs</FileName>
-      <HashCode>AAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Inheritance.Sort" Collapsed="true">
+  <Enum Name="Inheritance.Kind" Collapsed="true">
     <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <FileName>Creature.cs</FileName>
       <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAIAAAAAQAAAA=</HashCode>
+      <FileName>Creature.cs</FileName>
     </TypeIdentifier>
   </Enum>
+  <Font Name="Tahoma" Size="8.4" />
 </ClassDiagram>

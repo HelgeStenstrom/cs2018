@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Inheritance
 {
-	public enum Sort
+	public enum Kind
 	{
 		Human,
 		Animal,
@@ -14,12 +14,12 @@ namespace Inheritance
 	//This class must be derived - cannot be instantiated.
 	public abstract class Creature
 	{
-		private Sort theSort;
+		private Kind kind;
 
         public Creature() { }
-		public Creature(Sort typ)
+		public Creature(Kind kind)
 		{
-			theSort = typ;
+			this.kind = kind;
 		}
 
 		//Note: Implmenttion is not done here but in the sub-class.

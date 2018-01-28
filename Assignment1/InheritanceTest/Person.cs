@@ -6,45 +6,45 @@ namespace Inheritance
 {
 	public class Person : Creature
 	{
-		private string m_firstName;
-		private string m_lastName;
+		private string firstName;
+		private string lastName;
 		private string personalNumber;  //yymmdd-1234
-		private Address mail;     //Address is a class (has-a relationship)
+		private Address address;     //Address is a class (has-a relationship)
 
-		public Person(): base(Sort.Human)
+		public Person(): base(Kind.Human)
 		{
-			this.mail = new Address();
+			this.address = new Address();
 		}
 
         public Person(string firstName, string lastName)
         {
-            m_firstName = firstName;
-            m_lastName = lastName;
+            this.firstName = firstName;
+            this.lastName = lastName;
         }
 
-		public Person(Address mail) : base(Sort.Human)
+		public Person(Address mail) : base(Kind.Human)
 		{
-			this.mail = new Address(mail);
+			this.address = new Address(mail);
 		}
 
 		//Property for m_firstName with read/write access
 		public string FirstName
 		{
-			get { return m_firstName; }
+			get { return firstName; }
 			set
 			{
 				if (value != "")
-					m_firstName = value;
+					firstName = value;
 			}
 		}
 		//Property for surname
 		public string SurName
 		{
-			get { return m_lastName; }
+			get { return lastName; }
 			set
 			{
 				if (value != "")
-					m_lastName = value;
+					lastName = value;
 			}
 		}
 
@@ -61,7 +61,7 @@ namespace Inheritance
 
 		public Address Address   //the first Address = class name, the 2nd = Property name
 		{
-			get { return mail; }
+			get { return address; }
 		}
 		//Readonly property 
 		//Age is calculated from the personalNumber

@@ -2,11 +2,11 @@
 {
     public class Penguin : Bird
     {
-        public double RunSpeed { get; }
         public double SwimSpeed { get; }
 
         public Penguin(string givenId) : base(givenId)
         {
+            SwimSpeed = 17;
         }
         
         public override string ToString()

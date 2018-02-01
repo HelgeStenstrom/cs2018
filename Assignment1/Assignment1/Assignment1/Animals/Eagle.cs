@@ -6,6 +6,7 @@
 
         public Eagle(string givenId) : base(givenId)
         {
+            FlightSpeed = 17;
         }
         
         public override string ToString()

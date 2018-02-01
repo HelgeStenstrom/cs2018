@@ -124,5 +124,21 @@ namespace Assignment1
             var newWidth = e.NewWidth;
             lblBredd.Text = newWidth.ToString();
         }
+
+        private void lbxAnimalObject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = lbxAnimalObject.SelectedIndex;
+            var item = lbxAnimalObject.SelectedItem;
+            var name = lbxAnimalObject.SelectedItem.ToString();
+
+            switch (item)
+            {
+                case "Bear": break;
+                case "Cat": break;
+                case "Eagle": break;
+                case "Penguine": break;
+                default: break;
+            }
+        }
     }
 }

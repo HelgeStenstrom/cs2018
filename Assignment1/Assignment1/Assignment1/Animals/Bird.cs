@@ -7,6 +7,7 @@
 
         public Bird(string givenId) : base(givenId)
         {
+            WingSpan = 17;
         }
 
         public override string ToString()

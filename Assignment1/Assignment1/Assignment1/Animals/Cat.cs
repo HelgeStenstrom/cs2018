@@ -6,6 +6,7 @@
 
         public Cat(string givenId) : base(givenId)
         {
+            MiceEaten = 17;
         }
         
         public override string ToString()

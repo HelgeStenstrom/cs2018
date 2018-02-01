@@ -6,6 +6,7 @@
 
         public Mammal(string givenId) : base(givenId)
         {
+            ToothCount = 17;
         }
         
         public override string ToString()

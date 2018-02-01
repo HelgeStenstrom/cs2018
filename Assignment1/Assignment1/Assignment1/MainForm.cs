@@ -19,10 +19,28 @@ namespace Assignment1
             InitObjectChoser(AnimalCategory.All);
         }
 
-        private void InitObjectChoser(AnimalCategory all)
+        private void InitObjectChoser(AnimalCategory category)
         {
+            switch (category)
+            {
+                    case AnimalCategory.Bird:
+                        lbxAnimalObject.DataSource = new List<string>(Enum.GetNames(typeof(Birds)));
+                        break;
+                    case AnimalCategory.Mammal:
+                        lbxAnimalObject.DataSource = new List<string>(Enum.GetNames(typeof(Mammals)));
+                        break;
+                    case AnimalCategory.All:
+                        var birds = new List<string>(Enum.GetNames(typeof(Birds)));
+                        var mammals = new List<string>(Enum.GetNames(typeof(Mammals)));
+                        var choices = new List<string>(birds);
+                        choices.AddRange(mammals);
+                        lbxAnimalObject.DataSource = choices;
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                        break;
+            }
             
-            throw new NotImplementedException();
         }
 
         private void InitializeGui()
@@ -87,11 +105,9 @@ namespace Assignment1
             switch ((AnimalCategory) index)
             {
                 case AnimalCategory.Bird:
-
-                    break;
                 case AnimalCategory.Mammal:
-                    break;
                 case AnimalCategory.All:
+                    InitObjectChoser((AnimalCategory) index);
                     break;
                 default:
                     throw  new ArgumentOutOfRangeException();

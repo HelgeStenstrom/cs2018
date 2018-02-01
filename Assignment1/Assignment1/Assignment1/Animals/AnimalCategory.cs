@@ -6,6 +6,7 @@
         // Insect,
         Mammal,
         // Fish,
-        // Reptile
+        // Reptile,
+        All
     }
 }

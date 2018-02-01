@@ -24,12 +24,6 @@ namespace UnitTests
             ((Eagle)eagle).FlightSpeed = 10;
         }
 
-        [TestMethod]
-        public void TestOverride()
-        {
-            Animal eagle = new Eagle("givenId");
-            Assert.AreEqual("Bird", eagle.Virtuell());
-        }
 
         [TestMethod]
         public void UniqueAnimals()

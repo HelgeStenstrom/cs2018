@@ -4,13 +4,13 @@
     {
         public int ToothCount { get; }
 
-        public override string Abstrakt()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public Mammal(string givenId) : base(givenId)
         {
+        }
+        
+        public override string ToString()
+        {
+            return $"Has is {ToothCount} teeth.";
         }
     }
 }

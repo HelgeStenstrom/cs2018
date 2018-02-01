@@ -7,5 +7,10 @@
         public Eagle(string givenId) : base(givenId)
         {
         }
+        
+        public override string ToString()
+        {
+            return $"{base.ToString()} FLight speed is {FlightSpeed} km/h";
+        }
     }
 }

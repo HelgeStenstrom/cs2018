@@ -50,9 +50,11 @@
     <Compile Include="Animals\AnimalCategory.cs" />
     <Compile Include="Animals\Bear.cs" />
     <Compile Include="Animals\Bird.cs" />
+    <Compile Include="Animals\Birds.cs" />
     <Compile Include="Animals\Cat.cs" />
     <Compile Include="Animals\Eagle.cs" />
     <Compile Include="Animals\Gender.cs" />
+    <Compile Include="Animals\Mammals.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

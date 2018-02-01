@@ -6,7 +6,12 @@
 
         public Bear(string givenId) : base(givenId)
         {
-
+            
+        }
+        
+        public override string ToString()
+        {
+            return $"{base.ToString()} Has eaten {BlueBerriesEaten} blueberries,";
         }
     }
 }

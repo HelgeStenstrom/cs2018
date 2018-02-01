@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 // TODO: Man ska kunna lägga till nya djur
@@ -15,31 +16,44 @@ namespace Assignment1
         {
             InitializeComponent();
             InitializeGui();
+            InitObjectChoser(AnimalCategory.All);
+        }
+
+        private void InitObjectChoser(AnimalCategory all)
+        {
+            
+            throw new NotImplementedException();
         }
 
         private void InitializeGui()
         {
+            gbxBird.Location = gbxMammal.Location;
             InitGenderBox();
             InitCategoryBox();
-            //lbCategory.Items.Clear();
-            //lbAnimalCategory.Items.Clear();
-//            throw new NotImplementedException();
+            InitAnimalList();
+
+        }
+
+        private void InitAnimalList()
+        {
+            lvAnimals.Columns.Clear();
+            lvAnimals.Columns.Add("ID1", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("ID2", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Name", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Age", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Gender", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Species", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Special characteristics", 50, HorizontalAlignment.Center);
         }
 
         private void InitCategoryBox()
         {
-            cbxCategory.DataSource = Enum.GetValues(typeof(AnimalCategory));
-            // TODO: se om raderna nedan kan parametriseras och göras till en funktion.
             lbxCategory.Items.Clear();
-            foreach (var item in AnimalManager.MainTypes())
-            {
-                lbxCategory.Items.Add(item.Name);
-            }
+            lbxCategory.DataSource = new List<string>(Enum.GetNames(typeof(AnimalCategory)));
         }
 
         private void InitGenderBox()
         {
-            cbxGender.DataSource = Enum.GetValues(typeof(Gender));
             lbxGender.Items.Clear();
             foreach (var item in Enum.GetValues(typeof(Gender)))
             {
@@ -49,20 +63,50 @@ namespace Assignment1
 
 
         /// <summary>
-        /// Fill the ListVIEW for customers, with data from the customer manager
+        /// Fill the ListVIEW for customers, with data from the list manager
         /// </summary>
         private void UpdateTable()
         {
-            listView1.Items.Clear();
+            lvAnimals.Items.Clear();
             foreach (var customer in _animalManager.AnimalssAsRows)
             {
                 // Create a row of the data
                 ListViewItem row = new ListViewItem(customer);
                 // and add it to the ListView
-                listView1.Items.Add(row);
+                lvAnimals.Items.Add(row);
             }
         }
 
+        private void lbxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Find which category was selected
+            var index = lbxCategory.SelectedIndex;
+            var category = lbxCategory.SelectedItem;
+            var name = lbxCategory.SelectedItem.ToString();
 
+            switch ((AnimalCategory) index)
+            {
+                case AnimalCategory.Bird:
+
+                    break;
+                case AnimalCategory.Mammal:
+                    break;
+                case AnimalCategory.All:
+                    break;
+                default:
+                    throw  new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        {
+            var newWidth = e.NewWidth;
+            lblBredd.Text = newWidth.ToString();
+        }
     }
 }

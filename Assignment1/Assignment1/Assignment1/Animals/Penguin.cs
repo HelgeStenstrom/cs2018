@@ -8,5 +8,10 @@
         public Penguin(string givenId) : base(givenId)
         {
         }
+        
+        public override string ToString()
+        {
+            return $"{base.ToString()} Swim speed is {SwimSpeed} knots,";
+        }
     }
 }

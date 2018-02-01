@@ -29,42 +29,46 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbxAnimalObject = new System.Windows.Forms.ComboBox();
-            this.cbxCategory = new System.Windows.Forms.ComboBox();
+            this.lbxAnimalObject = new System.Windows.Forms.ListBox();
+            this.lbxCategory = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lvAnimals = new System.Windows.Forms.ListView();
+            this.gbxMammal = new System.Windows.Forms.GroupBox();
+            this.txtTeeth = new System.Windows.Forms.TextBox();
+            this.txtTail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbxGender = new System.Windows.Forms.ListBox();
-            this.cbxGender = new System.Windows.Forms.ComboBox();
             this.txtAge = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lbxCategory = new System.Windows.Forms.ListBox();
-            this.lbxAnimalObject = new System.Windows.Forms.ListBox();
+            this.gbxBird = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblBredd = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbxMammal.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.gbxBird.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblBredd);
+            this.groupBox1.Controls.Add(this.gbxBird);
+            this.groupBox1.Controls.Add(this.gbxMammal);
             this.groupBox1.Controls.Add(this.lbxAnimalObject);
             this.groupBox1.Controls.Add(this.lbxCategory);
-            this.groupBox1.Controls.Add(this.cbxAnimalObject);
-            this.groupBox1.Controls.Add(this.cbxCategory);
             this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.groupBox2);
@@ -79,27 +83,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Specifications";
             // 
-            // cbxAnimalObject
+            // lbxAnimalObject
             // 
-            this.cbxAnimalObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbxAnimalObject.FormattingEnabled = true;
-            this.cbxAnimalObject.Location = new System.Drawing.Point(380, 60);
-            this.cbxAnimalObject.Name = "cbxAnimalObject";
-            this.cbxAnimalObject.Size = new System.Drawing.Size(121, 150);
-            this.cbxAnimalObject.TabIndex = 13;
+            this.lbxAnimalObject.FormattingEnabled = true;
+            this.lbxAnimalObject.Location = new System.Drawing.Point(378, 32);
+            this.lbxAnimalObject.Name = "lbxAnimalObject";
+            this.lbxAnimalObject.Size = new System.Drawing.Size(142, 225);
+            this.lbxAnimalObject.TabIndex = 15;
             // 
-            // cbxCategory
+            // lbxCategory
             // 
-            this.cbxCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbxCategory.FormattingEnabled = true;
-            this.cbxCategory.Location = new System.Drawing.Point(228, 61);
-            this.cbxCategory.Name = "cbxCategory";
-            this.cbxCategory.Size = new System.Drawing.Size(121, 150);
-            this.cbxCategory.TabIndex = 12;
+            this.lbxCategory.FormattingEnabled = true;
+            this.lbxCategory.Location = new System.Drawing.Point(241, 32);
+            this.lbxCategory.Name = "lbxCategory";
+            this.lbxCategory.Size = new System.Drawing.Size(121, 95);
+            this.lbxCategory.TabIndex = 14;
+            this.lbxCategory.SelectedIndexChanged += new System.EventHandler(this.lbxCategory_SelectedIndexChanged);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.listView1);
+            this.groupBox4.Controls.Add(this.lvAnimals);
             this.groupBox4.Location = new System.Drawing.Point(17, 342);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(650, 146);
@@ -107,40 +110,45 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "List of registered animals";
             // 
-            // listView1
+            // lvAnimals
             // 
-            this.listView1.Location = new System.Drawing.Point(31, 32);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(613, 97);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.lvAnimals.FullRowSelect = true;
+            this.lvAnimals.GridLines = true;
+            this.lvAnimals.Location = new System.Drawing.Point(31, 32);
+            this.lvAnimals.MultiSelect = false;
+            this.lvAnimals.Name = "lvAnimals";
+            this.lvAnimals.Size = new System.Drawing.Size(613, 97);
+            this.lvAnimals.TabIndex = 0;
+            this.lvAnimals.UseCompatibleStateImageBehavior = false;
+            this.lvAnimals.View = System.Windows.Forms.View.Details;
+            this.lvAnimals.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvAnimals_ColumnWidthChanging);
             // 
-            // groupBox3
+            // gbxMammal
             // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(17, 224);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 100);
-            this.groupBox3.TabIndex = 10;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Mammal Specifications";
+            this.gbxMammal.Controls.Add(this.txtTeeth);
+            this.gbxMammal.Controls.Add(this.txtTail);
+            this.gbxMammal.Controls.Add(this.label6);
+            this.gbxMammal.Controls.Add(this.label5);
+            this.gbxMammal.Location = new System.Drawing.Point(17, 224);
+            this.gbxMammal.Name = "gbxMammal";
+            this.gbxMammal.Size = new System.Drawing.Size(200, 100);
+            this.gbxMammal.TabIndex = 10;
+            this.gbxMammal.TabStop = false;
+            this.gbxMammal.Text = "Mammal Specifications";
             // 
-            // textBox1
+            // txtTeeth
             // 
-            this.textBox1.Location = new System.Drawing.Point(84, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtTeeth.Location = new System.Drawing.Point(84, 28);
+            this.txtTeeth.Name = "txtTeeth";
+            this.txtTeeth.Size = new System.Drawing.Size(68, 20);
+            this.txtTeeth.TabIndex = 4;
             // 
-            // textBox2
+            // txtTail
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtTail.Location = new System.Drawing.Point(84, 59);
+            this.txtTail.Name = "txtTail";
+            this.txtTail.Size = new System.Drawing.Size(68, 20);
+            this.txtTail.TabIndex = 3;
             // 
             // label6
             // 
@@ -160,19 +168,20 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "No. of teeth";
             // 
-            // button1
+            // btnAdd
             // 
-            this.button1.Location = new System.Drawing.Point(381, 216);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Add this new animal";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAdd.Location = new System.Drawing.Point(392, 294);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(120, 23);
+            this.btnAdd.TabIndex = 9;
+            this.btnAdd.Text = "Add this new animal";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(377, 47);
+            this.label4.Location = new System.Drawing.Point(374, 16);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(72, 13);
             this.label4.TabIndex = 8;
@@ -181,7 +190,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(260, 41);
+            this.label3.Location = new System.Drawing.Point(257, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 7;
@@ -190,10 +199,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lbxGender);
-            this.groupBox2.Controls.Add(this.cbxGender);
             this.groupBox2.Location = new System.Drawing.Point(9, 94);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 101);
+            this.groupBox2.Size = new System.Drawing.Size(200, 124);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Gender";
@@ -201,19 +209,10 @@
             // lbxGender
             // 
             this.lbxGender.FormattingEnabled = true;
-            this.lbxGender.Location = new System.Drawing.Point(80, 20);
+            this.lbxGender.Location = new System.Drawing.Point(6, 19);
             this.lbxGender.Name = "lbxGender";
-            this.lbxGender.Size = new System.Drawing.Size(120, 95);
+            this.lbxGender.Size = new System.Drawing.Size(188, 95);
             this.lbxGender.TabIndex = 14;
-            // 
-            // cbxGender
-            // 
-            this.cbxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cbxGender.FormattingEnabled = true;
-            this.cbxGender.Location = new System.Drawing.Point(7, 20);
-            this.cbxGender.Name = "cbxGender";
-            this.cbxGender.Size = new System.Drawing.Size(121, 72);
-            this.cbxGender.TabIndex = 0;
             // 
             // txtAge
             // 
@@ -247,21 +246,59 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // lbxCategory
+            // gbxBird
             // 
-            this.lbxCategory.FormattingEnabled = true;
-            this.lbxCategory.Location = new System.Drawing.Point(228, 253);
-            this.lbxCategory.Name = "lbxCategory";
-            this.lbxCategory.Size = new System.Drawing.Size(121, 43);
-            this.lbxCategory.TabIndex = 14;
+            this.gbxBird.Controls.Add(this.textBox3);
+            this.gbxBird.Controls.Add(this.textBox4);
+            this.gbxBird.Controls.Add(this.label7);
+            this.gbxBird.Controls.Add(this.label8);
+            this.gbxBird.Location = new System.Drawing.Point(244, 236);
+            this.gbxBird.Name = "gbxBird";
+            this.gbxBird.Size = new System.Drawing.Size(200, 100);
+            this.gbxBird.TabIndex = 11;
+            this.gbxBird.TabStop = false;
+            this.gbxBird.Text = "Bird Specifications";
             // 
-            // lbxAnimalObject
+            // textBox3
             // 
-            this.lbxAnimalObject.FormattingEnabled = true;
-            this.lbxAnimalObject.Location = new System.Drawing.Point(392, 260);
-            this.lbxAnimalObject.Name = "lbxAnimalObject";
-            this.lbxAnimalObject.Size = new System.Drawing.Size(142, 56);
-            this.lbxAnimalObject.TabIndex = 15;
+            this.textBox3.Location = new System.Drawing.Point(84, 28);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(68, 20);
+            this.textBox3.TabIndex = 4;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(84, 59);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(68, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Tail length";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "No. of teeth";
+            // 
+            // lblBredd
+            // 
+            this.lblBredd.AutoSize = true;
+            this.lblBredd.Location = new System.Drawing.Point(590, 282);
+            this.lblBredd.Name = "lblBredd";
+            this.lblBredd.Size = new System.Drawing.Size(35, 13);
+            this.lblBredd.TabIndex = 16;
+            this.lblBredd.Text = "label9";
             // 
             // MainForm
             // 
@@ -274,9 +311,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbxMammal.ResumeLayout(false);
+            this.gbxMammal.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.gbxBird.ResumeLayout(false);
+            this.gbxBird.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -289,22 +328,25 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox gbxMammal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox cbxAnimalObject;
-        private System.Windows.Forms.ComboBox cbxCategory;
-        private System.Windows.Forms.ComboBox cbxGender;
+        private System.Windows.Forms.ListView lvAnimals;
+        private System.Windows.Forms.TextBox txtTeeth;
+        private System.Windows.Forms.TextBox txtTail;
         private System.Windows.Forms.ListBox lbxGender;
         private System.Windows.Forms.ListBox lbxAnimalObject;
         private System.Windows.Forms.ListBox lbxCategory;
+        private System.Windows.Forms.GroupBox gbxBird;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblBredd;
     }
 }
 

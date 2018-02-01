@@ -7,5 +7,10 @@
         public Cat(string givenId) : base(givenId)
         {
         }
+        
+        public override string ToString()
+        {
+            return $"{base.ToString()} Has eaten {MiceEaten} mice.";
+        }
     }
 }

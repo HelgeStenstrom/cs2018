@@ -17,12 +17,6 @@ namespace UnitTests
             Assert.AreEqual(1, strings.Length);
         }
 
-        [TestMethod]
-        public void typeCast()
-        {
-            Animal eagle = new Eagle("givenId");
-            ((Eagle)eagle).FlightSpeed = 10;
-        }
 
 
         [TestMethod]
@@ -31,7 +25,7 @@ namespace UnitTests
             int last = Animal.LastAssignedIdNumber;
             //string expected = $"A{last}";
             string given = "A";
-            Animal a = new Eagle(given);
+            Animal a = new Eagle(given, "Eddie", Gender.Male, 47, 1.8, 70);
             var x = a.RowStrings;
             var id = x[1];
             Assert.AreEqual(given, x[0]);
@@ -39,7 +33,7 @@ namespace UnitTests
             Assert.AreEqual(last + 1, Animal.LastAssignedIdNumber);
 
             last += 1;
-            a = new Cat(given);
+            a = new Cat(given, "Pelle", Gender.Male, 4, 32, 1);
             x = a.RowStrings;
             id = x[1];
 

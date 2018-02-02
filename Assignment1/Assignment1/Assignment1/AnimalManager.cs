@@ -90,6 +90,24 @@ namespace Assignment1
             return names;
         }
 
-
+        internal void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
+        {
+            int toothcount, numberEaten;
+            double wingspan, flightspeed;
+            string givenId = "unimplemented";
+            switch (species)
+            {
+                case "bear":
+                    if (int.TryParse(categoryProperty, out toothcount))
+                    {
+                        if (int.TryParse(speciesProperty, out numberEaten))
+                            _animals.Add(new Bear(givenId, name, gender, age, toothcount, numberEaten));
+                    }                   
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+            throw new NotImplementedException();
+        }
     }
 }

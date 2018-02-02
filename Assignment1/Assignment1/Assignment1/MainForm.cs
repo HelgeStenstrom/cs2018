@@ -115,6 +115,20 @@ namespace Assignment1
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            var name = txtName.Text;
+            string ageString = txtAge.Text;
+            var gender = (Gender)lbxGender.SelectedIndex;
+            string categoryProperty = txtCatProperty.Text;
+            string speciesProperty = txtSpeciesProperty.Text;
+            string species = lbxAnimalObject.SelectedItem.ToString();
+
+            int age = 17;
+            bool ageOK = int.TryParse(ageString, out age);
+
+            bool argumentsOK = ageOK;
+            if (argumentsOK)
+                _animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
+
             throw new NotImplementedException();
         }
 

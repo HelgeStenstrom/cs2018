@@ -30,16 +30,11 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblBredd = new System.Windows.Forms.Label();
-            this.gbxBird = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.gbxMammal = new System.Windows.Forms.GroupBox();
-            this.txtTeeth = new System.Windows.Forms.TextBox();
-            this.txtTail = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtCatProperty = new System.Windows.Forms.TextBox();
+            this.txtSpeciesProperty = new System.Windows.Forms.TextBox();
+            this.lblSpeciesProperty = new System.Windows.Forms.Label();
+            this.lblCatProperty = new System.Windows.Forms.Label();
             this.lbxAnimalObject = new System.Windows.Forms.ListBox();
             this.lbxCategory = new System.Windows.Forms.ListBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -54,7 +49,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.gbxBird.SuspendLayout();
             this.gbxMammal.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,7 +57,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblBredd);
-            this.groupBox1.Controls.Add(this.gbxBird);
             this.groupBox1.Controls.Add(this.gbxMammal);
             this.groupBox1.Controls.Add(this.lbxAnimalObject);
             this.groupBox1.Controls.Add(this.lbxCategory);
@@ -92,95 +85,50 @@
             this.lblBredd.TabIndex = 16;
             this.lblBredd.Text = "label9";
             // 
-            // gbxBird
-            // 
-            this.gbxBird.Controls.Add(this.textBox3);
-            this.gbxBird.Controls.Add(this.textBox4);
-            this.gbxBird.Controls.Add(this.label7);
-            this.gbxBird.Controls.Add(this.label8);
-            this.gbxBird.Location = new System.Drawing.Point(244, 236);
-            this.gbxBird.Name = "gbxBird";
-            this.gbxBird.Size = new System.Drawing.Size(200, 100);
-            this.gbxBird.TabIndex = 11;
-            this.gbxBird.TabStop = false;
-            this.gbxBird.Text = "Bird Specifications";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(84, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 20);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(84, 59);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(68, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Tail length";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(63, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "No. of teeth";
-            // 
             // gbxMammal
             // 
-            this.gbxMammal.Controls.Add(this.txtTeeth);
-            this.gbxMammal.Controls.Add(this.txtTail);
-            this.gbxMammal.Controls.Add(this.label6);
-            this.gbxMammal.Controls.Add(this.label5);
+            this.gbxMammal.Controls.Add(this.txtCatProperty);
+            this.gbxMammal.Controls.Add(this.txtSpeciesProperty);
+            this.gbxMammal.Controls.Add(this.lblSpeciesProperty);
+            this.gbxMammal.Controls.Add(this.lblCatProperty);
             this.gbxMammal.Location = new System.Drawing.Point(17, 224);
             this.gbxMammal.Name = "gbxMammal";
             this.gbxMammal.Size = new System.Drawing.Size(200, 100);
             this.gbxMammal.TabIndex = 10;
             this.gbxMammal.TabStop = false;
-            this.gbxMammal.Text = "Mammal Specifications";
+            this.gbxMammal.Text = "Specifications";
             // 
-            // txtTeeth
+            // txtCatProperty
             // 
-            this.txtTeeth.Location = new System.Drawing.Point(84, 28);
-            this.txtTeeth.Name = "txtTeeth";
-            this.txtTeeth.Size = new System.Drawing.Size(68, 20);
-            this.txtTeeth.TabIndex = 4;
+            this.txtCatProperty.Location = new System.Drawing.Point(84, 28);
+            this.txtCatProperty.Name = "txtCatProperty";
+            this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
+            this.txtCatProperty.TabIndex = 4;
             // 
-            // txtTail
+            // txtSpeciesProperty
             // 
-            this.txtTail.Location = new System.Drawing.Point(84, 59);
-            this.txtTail.Name = "txtTail";
-            this.txtTail.Size = new System.Drawing.Size(68, 20);
-            this.txtTail.TabIndex = 3;
+            this.txtSpeciesProperty.Location = new System.Drawing.Point(84, 59);
+            this.txtSpeciesProperty.Name = "txtSpeciesProperty";
+            this.txtSpeciesProperty.Size = new System.Drawing.Size(68, 20);
+            this.txtSpeciesProperty.TabIndex = 3;
             // 
-            // label6
+            // lblSpeciesProperty
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Tail length";
+            this.lblSpeciesProperty.AutoSize = true;
+            this.lblSpeciesProperty.Location = new System.Drawing.Point(6, 59);
+            this.lblSpeciesProperty.Name = "lblSpeciesProperty";
+            this.lblSpeciesProperty.Size = new System.Drawing.Size(56, 13);
+            this.lblSpeciesProperty.TabIndex = 1;
+            this.lblSpeciesProperty.Text = "Tail length";
             // 
-            // label5
+            // lblCatProperty
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 28);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "No. of teeth";
+            this.lblCatProperty.AutoSize = true;
+            this.lblCatProperty.Location = new System.Drawing.Point(6, 28);
+            this.lblCatProperty.Name = "lblCatProperty";
+            this.lblCatProperty.Size = new System.Drawing.Size(63, 13);
+            this.lblCatProperty.TabIndex = 0;
+            this.lblCatProperty.Text = "No. of teeth";
             // 
             // lbxAnimalObject
             // 
@@ -311,8 +259,6 @@
             this.Text = "Apu Animal Motel";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.gbxBird.ResumeLayout(false);
-            this.gbxBird.PerformLayout();
             this.gbxMammal.ResumeLayout(false);
             this.gbxMammal.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -330,23 +276,18 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbxMammal;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSpeciesProperty;
+        private System.Windows.Forms.Label lblCatProperty;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ListView lvAnimals;
-        private System.Windows.Forms.TextBox txtTeeth;
-        private System.Windows.Forms.TextBox txtTail;
+        private System.Windows.Forms.TextBox txtCatProperty;
+        private System.Windows.Forms.TextBox txtSpeciesProperty;
         private System.Windows.Forms.ListBox lbxGender;
         private System.Windows.Forms.ListBox lbxAnimalObject;
         private System.Windows.Forms.ListBox lbxCategory;
-        private System.Windows.Forms.GroupBox gbxBird;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblBredd;
     }
 }

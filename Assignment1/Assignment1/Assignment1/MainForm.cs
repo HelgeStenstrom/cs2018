@@ -38,14 +38,13 @@ namespace Assignment1
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
-                        break;
+                       
             }
             
         }
 
         private void InitializeGui()
         {
-            gbxBird.Location = gbxMammal.Location;
             InitGenderBox();
             InitCategoryBox();
             InitAnimalList();

@@ -36,12 +36,6 @@
             this.ToString()
         };
 
-        public string Species
-        {
-            get { return _species; }
-            //set { _species = value; }
-        }
-
         #endregion
 
         protected Animal(string givenId): this(givenId, "no name", Gender.Unknown, 0)

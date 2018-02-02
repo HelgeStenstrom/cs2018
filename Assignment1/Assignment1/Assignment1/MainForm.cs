@@ -10,15 +10,36 @@ namespace Assignment1
 {
     public partial class MainForm : Form
     {
-        AnimalManager _animalManager = new AnimalManager();
+        #region Constructor
 
+        /// <summary>
+        /// Constructior, initializes the form.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            InitializeGui();
+            InitGui();
             InitObjectChoser(AnimalCategory.All);
         }
 
+        #endregion
+
+        #region Fields
+
+        /// <summary>
+        /// The list of animals.
+        /// </summary>
+        AnimalManager _animalManager = new AnimalManager();
+
+        #endregion
+
+        #region Initalization
+        
+        /// <summary>
+        /// Initialize the list of animals, based on which category is selected.
+        /// </summary>
+        /// <param name="category"></param>
+        /// <exception cref="ArgumentOutOfRangeException"></exception>
         private void InitObjectChoser(AnimalCategory category)
         {
             switch (category)
@@ -41,14 +62,6 @@ namespace Assignment1
                        
             }
             
-        }
-
-        private void InitializeGui()
-        {
-            InitGenderBox();
-            InitCategoryBox();
-            InitAnimalList();
-
         }
 
         private void InitAnimalList()
@@ -78,21 +91,17 @@ namespace Assignment1
             }
         }
 
-
-        /// <summary>
-        /// Fill the ListVIEW for customers, with data from the list manager
-        /// </summary>
-        private void UpdateTable()
+        private void InitGui()
         {
-            lvAnimals.Items.Clear();
-            foreach (var customer in _animalManager.AnimalssAsRows)
-            {
-                // Create a row of the data
-                ListViewItem row = new ListViewItem(customer);
-                // and add it to the ListView
-                lvAnimals.Items.Add(row);
-            }
+            InitGenderBox();
+            InitCategoryBox();
+            InitAnimalList();
+
         }
+
+        #endregion
+
+        #region Callbacks
 
         private void lbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -164,6 +173,23 @@ namespace Assignment1
                     lblSpeciesProperty.Text = "Swim speed";
                     break;
                 default: break;
+            }
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Fill the ListVIEW for customers, with data from the list manager
+        /// </summary>
+        private void UpdateTable()
+        {
+            lvAnimals.Items.Clear();
+            foreach (var customer in _animalManager.AnimalssAsRows)
+            {
+                // Create a row of the data
+                ListViewItem row = new ListViewItem(customer);
+                // and add it to the ListView
+                lvAnimals.Items.Add(row);
             }
         }
     }

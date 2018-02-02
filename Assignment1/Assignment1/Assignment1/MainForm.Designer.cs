@@ -71,7 +71,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(673, 512);
+            this.groupBox1.Size = new System.Drawing.Size(706, 512);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Specifications";
@@ -79,11 +79,11 @@
             // lblBredd
             // 
             this.lblBredd.AutoSize = true;
-            this.lblBredd.Location = new System.Drawing.Point(590, 282);
+            this.lblBredd.Location = new System.Drawing.Point(26, 496);
             this.lblBredd.Name = "lblBredd";
-            this.lblBredd.Size = new System.Drawing.Size(35, 13);
+            this.lblBredd.Size = new System.Drawing.Size(92, 13);
             this.lblBredd.TabIndex = 16;
-            this.lblBredd.Text = "label9";
+            this.lblBredd.Text = "One column width";
             // 
             // gbxMammal
             // 
@@ -153,7 +153,7 @@
             this.groupBox4.Controls.Add(this.lvAnimals);
             this.groupBox4.Location = new System.Drawing.Point(17, 342);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(650, 146);
+            this.groupBox4.Size = new System.Drawing.Size(683, 146);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "List of registered animals";
@@ -162,10 +162,10 @@
             // 
             this.lvAnimals.FullRowSelect = true;
             this.lvAnimals.GridLines = true;
-            this.lvAnimals.Location = new System.Drawing.Point(31, 32);
+            this.lvAnimals.Location = new System.Drawing.Point(12, 32);
             this.lvAnimals.MultiSelect = false;
             this.lvAnimals.Name = "lvAnimals";
-            this.lvAnimals.Size = new System.Drawing.Size(613, 97);
+            this.lvAnimals.Size = new System.Drawing.Size(665, 97);
             this.lvAnimals.TabIndex = 0;
             this.lvAnimals.UseCompatibleStateImageBehavior = false;
             this.lvAnimals.View = System.Windows.Forms.View.Details;

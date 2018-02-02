@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 namespace Assignment1
 {
+    /// <summary>
+    /// The AnimalManager is essentially a list of animals, with a few extra functions.
+    /// </summary>
     public class AnimalManager
     {
         // TODO: Ska skapa animal IDs, unika för varje djur (individ)
         #region Fields
         
-        List<Animal> _animals;
+        private readonly List<Animal> _animals;
         private static int _lastAssignedNumber = 1000;
         #endregion
         
@@ -32,6 +35,10 @@ namespace Assignment1
 
         #endregion
       
+        /// <summary>
+        /// The AnimalManager is essentially a list of animals, with a few extra functions.
+        /// This is the default constructor.
+        /// </summary>
         public AnimalManager()
         {
             _animals = new List<Animal>();
@@ -39,71 +46,16 @@ namespace Assignment1
 
         #region Methods
     
-        public void AddBear()
-        {
-            throw new NotImplementedException();
-        }
-
-        private string NewID()
-        {
-            return $"A{_lastAssignedNumber++}";
-        }
-        
-        public string[] getAllAnimalStrings()
-        {
-            throw new NotImplementedException();
-        }
-
-        Animal GetAnimal(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ToString()
-        {
-            return "not made yet";
-        }
-        
-        
-        public static List<Type> MainTypes()
-        {
-            List<Type> species = new List<Type>();
-            species.Add(typeof(Mammal));
-            species.Add(typeof(Bird));
-            return species;
-        }
-       
-        public static List<Type> Species()
-        {
-            List<Type> species = new List<Type>();
-            species.Add(typeof(Cat));
-            species.Add(typeof(Bear));
-            species.Add(typeof(Eagle));
-            species.Add(typeof(Penguin));
-            return species;
-        }
-
-        public static List<Type> OfCategory(Type baseType)
-        {
-            List<Type> subtypes = new List<Type>();
-            foreach (Type t in Species())
-            {
-                if (t.IsSubclassOf(baseType))
-                    subtypes.Add(t);
-            }
-            return subtypes;
-        }
-
-        public static List<String> TypeNames(List<Type> types)
-        {
-            List<string> names = new List<string>();
-            foreach (Type t in types)
-            {
-                names.Add(t.Name);
-            }
-            return names;
-        }
-
+        /// <summary>
+        /// Add an animal to the list of animals. The animal is created from the parameters given, and put in the list.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="age"></param>
+        /// <param name="gender"></param>
+        /// <param name="categoryProperty"></param>
+        /// <param name="speciesProperty"></param>
+        /// <param name="species"></param>
+        /// <exception cref="NotImplementedException"></exception>
         internal void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
         {
             int toothcount, numberEaten;
@@ -142,6 +94,60 @@ namespace Assignment1
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        /// <summary>
+        /// A new ID string is generated each time this function is called, starting with A1000.
+        /// </summary>
+        /// <returns>The ID string.</returns>
+        private static string NewID()
+        {
+            return $"A{_lastAssignedNumber++}";
+        }
+
+        /// <summary>
+        /// Returns a subset of the list of animals. For example, all mammals can be returned.
+        /// </summary>
+        /// <param name="baseType">The type of the animals to return. A class in the Animal class hierarchy.</param>
+        /// <returns>All animals passing the selection criterium.</returns>
+        public static List<Type> OfCategory(Type baseType)
+        {
+            List<Type> subtypes = new List<Type>();
+            foreach (Type t in Species())
+            {
+                if (t.IsSubclassOf(baseType))
+                    subtypes.Add(t);
+            }
+            return subtypes;
+        }
+
+        /// <summary>
+        /// Return a list of animal species supported by this program.
+        /// </summary>
+        /// <returns></returns>
+        public static List<Type> Species()
+        {
+            List<Type> species = new List<Type>();
+            species.Add(typeof(Cat));
+            species.Add(typeof(Bear));
+            species.Add(typeof(Eagle));
+            species.Add(typeof(Penguin));
+            return species;
+        }
+
+        /// <summary>
+        /// Given a list of types (classes), return a list of their names.
+        /// </summary>
+        /// <param name="types"></param>
+        /// <returns></returns>
+        public static List<String> TypeNames(List<Type> types)
+        {
+            List<string> names = new List<string>();
+            foreach (Type t in types)
+            {
+                names.Add(t.Name);
+            }
+            return names;
         }
 
         #endregion

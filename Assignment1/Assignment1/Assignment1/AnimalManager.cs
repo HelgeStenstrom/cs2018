@@ -93,21 +93,41 @@ namespace Assignment1
         internal void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
         {
             int toothcount, numberEaten;
-            double wingspan, flightspeed;
+            double wingspan, speed;
             string givenId = "unimplemented";
             switch (species)
             {
-                case "bear":
+                case "Bear":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
                             _animals.Add(new Bear(givenId, name, gender, age, toothcount, numberEaten));
                     }                   
                     break;
+                case "Cat":
+                    if (int.TryParse(categoryProperty, out toothcount))
+                    {
+                        if (int.TryParse(speciesProperty, out numberEaten))
+                            _animals.Add(new Cat(givenId, name, gender, age, toothcount, numberEaten));
+                    }
+                    break;
+                case "Eagle":
+                    if (double.TryParse(categoryProperty, out wingspan))
+                    {
+                        if (double.TryParse(speciesProperty, out speed))
+                            _animals.Add(new Eagle(givenId, name, gender, age, wingspan, speed));
+                    }
+                    break;
+                case "Penguin":
+                    if (double.TryParse(categoryProperty, out wingspan))
+                    {
+                        if (double.TryParse(speciesProperty, out speed))
+                            _animals.Add(new Penguin(givenId, name, gender, age, wingspan, speed));
+                    }
+                    break;
                 default:
                     throw new NotImplementedException();
             }
-            throw new NotImplementedException();
         }
     }
 }

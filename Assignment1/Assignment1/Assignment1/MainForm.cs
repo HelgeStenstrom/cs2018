@@ -56,11 +56,11 @@ namespace Assignment1
             lvAnimals.Columns.Clear();
             lvAnimals.Columns.Add("ID1", 50, HorizontalAlignment.Center);
             lvAnimals.Columns.Add("ID2", 50, HorizontalAlignment.Center);
-            lvAnimals.Columns.Add("Name", 50, HorizontalAlignment.Center);
-            lvAnimals.Columns.Add("Age", 50, HorizontalAlignment.Center);
-            lvAnimals.Columns.Add("Gender", 50, HorizontalAlignment.Center);
-            lvAnimals.Columns.Add("Species", 50, HorizontalAlignment.Center);
-            lvAnimals.Columns.Add("Special characteristics", 50, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Name", 100, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Age", 40, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Gender", 70, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Species", 70, HorizontalAlignment.Center);
+            lvAnimals.Columns.Add("Special characteristics", 250, HorizontalAlignment.Center);
         }
 
         private void InitCategoryBox()
@@ -129,8 +129,9 @@ namespace Assignment1
             if (argumentsOK)
                 _animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
 
-            throw new NotImplementedException();
+            UpdateTable();
         }
+
 
         private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
@@ -146,10 +147,22 @@ namespace Assignment1
 
             switch (item)
             {
-                case "Bear": break;
-                case "Cat": break;
-                case "Eagle": break;
-                case "Penguine": break;
+                case "Bear":
+                    lblCatProperty.Text = "Number of teeth";
+                    lblSpeciesProperty.Text = "Berries eaten";
+                    break;
+                case "Cat":
+                    lblCatProperty.Text = "Number of teeth";
+                    lblSpeciesProperty.Text = "Mice eaten";
+                    break;
+                case "Eagle":
+                    lblCatProperty.Text = "Wing span";
+                    lblSpeciesProperty.Text = "Flight speed";
+                    break;
+                case "Penguin":
+                    lblCatProperty.Text = "Wing span";
+                    lblSpeciesProperty.Text = "Swim speed";
+                    break;
                 default: break;
             }
         }

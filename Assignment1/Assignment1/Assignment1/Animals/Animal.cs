@@ -18,7 +18,6 @@
         public static int LastAssignedIdNumber
         {
             get => lastAssignedIdNumber;
-            //set => lastAssignedIdNumber = value;
         }
 
         /// <summary>
@@ -51,8 +50,7 @@
 
         protected Animal(string givenId, string name, Gender gender, int age)
         {
-            Id = $"A{lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
-            // TODO: Fungerar numreringen? Stegas lastAssignedIdNumber bara när Animal skapas?
+            Id = $"B{lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
             this.givenId = givenId;
             this.Name = name;
             this.Gender = gender;

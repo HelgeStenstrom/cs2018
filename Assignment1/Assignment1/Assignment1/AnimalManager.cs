@@ -6,34 +6,14 @@ namespace Assignment1
     public class AnimalManager
     {
         // TODO: Ska skapa animal IDs, unika för varje djur (individ)
-
+        #region Fields
+        
         List<Animal> _animals;
-
-        public AnimalManager()
-        {
-            _animals = new List<Animal>();
-        }
-
-        public void AddBear()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string[] getAllAnimalStrings()
-        {
-            throw new NotImplementedException();
-        }
-
-        Animal GetAnimal(int index)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override string ToString()
-        {
-            return "not made yet";
-        }
-
+        private static int _lastAssignedNumber = 1000;
+        #endregion
+        
+        #region Properties
+        
         /// <summary>
         /// Data to fill a ListView, one animal per item in the list.
         /// </summary>
@@ -50,8 +30,41 @@ namespace Assignment1
             }
         }
 
+        #endregion
+      
+        public AnimalManager()
+        {
+            _animals = new List<Animal>();
+        }
 
+        #region Methods
+    
+        public void AddBear()
+        {
+            throw new NotImplementedException();
+        }
 
+        private string NewID()
+        {
+            return $"A{_lastAssignedNumber++}";
+        }
+        
+        public string[] getAllAnimalStrings()
+        {
+            throw new NotImplementedException();
+        }
+
+        Animal GetAnimal(int index)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            return "not made yet";
+        }
+        
+        
         public static List<Type> MainTypes()
         {
             List<Type> species = new List<Type>();
@@ -59,6 +72,7 @@ namespace Assignment1
             species.Add(typeof(Bird));
             return species;
         }
+       
         public static List<Type> Species()
         {
             List<Type> species = new List<Type>();
@@ -94,40 +108,42 @@ namespace Assignment1
         {
             int toothcount, numberEaten;
             double wingspan, speed;
-            string givenId = "unimplemented";
+            
             switch (species)
             {
                 case "Bear":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            _animals.Add(new Bear(givenId, name, gender, age, toothcount, numberEaten));
+                            _animals.Add(new Bear(NewID(), name, gender, age, toothcount, numberEaten));
                     }                   
                     break;
                 case "Cat":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            _animals.Add(new Cat(givenId, name, gender, age, toothcount, numberEaten));
+                            _animals.Add(new Cat(NewID(), name, gender, age, toothcount, numberEaten));
                     }
                     break;
                 case "Eagle":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            _animals.Add(new Eagle(givenId, name, gender, age, wingspan, speed));
+                            _animals.Add(new Eagle(NewID(), name, gender, age, wingspan, speed));
                     }
                     break;
                 case "Penguin":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            _animals.Add(new Penguin(givenId, name, gender, age, wingspan, speed));
+                            _animals.Add(new Penguin(NewID(), name, gender, age, wingspan, speed));
                     }
                     break;
                 default:
                     throw new NotImplementedException();
             }
         }
+
+        #endregion
     }
 }

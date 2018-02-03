@@ -7,7 +7,7 @@
             SwimSpeed = swimSpeed;
         }
 
-        public double SwimSpeed { get; }
+        private double SwimSpeed { get; }
 
         
         public override string ToString()

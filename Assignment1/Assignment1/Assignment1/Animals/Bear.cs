@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Assignment1
+﻿namespace Assignment1
 {
     public class Bear : Mammal
     {
@@ -9,8 +7,7 @@ namespace Assignment1
             BlueBerriesEaten = blueBerriesEaten;
         }
 
-        public int BlueBerriesEaten { get; }
-
+        private int BlueBerriesEaten { get; }
 
         public override string ToString()
         {

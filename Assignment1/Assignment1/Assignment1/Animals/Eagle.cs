@@ -7,12 +7,12 @@
             FlightSpeed = flightSpeed;
         }
 
-        public double FlightSpeed { get; set; }
+        private double FlightSpeed { get; }
 
         
         public override string ToString()
         {
-            return $"{base.ToString()} FLight speed is {FlightSpeed} km/h";
+            return $"{base.ToString()} Flight speed is {FlightSpeed} km/h";
         }
     }
 }

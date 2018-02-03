@@ -7,7 +7,7 @@
             MiceEaten = miceEaten;
         }
 
-        public int MiceEaten { get; }
+        private int MiceEaten { get; }
 
         
         public override string ToString()

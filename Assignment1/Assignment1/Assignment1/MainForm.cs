@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-// TODO: Man ska kunna lägga till nya djur
-// TODO: Man ska kunna ange data för ett djur
-// TODO: Man ska kunna ange en kategori för ett djur man vill lägga till
+// TODO: Det ska finnas en valideringsfunktion, som avgör om man ska kunna lägga till ett djur.
 
 namespace Assignment1
 {
@@ -29,7 +27,7 @@ namespace Assignment1
         /// <summary>
         /// The list of animals.
         /// </summary>
-        AnimalManager _animalManager = new AnimalManager();
+        readonly AnimalManager _animalManager = new AnimalManager();
 
         #endregion
 
@@ -58,10 +56,8 @@ namespace Assignment1
                         lbxAnimalObject.DataSource = choices;
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException();
-                       
-            }
-            
+                        throw new ArgumentOutOfRangeException();                       
+            }            
         }
 
         private void InitAnimalList()
@@ -107,8 +103,6 @@ namespace Assignment1
         {
             // Find which category was selected
             var index = lbxCategory.SelectedIndex;
-            var category = lbxCategory.SelectedItem;
-            var name = lbxCategory.SelectedItem.ToString();
 
             switch ((AnimalCategory) index)
             {
@@ -125,17 +119,16 @@ namespace Assignment1
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var name = txtName.Text;
-            string ageString = txtAge.Text;
+            var ageString = txtAge.Text;
             var gender = (Gender)lbxGender.SelectedIndex;
-            string categoryProperty = txtCatProperty.Text;
-            string speciesProperty = txtSpeciesProperty.Text;
-            string species = lbxAnimalObject.SelectedItem.ToString();
+            var categoryProperty = txtCatProperty.Text;
+            var speciesProperty = txtSpeciesProperty.Text;
+            var species = lbxAnimalObject.SelectedItem.ToString();
 
-            int age = 17;
-            bool ageOK = int.TryParse(ageString, out age);
+            var ageOk = int.TryParse(ageString, out var age);
 
-            bool argumentsOK = ageOK;
-            if (argumentsOK)
+            var argumentsOk = ageOk;
+            if (argumentsOk)
                 _animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
 
             UpdateTable();
@@ -150,29 +143,26 @@ namespace Assignment1
 
         private void lbxAnimalObject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var index = lbxAnimalObject.SelectedIndex;
             var item = lbxAnimalObject.SelectedItem;
-            var name = lbxAnimalObject.SelectedItem.ToString();
 
             switch (item)
             {
                 case "Bear":
-                    lblCatProperty.Text = "Number of teeth";
-                    lblSpeciesProperty.Text = "Berries eaten";
+                    lblCatProperty.Text = @"Number of teeth";
+                    lblSpeciesProperty.Text = @"Berries eaten";
                     break;
                 case "Cat":
-                    lblCatProperty.Text = "Number of teeth";
-                    lblSpeciesProperty.Text = "Mice eaten";
+                    lblCatProperty.Text = @"Number of teeth";
+                    lblSpeciesProperty.Text = @"Mice eaten";
                     break;
                 case "Eagle":
-                    lblCatProperty.Text = "Wing span";
-                    lblSpeciesProperty.Text = "Flight speed";
+                    lblCatProperty.Text = @"Wing span";
+                    lblSpeciesProperty.Text = @"Flight speed";
                     break;
                 case "Penguin":
-                    lblCatProperty.Text = "Wing span";
-                    lblSpeciesProperty.Text = "Swim speed";
+                    lblCatProperty.Text = @"Wing span";
+                    lblSpeciesProperty.Text = @"Swim speed";
                     break;
-                default: break;
             }
         }
 
@@ -187,7 +177,7 @@ namespace Assignment1
             foreach (var customer in _animalManager.AnimalssAsRows)
             {
                 // Create a row of the data
-                ListViewItem row = new ListViewItem(customer);
+                var row = new ListViewItem(customer);
                 // and add it to the ListView
                 lvAnimals.Items.Add(row);
             }

@@ -33,6 +33,13 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void UniquenessByString()
+        {
+            var a1 = new Eagle("", "", Gender.Male, 0, 0, 0);
+            var a2 = new Eagle("", "", Gender.Male, 0, 0, 0);
+        }
+
+        [TestMethod]
         public void findSpecies()
         {
             List<Type> x = AnimalManager.Species();

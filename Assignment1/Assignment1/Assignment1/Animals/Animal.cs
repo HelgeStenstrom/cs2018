@@ -15,6 +15,9 @@
 
         #region Properties
 
+        /// <summary>
+        /// The last assigned ID number can be used to make assumptions about what the next assigned number will be.
+        /// </summary>
         public static int LastAssignedIdNumber
         {
             get => lastAssignedIdNumber;
@@ -38,10 +41,15 @@
 
         #endregion
 
-        protected Animal(string givenId): this(givenId, "no name", Gender.Unknown, 0)
-        {
-        }
-
+        /// <summary>
+        /// Constructor for an animal, called by subclasses.
+        /// The Animal class will itself maintain a unique ID string, 
+        /// in addition to the one given by the AnimalManager.
+        /// </summary>
+        /// <param name="givenId">It's the caller's responsibility that this value is unique.</param>
+        /// <param name="name">The name of the animal, free format.</param>
+        /// <param name="gender">The gender of the animal</param>
+        /// <param name="age">The age of the animal, in whole years.</param>
         protected Animal(string givenId, string name, Gender gender, int age)
         {
             Id = $"B{lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
@@ -54,7 +62,7 @@
 
 
         #region Methods
-
+        // No methods defined.
         #endregion
     }
 }

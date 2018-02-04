@@ -60,6 +60,9 @@ namespace Assignment1
             }            
         }
 
+        /// <summary>
+        /// Define the columns of the listview used for animals
+        /// </summary>
         private void InitAnimalList()
         {
             lvAnimals.Columns.Clear();
@@ -72,12 +75,18 @@ namespace Assignment1
             lvAnimals.Columns.Add("Special characteristics", 250, HorizontalAlignment.Center);
         }
 
+        /// <summary>
+        /// Set up the animal category chooser.
+        /// </summary>
         private void InitCategoryBox()
         {
             lbxCategory.Items.Clear();
             lbxCategory.DataSource = new List<string>(Enum.GetNames(typeof(AnimalCategory)));
         }
 
+        /// <summary>
+        /// Set up the gender chooser.
+        /// </summary>
         private void InitGenderBox()
         {
             lbxGender.Items.Clear();
@@ -87,18 +96,26 @@ namespace Assignment1
             }
         }
 
+        /// <summary>
+        /// Initialize GUI components that need initalization.
+        /// </summary>
         private void InitGui()
         {
             InitGenderBox();
             InitCategoryBox();
             InitAnimalList();
-
+            btnAdd.Enabled = validateInputs();
         }
 
         #endregion
 
         #region Callbacks
 
+        /// <summary>
+        /// Called when an animal category is selected. Calls the animal list setup with the chosen category.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Find which category was selected
@@ -112,10 +129,16 @@ namespace Assignment1
                     InitObjectChoser((AnimalCategory) index);
                     break;
                 default:
-                    throw  new ArgumentOutOfRangeException();
+                    throw  new ArgumentOutOfRangeException("Bad animal category");
             }
+            UpdateButton();
         }
 
+        /// <summary>
+        /// Called when the Add button is clicked. Adds an animal, if appropriate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var name = txtName.Text;
@@ -134,13 +157,23 @@ namespace Assignment1
             UpdateTable();
         }
 
-
+        /// <summary>
+        /// Convenience function, used to help me set good column widths. 
+        /// Shows the width of the column whose width is currently being adjusted, in a label.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             var newWidth = e.NewWidth;
-            lblBredd.Text = newWidth.ToString();
+            lblBredd.Text = $"Width of the adjusted column:\n{newWidth}";
         }
 
+        /// <summary>
+        /// Called when an animal is selected in the list of animals. Adjusts labels of input fields.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxAnimalObject_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = lbxAnimalObject.SelectedItem;
@@ -164,6 +197,7 @@ namespace Assignment1
                     lblSpeciesProperty.Text = @"Swim speed";
                     break;
             }
+            UpdateButton();
         }
 
         #endregion
@@ -181,6 +215,95 @@ namespace Assignment1
                 // and add it to the ListView
                 lvAnimals.Items.Add(row);
             }
+        }
+
+        /// <summary>
+        /// Check if the input fields are valid for the creation of an animal.
+        /// </summary>
+        /// <returns></returns>
+        private bool validateInputs()
+        {
+            int dummyInt;
+            double dummyDbl;
+            bool hasName = !string.IsNullOrEmpty(txtName.Text);
+            bool integerAge = int.TryParse(txtAge.Text, out dummyInt);
+            var category = (AnimalCategory)lbxCategory.SelectedIndex;
+            bool catPropOk = false;
+            bool speciesPropOk = false;
+
+            switch (lbxAnimalObject.SelectedItem.ToString())
+            {
+                case "Bear":
+                case "Cat":
+                    catPropOk = int.TryParse(txtCatProperty.Text, out dummyInt);
+                    speciesPropOk = int.TryParse(txtSpeciesProperty.Text, out dummyInt);
+                    break;
+                case "Eagle":
+                case "Penguin":
+                    catPropOk = double.TryParse(txtCatProperty.Text, out dummyDbl);
+                    speciesPropOk = double.TryParse(txtSpeciesProperty.Text, out dummyDbl);
+                    break;
+            }
+
+            return hasName && integerAge && catPropOk && speciesPropOk;
+        }
+
+        /// <summary>
+        /// Activate the Add button if the inputs are valid, disactivate it otherwise.
+        /// </summary>
+        private void UpdateButton()
+        {
+            btnAdd.Enabled = validateInputs();
+        }
+
+        /// <summary>
+        /// Called when the name is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the age is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the gender is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbxGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the category is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCatProperty_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the selected species is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtSpeciesProperty_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
         }
     }
 }

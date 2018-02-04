@@ -78,12 +78,13 @@
             // 
             // lblBredd
             // 
-            this.lblBredd.AutoSize = true;
-            this.lblBredd.Location = new System.Drawing.Point(26, 496);
+            this.lblBredd.Location = new System.Drawing.Point(526, 34);
             this.lblBredd.Name = "lblBredd";
-            this.lblBredd.Size = new System.Drawing.Size(92, 13);
+            this.lblBredd.Size = new System.Drawing.Size(142, 211);
             this.lblBredd.TabIndex = 16;
-            this.lblBredd.Text = "One column width";
+            this.lblBredd.Text = "This program has two ID numbers for animals,\r\nOne maintained by the AnimalManager" +
+    " class,\r\none by the Animal class. \r\nThey are equivalent, but the Animal class im" +
+    "plementation\r\nis much simpler.\r\n";
             // 
             // gbxMammal
             // 
@@ -104,6 +105,7 @@
             this.txtCatProperty.Name = "txtCatProperty";
             this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
             this.txtCatProperty.TabIndex = 4;
+            this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
             // 
             // txtSpeciesProperty
             // 
@@ -111,6 +113,7 @@
             this.txtSpeciesProperty.Name = "txtSpeciesProperty";
             this.txtSpeciesProperty.Size = new System.Drawing.Size(68, 20);
             this.txtSpeciesProperty.TabIndex = 3;
+            this.txtSpeciesProperty.TextChanged += new System.EventHandler(this.txtSpeciesProperty_TextChanged);
             // 
             // lblSpeciesProperty
             // 
@@ -167,6 +170,7 @@
             this.lvAnimals.Name = "lvAnimals";
             this.lvAnimals.Size = new System.Drawing.Size(665, 97);
             this.lvAnimals.TabIndex = 0;
+            this.lvAnimals.TabStop = false;
             this.lvAnimals.UseCompatibleStateImageBehavior = false;
             this.lvAnimals.View = System.Windows.Forms.View.Details;
             this.lvAnimals.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvAnimals_ColumnWidthChanging);
@@ -216,6 +220,7 @@
             this.lbxGender.Name = "lbxGender";
             this.lbxGender.Size = new System.Drawing.Size(188, 95);
             this.lbxGender.TabIndex = 14;
+            this.lbxGender.SelectedIndexChanged += new System.EventHandler(this.lbxGender_SelectedIndexChanged);
             // 
             // txtAge
             // 
@@ -223,6 +228,7 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 20);
             this.txtAge.TabIndex = 3;
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // label2
             // 
@@ -239,6 +245,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label1
             // 

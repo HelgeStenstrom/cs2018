@@ -1,4 +1,8 @@
-﻿namespace Assignment1
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment1
 {
     /// <summary>
     /// A list of some Bird subtypes. Actually, all of them, at least currently.

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-// TODO: Det ska finnas en valideringsfunktion, som avgör om man ska kunna lägga till ett djur.
-
 namespace Assignment1
 {
     public partial class MainForm : Form
@@ -104,7 +102,7 @@ namespace Assignment1
             InitGenderBox();
             InitCategoryBox();
             InitAnimalList();
-            btnAdd.Enabled = validateInputs();
+            btnAdd.Enabled = ValidateInputs();
         }
 
         #endregion
@@ -129,7 +127,7 @@ namespace Assignment1
                     InitObjectChoser((AnimalCategory) index);
                     break;
                 default:
-                    throw  new ArgumentOutOfRangeException("Bad animal category");
+                    throw  new ArgumentOutOfRangeException();
             }
             UpdateButton();
         }
@@ -221,13 +219,12 @@ namespace Assignment1
         /// Check if the input fields are valid for the creation of an animal.
         /// </summary>
         /// <returns></returns>
-        private bool validateInputs()
+        private bool ValidateInputs()
         {
             int dummyInt;
             double dummyDbl;
             bool hasName = !string.IsNullOrEmpty(txtName.Text);
             bool integerAge = int.TryParse(txtAge.Text, out dummyInt);
-            var category = (AnimalCategory)lbxCategory.SelectedIndex;
             bool catPropOk = false;
             bool speciesPropOk = false;
 
@@ -253,7 +250,7 @@ namespace Assignment1
         /// </summary>
         private void UpdateButton()
         {
-            btnAdd.Enabled = validateInputs();
+            btnAdd.Enabled = ValidateInputs();
         }
 
         /// <summary>

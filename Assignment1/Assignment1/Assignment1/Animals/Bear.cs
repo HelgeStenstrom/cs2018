@@ -1,4 +1,8 @@
-﻿namespace Assignment1
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment1
 {
     public class Bear : Mammal
     {
@@ -11,7 +15,8 @@
         /// <param name="age"></param>
         /// <param name="toothCount">The number of teeth this bear has.</param>
         /// <param name="blueBerriesEaten">The number of blueberries this bear has eatin so far.</param>
-        public Bear(string givenId, string name, Gender gender, int age, int toothCount, int blueBerriesEaten) : base(givenId, name, gender, age, toothCount)
+        public Bear(string givenId, string name, Gender gender, int age, int toothCount, int blueBerriesEaten) : 
+            base(givenId, name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
         }

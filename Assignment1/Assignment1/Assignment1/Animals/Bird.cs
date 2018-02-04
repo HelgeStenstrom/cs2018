@@ -1,4 +1,8 @@
-﻿namespace Assignment1
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment1
 {
     public abstract class Bird : Animal
     {
@@ -20,7 +24,6 @@
         /// </summary>
         public double WingSpan { get; }
 
-        /// <summary>
         /// <summary>
         /// A string that represents this particular bird.
         /// </summary>

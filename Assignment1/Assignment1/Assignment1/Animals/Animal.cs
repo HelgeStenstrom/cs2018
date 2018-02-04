@@ -1,4 +1,8 @@
-﻿namespace Assignment1
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment1
 {
     public abstract class Animal
     {
@@ -7,9 +11,9 @@
         private int Age { get; }
         private Gender Gender { get; }
         private string Name { get; }
-        private string givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
-        public string Id { get; } 
-        private static int lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
+        private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
+        private string Id { get; } 
+        private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
         private string _species = "Animal";
         #endregion
 
@@ -20,23 +24,23 @@
         /// </summary>
         public static int LastAssignedIdNumber
         {
-            get => lastAssignedIdNumber;
+            get => _lastAssignedIdNumber;
         }
 
         /// <summary>
         /// Strings used to fill a row in a ListView.
         /// </summary>
-        public string[] RowStrings => new string[] 
+        public string[] RowStrings => new[] 
         {
             // TODO: Fyll på med lämpliga properties för formuläret
             // TODO: ID, Name (nick?), age, gender, special characteristics
-            givenId,
+            _givenId,
             Id,
             Name,
             Age.ToString(),
             Gender.ToString(),
-            this.GetType().Name,       
-            this.ToString()
+            GetType().Name,       
+            ToString()
         };
 
         #endregion
@@ -52,11 +56,11 @@
         /// <param name="age">The age of the animal, in whole years.</param>
         protected Animal(string givenId, string name, Gender gender, int age)
         {
-            Id = $"B{lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
-            this.givenId = givenId;
-            this.Name = name;
-            this.Gender = gender;
-            this.Age = age;
+            Id = $"B{_lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
+            _givenId = givenId;
+            Name = name;
+            Gender = gender;
+            Age = age;
         }
 
 

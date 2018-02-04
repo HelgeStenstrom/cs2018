@@ -1,4 +1,8 @@
-﻿namespace Assignment1
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment1
 {
     /// <summary>
     /// The Cat is a Mammal.
@@ -6,7 +10,7 @@
     public class Cat : Mammal
     {
         /// <summary>
-        /// Constructor
+        /// Constructor. Cats eat mice, that's what they are good for. Otherwise, they are just normal Mammals.
         /// </summary>
         /// <param name="givenId"></param>
         /// <param name="name"></param>

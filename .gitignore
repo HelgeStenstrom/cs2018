@@ -287,5 +287,18 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-# MacOS-X
+
+# Helge's additions
+
+# Mac files
 .DS_Store
+
+# Visual studio, only interesting localy on one machine
+# men jag vill ju versionshantera de filerna också!
+# *.csproj
+# *.sln
+
+# Exe-filer tar för stor plats.
+# *.exe
+# Men det är OK ändå.
+*.zip

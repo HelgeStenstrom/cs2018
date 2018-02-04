@@ -68,8 +68,11 @@
     <Compile Include="Animals\Birds.cs" />
     <Compile Include="Animals\Cat.cs" />
     <Compile Include="Animals\Eagle.cs" />
+    <Compile Include="Animals\EaterType.cs" />
     <Compile Include="Animals\Gender.cs" />
+    <Compile Include="Animals\IAnimal.cs" />
     <Compile Include="Animals\Mammals.cs" />
+    <Compile Include="FoodSchedule.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

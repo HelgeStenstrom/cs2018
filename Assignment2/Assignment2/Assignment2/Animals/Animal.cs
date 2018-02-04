@@ -4,15 +4,15 @@
 
 namespace Assignment2
 {
-    public abstract class Animal
+    public abstract class Animal : IAnimal
     {
         // TODO: data as per 3.5
         #region Fields
         private int Age { get; }
-        private Gender Gender { get; }
+        public Gender Gender { get; set; }
         private string Name { get; }
         private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
-        private string Id { get; } 
+        public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
         private string _species = "Animal";
         #endregion
@@ -22,7 +22,7 @@ namespace Assignment2
         /// <summary>
         /// The last assigned ID number can be used to make assumptions about what the next assigned number will be.
         /// </summary>
-        public static int LastAssignedIdNumber
+        private static int LastAssignedIdNumber
         {
             get => _lastAssignedIdNumber;
         }
@@ -43,6 +43,9 @@ namespace Assignment2
             ToString()
         };
 
+        //public string ID { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        string IAnimal.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
         #endregion
 
         /// <summary>
@@ -61,6 +64,21 @@ namespace Assignment2
             Name = name;
             Gender = gender;
             Age = age;
+        }
+
+        public EaterType GetEaterType()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public FoodSchedule GetFoodSchedule()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string GetSpecies()
+        {
+            throw new System.NotImplementedException();
         }
 
 

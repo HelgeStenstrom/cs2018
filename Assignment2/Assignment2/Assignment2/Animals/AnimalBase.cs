@@ -2,9 +2,11 @@
 // ah7875
 // C# del II 2018
 
+using System;
+
 namespace Assignment2
 {
-    public abstract class AnimalBase : Animal
+    public abstract class AnimalBase : Animal, IComparable
     {
         // TODO: data as per 3.5
         #region Fields
@@ -77,7 +79,7 @@ namespace Assignment2
 
         public string GetSpecies()
         {
-            throw new System.NotImplementedException();
+            return this.GetType().Name;
         }
 
 

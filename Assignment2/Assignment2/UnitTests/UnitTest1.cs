@@ -67,5 +67,27 @@ namespace UnitTests
             Assert.IsTrue(AnimalManager.TypeNames(AnimalManager.OfCategory(typeof(Bird))).Contains("Eagle"));
         }
 
+
+    }
+
+    [TestClass]
+    public class AnimalTest
+    {
+        [TestMethod]
+        public void GetSpecies()
+        {
+            Animal bear = new Bear("a", "b", Gender.Female, 42, 17, 0);
+            Assert.AreEqual("Bear", bear.GetSpecies());
+        }
+    }
+
+    [TestClass]
+    public class FoodScheduleTests
+    {
+        [TestMethod]
+        public void test1()
+        {
+
+        }
     }
 }

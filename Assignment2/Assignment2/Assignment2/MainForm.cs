@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Assignment2
@@ -16,6 +17,11 @@ namespace Assignment2
             InitializeComponent();
             InitGui();
             InitObjectChoser(AnimalCategory.All);
+
+            var rb1 = new RadioButton();
+            rb1.Location = new System.Drawing.Point(0, 90);
+            panel1.Controls.Add(rb1);
+            //animalpanel.
         }
 
         #endregion
@@ -26,6 +32,10 @@ namespace Assignment2
         /// The list of animals.
         /// </summary>
         readonly AnimalManager _animalManager = new AnimalManager();
+
+        private Panel animalpanel = null;
+
+        public Panel Animalpanel => animalpanel;
 
         #endregion
 

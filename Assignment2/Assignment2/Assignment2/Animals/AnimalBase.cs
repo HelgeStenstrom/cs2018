@@ -3,6 +3,7 @@
 // C# del II 2018
 
 using System;
+using System.Collections;
 
 namespace Assignment2
 {
@@ -87,5 +88,21 @@ namespace Assignment2
         #region Methods
         // No methods defined.
         #endregion
+
+        public int CompareTo(object obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public class SortByName : IComparer
+        {
+            int IComparer.Compare(object x, object y)
+            {
+                Animal a1 = (Animal) x;
+                Animal a2 = (Animal) y;
+                return (String.Compare(a1.Name, a2.Name));
+            }
+        }
+
     }
 }

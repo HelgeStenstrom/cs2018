@@ -46,7 +46,7 @@ namespace Assignment2
         /// <param name="speciesProperty"></param>
         /// <param name="species"></param>
         /// <exception cref="NotImplementedException"></exception>
-        internal void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
+        public void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
         {
             int toothcount, numberEaten;
             double wingspan, speed;
@@ -119,5 +119,10 @@ namespace Assignment2
         public static List<string> TypeNames(IEnumerable<Type> types) => types.Select(t => t.Name).ToList();
 
         #endregion
+
+        public void AddAnimal(Animal name)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

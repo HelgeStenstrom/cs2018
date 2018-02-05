@@ -7,7 +7,7 @@ namespace Assignment2
     /// <summary>
     /// A Mammal is an Animal.
     /// </summary>
-    public abstract class Mammal : Animal
+    public abstract class Mammal : AnimalBase
     {
         /// <summary>
         /// Constructor, called by subclass constructors. Mammals have teeth.

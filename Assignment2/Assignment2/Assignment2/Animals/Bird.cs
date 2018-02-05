@@ -4,7 +4,7 @@
 
 namespace Assignment2
 {
-    public abstract class Bird : Animal
+    public abstract class Bird : AnimalBase
     {
         /// <summary>
         /// Constructor

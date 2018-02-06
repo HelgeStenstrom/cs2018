@@ -51,7 +51,7 @@ namespace UnitTests
         }
 
         [TestMethod] 
-        [Ignore]
+        //[Ignore]
         public void AddingAnimalObjects()
         {
             // Setup

@@ -12,7 +12,7 @@ namespace Assignment2
         // TODO: Ska skapa animal IDs, unika för varje djur (individ)
         #region Fields
         
-        private readonly List<AnimalBase> _animals;
+        private readonly List<Animal> _animals;
         private static int _lastAssignedNumber = 1000;
         #endregion
         
@@ -31,11 +31,16 @@ namespace Assignment2
         /// </summary>
         public AnimalManager()
         {
-            _animals = new List<AnimalBase>();
+            _animals = new List<Animal>();
         }
 
         #region Methods
-    
+
+        public void AddAnimal(Animal name)
+        {
+            _animals.Add(name);
+        }
+
         /// <summary>
         /// Add an animal to the list of animals. The animal is created from the parameters given, and put in the list.
         /// </summary>
@@ -119,10 +124,5 @@ namespace Assignment2
         public static List<string> TypeNames(IEnumerable<Type> types) => types.Select(t => t.Name).ToList();
 
         #endregion
-
-        public void AddAnimal(Animal name)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

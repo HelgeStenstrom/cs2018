@@ -8,5 +8,6 @@
         EaterType GetEaterType();
         FoodSchedule GetFoodSchedule();
         string GetSpecies();
+        string[] RowStrings { get; }
     }
 }

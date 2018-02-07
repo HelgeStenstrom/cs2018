@@ -24,7 +24,7 @@ namespace Assignment1
         public IEnumerable<string[]> AnimalssAsRows => _animals.Select(animal => animal.RowStrings).ToList();
 
         #endregion
-      
+
         /// <summary>
         /// The AnimalManager is essentially a list of animals, with a few extra functions.
         /// This is the default constructor.

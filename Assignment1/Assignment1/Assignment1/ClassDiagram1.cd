@@ -1,53 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Assignment1.Animal">
-    <Position X="3.5" Y="1.5" Width="1.5" />
+    <Position X="2.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAgAAAAQAAAAgAAAAAAAAAAgA=</HashCode>
+      <HashCode>AEACAQAAAAAAQBCAAGAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Mammal">
-    <Position X="1.5" Y="3" Width="1.5" />
+    <Position X="1.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Mammal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Bird">
-    <Position X="5" Y="3" Width="1.5" />
+    <Position X="5.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>Animals\Bird.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Bear">
-    <Position X="0.5" Y="4.5" Width="1.5" />
+    <Position X="0.5" Y="7.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Animals\Bear.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Cat">
-    <Position X="2.25" Y="4.5" Width="1.5" />
+    <Position X="2.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Cat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Eagle">
-    <Position X="4.25" Y="4.5" Width="1.5" />
+    <Position X="4.25" Y="7.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Eagle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment1.Penguin">
-    <Position X="6" Y="4.5" Width="1.5" />
+    <Position X="6.25" Y="7.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Penguin.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment1.AnimalManager">
+    <Position X="7" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAIAABAAAAAAAQAAAAAAAAFAAAAAEAAAgAAA=</HashCode>
+      <FileName>AnimalManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_animals" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Assignment1.MainForm">
+    <Position X="11.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Field Name="btnAdd" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="gbxMammal" Hidden="true" />
+      <Field Name="groupBox1" Hidden="true" />
+      <Field Name="groupBox2" Hidden="true" />
+      <Field Name="groupBox4" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="lblBredd" Hidden="true" />
+      <Field Name="lblCatProperty" Hidden="true" />
+      <Field Name="lblSpeciesProperty" Hidden="true" />
+      <Field Name="lbxAnimalObject" Hidden="true" />
+      <Method Name="lbxAnimalObject_SelectedIndexChanged" Hidden="true" />
+      <Field Name="lbxCategory" Hidden="true" />
+      <Field Name="lbxGender" Hidden="true" />
+      <Field Name="lvAnimals" Hidden="true" />
+      <Field Name="txtAge" Hidden="true" />
+      <Field Name="txtCatProperty" Hidden="true" />
+      <Field Name="txtName" Hidden="true" />
+      <Field Name="txtSpeciesProperty" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>gWAQABACoCACgBgAAACDAARLFAgAoAgAACAAFABABAY=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_animalManager" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

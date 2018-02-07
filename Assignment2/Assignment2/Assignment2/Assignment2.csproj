@@ -60,6 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimalFactory.cs" />
     <Compile Include="Animals\AnimalBase.cs" />
     <Compile Include="AnimalManager.cs" />
     <Compile Include="Animals\AnimalCategory.cs" />

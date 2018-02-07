@@ -22,6 +22,11 @@ namespace Assignment2
             rb1.Location = new System.Drawing.Point(0, 90);
             panel1.Controls.Add(rb1);
             //animalpanel.
+            var animalPanel = AnimalFactory.AnimalPanel("Bear");
+            animalPanel.Location = new System.Drawing.Point(223, 145); // (257, 16);
+            
+            groupBox1.Controls.Add(animalPanel);
+            animalPanel.BringToFront();
         }
 
         #endregion

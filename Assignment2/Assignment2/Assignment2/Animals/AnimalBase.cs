@@ -9,7 +9,6 @@ namespace Assignment2
 {
     public abstract class AnimalBase : Animal, IComparable
     {
-        // TODO: data as per 3.5
         #region Fields
         private int Age { get; }
         public Gender Gender { get; set; }
@@ -34,8 +33,6 @@ namespace Assignment2
         /// </summary>
         public string[] RowStrings => new[] 
         {
-            // TODO: Fyll på med lämpliga properties för formuläret
-            // TODO: ID, Name (nick?), age, gender, special characteristics
             _givenId,
             Id,
             Name,
@@ -98,9 +95,9 @@ namespace Assignment2
         {
             int IComparer.Compare(object x, object y)
             {
-                Animal a1 = (Animal) x;
-                Animal a2 = (Animal) y;
-                return (String.Compare(a1.Name, a2.Name));
+                var a1 = (Animal) x;
+                var a2 = (Animal) y;
+                return (string.Compare(a1.Name, a2.Name));
             }
         }
 

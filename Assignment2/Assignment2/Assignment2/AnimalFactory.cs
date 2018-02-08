@@ -9,10 +9,9 @@ namespace Assignment2
 {
     class AnimalFactory
     {
-        public static void Fixstuff(Control c)
+        private static void Fixstuff(Control c)
         {
             c.Location = new Point(0,0);
-            //c.Size = new Size(0, 0);
             c.AutoSize = true;
         }
         

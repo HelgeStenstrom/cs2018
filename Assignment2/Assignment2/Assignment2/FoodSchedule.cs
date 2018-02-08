@@ -7,7 +7,7 @@ namespace Assignment2
 {
     public class FoodSchedule
     {
-        private List<string> foodDescriptionList;
+        private List<string> _foodDescriptionList;
 
         public FoodSchedule()
         {

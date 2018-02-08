@@ -11,14 +11,14 @@ namespace UnitTests
     {
     
         [TestMethod]
-        public void findSpecies()
+        public void FindSpecies()
         {
             List<Type> x = AnimalManager.Species();
             Assert.AreEqual(4, x.Count);            
         }
 
         [TestMethod]
-        public void findBirds()
+        public void FindBirds()
         {
             // Execute
             List<Type> x = AnimalManager.OfCategory(typeof(Bird));

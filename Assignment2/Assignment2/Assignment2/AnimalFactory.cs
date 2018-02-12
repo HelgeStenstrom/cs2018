@@ -2,6 +2,7 @@
 // ah7875
 // C# del II 2018
 
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -61,5 +62,12 @@ namespace Assignment2
             // TODO: validate species as a class name, and switch on it.
             return panel;
         }
+
+        public static Animal MakeAnimal(string species)
+        {
+            throw new NotImplementedException();
+
+        }
+
     }
 }

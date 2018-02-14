@@ -20,6 +20,7 @@ namespace Assignment2
 
             var rb1 = new RadioButton();
             rb1.Location = new System.Drawing.Point(0, 90);
+            panel1 = new System.Windows.Forms.Panel();
             panel1.Controls.Add(rb1);
             //animalpanel.
             var animalPanel = AnimalFactory.AnimalPanel("Bear");
@@ -41,6 +42,7 @@ namespace Assignment2
         private Panel animalpanel = null;
 
         public Panel Animalpanel => animalpanel;
+        private Panel panel1;
 
         #endregion
 
@@ -345,6 +347,27 @@ namespace Assignment2
                 e.Cancel = true;
                 errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
             }
+        }
+
+        private void lbxGender_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (! (lbxGender.SelectedIndex >= 0))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(lbxGender, "Du måste välja något");
+            }
+        }
+
+        private void txtCatProperty_Validated(object sender, EventArgs e)
+        {
+            // If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(txtCatProperty, "");
+        }
+
+        private void lbxGender_Validated(object sender, EventArgs e)
+        {
+            // If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(lbxGender, "");
         }
     }
 }

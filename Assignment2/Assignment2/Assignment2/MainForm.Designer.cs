@@ -118,6 +118,7 @@
             this.txtCatProperty.TabIndex = 4;
             this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
             this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.txtCatProperty_Validating);
+            this.txtCatProperty.Validated += new System.EventHandler(this.txtCatProperty_Validated);
             // 
             // txtSpeciesProperty
             // 
@@ -230,9 +231,11 @@
             this.lbxGender.FormattingEnabled = true;
             this.lbxGender.Location = new System.Drawing.Point(6, 19);
             this.lbxGender.Name = "lbxGender";
-            this.lbxGender.Size = new System.Drawing.Size(188, 95);
+            this.lbxGender.Size = new System.Drawing.Size(154, 95);
             this.lbxGender.TabIndex = 14;
             this.lbxGender.SelectedIndexChanged += new System.EventHandler(this.lbxGender_SelectedIndexChanged);
+            this.lbxGender.Validating += new System.ComponentModel.CancelEventHandler(this.lbxGender_Validating);
+            this.lbxGender.Validated += new System.EventHandler(this.lbxGender_Validated);
             // 
             // txtAge
             // 

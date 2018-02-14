@@ -3,7 +3,7 @@
   <Class Name="Assignment2.FoodSchedule">
     <Position X="3.5" Y="0.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AABAAQAAAAAIAAAEAAAABAQAAAACAAAAAAAAAAAACAA=</HashCode>
+      <HashCode>AABAAQAAAAAIAAAEAAAABAQAAAACAAACAAAAAAAAAAA=</HashCode>
       <FileName>FoodSchedule.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -57,10 +57,17 @@
       <FileName>Animals\Bear.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Assignment2.AnimalFactory">
+    <Position X="7.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEQACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AnimalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Interface Name="Assignment2.Animal">
     <Position X="0.5" Y="3" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAACAAQEAAAAAACAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEACAAQEAAAAAACAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animals\Animal.cs</FileName>
     </TypeIdentifier>
   </Interface>

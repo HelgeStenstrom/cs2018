@@ -36,6 +36,10 @@ namespace Assignment2
 
         #region Methods
 
+        /// <summary>
+        /// Den nya varianten.
+        /// </summary>
+        /// <param name="name"></param>
         public void AddAnimal(Animal name)
         {
             _animals.Add(name);
@@ -51,6 +55,7 @@ namespace Assignment2
         /// <param name="speciesProperty"></param>
         /// <param name="species"></param>
         /// <exception cref="NotImplementedException"></exception>
+        [Obsolete("Use the variant which takes an animal instead.")]
         public void AddAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species)
         {
             int toothcount, numberEaten;

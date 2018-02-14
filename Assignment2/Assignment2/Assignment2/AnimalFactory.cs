@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Assignment2
 {
-    class AnimalFactory
+    internal static class AnimalFactory
     {
         private static void Fixstuff(Control c)
         {
@@ -68,6 +68,52 @@ namespace Assignment2
             throw new NotImplementedException();
 
         }
+
+        public static Animal MakeAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species, string Id)
+        {
+            int toothcount, numberEaten;
+            double wingspan, speed;
+            Animal animal = null; 
+           
+
+            switch (species)
+            {
+                case "Bear":
+                    if (int.TryParse(categoryProperty, out toothcount))
+                    {
+                        if (int.TryParse(speciesProperty, out numberEaten))
+                            animal = new Bear(Id, name, gender, age, toothcount, numberEaten);
+                    }
+                    break;
+                case "Cat":
+                    if (int.TryParse(categoryProperty, out toothcount))
+                    {
+                        if (int.TryParse(speciesProperty, out numberEaten))
+                            animal = new Cat(Id, name, gender, age, toothcount, numberEaten);
+                    }
+                    break;
+                case "Eagle":
+                    if (double.TryParse(categoryProperty, out wingspan))
+                    {
+                        if (double.TryParse(speciesProperty, out speed))
+                            animal = new Eagle(Id, name, gender, age, wingspan, speed);
+                    }
+                    break;
+                case "Penguin":
+                    if (double.TryParse(categoryProperty, out wingspan))
+                    {
+                        if (double.TryParse(speciesProperty, out speed))
+                            animal = new Penguin(Id, name, gender, age, wingspan, speed);
+                    }
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            // assert (animal != null);
+            return animal;
+        }
+
 
     }
 }

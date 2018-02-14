@@ -165,7 +165,12 @@ namespace Assignment2
 
             var argumentsOk = ageOk;
             if (argumentsOk)
-                _animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
+            {
+                _animalManager.AddAnimal(AnimalFactory.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species, "Id"));
+                
+               //_animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
+            }
+                
 
             UpdateTable();
         }

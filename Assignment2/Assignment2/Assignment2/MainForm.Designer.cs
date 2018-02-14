@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblBredd = new System.Windows.Forms.Label();
-            this.gbxMammal = new System.Windows.Forms.GroupBox();
+            this.gbxSpecification = new System.Windows.Forms.GroupBox();
             this.txtCatProperty = new System.Windows.Forms.TextBox();
             this.txtSpeciesProperty = new System.Windows.Forms.TextBox();
             this.lblSpeciesProperty = new System.Windows.Forms.Label();
@@ -51,18 +49,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.gbxMammal.SuspendLayout();
+            this.gbxSpecification.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.lblBredd);
-            this.groupBox1.Controls.Add(this.gbxMammal);
+            this.groupBox1.Controls.Add(this.gbxSpecification);
             this.groupBox1.Controls.Add(this.lbxAnimalObject);
             this.groupBox1.Controls.Add(this.lbxCategory);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -81,37 +86,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Specifications";
             // 
-            // panel1
-            // 
-            this.panel1.AutoSize = true;
-            this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(223, 145);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(81, 100);
-            this.panel1.TabIndex = 17;
-            this.panel1.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 87);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "label5";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // lblBredd
             // 
             this.lblBredd.Location = new System.Drawing.Point(526, 34);
@@ -122,20 +96,19 @@
     " class,\r\none by the Animal class. \r\nThey are equivalent, but the Animal class im" +
     "plementation\r\nis much simpler.\r\n";
             // 
-            // gbxMammal
+            // gbxSpecification
             // 
-            this.gbxMammal.AutoSize = true;
-            this.gbxMammal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gbxMammal.Controls.Add(this.txtCatProperty);
-            this.gbxMammal.Controls.Add(this.txtSpeciesProperty);
-            this.gbxMammal.Controls.Add(this.lblSpeciesProperty);
-            this.gbxMammal.Controls.Add(this.lblCatProperty);
-            this.gbxMammal.Location = new System.Drawing.Point(17, 224);
-            this.gbxMammal.Name = "gbxMammal";
-            this.gbxMammal.Size = new System.Drawing.Size(158, 98);
-            this.gbxMammal.TabIndex = 10;
-            this.gbxMammal.TabStop = false;
-            this.gbxMammal.Text = "Specifications";
+            this.gbxSpecification.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gbxSpecification.Controls.Add(this.txtCatProperty);
+            this.gbxSpecification.Controls.Add(this.txtSpeciesProperty);
+            this.gbxSpecification.Controls.Add(this.lblSpeciesProperty);
+            this.gbxSpecification.Controls.Add(this.lblCatProperty);
+            this.gbxSpecification.Location = new System.Drawing.Point(17, 224);
+            this.gbxSpecification.Name = "gbxSpecification";
+            this.gbxSpecification.Size = new System.Drawing.Size(186, 98);
+            this.gbxSpecification.TabIndex = 10;
+            this.gbxSpecification.TabStop = false;
+            this.gbxSpecification.Text = "Specifications";
             // 
             // txtCatProperty
             // 
@@ -144,6 +117,7 @@
             this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
             this.txtCatProperty.TabIndex = 4;
             this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
+            this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.txtCatProperty_Validating);
             // 
             // txtSpeciesProperty
             // 
@@ -267,6 +241,8 @@
             this.txtAge.Size = new System.Drawing.Size(100, 20);
             this.txtAge.TabIndex = 3;
             this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
+            this.txtAge.Validating += new System.ComponentModel.CancelEventHandler(this.txtAge_Validating);
+            this.txtAge.Validated += new System.EventHandler(this.txtAge_Validated);
             // 
             // label2
             // 
@@ -294,6 +270,56 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Location = new System.Drawing.Point(529, 147);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(186, 98);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Specifications";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(84, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(68, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(84, 59);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(68, 20);
+            this.textBox2.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Tail length";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "No. of teeth";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -305,12 +331,13 @@
             this.Text = "Apu Animal Motel";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.gbxMammal.ResumeLayout(false);
-            this.gbxMammal.PerformLayout();
+            this.gbxSpecification.ResumeLayout(false);
+            this.gbxSpecification.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -323,7 +350,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox gbxMammal;
+        private System.Windows.Forms.GroupBox gbxSpecification;
         private System.Windows.Forms.Label lblSpeciesProperty;
         private System.Windows.Forms.Label lblCatProperty;
         private System.Windows.Forms.Button btnAdd;
@@ -337,9 +364,12 @@
         private System.Windows.Forms.ListBox lbxAnimalObject;
         private System.Windows.Forms.ListBox lbxCategory;
         private System.Windows.Forms.Label lblBredd;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }
 

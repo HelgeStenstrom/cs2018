@@ -322,5 +322,29 @@ namespace Assignment2
         {
             UpdateButton();
         }
+
+        private void txtAge_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if ((!int.TryParse(txtAge.Text, out var age)) || (age < 0))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtAge, "Det ska vara ett heltal >= 0");       
+            }
+        }
+
+        private void txtAge_Validated(object sender, EventArgs e)
+        {
+            // If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(txtAge, "");
+        }
+
+        private void txtCatProperty_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if ((!int.TryParse(txtCatProperty.Text, out var age)) || (age < 0))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
+            }
+        }
     }
 }

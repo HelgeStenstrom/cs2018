@@ -65,7 +65,7 @@ namespace Assignment2
             Age = age;
         }
 
-        public EaterType GetEaterType()
+        public EaterType GetEaterType() // TODO: Byt mot abstract method
         {
             throw new System.NotImplementedException();
         }

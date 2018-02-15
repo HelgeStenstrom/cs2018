@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing.Text;
 using System.Windows.Forms;
 
@@ -325,7 +326,9 @@ namespace Assignment2
             UpdateButton();
         }
 
-        private void txtAge_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        #region Validators
+
+        private void txtAge_Validating(object sender, CancelEventArgs e)
         {
             if ((!int.TryParse(txtAge.Text, out var age)) || (age < 0))
             {
@@ -340,21 +343,12 @@ namespace Assignment2
             errorProvider1.SetError(txtAge, "");
         }
 
-        private void txtCatProperty_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void txtCatProperty_Validating(object sender, CancelEventArgs e)
         {
             if ((!int.TryParse(txtCatProperty.Text, out var age)) || (age < 0))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
-            }
-        }
-
-        private void lbxGender_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (! (lbxGender.SelectedIndex >= 0))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(lbxGender, "Du måste välja något");
             }
         }
 
@@ -364,10 +358,21 @@ namespace Assignment2
             errorProvider1.SetError(txtCatProperty, "");
         }
 
+        private void lbxGender_Validating(object sender, CancelEventArgs e)
+        {
+            if (! (lbxGender.SelectedIndex >= 0))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(lbxGender, "Du måste välja något");
+            }
+        }
+
         private void lbxGender_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(lbxGender, "");
         }
+
+        #endregion
     }
 }

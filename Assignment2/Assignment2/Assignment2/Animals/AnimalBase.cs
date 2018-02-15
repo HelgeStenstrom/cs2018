@@ -65,22 +65,9 @@ namespace Assignment2
             Age = age;
         }
 
-        public EaterType GetEaterType() // TODO: Byt mot abstract method
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public FoodSchedule GetFoodSchedule()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetSpecies()
-        {
-            return this.GetType().Name;
-        }
-
-
+        public abstract EaterType GetEaterType();
+        public abstract FoodSchedule GetFoodSchedule();
+        public abstract string GetSpecies();
 
         #region Methods
         // No methods defined.

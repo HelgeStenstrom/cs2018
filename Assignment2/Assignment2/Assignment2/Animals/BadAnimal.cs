@@ -11,6 +11,21 @@ namespace Assignment2
 
         public BadAnimal() : base(string.Empty, string.Empty, Gender.Unknown, 0)
         {
-        }  
+        }
+
+        public override EaterType GetEaterType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override FoodSchedule GetFoodSchedule()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GetSpecies()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

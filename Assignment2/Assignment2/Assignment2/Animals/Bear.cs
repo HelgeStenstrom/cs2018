@@ -34,5 +34,20 @@ namespace Assignment2
         {
             return $"{base.ToString()} Has eaten {BlueBerriesEaten} blueberries,";
         }
+
+        public override EaterType GetEaterType()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override FoodSchedule GetFoodSchedule()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override string GetSpecies()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

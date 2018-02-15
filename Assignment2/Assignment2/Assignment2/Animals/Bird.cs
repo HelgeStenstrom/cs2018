@@ -14,7 +14,7 @@ namespace Assignment2
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="wingSpan"></param>
-        public Bird(string givenId, string name, Gender gender, int age, double wingSpan) : base(givenId, name, gender, age)
+        public Bird(string givenId, string name, Gender gender, int age, double wingSpan) : base(name, gender, age)
         {
             WingSpan = wingSpan;
         }

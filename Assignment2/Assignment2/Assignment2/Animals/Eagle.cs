@@ -47,9 +47,5 @@ namespace Assignment2
             throw new System.NotImplementedException();
         }
 
-        public override string GetSpecies()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -17,7 +17,7 @@ namespace Assignment2
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="toothCount"></param>
-        public Mammal(string givenId, string name, Gender gender, int age, int toothCount) : base(givenId, name, gender, age)
+        public Mammal(string givenId, string name, Gender gender, int age, int toothCount) : base(name, gender, age)
         {
             ToothCount = toothCount;
         }

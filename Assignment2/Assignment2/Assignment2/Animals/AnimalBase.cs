@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections;
+using System.Diagnostics;
 
 namespace Assignment2
 {
@@ -13,7 +14,7 @@ namespace Assignment2
         private int Age { get; }
         public Gender Gender { get; set; }
         private string Name { get; }
-        private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
+        //private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
         public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
         #endregion
@@ -33,7 +34,6 @@ namespace Assignment2
         /// </summary>
         public string[] RowStrings => new[] 
         {
-            _givenId,
             Id,
             Name,
             Age.ToString(),
@@ -52,14 +52,12 @@ namespace Assignment2
         /// The Animal class will itself maintain a unique ID string, 
         /// in addition to the one given by the AnimalManager.
         /// </summary>
-        /// <param name="givenId">It's the caller's responsibility that this value is unique.</param>
         /// <param name="name">The name of the animal, free format.</param>
         /// <param name="gender">The gender of the animal</param>
         /// <param name="age">The age of the animal, in whole years.</param>
-        protected AnimalBase(string givenId, string name, Gender gender, int age)
+        protected AnimalBase(string name, Gender gender, int age)
         {
-            Id = $"B{_lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
-            _givenId = givenId;
+            Id = $"ID{_lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
             Name = name;
             Gender = gender;
             Age = age;
@@ -67,7 +65,10 @@ namespace Assignment2
 
         public abstract EaterType GetEaterType();
         public abstract FoodSchedule GetFoodSchedule();
-        public abstract string GetSpecies();
+        public string GetSpecies()
+        {
+            return this.GetType().Name;
+        } 
 
         #region Methods
         // No methods defined.
@@ -78,13 +79,27 @@ namespace Assignment2
             throw new NotImplementedException();
         }
 
-        public class SortByName : IComparer
+        private class SortByName : IComparer
         {
             int IComparer.Compare(object x, object y)
             {
                 var a1 = (Animal) x;
                 var a2 = (Animal) y;
-                return (string.Compare(a1.Name, a2.Name));
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (String.CompareOrdinal(a1.Name, a2.Name));
+            }
+        }
+        
+        private class SortById : IComparer
+        {
+            int IComparer.Compare(object x, object y)
+            {
+                var a1 = (Animal) x;
+                var a2 = (Animal) y;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (String.CompareOrdinal(a1.Id, a2.Id));
             }
         }
 

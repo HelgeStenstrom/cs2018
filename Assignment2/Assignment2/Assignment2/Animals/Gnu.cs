@@ -41,10 +41,5 @@ namespace Assignment2
         {
             return EaterType.Herbivore;
         }
-
-        public override FoodSchedule GetFoodSchedule()
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

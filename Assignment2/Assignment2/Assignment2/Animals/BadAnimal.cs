@@ -18,10 +18,5 @@ namespace Assignment2
             throw new NotImplementedException();
         }
 
-        public override FoodSchedule GetFoodSchedule()
-        {
-            throw new NotImplementedException();
-        }
-
     }
 }

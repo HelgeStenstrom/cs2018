@@ -2,6 +2,8 @@
 // ah7875
 // C# del II 2018
 
+using System.Collections.Generic;
+
 namespace Assignment2
 {
     public class Bear : Mammal
@@ -19,6 +21,7 @@ namespace Assignment2
             base(givenId, name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
+            _foodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
         }
 
         /// <summary>
@@ -38,11 +41,6 @@ namespace Assignment2
         public override EaterType GetEaterType()
         {
             return EaterType.Omnivore;
-        }
-
-        public override FoodSchedule GetFoodSchedule()
-        {
-            throw new System.NotImplementedException();
         }
 
     }

@@ -7,21 +7,20 @@ namespace Assignment2
 {
     public class FoodSchedule
     {
+        #region Fields and properties
         private List<string> _foodDescriptionList;
+        public int Count => _foodDescriptionList.Count;
+        #endregion
+
 
         public FoodSchedule()
         {
-            throw new System.NotImplementedException();
+            _foodDescriptionList = new List<string>();
         }
 
         public FoodSchedule(List<string> foodList)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public int Count
-        {
-            get;
+            _foodDescriptionList = new List<string>(foodList);
         }
 
         public bool AddFoodScheduleItem(string item)
@@ -51,7 +50,7 @@ namespace Assignment2
         
         public bool ValidateIndex(int index)
         {
-            throw new System.NotImplementedException();
+            return (0 <= index && index < Count);
         }
     }
 }

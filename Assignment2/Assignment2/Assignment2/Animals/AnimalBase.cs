@@ -17,6 +17,8 @@ namespace Assignment2
         //private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
         public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
+        protected FoodSchedule _foodSchedule;
+        
         #endregion
 
         #region Properties
@@ -38,12 +40,15 @@ namespace Assignment2
             Name,
             Age.ToString(),
             Gender.ToString(),
-            GetType().Name,       
+            GetSpecies(),       
             ToString()
         };
 
-        //public string ID { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        string Animal.Name { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        string Animal.Name
+        {
+            get => throw new System.NotImplementedException(); 
+            set => throw new System.NotImplementedException();
+        }
 
         #endregion
 
@@ -64,7 +69,11 @@ namespace Assignment2
         }
 
         public abstract EaterType GetEaterType();
-        public abstract FoodSchedule GetFoodSchedule();
+
+        public FoodSchedule GetFoodSchedule()
+        {
+            return _foodSchedule;
+        }
         public string GetSpecies()
         {
             return this.GetType().Name;
@@ -87,7 +96,7 @@ namespace Assignment2
                 var a2 = (Animal) y;
                 Debug.Assert(a1 != null, nameof(a1) + " != null");
                 Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (String.CompareOrdinal(a1.Name, a2.Name));
+                return (string.CompareOrdinal(a1.Name, a2.Name));
             }
         }
         
@@ -99,7 +108,7 @@ namespace Assignment2
                 var a2 = (Animal) y;
                 Debug.Assert(a1 != null, nameof(a1) + " != null");
                 Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (String.CompareOrdinal(a1.Id, a2.Id));
+                return (string.CompareOrdinal(a1.Id, a2.Id));
             }
         }
 

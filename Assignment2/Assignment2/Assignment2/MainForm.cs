@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing.Text;
 using System.Windows.Forms;
 
 namespace Assignment2
@@ -24,7 +23,7 @@ namespace Assignment2
             panel1 = new System.Windows.Forms.Panel();
             panel1.Controls.Add(rb1);
             //animalpanel.
-            var animalPanel = AnimalFactory.AnimalPanel("Bear");
+            var animalPanel = AnimalHelper.AnimalPanel("Bear");
             animalPanel.Location = new System.Drawing.Point(223, 145); // (257, 16);
             
             groupBox1.Controls.Add(animalPanel);
@@ -40,9 +39,8 @@ namespace Assignment2
         /// </summary>
         readonly AnimalManager _animalManager = new AnimalManager();
 
-        private Panel animalpanel = null;
+        public Panel Animalpanel { get; } = null;
 
-        public Panel Animalpanel => animalpanel;
         private Panel panel1;
 
         #endregion
@@ -169,7 +167,7 @@ namespace Assignment2
             var argumentsOk = ageOk;
             if (argumentsOk)
             {
-                _animalManager.AddAnimal(AnimalFactory.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species, "Id"));
+                _animalManager.AddAnimal(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species, "Id"));
                 
                //_animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
             }
@@ -205,7 +203,7 @@ namespace Assignment2
                     lblCatProperty.Text = @"Number of teeth";
                     lblSpeciesProperty.Text = @"Berries eaten";
                     break;
-                case "Cat":
+                case "Gnu":
                     lblCatProperty.Text = @"Number of teeth";
                     lblSpeciesProperty.Text = @"Mice eaten";
                     break;
@@ -246,15 +244,15 @@ namespace Assignment2
         {
             int dummyInt;
             double dummyDbl;
-            bool hasName = !string.IsNullOrEmpty(txtName.Text);
-            bool integerAge = int.TryParse(txtAge.Text, out dummyInt);
-            bool catPropOk = false;
-            bool speciesPropOk = false;
+            var hasName = !string.IsNullOrEmpty(txtName.Text);
+            var integerAge = int.TryParse(txtAge.Text, out dummyInt);
+            var catPropOk = false;
+            var speciesPropOk = false;
 
             switch (lbxAnimalObject.SelectedItem.ToString())
             {
                 case "Bear":
-                case "Cat":
+                case "Gnu":
                     catPropOk = int.TryParse(txtCatProperty.Text, out dummyInt);
                     speciesPropOk = int.TryParse(txtSpeciesProperty.Text, out dummyInt);
                     break;
@@ -330,11 +328,14 @@ namespace Assignment2
 
         private void txtAge_Validating(object sender, CancelEventArgs e)
         {
-            if ((!int.TryParse(txtAge.Text, out var age)) || (age < 0))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtAge, "Det ska vara ett heltal >= 0");       
-            }
+            ValidateAge(txtAge, e, errorProvider1);
+        }
+
+        private static void ValidateAge(TextBox textBox, CancelEventArgs e, ErrorProvider ep)
+        {
+            if ((int.TryParse(textBox.Text, out var number)) && (number >= 0)) return;
+            e.Cancel = true;
+            ep.SetError(textBox, "Det ska vara ett heltal >= 0");
         }
 
         private void txtAge_Validated(object sender, EventArgs e)
@@ -345,11 +346,9 @@ namespace Assignment2
 
         private void txtCatProperty_Validating(object sender, CancelEventArgs e)
         {
-            if ((!int.TryParse(txtCatProperty.Text, out var age)) || (age < 0))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
-            }
+            if ((int.TryParse(txtCatProperty.Text, out var age)) && (age >= 0)) return;
+            e.Cancel = true;
+            errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
         }
 
         private void txtCatProperty_Validated(object sender, EventArgs e)
@@ -360,17 +359,28 @@ namespace Assignment2
 
         private void lbxGender_Validating(object sender, CancelEventArgs e)
         {
-            if (! (lbxGender.SelectedIndex >= 0))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(lbxGender, "Du måste välja något");
-            }
+            if (lbxGender.SelectedIndex >= 0) return;
+            e.Cancel = true;
+            errorProvider1.SetError(lbxGender, "Du måste välja något");
         }
 
         private void lbxGender_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(lbxGender, "");
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtName.Text)) return;
+            e.Cancel = true;
+            errorProvider1.SetError(txtName, "Fyll i ett namn");
+        }
+
+        private void txtName_Validated(object sender, EventArgs e)
+        {
+            // If all conditions have been met, clear the ErrorProvider of errors.
+            errorProvider1.SetError(txtName, "");
         }
 
         #endregion

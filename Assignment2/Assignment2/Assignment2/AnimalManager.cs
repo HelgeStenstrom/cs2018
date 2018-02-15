@@ -70,11 +70,11 @@ namespace Assignment2
                             _animals.Add(new Bear(NewId(), name, gender, age, toothcount, numberEaten));
                     }                   
                     break;
-                case "Cat":
+                case "Gnu":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            _animals.Add(new Cat(NewId(), name, gender, age, toothcount, numberEaten));
+                            _animals.Add(new Gnu(NewId(), name, gender, age, toothcount, numberEaten));
                     }
                     break;
                 case "Eagle":
@@ -118,7 +118,7 @@ namespace Assignment2
         /// <returns></returns>
         public static List<Type> Species()
         {
-            return new List<Type> {typeof(Cat), typeof(Bear), typeof(Eagle), typeof(Penguin)};
+            return new List<Type> {typeof(Gnu), typeof(Bear), typeof(Eagle), typeof(Penguin)};
         }
 
         /// <summary>

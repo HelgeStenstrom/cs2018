@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnimalFactory.cs" />
+    <Compile Include="AnimalHelper.cs" />
     <Compile Include="Animals\AnimalBase.cs" />
     <Compile Include="AnimalManager.cs" />
     <Compile Include="Animals\AnimalCategory.cs" />
@@ -68,7 +68,7 @@
     <Compile Include="Animals\Bear.cs" />
     <Compile Include="Animals\Bird.cs" />
     <Compile Include="Animals\Birds.cs" />
-    <Compile Include="Animals\Cat.cs" />
+    <Compile Include="Animals\Gnu.cs" />
     <Compile Include="Animals\Eagle.cs" />
     <Compile Include="Animals\EaterType.cs" />
     <Compile Include="Animals\Gender.cs" />

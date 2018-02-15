@@ -28,7 +28,7 @@ namespace UnitTests
             Assert.IsTrue(x.Contains(typeof(Eagle)));
             Assert.IsTrue(x.Contains(typeof(Penguin)));
             Assert.IsFalse(x.Contains(typeof(Bear)));
-            Assert.IsFalse(x.Contains(typeof(Cat)));
+            Assert.IsFalse(x.Contains(typeof(Gnu)));
 
             List<string> names = new List<string>();
             foreach (Type t in x)

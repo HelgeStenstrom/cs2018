@@ -37,7 +37,7 @@ namespace Assignment2
 
         public override EaterType GetEaterType()
         {
-            throw new System.NotImplementedException();
+            return EaterType.Omnivore;
         }
 
         public override FoodSchedule GetFoodSchedule()

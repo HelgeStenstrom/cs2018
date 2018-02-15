@@ -10,6 +10,6 @@ namespace Assignment2
     public enum Mammals
     {
         Bear,
-        Cat
+        Gnu
     }
 }

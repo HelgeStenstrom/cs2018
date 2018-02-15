@@ -309,6 +309,8 @@
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 1;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
+            this.txtName.Validated += new System.EventHandler(this.txtName_Validated);
             // 
             // label1
             // 

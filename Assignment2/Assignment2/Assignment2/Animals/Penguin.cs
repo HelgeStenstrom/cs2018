@@ -39,13 +39,14 @@ namespace Assignment2
 
         public override EaterType GetEaterType()
         {
-            throw new System.NotImplementedException();
+            return EaterType.Carnivore;
         }
 
         public override FoodSchedule GetFoodSchedule()
         {
-            throw new System.NotImplementedException();
-        }
+            throw new System.NotImplementedException(); // TODO GetFoodSchedule
+        } 
+        
 
     }
 }

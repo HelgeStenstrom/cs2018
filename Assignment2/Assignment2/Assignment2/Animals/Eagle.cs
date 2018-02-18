@@ -9,6 +9,8 @@ namespace Assignment2
     /// </summary>
     public class Eagle : Bird
     {
+        //private EaterType 
+        
         /// <summary>
         /// Constructor
         /// </summary>
@@ -20,7 +22,6 @@ namespace Assignment2
         public Eagle(string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(name, gender, age, wingSpan)
         {
             FlightSpeed = flightSpeed;
-            this.EaterType = EaterType.Carnivore;
         }
 
         public Eagle(Eagle other) : base(other)
@@ -46,6 +47,11 @@ namespace Assignment2
         public override Animal Clone()
         {
             return new Eagle(this);
+        }
+
+        public override EaterType GetEaterType()
+        {
+            return EaterType.Carnivore;
         }
     }
 }

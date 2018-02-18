@@ -20,7 +20,6 @@ namespace Assignment2
         public Penguin(string name, Gender gender, int age, double wingSpan, double swimSpeed) : base(name, gender, age, wingSpan)
         {
             SwimSpeed = swimSpeed;
-            EaterType = EaterType.Carnivore;
         }
 
         public Penguin(Penguin other) : base(other)
@@ -46,6 +45,11 @@ namespace Assignment2
         public override Animal Clone()
         {
             return new Penguin(this);
+        }
+
+        public override EaterType GetEaterType()
+        {
+            return EaterType.Carnivore;
         }
     }
 }

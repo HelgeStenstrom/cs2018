@@ -20,7 +20,7 @@ namespace Assignment2
 
             var rb1 = new RadioButton();
             rb1.Location = new System.Drawing.Point(0, 90);
-            panel1 = new System.Windows.Forms.Panel();
+            panel1 = new Panel();
             panel1.Controls.Add(rb1);
             //animalpanel.
             var animalPanel = AnimalHelper.AnimalPanel("Bear");

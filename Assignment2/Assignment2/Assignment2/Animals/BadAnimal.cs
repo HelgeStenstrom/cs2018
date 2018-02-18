@@ -18,5 +18,10 @@ namespace Assignment2
         {
             throw new NotImplementedException();
         }
+
+        public override EaterType GetEaterType()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

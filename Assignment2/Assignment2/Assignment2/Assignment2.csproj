@@ -74,7 +74,6 @@
     <Compile Include="Animals\Gender.cs" />
     <Compile Include="Animals\Animal.cs" />
     <Compile Include="Animals\Mammals.cs" />
-    <Compile Include="Demo.cs" />
     <Compile Include="FoodSchedule.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

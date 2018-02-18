@@ -20,7 +20,6 @@ namespace Assignment2
         public Gnu(string name, Gender gender, int age, int toothCount, int miceEaten) : base(name, gender, age, toothCount)
         {
             MiceEaten = miceEaten;
-            EaterType = EaterType.Herbivore;
         }
 
         public Gnu(Gnu other) : base(other)
@@ -42,10 +41,14 @@ namespace Assignment2
             return $"{base.ToString()} Has eaten {MiceEaten} mice.";
         }
 
-
         public override Animal Clone()
         {
             return new Gnu(this);
+        }
+
+        public override EaterType GetEaterType()
+        {
+            return EaterType.Herbivore;
         }
     }
 }

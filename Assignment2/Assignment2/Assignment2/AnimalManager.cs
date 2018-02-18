@@ -96,8 +96,15 @@ namespace Assignment2
             }
         }
 
-        public void SortBy(string v)
+        public void SortBy(string sortCriteria)
         {
+            switch (sortCriteria)
+            {
+                case "name":
+                    break;
+                default:
+                    break;
+            }
             throw new NotImplementedException();
         }
 

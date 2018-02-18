@@ -21,7 +21,6 @@ namespace Assignment2
             base(name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
-            EaterType = EaterType.Omnivore;
             FoodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
         }
 
@@ -48,6 +47,11 @@ namespace Assignment2
         public override Animal Clone()
         {
             return new Bear(this);
+        }
+
+        public override EaterType GetEaterType()
+        {
+            return EaterType.Omnivore;
         }
     }
 }

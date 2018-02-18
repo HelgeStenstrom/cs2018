@@ -82,28 +82,28 @@ namespace Assignment2
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            animal = new Bear(Id, name, gender, age, toothcount, numberEaten);
+                            animal = new Bear(name, gender, age, toothcount, numberEaten);
                     }
                     break;
                 case "Gnu":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            animal = new Gnu(Id, name, gender, age, toothcount, numberEaten);
+                            animal = new Gnu(name, gender, age, toothcount, numberEaten);
                     }
                     break;
                 case "Eagle":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            animal = new Eagle(Id, name, gender, age, wingspan, speed);
+                            animal = new Eagle(name, gender, age, wingspan, speed);
                     }
                     break;
                 case "Penguin":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            animal = new Penguin(Id, name, gender, age, wingspan, speed);
+                            animal = new Penguin(name, gender, age, wingspan, speed);
                     }
                     break;
                 default:

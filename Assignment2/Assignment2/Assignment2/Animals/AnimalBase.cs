@@ -13,7 +13,8 @@ namespace Assignment2
         #region Fields
         private int Age { get; }
         public Gender Gender { get; set; }
-        private string Name { get; }
+
+        //public string Name { get; }
         //private readonly string _givenId; // It's the AnimalManager's responsibility to ensure this ID is unique.
         public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
@@ -44,10 +45,10 @@ namespace Assignment2
             ToString()
         };
 
-        string Animal.Name
+        public string Name
         {
-            get => throw new System.NotImplementedException(); 
-            set => throw new System.NotImplementedException();
+            get;
+            set;
         }
 
         #endregion
@@ -66,6 +67,11 @@ namespace Assignment2
             Name = name;
             Gender = gender;
             Age = age;
+        }
+
+        public Animal Clone()
+        {
+            throw  new NotImplementedException();
         }
 
         public abstract EaterType GetEaterType();

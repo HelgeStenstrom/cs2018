@@ -12,13 +12,12 @@ namespace Assignment2
         /// <summary>
         /// Constructor. Cats eat mice, that's what they are good for. Otherwise, they are just normal Mammals.
         /// </summary>
-        /// <param name="givenId"></param>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age">in years.</param>
         /// <param name="toothCount"></param>
         /// <param name="miceEaten"></param>
-        public Gnu(string givenId, string name, Gender gender, int age, int toothCount, int miceEaten) : base(givenId, name, gender, age, toothCount)
+        public Gnu(string name, Gender gender, int age, int toothCount, int miceEaten) : base(name, gender, age, toothCount)
         {
             MiceEaten = miceEaten;
         }

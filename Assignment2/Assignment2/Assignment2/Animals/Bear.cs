@@ -11,14 +11,13 @@ namespace Assignment2
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="givenId"></param>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="toothCount">The number of teeth this bear has.</param>
         /// <param name="blueBerriesEaten">The number of blueberries this bear has eatin so far.</param>
-        public Bear(string givenId, string name, Gender gender, int age, int toothCount, int blueBerriesEaten) : 
-            base(givenId, name, gender, age, toothCount)
+        public Bear(string name, Gender gender, int age, int toothCount, int blueBerriesEaten) : 
+            base(name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
             _foodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});

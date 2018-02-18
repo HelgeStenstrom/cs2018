@@ -9,12 +9,11 @@ namespace Assignment2
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="givenId"></param>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="wingSpan"></param>
-        public Bird(string givenId, string name, Gender gender, int age, double wingSpan) : base(name, gender, age)
+        public Bird(string name, Gender gender, int age, double wingSpan) : base(name, gender, age)
         {
             WingSpan = wingSpan;
         }

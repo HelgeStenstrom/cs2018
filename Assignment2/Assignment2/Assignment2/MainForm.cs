@@ -384,5 +384,17 @@ namespace Assignment2
         }
 
         #endregion
+
+        private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            var col = e.Column;
+            // TODO: sätt sorteringsgrund
+        }
+
+        private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var rows = lvAnimals.SelectedIndices;
+            // TODO: uppdatera saker med valt djur
+        }
     }
 }

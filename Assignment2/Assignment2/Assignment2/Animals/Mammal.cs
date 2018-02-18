@@ -12,12 +12,11 @@ namespace Assignment2
         /// <summary>
         /// Constructor, called by subclass constructors. Mammals have teeth.
         /// </summary>
-        /// <param name="givenId"></param>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="toothCount"></param>
-        public Mammal(string givenId, string name, Gender gender, int age, int toothCount) : base(name, gender, age)
+        public Mammal(string name, Gender gender, int age, int toothCount) : base(name, gender, age)
         {
             ToothCount = toothCount;
         }

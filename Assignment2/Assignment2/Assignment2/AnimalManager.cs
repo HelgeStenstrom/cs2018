@@ -67,28 +67,28 @@ namespace Assignment2
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            _animals.Add(new Bear(NewId(), name, gender, age, toothcount, numberEaten));
+                            _animals.Add(new Bear(name, gender, age, toothcount, numberEaten));
                     }                   
                     break;
                 case "Gnu":
                     if (int.TryParse(categoryProperty, out toothcount))
                     {
                         if (int.TryParse(speciesProperty, out numberEaten))
-                            _animals.Add(new Gnu(NewId(), name, gender, age, toothcount, numberEaten));
+                            _animals.Add(new Gnu(name, gender, age, toothcount, numberEaten));
                     }
                     break;
                 case "Eagle":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            _animals.Add(new Eagle(NewId(), name, gender, age, wingspan, speed));
+                            _animals.Add(new Eagle(name, gender, age, wingspan, speed));
                     }
                     break;
                 case "Penguin":
                     if (double.TryParse(categoryProperty, out wingspan))
                     {
                         if (double.TryParse(speciesProperty, out speed))
-                            _animals.Add(new Penguin(NewId(), name, gender, age, wingspan, speed));
+                            _animals.Add(new Penguin(name, gender, age, wingspan, speed));
                     }
                     break;
                 default:
@@ -128,6 +128,14 @@ namespace Assignment2
         /// <returns></returns>
         public static List<string> TypeNames(IEnumerable<Type> types) => types.Select(t => t.Name).ToList();
 
+        public Animal getAnimal(int index)
+        {
+            throw new NotImplementedException();
+        //            return new AnimalManager(); _animals[index];
+        }
+        
         #endregion
     }
+    
+
 }

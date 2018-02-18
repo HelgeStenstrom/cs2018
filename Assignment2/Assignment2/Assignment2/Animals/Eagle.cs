@@ -12,13 +12,12 @@ namespace Assignment2
         /// <summary>
         /// Constructor
         /// </summary>
-        /// <param name="givenId"></param>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age"></param>
         /// <param name="wingSpan"></param>
         /// <param name="flightSpeed">in km/h</param>
-        public Eagle(string givenId, string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(givenId, name, gender, age, wingSpan)
+        public Eagle(string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(name, gender, age, wingSpan)
         {
             FlightSpeed = flightSpeed;
         }

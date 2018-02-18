@@ -55,8 +55,8 @@ namespace UnitTests
         public void AddingAnimalObjects()
         {
             // Setup
-            Animal p = new Penguin("ID1", "Tux", Gender.Male, 0, 0, 0);
-            var p2 = new Penguin("ID2", "Tux", Gender.Male, 0, 0, 0);
+            Animal p = new Penguin("Tux", Gender.Male, 0, 0, 0);
+            var p2 = new Penguin("Tux", Gender.Male, 0, 0, 0);
             var mgr = new AnimalManager();
             
             // Exercise
@@ -69,5 +69,31 @@ namespace UnitTests
 
         }
 
+        [TestMethod]
+        public void sortByX()
+        {
+            // Setup
+            var mgr = new AnimalManager();
+
+            Animal bear1 = new Bear("Bamse", Gender.Male, 3, 32, 147);
+            var bear2 = new Bear("Tapio", Gender.Male, 3, 32, 147);
+            var p1 = new Penguin("Tapio", Gender.Male, 3, 32, 147);
+            Animal e1 = new Eagle("Eddie", Gender.Female, 1, 11, 100);
+
+            mgr.AddAnimal(bear1);
+            mgr.AddAnimal(bear2);
+            mgr.AddAnimal(p1);
+            mgr.AddAnimal(e1);
+            
+            // pre-check
+            Assert.AreEqual(bear1.Name, bear2.Name );
+            
+            // Execute            
+            // We should be able to sort on Id, gender, name, age, eatertype, species or in general all properties that every Animal has.
+
+            // Verify
+
+            Assert.Fail("Test not done");
+        }
     }
 }

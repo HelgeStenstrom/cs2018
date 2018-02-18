@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Assignment2
@@ -98,14 +99,23 @@ namespace Assignment2
 
         public void SortBy(string sortCriteria)
         {
+            IComparer<Animal> c; // = new AnimalBase.SortByName();
             switch (sortCriteria)
             {
+                case "age":
+                    c = new SortByAge();
+                    break;
+                case "id":
+                    c = new SortById();
+                    break;
                 case "name":
+                    c = new SortByName();
                     break;
                 default:
+                    throw new NotImplementedException();
                     break;
             }
-            throw new NotImplementedException();
+            _animals.Sort(c);
         }
 
         /// <summary>
@@ -142,11 +152,47 @@ namespace Assignment2
 
         public Animal GetAnimal(int index)
         {
-            throw new NotImplementedException();
-        //            return new AnimalManager(); _animals[index];
+            return _animals[index].Clone();
         }
-        
+
         #endregion
+
+        private class SortById : IComparer<Animal>
+        {
+            public int Compare(Animal animal1, Animal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (string.CompareOrdinal(a1.Id, a2.Id));
+            }
+        }
+
+        private class SortByName : IComparer<Animal>
+        {
+            public int Compare(Animal animal1, Animal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (string.CompareOrdinal(a1.Name, a2.Name));
+            }
+        }
+
+
+        private class SortByAge : IComparer<Animal>
+        {
+            public int Compare(Animal animal1, Animal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (a1.Age.CompareTo(a2.Age));
+            }
+        }
     }
     
 

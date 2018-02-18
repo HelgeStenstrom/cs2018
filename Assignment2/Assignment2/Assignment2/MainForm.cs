@@ -80,7 +80,6 @@ namespace Assignment2
         private void InitAnimalList()
         {
             lvAnimals.Columns.Clear();
-            // lvAnimals.Columns.Add("ID1", 50, HorizontalAlignment.Center); TODO: ta bort
             lvAnimals.Columns.Add("ID", 50, HorizontalAlignment.Center);
             lvAnimals.Columns.Add("Name", 100, HorizontalAlignment.Center);
             lvAnimals.Columns.Add("Age", 40, HorizontalAlignment.Center);

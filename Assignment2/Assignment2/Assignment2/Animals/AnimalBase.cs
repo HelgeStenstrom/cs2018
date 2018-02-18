@@ -4,14 +4,15 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace Assignment2
 {
-    public abstract class AnimalBase : Animal, IComparable
+    public abstract class AnimalBase : Animal
     {
         #region Fields
-        private int Age { get; }
+        public int Age { get; }
         public Gender Gender { get; set; }
 
         //public string Name { get; }
@@ -94,35 +95,5 @@ namespace Assignment2
         #region Methods
         // No methods defined.
         #endregion
-
-        public int CompareTo(object obj)
-        {
-            throw new NotImplementedException();
-        }
-
-        private class SortByName : IComparer
-        {
-            int IComparer.Compare(object x, object y)
-            {
-                var a1 = (Animal) x;
-                var a2 = (Animal) y;
-                Debug.Assert(a1 != null, nameof(a1) + " != null");
-                Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (string.CompareOrdinal(a1.Name, a2.Name));
-            }
-        }
-        
-        private class SortById : IComparer
-        {
-            int IComparer.Compare(object x, object y)
-            {
-                var a1 = (Animal) x;
-                var a2 = (Animal) y;
-                Debug.Assert(a1 != null, nameof(a1) + " != null");
-                Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (string.CompareOrdinal(a1.Id, a2.Id));
-            }
-        }
-
     }
 }

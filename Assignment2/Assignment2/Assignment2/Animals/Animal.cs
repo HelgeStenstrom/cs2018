@@ -9,5 +9,7 @@
         FoodSchedule GetFoodSchedule();
         string GetSpecies();
         string[] RowStrings { get; }
+        Animal Clone();
+        int Age { get; }
     }
 }

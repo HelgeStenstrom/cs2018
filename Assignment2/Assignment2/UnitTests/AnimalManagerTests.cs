@@ -78,7 +78,7 @@ namespace UnitTests
             Assert.AreNotEqual(bear1.Name, bear2.Name );
 
             // Execute       
-            mgr.sortBy("id");
+            mgr.SortBy("id");
             // We should be able to sort on Id, gender, name, age, eatertype, species or in general all properties that every Animal has.
 
             // Verify

@@ -20,7 +20,7 @@ namespace Assignment2
         public Penguin(string name, Gender gender, int age, double wingSpan, double swimSpeed) : base(name, gender, age, wingSpan)
         {
             SwimSpeed = swimSpeed;
-            eaterType = EaterType.Carnivore;
+            EaterType = EaterType.Carnivore;
         }
 
         public Penguin(Penguin other) : base(other)

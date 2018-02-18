@@ -1,4 +1,5 @@
-﻿using Assignment2;
+﻿using System;
+using Assignment2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -13,8 +14,8 @@ namespace UnitTests
             var a2 = new Eagle("", Gender.Male, 0, 0, 0);
             string id1 = a1.Id;
             string id2 = a2.Id;
-            Assert.IsTrue(0 == id1.CompareTo(id1));
-            Assert.IsTrue(0 < id2.CompareTo(id1)); // id2 has later ID number than id1.
+            Assert.IsTrue(0 == String.Compare(id1, id1, StringComparison.Ordinal));
+            Assert.IsTrue(0 < String.Compare(id2, id1, StringComparison.Ordinal)); // id2 has later ID number than id1.
 
         }
 
@@ -77,9 +78,7 @@ namespace UnitTests
         [TestMethod]
         public void CloningEagle()
         {
-            Eagle e1 = new Eagle("e1", Gender.Male, 0, 0, 0);
             Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
-
 
             Animal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);
@@ -91,7 +90,6 @@ namespace UnitTests
         [TestMethod]
         public void CloningPenguin()
         {
-            Penguin e1 = new Penguin("e1", Gender.Male, 0, 0, 0);
             Penguin e2 = new Penguin("e2", Gender.Male, 0, 0, 0);
 
             Animal e3 = e2.Clone();
@@ -103,7 +101,6 @@ namespace UnitTests
         [TestMethod]
         public void CloningBear()
         {
-            Bear e1 = new Bear("e1", Gender.Male, 0, 0, 0);
             Bear e2 = new Bear("e2", Gender.Male, 0, 0, 0);
 
             Animal e3 = e2.Clone();
@@ -115,7 +112,6 @@ namespace UnitTests
         [TestMethod]
         public void CloningGnu()
         {
-            Gnu e1 = new Gnu("e1", Gender.Male, 0, 0, 0);
             Gnu e2 = new Gnu("e2", Gender.Male, 0, 0, 0);
 
             Animal e3 = e2.Clone();

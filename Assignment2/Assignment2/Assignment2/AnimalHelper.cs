@@ -69,7 +69,7 @@ namespace Assignment2
 
         }
 
-        public static Animal MakeAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species, string Id)
+        public static Animal MakeAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species, string id)
         {
             int toothcount, numberEaten;
             double wingspan, speed;
@@ -114,7 +114,7 @@ namespace Assignment2
             return animal;
         }
 
-        public static bool validateInt(string s)
+        public static bool ValidateInt(string s)
         {
             return false; // TODO: kopiera från validering i MainForm
         }

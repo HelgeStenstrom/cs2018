@@ -13,41 +13,41 @@ namespace AnimalDemo
             Dog lassie = new Dog();
             
             animals.Add(lassie);
-            lassie.bark();
+            lassie.Bark();
             
             Animal båtsman = new Dog();
             animals.Add(båtsman);
-            båtsman.toothCount = 32;
-            lassie.toothCount = 23;
+            båtsman.ToothCount = 32;
+            lassie.ToothCount = 23;
 
-            ((Dog) båtsman).bark();
+            ((Dog) båtsman).Bark();
             
             Cat pelle = new Cat();
-            pelle.purr();
+            pelle.Purr();
             animals.Add(pelle);
 
             foreach (var animal in animals)
             {
-                animal.toothCount = 44;
-                ((Dog)animal).bark();
+                animal.ToothCount = 44;
+                ((Dog)animal).Bark();
             }
 
         }
         
-        static void main2()
+        static void Main2()
         {
             List<Animal> animals = new List<Animal>();
             
-            Dog Lassie = new Dog();
-            Lassie.bark();
+            Dog lassie = new Dog();
+            lassie.Bark();
             
-            animals.Add(Lassie);
+            animals.Add(lassie);
             
-            Animal Båtsman = new Dog();
+            Animal båtsman = new Dog();
 
-            Båtsman.toothCount = 32;
+            båtsman.ToothCount = 32;
 
-            ((Dog)Båtsman).bark();
+            ((Dog)båtsman).Bark();
         }
     }
 }

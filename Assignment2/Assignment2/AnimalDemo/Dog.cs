@@ -2,7 +2,7 @@
 {
     public class Dog : Animal
     {
-        public string bark()
+        public string Bark()
         {
             return "Vov";
         }
@@ -10,7 +10,7 @@
     
     public class Cat : Animal
     {
-        public string purr()
+        public string Purr()
         {
             return "brrr";
         }

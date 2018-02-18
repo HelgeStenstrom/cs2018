@@ -20,7 +20,7 @@ namespace Assignment2
         public Gnu(string name, Gender gender, int age, int toothCount, int miceEaten) : base(name, gender, age, toothCount)
         {
             MiceEaten = miceEaten;
-            eaterType = EaterType.Herbivore;
+            EaterType = EaterType.Herbivore;
         }
 
         public Gnu(Gnu other) : base(other)

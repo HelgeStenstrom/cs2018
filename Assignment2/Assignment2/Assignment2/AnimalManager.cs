@@ -96,7 +96,7 @@ namespace Assignment2
             }
         }
 
-        public void sortBy(string v)
+        public void SortBy(string v)
         {
             throw new NotImplementedException();
         }
@@ -105,7 +105,7 @@ namespace Assignment2
         /// A new ID string is generated each time this function is called, starting with A1000.
         /// </summary>
         /// <returns>The ID string.</returns>
-        private static string NewId()
+        [Obsolete] private static string NewId()
         {
             return $"A{_lastAssignedNumber++}";
         }
@@ -133,7 +133,7 @@ namespace Assignment2
         /// <returns></returns>
         public static List<string> TypeNames(IEnumerable<Type> types) => types.Select(t => t.Name).ToList();
 
-        public Animal getAnimal(int index)
+        public Animal GetAnimal(int index)
         {
             throw new NotImplementedException();
         //            return new AnimalManager(); _animals[index];

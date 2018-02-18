@@ -2,6 +2,6 @@
 {
     public class Animal
     {
-        public int toothCount = 3;
+        public int ToothCount = 3;
     }
 }

@@ -6,7 +6,7 @@ namespace UnitTests
     public class FoodScheduleTests
     {
         [TestMethod] [Ignore]
-        public void test1()
+        public void Test1()
         {
 
         }

@@ -21,8 +21,8 @@ namespace Assignment2
             base(name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
-            eaterType = EaterType.Omnivore;
-            _foodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
+            EaterType = EaterType.Omnivore;
+            FoodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
         }
 
         public Bear(Bear other) : base(other)

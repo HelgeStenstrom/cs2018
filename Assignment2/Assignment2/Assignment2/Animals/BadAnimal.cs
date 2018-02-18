@@ -13,10 +13,10 @@ namespace Assignment2
         {
         }
 
-        public override EaterType GetEaterType()
+
+        public override Animal Clone()
         {
             throw new NotImplementedException();
         }
-
     }
 }

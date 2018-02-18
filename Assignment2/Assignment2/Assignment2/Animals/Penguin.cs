@@ -36,9 +36,10 @@ namespace Assignment2
             return $"{base.ToString()} Swim speed is {SwimSpeed} knots,";
         }
 
-        public override EaterType GetEaterType()
+
+        public override Animal Clone()
         {
-            return EaterType.Carnivore;
+            throw new System.NotImplementedException();
         }
     }
 }

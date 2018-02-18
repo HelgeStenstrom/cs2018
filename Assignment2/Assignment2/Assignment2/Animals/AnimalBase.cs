@@ -19,6 +19,7 @@ namespace Assignment2
         public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
         protected FoodSchedule _foodSchedule;
+        protected EaterType eaterType;
         
         #endregion
 
@@ -69,12 +70,20 @@ namespace Assignment2
             Age = age;
         }
 
-        public Animal Clone()
+        protected AnimalBase(AnimalBase other)
         {
-            throw  new NotImplementedException();
+            this.Id = other.Id;
+            this.Name = other.Name;
+            this.Age = other.Age;
+            this.Gender = other.Gender;
         }
 
-        public abstract EaterType GetEaterType();
+        public abstract Animal Clone();
+
+        public EaterType GetEaterType()
+        {
+            return eaterType;
+        }
 
         public FoodSchedule GetFoodSchedule()
         {

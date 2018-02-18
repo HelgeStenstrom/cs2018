@@ -21,6 +21,11 @@ namespace Assignment2
             ToothCount = toothCount;
         }
 
+        public Mammal(Mammal other) : base(other)
+        {
+            this.ToothCount = other.ToothCount;
+        }
+
         /// <summary>
         /// Mammals have teeth, usually. This is how many they are.
         /// </summary>

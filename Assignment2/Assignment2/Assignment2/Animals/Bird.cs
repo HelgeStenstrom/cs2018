@@ -17,6 +17,11 @@ namespace Assignment2
         {
             WingSpan = wingSpan;
         }
+         
+        public Bird(Bird other) : base(other)
+        {
+            this.WingSpan = other.WingSpan;
+        }
 
         /// <summary>
         /// The wing span in cm, for this particular bird.

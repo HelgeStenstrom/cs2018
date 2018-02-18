@@ -22,6 +22,12 @@ namespace Assignment2
             FlightSpeed = flightSpeed;
         }
 
+        public Eagle(Eagle other) : base(other)
+        {
+            this.FlightSpeed = other.FlightSpeed;
+            this.eaterType = EaterType.Carnivore;
+        }
+
         /// <summary>
         /// Flightspeed is a property that is particular to birds. For dead birds, it's zero.
         /// </summary>
@@ -36,10 +42,10 @@ namespace Assignment2
             return $"{base.ToString()} Flight speed is {FlightSpeed} km/h";
         }
 
-        public override EaterType GetEaterType()
-        {
-            return EaterType.Carnivore;
-        }
 
+        public override Animal Clone()
+        {
+            return new Eagle(this);
+        }
     }
 }

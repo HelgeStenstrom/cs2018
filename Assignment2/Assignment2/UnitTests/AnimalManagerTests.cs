@@ -39,17 +39,6 @@ namespace UnitTests
             Assert.IsTrue(AnimalManager.TypeNames(AnimalManager.OfCategory(typeof(Bird))).Contains("Eagle"));
         }
 
-        [TestMethod]
-        [Ignore]
-        public void Sorting()
-        {
-            // Setup
-            var mgr = new AnimalManager();
-            mgr.AddAnimal("A", 1, Gender.Female, "1", "1", "Bear");
-
-            Assert.Fail("Test not done");
-        }
-
         [TestMethod] 
         //[Ignore]
         public void AddingAnimalObjects()
@@ -70,7 +59,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void sortByX()
+        public void SortByX()
         {
             // Setup
             var mgr = new AnimalManager();
@@ -86,7 +75,7 @@ namespace UnitTests
             mgr.AddAnimal(e1);
             
             // pre-check
-            Assert.AreEqual(bear1.Name, bear2.Name );
+            Assert.AreNotEqual(bear1.Name, bear2.Name );
             
             // Execute            
             // We should be able to sort on Id, gender, name, age, eatertype, species or in general all properties that every Animal has.

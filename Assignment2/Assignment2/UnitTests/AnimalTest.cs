@@ -29,10 +29,37 @@ namespace UnitTests
         public void CopyConstruct()
         {
             Eagle e1 = new Eagle("e1", Gender.Male, 0, 0, 0);
-            Animal e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
+            Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
 
 
-            Animal e3 = e1.Clone();
+            Animal e3 = new Eagle(e2);
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotEqual(e1.Id, e2.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+
+        [TestMethod]
+        public void Cloning()
+        {
+            Eagle e1 = new Eagle("e1", Gender.Male, 0, 0, 0);
+            Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
+
+
+            Animal e3 = e2.Clone();
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+        [TestMethod]
+        public void Eatertypes()
+        {
+            Assert.AreEqual(EaterType.Carnivore, new Eagle("", Gender.Female, 0, 0, 0).GetEaterType());
+            Assert.AreEqual(EaterType.Carnivore, new Penguin("", Gender.Female, 0, 0, 0).GetEaterType());
+            Assert.AreEqual(EaterType.Omnivore, new Bear("", Gender.Female, 0, 0, 0).GetEaterType());
+            Assert.AreEqual(EaterType.Herbivore, new Gnu("", Gender.Female, 0, 0, 0).GetEaterType());
         }
 
     }

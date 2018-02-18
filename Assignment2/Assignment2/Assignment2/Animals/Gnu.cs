@@ -16,11 +16,16 @@ namespace Assignment2
         /// <param name="gender"></param>
         /// <param name="age">in years.</param>
         /// <param name="toothCount"></param>
-        /// <param name="miceEaten"></param>
+        /// <param name="miceEaten"></param> // TODO: Gnuer äter inte möss, men vad gör de?
         public Gnu(string name, Gender gender, int age, int toothCount, int miceEaten) : base(name, gender, age, toothCount)
         {
             MiceEaten = miceEaten;
             eaterType = EaterType.Herbivore;
+        }
+
+        public Gnu(Gnu other) : base(other)
+        {
+            this.MiceEaten = other.MiceEaten;
         }
 
         /// <summary>
@@ -40,7 +45,7 @@ namespace Assignment2
 
         public override Animal Clone()
         {
-            throw new System.NotImplementedException();
+            return new Gnu(this);
         }
     }
 }

@@ -3,6 +3,7 @@
 // C# del II 2018
 
 using System.Collections.Generic;
+using System;
 
 namespace Assignment2
 {
@@ -24,6 +25,11 @@ namespace Assignment2
             _foodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
         }
 
+        public Bear(Bear other) : base(other)
+        {
+            this.BlueBerriesEaten = other.BlueBerriesEaten;
+        }
+
         /// <summary>
         /// Property, the number of blueberries this bear has eatin so far.
         /// </summary>
@@ -41,7 +47,7 @@ namespace Assignment2
 
         public override Animal Clone()
         {
-            throw new System.NotImplementedException();
+            return new Bear(this);
         }
     }
 }

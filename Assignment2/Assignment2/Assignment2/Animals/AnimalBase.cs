@@ -19,7 +19,7 @@ namespace Assignment2
         public string Id { get; } 
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
         protected FoodSchedule _foodSchedule;
-        protected EaterType eaterType;
+        protected EaterType eaterType; // TODO: Make this readonly or final, but set it in subclasses.
         
         #endregion
 
@@ -76,6 +76,7 @@ namespace Assignment2
             this.Name = other.Name;
             this.Age = other.Age;
             this.Gender = other.Gender;
+            this.eaterType = other.eaterType;
         }
 
         public abstract Animal Clone();

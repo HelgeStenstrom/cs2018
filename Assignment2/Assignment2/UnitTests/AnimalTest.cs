@@ -26,7 +26,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void CopyConstruct()
+        public void CopyEagle()
         {
             Eagle e1 = new Eagle("e1", Gender.Male, 0, 0, 0);
             Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
@@ -39,13 +39,84 @@ namespace UnitTests
             Assert.AreNotSame(e2, e3);
         }
 
+        [TestMethod]
+        public void CopyPenguin()
+        {
+            Penguin e2 = new Penguin("e2", Gender.Male, 0, 0, 0);
+
+            Animal e3 = new Penguin(e2);
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
 
         [TestMethod]
-        public void Cloning()
+        public void CopyBear()
+        {
+            Bear e2 = new Bear("e2", Gender.Male, 0, 0, 0);
+
+            Animal e3 = new Bear(e2);
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+
+        [TestMethod]
+        public void CopyGnu()
+        {
+            Gnu e2 = new Gnu("e2", Gender.Male, 0, 0, 0);
+
+            Animal e3 = new Gnu(e2);
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+
+        [TestMethod]
+        public void CloningEagle()
         {
             Eagle e1 = new Eagle("e1", Gender.Male, 0, 0, 0);
             Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
 
+
+            Animal e3 = e2.Clone();
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+
+        [TestMethod]
+        public void CloningPenguin()
+        {
+            Penguin e1 = new Penguin("e1", Gender.Male, 0, 0, 0);
+            Penguin e2 = new Penguin("e2", Gender.Male, 0, 0, 0);
+
+            Animal e3 = e2.Clone();
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+        [TestMethod]
+        public void CloningBear()
+        {
+            Bear e1 = new Bear("e1", Gender.Male, 0, 0, 0);
+            Bear e2 = new Bear("e2", Gender.Male, 0, 0, 0);
+
+            Animal e3 = e2.Clone();
+            Assert.AreEqual(e2.Name, e3.Name);
+            Assert.AreEqual(e2.Id, e3.Id);
+            Assert.AreNotSame(e2, e3);
+        }
+
+        [TestMethod]
+        public void CloningGnu()
+        {
+            Gnu e1 = new Gnu("e1", Gender.Male, 0, 0, 0);
+            Gnu e2 = new Gnu("e2", Gender.Male, 0, 0, 0);
 
             Animal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);

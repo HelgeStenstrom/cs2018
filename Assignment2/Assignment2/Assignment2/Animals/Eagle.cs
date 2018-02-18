@@ -20,12 +20,12 @@ namespace Assignment2
         public Eagle(string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(name, gender, age, wingSpan)
         {
             FlightSpeed = flightSpeed;
+            this.eaterType = EaterType.Carnivore;
         }
 
         public Eagle(Eagle other) : base(other)
         {
             this.FlightSpeed = other.FlightSpeed;
-            this.eaterType = EaterType.Carnivore;
         }
 
         /// <summary>

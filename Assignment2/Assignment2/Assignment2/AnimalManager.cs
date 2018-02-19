@@ -97,23 +97,26 @@ namespace Assignment2
             }
         }
 
+    
+        
         public void SortBy(string sortCriteria)
         {
             IComparer<Animal> c; // = new AnimalBase.SortByName();
             switch (sortCriteria)
             {
-                case "age":
+                case "Age":
                     c = new SortByAge();
                     break;
-                case "id":
+                case "ID":
                     c = new SortById();
                     break;
-                case "name":
+                case "Name":
                     c = new SortByName();
                     break;
+                case "no sort":
+                    return;
                 default:
                     throw new NotImplementedException();
-                    break;
             }
             _animals.Sort(c);
         }
@@ -157,6 +160,8 @@ namespace Assignment2
 
         #endregion
 
+        #region Sorter classes (helpers)
+
         private class SortById : IComparer<Animal>
         {
             public int Compare(Animal animal1, Animal animal2)
@@ -193,6 +198,7 @@ namespace Assignment2
                 return (a1.Age.CompareTo(a2.Age));
             }
         }
+        #endregion        
     }
     
 

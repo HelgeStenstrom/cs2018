@@ -34,7 +34,7 @@ namespace Assignment2
         }
 
         /// <summary>
-        /// Strings used to fill a row in a ListView.
+        /// Strings used to fill a row in a ListView. These must match the order set on the columns in MainForm.
         /// </summary>
         public string[] RowStrings => new[] 
         {

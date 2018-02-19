@@ -88,6 +88,21 @@ namespace Assignment2
             lvAnimals.Columns.Add("Special characteristics", 250, HorizontalAlignment.Center);
         }
 
+        private string SortName(int sortColumn)
+        {
+            switch (sortColumn)
+            {
+                    case 0: 
+                        return "ID";
+                    case 1: 
+                        return "Name";
+                    case 2: 
+                        return "Age";
+                    default:
+                        return "no sort";
+            }
+        }
+
         /// <summary>
         /// Set up the animal category chooser.
         /// </summary>
@@ -386,8 +401,8 @@ namespace Assignment2
 
         private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            var col = e.Column;
-            // TODO: sätt sorteringsgrund
+            _animalManager.SortBy(SortName(e.Column));
+            UpdateTable();
         }
 
         private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)

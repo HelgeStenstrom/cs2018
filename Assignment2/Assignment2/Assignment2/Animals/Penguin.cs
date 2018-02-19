@@ -2,6 +2,8 @@
 // ah7875
 // C# del II 2018
 
+using System.Collections.Generic;
+
 namespace Assignment2
 {
     /// <summary>
@@ -20,6 +22,7 @@ namespace Assignment2
         public Penguin(string name, Gender gender, int age, double wingSpan, double swimSpeed) : base(name, gender, age, wingSpan)
         {
             SwimSpeed = swimSpeed;
+            FoodSchedule = new FoodSchedule(new List<string>() { "Fisk till frukost", "fisk till lunch" });
         }
 
         public Penguin(Penguin other) : base(other)

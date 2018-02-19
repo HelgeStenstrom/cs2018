@@ -219,7 +219,7 @@ namespace Assignment2
                     break;
                 case "Gnu":
                     lblCatProperty.Text = @"Number of teeth";
-                    lblSpeciesProperty.Text = @"Mice eaten";
+                    lblSpeciesProperty.Text = @"Tons of grass eaten";
                     break;
                 case "Eagle":
                     lblCatProperty.Text = @"Wing span";
@@ -414,14 +414,15 @@ namespace Assignment2
                 var animal = _animalManager.GetAnimal(index);
                 txtEaterType.Text = animal.GetEaterType().ToString();
 
+                lbxFoodSchedule.Items.Clear();
                 var foods = animal.GetFoodSchedule();
                 // TODO: hitta sätt att iterera över foodschedule.
                 foreach (var food in foods)
                 {
-                     // TODO: Vad vill jag göra med maten?   
+                    // TODO: Vad vill jag göra med maten?   
+                    lbxFoodSchedule.Items.Add(food);
                 }
                 
-                txtFoodSchedule.Text = animal.GetEaterType().ToString();
             }
             // TODO: uppdatera saker med valt djur
         }

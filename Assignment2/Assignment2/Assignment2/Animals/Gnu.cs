@@ -2,6 +2,8 @@
 // ah7875
 // C# del II 2018
 
+using System.Collections.Generic;
+
 namespace Assignment2
 {
     /// <summary>
@@ -10,35 +12,36 @@ namespace Assignment2
     public class Gnu : Mammal
     {
         /// <summary>
-        /// Constructor. Cats eat mice, that's what they are good for. Otherwise, they are just normal Mammals.
+        /// Constructs a gnu.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="gender"></param>
         /// <param name="age">in years.</param>
         /// <param name="toothCount"></param>
-        /// <param name="miceEaten"></param> // TODO: Gnuer äter inte möss, men vad gör de?
-        public Gnu(string name, Gender gender, int age, int toothCount, int miceEaten) : base(name, gender, age, toothCount)
+        /// <param name="tonsEaten"> the amount of grass this gnu has eaten.</param> 
+        public Gnu(string name, Gender gender, int age, int toothCount, int tonsEaten) : base(name, gender, age, toothCount)
         {
-            MiceEaten = miceEaten;
+            TonsEaten = tonsEaten;
+            FoodSchedule = new FoodSchedule(new List<string>() { "Gräs till frukost", "Gräs till lunch" });
         }
 
         public Gnu(Gnu other) : base(other)
         {
-            this.MiceEaten = other.MiceEaten;
+            this.TonsEaten = other.TonsEaten;
         }
 
         /// <summary>
-        /// The number of mice this cat has eaten so far.
+        /// The amount of grass this gnu has eaten so far.
         /// </summary>
-        private int MiceEaten { get; }
+        private int TonsEaten { get; }
 
         /// <summary>
-        /// A string that represents this particular cat.
+        /// A string that represents this particular gnu.
         /// </summary>
         /// <returns></returns>        
         public override string ToString()
         {
-            return $"{base.ToString()} Has eaten {MiceEaten} mice.";
+            return $"{base.ToString()} Has eaten {TonsEaten} tons of grass.";
         }
 
         public override Animal Clone()

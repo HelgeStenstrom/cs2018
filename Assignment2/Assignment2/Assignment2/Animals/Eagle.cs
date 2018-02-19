@@ -2,6 +2,8 @@
 // ah7875
 // C# del II 2018
 
+using System.Collections.Generic;
+
 namespace Assignment2
 {
     /// <summary>
@@ -22,6 +24,7 @@ namespace Assignment2
         public Eagle(string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(name, gender, age, wingSpan)
         {
             FlightSpeed = flightSpeed;
+            FoodSchedule = new FoodSchedule(new List<string>() { "Sork till frukost", "Kattunge till lunch" });
         }
 
         public Eagle(Eagle other) : base(other)

@@ -76,7 +76,7 @@ namespace Assignment2
             this.Name = other.Name;
             this.Age = other.Age;
             this.Gender = other.Gender;
-            //this.EaterType = other.EaterType;
+            this.FoodSchedule = other.FoodSchedule;
         }
 
         public abstract Animal Clone();

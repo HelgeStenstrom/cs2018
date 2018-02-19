@@ -40,25 +40,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblBredd = new System.Windows.Forms.Label();
             this.lvAnimals = new System.Windows.Forms.ListView();
+            this.lblBredd = new System.Windows.Forms.Label();
             this.lbxCategory = new System.Windows.Forms.ListBox();
             this.lbxAnimalObject = new System.Windows.Forms.ListBox();
             this.gbxSpecification = new System.Windows.Forms.GroupBox();
-            this.lblCatProperty = new System.Windows.Forms.Label();
-            this.lblSpeciesProperty = new System.Windows.Forms.Label();
-            this.txtSpeciesProperty = new System.Windows.Forms.TextBox();
             this.txtCatProperty = new System.Windows.Forms.TextBox();
+            this.txtSpeciesProperty = new System.Windows.Forms.TextBox();
+            this.lblSpeciesProperty = new System.Windows.Forms.Label();
+            this.lblCatProperty = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtEaterType = new System.Windows.Forms.TextBox();
-            this.txtFoodSchedule = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lbxFoodSchedule = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -170,14 +170,6 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "List of registered animals";
             // 
-            // lblBredd
-            // 
-            this.lblBredd.Location = new System.Drawing.Point(392, 0);
-            this.lblBredd.Name = "lblBredd";
-            this.lblBredd.Size = new System.Drawing.Size(142, 29);
-            this.lblBredd.TabIndex = 16;
-            this.lblBredd.Text = "?";
-            // 
             // lvAnimals
             // 
             this.lvAnimals.FullRowSelect = true;
@@ -193,6 +185,14 @@
             this.lvAnimals.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvAnimals_ColumnClick);
             this.lvAnimals.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvAnimals_ColumnWidthChanging);
             this.lvAnimals.SelectedIndexChanged += new System.EventHandler(this.lvAnimals_SelectedIndexChanged);
+            // 
+            // lblBredd
+            // 
+            this.lblBredd.Location = new System.Drawing.Point(392, 0);
+            this.lblBredd.Name = "lblBredd";
+            this.lblBredd.Size = new System.Drawing.Size(142, 29);
+            this.lblBredd.TabIndex = 16;
+            this.lblBredd.Text = "?";
             // 
             // lbxCategory
             // 
@@ -226,14 +226,23 @@
             this.gbxSpecification.TabStop = false;
             this.gbxSpecification.Text = "Specifications";
             // 
-            // lblCatProperty
+            // txtCatProperty
             // 
-            this.lblCatProperty.AutoSize = true;
-            this.lblCatProperty.Location = new System.Drawing.Point(6, 28);
-            this.lblCatProperty.Name = "lblCatProperty";
-            this.lblCatProperty.Size = new System.Drawing.Size(63, 13);
-            this.lblCatProperty.TabIndex = 0;
-            this.lblCatProperty.Text = "No. of teeth";
+            this.txtCatProperty.Location = new System.Drawing.Point(84, 28);
+            this.txtCatProperty.Name = "txtCatProperty";
+            this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
+            this.txtCatProperty.TabIndex = 4;
+            this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
+            this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.txtCatProperty_Validating);
+            this.txtCatProperty.Validated += new System.EventHandler(this.txtCatProperty_Validated);
+            // 
+            // txtSpeciesProperty
+            // 
+            this.txtSpeciesProperty.Location = new System.Drawing.Point(84, 59);
+            this.txtSpeciesProperty.Name = "txtSpeciesProperty";
+            this.txtSpeciesProperty.Size = new System.Drawing.Size(68, 20);
+            this.txtSpeciesProperty.TabIndex = 3;
+            this.txtSpeciesProperty.TextChanged += new System.EventHandler(this.txtSpeciesProperty_TextChanged);
             // 
             // lblSpeciesProperty
             // 
@@ -244,23 +253,14 @@
             this.lblSpeciesProperty.TabIndex = 1;
             this.lblSpeciesProperty.Text = "Tail length";
             // 
-            // txtSpeciesProperty
+            // lblCatProperty
             // 
-            this.txtSpeciesProperty.Location = new System.Drawing.Point(84, 59);
-            this.txtSpeciesProperty.Name = "txtSpeciesProperty";
-            this.txtSpeciesProperty.Size = new System.Drawing.Size(68, 20);
-            this.txtSpeciesProperty.TabIndex = 3;
-            this.txtSpeciesProperty.TextChanged += new System.EventHandler(this.txtSpeciesProperty_TextChanged);
-            // 
-            // txtCatProperty
-            // 
-            this.txtCatProperty.Location = new System.Drawing.Point(84, 28);
-            this.txtCatProperty.Name = "txtCatProperty";
-            this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
-            this.txtCatProperty.TabIndex = 4;
-            this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
-            this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.txtCatProperty_Validating);
-            this.txtCatProperty.Validated += new System.EventHandler(this.txtCatProperty_Validated);
+            this.lblCatProperty.AutoSize = true;
+            this.lblCatProperty.Location = new System.Drawing.Point(6, 28);
+            this.lblCatProperty.Name = "lblCatProperty";
+            this.lblCatProperty.Size = new System.Drawing.Size(63, 13);
+            this.lblCatProperty.TabIndex = 0;
+            this.lblCatProperty.Text = "No. of teeth";
             // 
             // groupBox3
             // 
@@ -276,14 +276,19 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Specifications";
             // 
-            // label6
+            // textBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "No. of teeth";
+            this.textBox1.Location = new System.Drawing.Point(84, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(68, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(84, 59);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(68, 20);
+            this.textBox2.TabIndex = 3;
             // 
             // label5
             // 
@@ -294,19 +299,14 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "Tail length";
             // 
-            // textBox2
+            // label6
             // 
-            this.textBox2.Location = new System.Drawing.Point(84, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(84, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 4;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 28);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "No. of teeth";
             // 
             // groupBox1
             // 
@@ -331,7 +331,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtFoodSchedule);
+            this.groupBox5.Controls.Add(this.lbxFoodSchedule);
             this.groupBox5.Controls.Add(this.txtEaterType);
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Location = new System.Drawing.Point(563, 13);
@@ -340,6 +340,14 @@
             this.groupBox5.TabIndex = 12;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Feeding Schedule";
+            // 
+            // txtEaterType
+            // 
+            this.txtEaterType.BackColor = System.Drawing.SystemColors.Control;
+            this.txtEaterType.Location = new System.Drawing.Point(78, 16);
+            this.txtEaterType.Name = "txtEaterType";
+            this.txtEaterType.Size = new System.Drawing.Size(164, 20);
+            this.txtEaterType.TabIndex = 1;
             // 
             // label7
             // 
@@ -350,22 +358,14 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Eater type";
             // 
-            // txtEaterType
+            // lbxFoodSchedule
             // 
-            this.txtEaterType.BackColor = System.Drawing.SystemColors.Control;
-            this.txtEaterType.Location = new System.Drawing.Point(78, 16);
-            this.txtEaterType.Name = "txtEaterType";
-            this.txtEaterType.Size = new System.Drawing.Size(164, 20);
-            this.txtEaterType.TabIndex = 1;
-            // 
-            // txtFoodSchedule
-            // 
-            this.txtFoodSchedule.BackColor = System.Drawing.SystemColors.Control;
-            this.txtFoodSchedule.Location = new System.Drawing.Point(11, 53);
-            this.txtFoodSchedule.Multiline = true;
-            this.txtFoodSchedule.Name = "txtFoodSchedule";
-            this.txtFoodSchedule.Size = new System.Drawing.Size(260, 268);
-            this.txtFoodSchedule.TabIndex = 2;
+            this.lbxFoodSchedule.BackColor = System.Drawing.SystemColors.Control;
+            this.lbxFoodSchedule.FormattingEnabled = true;
+            this.lbxFoodSchedule.Location = new System.Drawing.Point(10, 45);
+            this.lbxFoodSchedule.Name = "lbxFoodSchedule";
+            this.lbxFoodSchedule.Size = new System.Drawing.Size(232, 277);
+            this.lbxFoodSchedule.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -423,7 +423,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEaterType;
-        private System.Windows.Forms.TextBox txtFoodSchedule;
+        private System.Windows.Forms.ListBox lbxFoodSchedule;
     }
 }
 

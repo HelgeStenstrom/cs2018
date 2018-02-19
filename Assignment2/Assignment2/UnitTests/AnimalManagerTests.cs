@@ -78,7 +78,7 @@ namespace UnitTests
             Assert.AreNotEqual(bear1.Name, bear2.Name );
 
             // Execute       
-            mgr.SortBy("name");
+            mgr.SortBy("Name");
             // We should be able to sort on Id, gender, name, age, eatertype, species or in general all properties that every Animal has.
 
             // Verify
@@ -87,13 +87,13 @@ namespace UnitTests
 
 
             // Execute again
-            mgr.SortBy("id");
+            mgr.SortBy("ID");
             // Verify
             Assert.AreEqual("Adam", mgr.GetAnimal(0).Name);
             Assert.AreEqual("David", mgr.GetAnimal(1).Name);
 
             // Execute again
-            mgr.SortBy("age");
+            mgr.SortBy("Age");
             // Verify
             Assert.AreEqual("Bertil", mgr.GetAnimal(0).Name);
             Assert.AreEqual("Caesar", mgr.GetAnimal(1).Name);

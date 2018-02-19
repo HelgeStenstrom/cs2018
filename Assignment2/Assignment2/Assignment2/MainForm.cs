@@ -199,7 +199,7 @@ namespace Assignment2
         private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             var newWidth = e.NewWidth;
-            lblBredd.Text = $"Width of the adjusted column:\n{newWidth}";
+            lblBredd.Text = $"Width of the adjusted column: {newWidth}";
         }
 
         /// <summary>
@@ -407,7 +407,22 @@ namespace Assignment2
 
         private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var rows = lvAnimals.SelectedIndices;
+            var indices = lvAnimals.SelectedIndices;
+            if (indices.Count == 1) // There will never be more than one row selected.
+            {
+                var index = indices[0];
+                var animal = _animalManager.GetAnimal(index);
+                txtEaterType.Text = animal.GetEaterType().ToString();
+
+                var foods = animal.GetFoodSchedule();
+                // TODO: hitta sätt att iterera över foodschedule.
+                foreach (var food in foods)
+                {
+                     // TODO: Vad vill jag göra med maten?   
+                }
+                
+                txtFoodSchedule.Text = animal.GetEaterType().ToString();
+            }
             // TODO: uppdatera saker med valt djur
         }
     }

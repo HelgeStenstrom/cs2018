@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Assignment2
 {
-    public class FoodSchedule
+    public class FoodSchedule : IEnumerable<string>
     {
         #region Fields and properties
         private List<string> _foodDescriptionList;
@@ -40,14 +41,27 @@ namespace Assignment2
 
         public string GetFoodSchedule(int index)
         {
-            throw new System.NotImplementedException();
+            return _foodDescriptionList[index];
+        }
+
+        public IEnumerator<string> GetEnumerator()
+        {
+            for (int i = 0; i < _foodDescriptionList.Count; i++)
+            {
+                yield return _foodDescriptionList[i];
+            }
         }
 
         public override string ToString()
         {
             return base.ToString();
         }
-        
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
         public bool ValidateIndex(int index)
         {
             return (0 <= index && index < Count);

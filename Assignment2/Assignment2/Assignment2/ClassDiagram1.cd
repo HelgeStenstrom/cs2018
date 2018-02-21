@@ -3,14 +3,15 @@
   <Class Name="Assignment2.FoodSchedule">
     <Position X="3.5" Y="0.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AABAAQAAAAAIAAAEAAAABAQAAAACAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AABAAQAAAAAIABAEAAAABAQAAAACAAAGAAAAAAAAAAA=</HashCode>
       <FileName>FoodSchedule.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Assignment2.AnimalBase" Collapsed="true">
     <Position X="3" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEACAAQEAAAAQBSAAGACBAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEACAAQEAAAAQACAAEAABAQAAAAAAAAAAAAAAAAEABA=</HashCode>
       <FileName>Animals\AnimalBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.19" />
@@ -25,14 +26,14 @@
   <Class Name="Assignment2.Eagle" Collapsed="true">
     <Position X="0.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>Animals\Eagle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Assignment2.Penguin" Collapsed="true">
     <Position X="2.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>Animals\Penguin.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -43,31 +44,31 @@
       <FileName>Animals\Mammal.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Assignment2.Cat" Collapsed="true">
-    <Position X="4.25" Y="7.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Animals\Cat.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Assignment2.Bear" Collapsed="true">
     <Position X="6" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAABAAAAABA=</HashCode>
       <FileName>Animals\Bear.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Assignment2.AnimalFactory">
+  <Class Name="Assignment2.AnimalHelper">
     <Position X="7.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEQACAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AnimalFactory.cs</FileName>
+      <FileName>AnimalHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Assignment2.Gnu" Collapsed="true">
+    <Position X="4.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABE=</HashCode>
+      <FileName>Animals\Gnu.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="Assignment2.Animal">
     <Position X="0.5" Y="3" Width="2" />
     <TypeIdentifier>
-      <HashCode>AEACAAQEAAAAAACAAAAABAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEACAAQEAAAAAACAAEAABAQAAAAAAAAAAAAAAAAAABA=</HashCode>
       <FileName>Animals\Animal.cs</FileName>
     </TypeIdentifier>
   </Interface>

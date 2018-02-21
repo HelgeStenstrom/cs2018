@@ -64,7 +64,6 @@
     <Compile Include="Animals\AnimalBase.cs" />
     <Compile Include="AnimalManager.cs" />
     <Compile Include="Animals\AnimalCategory.cs" />
-    <Compile Include="Animals\BadAnimal.cs" />
     <Compile Include="Animals\Bear.cs" />
     <Compile Include="Animals\Bird.cs" />
     <Compile Include="Animals\Birds.cs" />

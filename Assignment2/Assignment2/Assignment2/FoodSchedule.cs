@@ -2,73 +2,76 @@
 // ah7875
 // C# del II 2018
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Assignment2
 {
+    /// <summary>
+    /// Information about how an animal motel guest is to be fed every day.
+    /// </summary>
     public class FoodSchedule : IEnumerable<string>
     {
         #region Fields and properties
-        private List<string> _foodDescriptionList;
+        /// <summary>
+        /// The feeding schedule, divided into items in a list.
+        /// </summary>
+        private readonly List<string> _foodDescriptionList;
+
+        /// <summary>
+        /// The number of items in the feeding schedule list.
+        /// </summary>
         public int Count => _foodDescriptionList.Count;
         #endregion
 
-
-        public FoodSchedule()
-        {
-            _foodDescriptionList = new List<string>();
-        }
-
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="foodList">A list of food items</param>
         public FoodSchedule(List<string> foodList)
         {
             _foodDescriptionList = new List<string>(foodList);
         }
 
-        public bool AddFoodScheduleItem(string item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool ChangeFoodScheduleItem(string item, int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool DeleteFoodScheduleItem(int index)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        /// <summary>
+        /// Returns the food item at the given index.
+        /// </summary>
+        /// <param name="index">index of the requested food item</param>
+        /// <returns></returns>
         public string GetFoodSchedule(int index)
         {
             return _foodDescriptionList[index];
         }
 
+        /// <summary>
+        /// Provides iteration over the list that FoodSchedule is.
+        /// </summary>
+        /// <returns>an enumerator used in foreach loop </returns>
         public IEnumerator<string> GetEnumerator()
         {
-            for (int i = 0; i < _foodDescriptionList.Count; i++)
+            foreach (var item in _foodDescriptionList)
             {
-                yield return _foodDescriptionList[i];
+                yield return item;
             }
         }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
+        /// <summary>
+        /// Returns true if the index is a valid index for the food item list.
+        /// </summary>
+        /// <param name="index">to be tested</param>
+        /// <returns>True if the index is valid, false otherwise.</returns>
         public bool ValidateIndex(int index)
         {
             return (0 <= index && index < Count);
+        }
+
+        /// <summary>
+        /// May be used in conjunction with iteration over the FoodSchedule with foreach loops.
+        /// </summary>
+        /// <returns>an enumerator.</returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

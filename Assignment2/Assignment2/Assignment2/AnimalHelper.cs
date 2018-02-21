@@ -8,14 +8,31 @@ using System.Windows.Forms;
 
 namespace Assignment2
 {
+    /// <summary>
+    /// A place to do experiments for future improvements of this program. 
+    /// The intention is to try move as much as possible animal-specific stuff 
+    /// from MainForm to this class. 
+    /// Such as:
+    /// * Animal creatation
+    /// * Panels or GroupBoxes that are animal-specific
+    /// </summary>
     internal static class AnimalHelper
     {
-        private static void Fixstuff(Control c)
+        /// <summary>
+        /// Set a few properties of a control to standard values.
+        /// </summary>
+        /// <param name="control">the control to work on</param>
+        private static void Fixstuff(Control control)
         {
-            c.Location = new Point(0,0);
-            c.AutoSize = true;
+            control.Location = new Point(0,0); // Put the control at the local origin
+            control.AutoSize = true;           // Make the control require as much area as it needs.
         }
         
+        /// <summary>
+        /// Experimental panel for animal parameters.
+        /// </summary>
+        /// <param name="species">the species that the panel should support.</param>
+        /// <returns>a panel object for the given species</returns>
         public static Panel AnimalPanel(string species)
         {
             Panel panel = new Panel();
@@ -63,13 +80,23 @@ namespace Assignment2
             return panel;
         }
 
-        public static Animal MakeAnimal(string species)
-        {
-            throw new NotImplementedException();
-
-        }
-
-        public static Animal MakeAnimal(string name, int age, Gender gender, string categoryProperty, string speciesProperty, string species, string id)
+        /// <summary>
+        /// Return an animal of the wanted type, so that the MainForm or AnimalManager don't have to.
+        /// Most arguments are strings. They need to be pre-validated.
+        /// </summary>
+        /// <param name="name">the name of this individual animal</param>
+        /// <param name="age">the age of this individual animal</param>
+        /// <param name="gender">the gender of this animal</param>
+        /// <param name="categoryProperty">a property that is relevant for the category of this animal, such as for mammals or for birds.</param>
+        /// <param name="speciesProperty">a property that is relevant for the species that this animal belongs to.</param>
+        /// <param name="species">the species of the animal to be returned. Used to interpret the property arguments.</param>
+        /// <returns>an Animal of the requested kind.</returns>
+        public static Animal MakeAnimal(string name,
+            int age,
+            Gender gender,
+            string categoryProperty,
+            string speciesProperty,
+            string species)
         {
             int toothcount, numberEaten;
             double wingspan, speed;
@@ -107,16 +134,11 @@ namespace Assignment2
                     }
                     break;
                 default:
+                    // If execution arrives here, an unsupported species has been requested.
                     throw new NotImplementedException();
             }
 
-            // assert (animal != null);
             return animal;
-        }
-
-        public static bool ValidateInt(string s)
-        {
-            return false; // TODO: kopiera från validering i MainForm
         }
         
     }

@@ -9,6 +9,9 @@ using System.Windows.Forms;
 
 namespace Assignment2
 {
+    /// <summary>
+    /// The one and only window of this program.
+    /// </summary>
     public partial class MainForm : Form
     {
         #region Constructor
@@ -22,18 +25,17 @@ namespace Assignment2
             InitGui();
             InitObjectChoser(AnimalCategory.All);
 
-            var rb1 = new RadioButton();
-            rb1.Location = new System.Drawing.Point(0, 90);
-            panel1 = new Panel();
-            panel1.Controls.Add(rb1);
-            //animalpanel.
-            var animalPanel = AnimalHelper.AnimalPanel("Bear");
-            animalPanel.Location = new System.Drawing.Point(223, 145); // (257, 16);
+            //var rb1 = new RadioButton();
+            //rb1.Location = new System.Drawing.Point(0, 90);
+            //panel1 = new Panel();
+            //panel1.Controls.Add(rb1);
+            ////animalpanel.
+            //var animalPanel = AnimalHelper.AnimalPanel("Bear");
+            //animalPanel.Location = new System.Drawing.Point(223, 145); // (257, 16);
             
-            groupBox1.Controls.Add(animalPanel);
-            animalPanel.BringToFront();
+            //groupBox1.Controls.Add(animalPanel);
+            //animalPanel.BringToFront();
         }
-
         #endregion
 
         #region Fields
@@ -42,13 +44,9 @@ namespace Assignment2
         /// The list of animals.
         /// </summary>
         readonly AnimalManager _animalManager = new AnimalManager();
-
-        public Panel Animalpanel { get; } = null;
-
-        private Panel panel1;
-
         #endregion
 
+        
         #region Initalization
         
         /// <summary>
@@ -92,6 +90,11 @@ namespace Assignment2
             lvAnimals.Columns.Add("Special characteristics", 250, HorizontalAlignment.Center);
         }
 
+        /// <summary>
+        /// Convert a column number into a column name, used to define sorting of a column
+        /// </summary>
+        /// <param name="sortColumn">the number of the column to be sorted</param>
+        /// <returns></returns>
         private string SortName(int sortColumn)
         {
             switch (sortColumn)
@@ -185,9 +188,7 @@ namespace Assignment2
             var argumentsOk = ageOk;
             if (argumentsOk)
             {
-                _animalManager.AddAnimal(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species, "Id"));
-                
-               //_animalManager.AddAnimal(name, age, gender, categoryProperty, speciesProperty, species);
+                _animalManager.AddAnimal(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species));                
             }
                 
 
@@ -203,7 +204,7 @@ namespace Assignment2
         private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             var newWidth = e.NewWidth;
-            lblBredd.Text = $"Width of the adjusted column: {newWidth}";
+            lblBredd.Text = $@"Width of the adjusted column: {newWidth}";
         }
 
         /// <summary>
@@ -237,6 +238,44 @@ namespace Assignment2
             UpdateButton();
         }
 
+        /// <summary>
+        /// Called when a colum (header) is clicked. If the column is sortable, the table is sorted on this column.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+            _animalManager.SortBy(SortName(e.Column));
+            UpdateTable();
+        }
+
+        /// <summary>
+        /// Called when a row of the table is clicked. Used to fill in the food schedule.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var indices = lvAnimals.SelectedIndices;
+            if (indices.Count == 1) // There will never be more than one row selected.
+            {
+                var index = indices[0];
+                var animal = _animalManager.GetAnimal(index);
+                txtEaterType.Text = animal.GetEaterType().ToString();
+
+                lbxFoodSchedule.Items.Clear();
+                var foods = animal.GetFoodSchedule();
+                // TODO: hitta sätt att iterera över foodschedule.
+                foreach (var food in foods)
+                {
+                    // TODO: Vad vill jag göra med maten?   
+                    lbxFoodSchedule.Items.Add(food);
+                }
+
+            }
+            // TODO: uppdatera saker med valt djur
+        }
+
         #endregion
 
         /// <summary>
@@ -260,10 +299,8 @@ namespace Assignment2
         /// <returns></returns>
         private bool ValidateInputs()
         {
-            int dummyInt;
-            double dummyDbl;
             var hasName = !string.IsNullOrEmpty(txtName.Text);
-            var integerAge = int.TryParse(txtAge.Text, out dummyInt);
+            var integerAge = int.TryParse(txtAge.Text, out _);
             var catPropOk = false;
             var speciesPropOk = false;
 
@@ -271,13 +308,13 @@ namespace Assignment2
             {
                 case "Bear":
                 case "Gnu":
-                    catPropOk = int.TryParse(txtCatProperty.Text, out dummyInt);
-                    speciesPropOk = int.TryParse(txtSpeciesProperty.Text, out dummyInt);
+                    catPropOk = int.TryParse(txtCatProperty.Text, out _);
+                    speciesPropOk = int.TryParse(txtSpeciesProperty.Text, out _);
                     break;
                 case "Eagle":
                 case "Penguin":
-                    catPropOk = double.TryParse(txtCatProperty.Text, out dummyDbl);
-                    speciesPropOk = double.TryParse(txtSpeciesProperty.Text, out dummyDbl);
+                    catPropOk = double.TryParse(txtCatProperty.Text, out _);
+                    speciesPropOk = double.TryParse(txtSpeciesProperty.Text, out _);
                     break;
             }
 
@@ -344,11 +381,22 @@ namespace Assignment2
 
         #region Validators
 
+        /// <summary>
+        /// Called when the age field is to be validated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAge_Validating(object sender, CancelEventArgs e)
         {
             ValidateAge(txtAge, e, errorProvider1);
         }
 
+        /// <summary>
+        /// Validate age or another string as integer. 
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="e"></param>
+        /// <param name="ep"></param>
         private static void ValidateAge(TextBox textBox, CancelEventArgs e, ErrorProvider ep)
         {
             if ((int.TryParse(textBox.Text, out var number)) && (number >= 0)) return;
@@ -356,12 +404,22 @@ namespace Assignment2
             ep.SetError(textBox, "Det ska vara ett heltal >= 0");
         }
 
+        /// <summary>
+        /// Called when the cursor is to leave the input field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtAge_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(txtAge, "");
         }
 
+        /// <summary>
+        /// Validate 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCatProperty_Validating(object sender, CancelEventArgs e)
         {
             if ((int.TryParse(txtCatProperty.Text, out var age)) && (age >= 0)) return;
@@ -369,12 +427,22 @@ namespace Assignment2
             errorProvider1.SetError(txtCatProperty, "Det ska vara ett heltal >= 0");
         }
 
+        /// <summary>
+        /// Called when the cursor is to leave the input field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCatProperty_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(txtCatProperty, "");
         }
 
+        /// <summary>
+        /// Called when the gender field is to be validated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxGender_Validating(object sender, CancelEventArgs e)
         {
             if (lbxGender.SelectedIndex >= 0) return;
@@ -382,12 +450,22 @@ namespace Assignment2
             errorProvider1.SetError(lbxGender, "Du måste välja något");
         }
 
+        /// <summary>
+        /// Called when the cursor is to leave the input field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbxGender_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(lbxGender, "");
         }
 
+        /// <summary>
+        /// Called when the name field is to be validated.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtName_Validating(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtName.Text)) return;
@@ -395,6 +473,11 @@ namespace Assignment2
             errorProvider1.SetError(txtName, "Fyll i ett namn");
         }
 
+        /// <summary>
+        /// Called when the cursor is to leave the input field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtName_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
@@ -403,32 +486,5 @@ namespace Assignment2
 
         #endregion
 
-        private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-            _animalManager.SortBy(SortName(e.Column));
-            UpdateTable();
-        }
-
-        private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var indices = lvAnimals.SelectedIndices;
-            if (indices.Count == 1) // There will never be more than one row selected.
-            {
-                var index = indices[0];
-                var animal = _animalManager.GetAnimal(index);
-                txtEaterType.Text = animal.GetEaterType().ToString();
-
-                lbxFoodSchedule.Items.Clear();
-                var foods = animal.GetFoodSchedule();
-                // TODO: hitta sätt att iterera över foodschedule.
-                foreach (var food in foods)
-                {
-                    // TODO: Vad vill jag göra med maten?   
-                    lbxFoodSchedule.Items.Add(food);
-                }
-                
-            }
-            // TODO: uppdatera saker med valt djur
-        }
     }
 }

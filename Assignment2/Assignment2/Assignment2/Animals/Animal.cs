@@ -18,14 +18,55 @@ namespace Assignment2
     /// </summary>
     public interface Animal
     {
-        Gender Gender { get; set; }
-        string Id { get;  }
-        string Name { get; set; }
-        EaterType GetEaterType();
-        FoodSchedule GetFoodSchedule();
-        string GetSpecies();
-        string[] RowStrings { get; }
-        Animal Clone();
+        /// <summary>
+        /// The age of the animal
+        /// </summary>
         int Age { get; }
+
+        /// <summary>
+        /// The gender (or sex) of the animal is returned by this property.
+        /// </summary>
+        Gender Gender { get; set; }
+
+        /// <summary>
+        /// The unique identification of the animal
+        /// </summary>
+        string Id { get;  }
+
+        /// <summary>
+        /// The name of this individual animal (not to be confused with species)
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        /// An array of strings that can describe the animal in a table.
+        /// The number of strings and their contents must match the columns of the table.
+        /// </summary>
+        string[] RowStrings { get; }
+
+        /// <summary>
+        /// What the animal eats.
+        /// </summary>
+        /// <returns>the eater type of the animal</returns>
+        EaterType GetEaterType();
+
+        /// <summary>
+        /// How the animal is to be fed every day.
+        /// </summary>
+        /// <returns>The food schedule of the animal</returns>
+        FoodSchedule GetFoodSchedule();
+
+        /// <summary>
+        /// The species of the animal, which is the same as its class name.
+        /// </summary>
+        /// <returns>The species of the animal</returns>
+        string GetSpecies();
+
+
+        /// <summary>
+        /// Make a clone of this animal. The clone has the same ID number.
+        /// </summary>
+        /// <returns>A copy of the original animal, with the same ID number</returns>
+        Animal Clone();
     }
 }

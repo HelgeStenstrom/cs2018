@@ -46,12 +46,19 @@ namespace Assignment2
             return $"{base.ToString()} Flight speed is {FlightSpeed} km/h";
         }
 
-
+        /// <summary>
+        /// Clone this animal.
+        /// </summary>
+        /// <returns>a copy of this animal</returns>
         public override Animal Clone()
         {
             return new Eagle(this);
         }
 
+        /// <summary>
+        /// Return the eater type of this animal.
+        /// </summary>
+        /// <returns>the eater type of this animal</returns>
         public override EaterType GetEaterType()
         {
             return EaterType.Carnivore;

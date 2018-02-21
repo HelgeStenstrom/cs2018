@@ -24,6 +24,10 @@ namespace Assignment2
             FoodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
         }
 
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"> Bear to be copied.</param>
         public Bear(Bear other) : base(other)
         {
             this.BlueBerriesEaten = other.BlueBerriesEaten;
@@ -43,12 +47,19 @@ namespace Assignment2
             return $"{base.ToString()} Has eaten {BlueBerriesEaten} blueberries,";
         }
 
-
+        /// <summary>
+        /// Clone this animal. 
+        /// </summary>
+        /// <returns>a copy of this animal</returns>
         public override Animal Clone()
         {
             return new Bear(this);
         }
 
+        /// <summary>
+        /// Returns the eater type of this animal.
+        /// </summary>
+        /// <returns>the eater type of this animal</returns>
         public override EaterType GetEaterType()
         {
             return EaterType.Omnivore;

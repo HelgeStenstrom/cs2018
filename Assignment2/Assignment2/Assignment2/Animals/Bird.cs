@@ -4,6 +4,9 @@
 
 namespace Assignment2
 {
+    /// <summary>
+    /// An animal which is a bird. Base class for birds.
+    /// </summary>
     public abstract class Bird : AnimalBase
     {
         /// <summary>
@@ -17,7 +20,11 @@ namespace Assignment2
         {
             WingSpan = wingSpan;
         }
-         
+        
+        /// <summary>
+        /// Copy constructor. 
+        /// </summary>
+        /// <param name="other">a copy of this Bird</param>
         public Bird(Bird other) : base(other)
         {
             this.WingSpan = other.WingSpan;

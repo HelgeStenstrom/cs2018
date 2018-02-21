@@ -9,9 +9,8 @@ namespace Assignment2
     /// </summary>
     public enum Gender
     {
+        Unknown,
         Female,
-        Male,
-        Unknown
-       
+        Male
     }
 }

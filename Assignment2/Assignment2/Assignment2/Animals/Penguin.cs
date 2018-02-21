@@ -24,7 +24,11 @@ namespace Assignment2
             SwimSpeed = swimSpeed;
             FoodSchedule = new FoodSchedule(new List<string>() { "Fisk till frukost", "fisk till lunch" });
         }
-
+        
+        /// <summary>
+        /// Copy constructor.
+        /// </summary>
+        /// <param name="other">penguin to be copied</param>
         public Penguin(Penguin other) : base(other)
         {
             this.SwimSpeed = other.SwimSpeed;
@@ -44,12 +48,19 @@ namespace Assignment2
             return $"{base.ToString()} Swim speed is {SwimSpeed} knots,";
         }
 
-
+        /// <summary>
+        /// Clone this animal.
+        /// </summary>
+        /// <returns>a copy of this animal.</returns>
         public override Animal Clone()
         {
             return new Penguin(this);
         }
 
+        /// <summary>
+        /// Returns the eater type of this animal.
+        /// </summary>
+        /// <returns>the eater type of this animal</returns>
         public override EaterType GetEaterType()
         {
             return EaterType.Carnivore;

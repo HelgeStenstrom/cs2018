@@ -2,11 +2,6 @@
 // ah7875
 // C# del II 2018
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-
 namespace Assignment2
 {
     public abstract class AnimalBase : Animal
@@ -44,11 +39,11 @@ namespace Assignment2
         /// <param name="other"></param>
         protected AnimalBase(AnimalBase other)
         {
-            this.Id = other.Id;
-            this.Name = other.Name;
-            this.Age = other.Age;
-            this.Gender = other.Gender;
-            this.FoodSchedule = other.FoodSchedule;
+            Id = other.Id;
+            Name = other.Name;
+            Age = other.Age;
+            Gender = other.Gender;
+            FoodSchedule = other.FoodSchedule;
         }
         #endregion
         
@@ -75,23 +70,15 @@ namespace Assignment2
         protected FoodSchedule FoodSchedule;
 
         /// <summary>
-        /// The last assigned ID number can be used to make assumptions about what the next assigned number will be.
-        /// </summary>
-        private static int LastAssignedIdNumber
-        {
-            get => _lastAssignedIdNumber;
-        }
-
-        /// <summary>
         /// Strings used to fill a row in a ListView. These must match the order set on the columns in MainForm.
         /// </summary>
-        public string[] RowStrings => new[] 
+        public string[] RowStrings => new[]
         {
             Id,
             Name,
             Age.ToString(),
             Gender.ToString(),
-            GetSpecies(),       
+            GetSpecies(),
             ToString()
         };
 
@@ -113,12 +100,25 @@ namespace Assignment2
         /// <returns></returns>
         public abstract Animal Clone();
 
+        /// <summary>
+        /// Returns the eater type of the animal.
+        /// </summary>
+        /// <returns>the eater type of the animal</returns>
         public abstract EaterType GetEaterType();
 
+        /// <summary>
+        /// Returns the food schedule of the animal.
+        /// </summary>
+        /// <returns>the food schedule of the animal</returns>
         public FoodSchedule GetFoodSchedule()
         {
             return FoodSchedule;
         }
+
+        /// <summary>
+        /// Returns the species of the animal.
+        /// </summary>
+        /// <returns>the species of the animal</returns>
         public string GetSpecies()
         {
             return GetType().Name;

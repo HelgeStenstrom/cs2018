@@ -49,21 +49,15 @@
             this.txtSpeciesProperty = new System.Windows.Forms.TextBox();
             this.lblSpeciesProperty = new System.Windows.Forms.Label();
             this.lblCatProperty = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lbxFoodSchedule = new System.Windows.Forms.ListBox();
             this.txtEaterType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.lbxFoodSchedule = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.gbxSpecification.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -262,55 +256,8 @@
             this.lblCatProperty.TabIndex = 0;
             this.lblCatProperty.Text = "No. of teeth";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(215, 174);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(186, 98);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Specifications";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(84, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 20);
-            this.textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(84, 59);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(68, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 59);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Tail length";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "No. of teeth";
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.gbxSpecification);
             this.groupBox1.Controls.Add(this.lbxAnimalObject);
             this.groupBox1.Controls.Add(this.lbxCategory);
@@ -341,6 +288,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Feeding Schedule";
             // 
+            // lbxFoodSchedule
+            // 
+            this.lbxFoodSchedule.BackColor = System.Drawing.SystemColors.Control;
+            this.lbxFoodSchedule.FormattingEnabled = true;
+            this.lbxFoodSchedule.Location = new System.Drawing.Point(10, 45);
+            this.lbxFoodSchedule.Name = "lbxFoodSchedule";
+            this.lbxFoodSchedule.Size = new System.Drawing.Size(232, 277);
+            this.lbxFoodSchedule.TabIndex = 3;
+            // 
             // txtEaterType
             // 
             this.txtEaterType.BackColor = System.Drawing.SystemColors.Control;
@@ -358,15 +314,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Eater type";
             // 
-            // lbxFoodSchedule
-            // 
-            this.lbxFoodSchedule.BackColor = System.Drawing.SystemColors.Control;
-            this.lbxFoodSchedule.FormattingEnabled = true;
-            this.lbxFoodSchedule.Location = new System.Drawing.Point(10, 45);
-            this.lbxFoodSchedule.Name = "lbxFoodSchedule";
-            this.lbxFoodSchedule.Size = new System.Drawing.Size(232, 277);
-            this.lbxFoodSchedule.TabIndex = 3;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,8 +330,6 @@
             this.groupBox4.ResumeLayout(false);
             this.gbxSpecification.ResumeLayout(false);
             this.gbxSpecification.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -396,11 +341,6 @@
         #endregion
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gbxSpecification;
         private System.Windows.Forms.TextBox txtCatProperty;
         private System.Windows.Forms.TextBox txtSpeciesProperty;

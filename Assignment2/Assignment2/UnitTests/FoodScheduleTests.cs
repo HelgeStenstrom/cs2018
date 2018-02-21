@@ -7,15 +7,7 @@ namespace UnitTests
     [TestClass]
     public class FoodScheduleTests
     {
-        [TestMethod] 
-        public void Default_constructor()
-        {
-            // Setup
-            var foodSchedule = new FoodSchedule();
 
-            // Verify
-            Assert.AreEqual(0, foodSchedule.Count);
-        }
 
         [TestMethod]
         public void List_constructor()
@@ -50,9 +42,11 @@ namespace UnitTests
         public void Iterate_over_foods()
         {
             // Setup
-            List<string> foods = new List<string>();
-            foods.Add("one");
-            foods.Add("two");
+            List<string> foods = new List<string>
+            {
+                "one",
+                "two"
+            };
             var foodSchedule = new FoodSchedule(foods);
 
             List<string> cpy = new List<string>();

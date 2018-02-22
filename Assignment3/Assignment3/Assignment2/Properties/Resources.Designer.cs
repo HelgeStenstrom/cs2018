@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Assignment2.Properties {
+namespace Assignment3.Properties {
     using System;
     
     

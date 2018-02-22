@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace Assignment2
+namespace Assignment3
 {
     /// <summary>
     /// The Eagle is a Bird.

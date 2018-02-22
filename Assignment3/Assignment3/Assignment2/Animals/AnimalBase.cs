@@ -2,7 +2,7 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment2
+namespace Assignment3
 {
     public abstract class AnimalBase : Animal
     {

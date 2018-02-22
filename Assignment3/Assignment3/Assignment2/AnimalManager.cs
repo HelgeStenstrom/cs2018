@@ -12,7 +12,7 @@ namespace Assignment
     /// <summary>
     /// The AnimalManager is essentially a list of animals, with a few extra functions.
     /// </summary>
-    public class AnimalManager
+    public class AnimalManager : ListManager<IAnimal>
     {
         #region Fields
 

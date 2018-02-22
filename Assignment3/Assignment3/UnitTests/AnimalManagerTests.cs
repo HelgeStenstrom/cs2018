@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assignment3;
+using Assignment2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests

@@ -6,7 +6,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// A place to do experiments for future improvements of this program. 

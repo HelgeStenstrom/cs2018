@@ -2,7 +2,7 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// An animal which is a bird. Base class for birds.

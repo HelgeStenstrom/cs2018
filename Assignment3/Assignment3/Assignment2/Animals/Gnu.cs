@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// The Gnu is a Mammal.

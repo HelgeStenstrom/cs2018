@@ -5,7 +5,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// Information about how an animal motel guest is to be fed every day.

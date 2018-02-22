@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// The one and only window of this program.

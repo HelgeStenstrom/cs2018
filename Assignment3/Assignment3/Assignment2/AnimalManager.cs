@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// The AnimalManager is essentially a list of animals, with a few extra functions.

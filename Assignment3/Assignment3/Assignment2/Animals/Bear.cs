@@ -5,7 +5,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace Assignment3
+namespace Assignment2
 {
     public class Bear : Mammal
     {

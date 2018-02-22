@@ -1,5 +1,5 @@
 ﻿using System;
-using Assignment3;
+using Assignment2;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests

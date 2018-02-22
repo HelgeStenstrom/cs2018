@@ -2,7 +2,7 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment2
 {
     /// <summary>
     /// A Mammal is an Animal.

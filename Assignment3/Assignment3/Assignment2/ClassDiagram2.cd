@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Assignment.ListManager&lt;T&gt;">
+    <Position X="3" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CAIACAAAAAACAAAgAAAAAAQAAAIAAAAAQAAAQAAAAIA=</HashCode>
+      <FileName>ListManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Assignment.IListManager&lt;T&gt;">
+    <Position X="0.75" Y="1.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>CAIACAAAAAACAAAgAAAAAAQAAAIAAAAAAAAAQAAAAIA=</HashCode>
+      <FileName>IListManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

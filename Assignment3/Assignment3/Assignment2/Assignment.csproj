@@ -72,10 +72,11 @@
     <Compile Include="Animals\EaterType.cs" />
     <Compile Include="Animals\Gender.cs" />
     <Compile Include="Animals\IAnimal.cs" />
-    <Compile Include="Animals\IListManager.cs" />
+    <Compile Include="IListManager.cs" />
     <Compile Include="Animals\Mammals.cs" />
-    <Compile Include="Animals\Recipe.cs" />
-    <Compile Include="Animals\RecipeManager.cs" />
+    <Compile Include="ListManager.cs" />
+    <Compile Include="Recipe.cs" />
+    <Compile Include="RecipeManager.cs" />
     <Compile Include="FoodSchedule.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -101,6 +102,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

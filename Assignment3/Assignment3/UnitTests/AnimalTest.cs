@@ -1,5 +1,5 @@
 ﻿using System;
-using Assignment3;
+using Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -22,7 +22,7 @@ namespace UnitTests
         [TestMethod]
         public void GetSpecies()
         {
-            Animal bear = new Bear("b", Gender.Female, 42, 17, 0);
+            IAnimal bear = new Bear("b", Gender.Female, 42, 17, 0);
             Assert.AreEqual("Bear", bear.GetSpecies());
         }
 
@@ -33,7 +33,7 @@ namespace UnitTests
             Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
 
 
-            Animal e3 = new Eagle(e2);
+            IAnimal e3 = new Eagle(e2);
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotEqual(e1.Id, e2.Id);
@@ -45,7 +45,7 @@ namespace UnitTests
         {
             Penguin e2 = new Penguin("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = new Penguin(e2);
+            IAnimal e3 = new Penguin(e2);
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -56,7 +56,7 @@ namespace UnitTests
         {
             Bear e2 = new Bear("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = new Bear(e2);
+            IAnimal e3 = new Bear(e2);
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -68,7 +68,7 @@ namespace UnitTests
         {
             Gnu e2 = new Gnu("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = new Gnu(e2);
+            IAnimal e3 = new Gnu(e2);
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -80,7 +80,7 @@ namespace UnitTests
         {
             Eagle e2 = new Eagle("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = e2.Clone();
+            IAnimal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -92,7 +92,7 @@ namespace UnitTests
         {
             Penguin e2 = new Penguin("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = e2.Clone();
+            IAnimal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -103,7 +103,7 @@ namespace UnitTests
         {
             Bear e2 = new Bear("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = e2.Clone();
+            IAnimal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);
@@ -114,7 +114,7 @@ namespace UnitTests
         {
             Gnu e2 = new Gnu("e2", Gender.Male, 0, 0, 0);
 
-            Animal e3 = e2.Clone();
+            IAnimal e3 = e2.Clone();
             Assert.AreEqual(e2.Name, e3.Name);
             Assert.AreEqual(e2.Id, e3.Id);
             Assert.AreNotSame(e2, e3);

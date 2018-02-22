@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Assignment3;
+using Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests

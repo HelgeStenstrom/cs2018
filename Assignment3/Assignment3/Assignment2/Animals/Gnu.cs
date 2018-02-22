@@ -4,7 +4,7 @@
 
 using System.Collections.Generic;
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// The Gnu is a Mammal.
@@ -52,7 +52,7 @@ namespace Assignment3
         /// Clone this animal.
         /// </summary>
         /// <returns>a copy of this animal.</returns>
-        public override Animal Clone()
+        public override IAnimal Clone()
         {
             return new Gnu(this);
         }

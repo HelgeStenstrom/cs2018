@@ -2,71 +2,128 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment
 {
-    /// <summary>
-    /// Interface for all Animals.
-    /// About the name: following advice from Robert C. Martin in Clean Code:
-    /// These are sometimes a special case for encodings. For example, say you are building an ABSTRACT FACTORY
-    /// for the creation of shapes. This factory will be an interface and will be implemented by a concrete class.
-    /// What should you name them? IShapeFactory and ShapeFactory? I prefer to leave interfaces unadorned.
-    /// The preceding I, so common in today’s legacy wads, is a distraction at best and too much information
-    /// at worst. I don’t want my users knowing that I’m handing them an interface. I just want them to know that
-    /// it’s a ShapeFactory. So if I must encode either the interface or the implementation, I choose the
-    /// implementation. Calling it ShapeFactoryImp, or even the hideous CShapeFactory, is preferable to
-    /// encoding the interface.
-    /// </summary>
-    public interface Animal
+    public abstract class Animal : IAnimal
     {
-        /// <summary>
-        /// The age of the animal
-        /// </summary>
-        int Age { get; }
+        #region Fields
 
         /// <summary>
-        /// The gender (or sex) of the animal is returned by this property.
+        /// ID numbers are taken from this value value, which is update one each use.
         /// </summary>
-        Gender Gender { get; set; }
+        private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>
-        /// The unique identification of the animal
+        /// Constructor for an animal, called by subclasses.
+        /// The Animal class will itself maintain a unique ID string, 
+        /// in addition to the one given by the AnimalManager.
         /// </summary>
-        string Id { get;  }
+        /// <param name="name">The name of the animal, free format.</param>
+        /// <param name="gender">The gender of the animal</param>
+        /// <param name="age">The age of the animal, in whole years.</param>
+        protected Animal(string name, Gender gender, int age)
+        {
+            Id = $"ID{_lastAssignedIdNumber++}"; // Uniqueness is guaranteed by this line
+            Name = name;
+            Gender = gender;
+            Age = age;
+        }
 
         /// <summary>
-        /// The name of this individual animal (not to be confused with species)
+        /// Copy constructor
         /// </summary>
-        string Name { get; }
+        /// <param name="other"></param>
+        protected Animal(Animal other)
+        {
+            Id = other.Id;
+            Name = other.Name;
+            Age = other.Age;
+            Gender = other.Gender;
+            FoodSchedule = other.FoodSchedule;
+        }
+        #endregion
+        
+        #region Properties
 
         /// <summary>
-        /// An array of strings that can describe the animal in a table.
-        /// The number of strings and their contents must match the columns of the table.
+        /// The unique identification of the animal. Unique in this program, per run, at least.
         /// </summary>
-        string[] RowStrings { get; }
+        public string Id { get; }
 
         /// <summary>
-        /// What the animal eats.
+        /// The age of the animal.
         /// </summary>
-        /// <returns>the eater type of the animal</returns>
-        EaterType GetEaterType();
+        public int Age { get; }
 
         /// <summary>
-        /// How the animal is to be fed every day.
+        /// The gender (or sex) of the animal
         /// </summary>
-        /// <returns>The food schedule of the animal</returns>
-        FoodSchedule GetFoodSchedule();
+        public Gender Gender { get; set; }
 
         /// <summary>
-        /// The species of the animal, which is the same as its class name.
+        /// How this animal is to be fed each day
         /// </summary>
-        /// <returns>The species of the animal</returns>
-        string GetSpecies();
+        protected FoodSchedule FoodSchedule;
 
+        /// <summary>
+        /// Strings used to fill a row in a ListView. These must match the order set on the columns in MainForm.
+        /// </summary>
+        public string[] RowStrings => new[]
+        {
+            Id,
+            Name,
+            Age.ToString(),
+            Gender.ToString(),
+            GetSpecies(),
+            ToString()
+        };
 
+        /// <summary>
+        /// The name of the individual animal
+        /// </summary>
+        public string Name
+        {
+            get;
+            set;
+        }
+        #endregion
+
+        #region Methods
+        
         /// <summary>
         /// Make a clone of this animal. The clone has the same ID number.
         /// </summary>
-        /// <returns>A copy of the original animal, with the same ID number</returns>
-        Animal Clone();
+        /// <returns></returns>
+        public abstract IAnimal Clone();
+
+        /// <summary>
+        /// Returns the eater type of the animal.
+        /// </summary>
+        /// <returns>the eater type of the animal</returns>
+        public abstract EaterType GetEaterType();
+
+        /// <summary>
+        /// Returns the food schedule of the animal.
+        /// </summary>
+        /// <returns>the food schedule of the animal</returns>
+        public FoodSchedule GetFoodSchedule()
+        {
+            return FoodSchedule;
+        }
+
+        /// <summary>
+        /// Returns the species of the animal.
+        /// </summary>
+        /// <returns>the species of the animal</returns>
+        public string GetSpecies()
+        {
+            return GetType().Name;
+        } 
+
+        #endregion
     }
 }

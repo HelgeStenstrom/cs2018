@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// The AnimalManager is essentially a list of animals, with a few extra functions.
@@ -24,7 +24,7 @@ namespace Assignment3
         /// <summary>
         /// The list of animals that this class maintains.
         /// </summary>
-        private readonly List<Animal> _animals;
+        private readonly List<IAnimal> _animals;
 
         #endregion
 
@@ -34,7 +34,7 @@ namespace Assignment3
         /// </summary>
         public AnimalManager()
         {
-            _animals = new List<Animal>();
+            _animals = new List<IAnimal>();
         }
 
         #region Properties
@@ -76,7 +76,7 @@ namespace Assignment3
         /// Den nya varianten.
         /// </summary>
         /// <param name="animal"></param>
-        public void AddAnimal(Animal animal)
+        public void AddAnimal(IAnimal animal)
         {
             _animals.Add(animal);
         }
@@ -86,7 +86,7 @@ namespace Assignment3
         /// </summary>
         /// <param name="index">the animal at the given index in the list of animals</param>
         /// <returns></returns>
-        public Animal GetAnimal(int index)
+        public IAnimal GetAnimal(int index)
         {
             return _animals[index].Clone();
         }
@@ -97,7 +97,7 @@ namespace Assignment3
         /// <param name="sortCriterium"></param>
         public void SortBy(string sortCriterium)
         {
-            IComparer<Animal> c; // = new AnimalBase.SortByName();
+            IComparer<IAnimal> c; // = new Animal.SortByName();
             switch (sortCriterium)
             {
                 case "Age":
@@ -124,9 +124,9 @@ namespace Assignment3
         /// <summary>
         /// Compare animals by age.
         /// </summary>
-        private class CompareByAge : IComparer<Animal>
+        private class CompareByAge : IComparer<IAnimal>
         {
-            public int Compare(Animal animal1, Animal animal2)
+            public int Compare(IAnimal animal1, IAnimal animal2)
             {
                 var a1 = animal1;
                 var a2 = animal2;
@@ -139,9 +139,9 @@ namespace Assignment3
         /// <summary>
         /// Compare animals by ID
         /// </summary>
-        private class CompareById : IComparer<Animal>
+        private class CompareById : IComparer<IAnimal>
         {
-            public int Compare(Animal animal1, Animal animal2)
+            public int Compare(IAnimal animal1, IAnimal animal2)
             {
                 var a1 = animal1;
                 var a2 = animal2;
@@ -154,9 +154,9 @@ namespace Assignment3
         /// <summary>
         /// Compare animals by name.
         /// </summary>
-        private class CompareByName : IComparer<Animal>
+        private class CompareByName : IComparer<IAnimal>
         {
-            public int Compare(Animal animal1, Animal animal2)
+            public int Compare(IAnimal animal1, IAnimal animal2)
             {
                 var a1 = animal1;
                 var a2 = animal2;

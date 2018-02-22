@@ -5,8 +5,9 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Assignment;
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// A place to do experiments for future improvements of this program. 
@@ -91,7 +92,7 @@ namespace Assignment3
         /// <param name="speciesProperty">a property that is relevant for the species that this animal belongs to.</param>
         /// <param name="species">the species of the animal to be returned. Used to interpret the property arguments.</param>
         /// <returns>an Animal of the requested kind.</returns>
-        public static Animal MakeAnimal(string name,
+        public static IAnimal MakeAnimal(string name,
             int age,
             Gender gender,
             string categoryProperty,
@@ -100,7 +101,7 @@ namespace Assignment3
         {
             int toothcount, numberEaten;
             double wingspan, speed;
-            Animal animal = null; 
+            IAnimal animal = null; 
            
 
             switch (species)

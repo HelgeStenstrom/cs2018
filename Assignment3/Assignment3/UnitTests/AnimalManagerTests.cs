@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assignment3;
+using Assignment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -44,7 +44,7 @@ namespace UnitTests
         public void AddingAnimalObjects()
         {
             // Setup
-            Animal p = new Penguin("Tux", Gender.Male, 0, 0, 0);
+            IAnimal p = new Penguin("Tux", Gender.Male, 0, 0, 0);
             var p2 = new Penguin("Tux", Gender.Male, 0, 0, 0);
             var mgr = new AnimalManager();
             
@@ -64,10 +64,10 @@ namespace UnitTests
             // Setup
             var mgr = new AnimalManager();
 
-            Animal bear1 = new Bear("Adam", Gender.Male, 5, 32, 147);
+            IAnimal bear1 = new Bear("Adam", Gender.Male, 5, 32, 147);
             var bear2 = new Bear("David", Gender.Male, 4, 32, 147);
             var p1 = new Penguin("Caesar", Gender.Male, 3, 32, 147);
-            Animal e1 = new Eagle("Bertil", Gender.Female, 2, 11, 100);
+            IAnimal e1 = new Eagle("Bertil", Gender.Female, 2, 11, 100);
 
             mgr.AddAnimal(bear1);
             mgr.AddAnimal(bear2);

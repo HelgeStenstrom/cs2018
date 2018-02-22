@@ -3,9 +3,8 @@
 // C# del II 2018
 
 using System.Collections.Generic;
-using System;
 
-namespace Assignment3
+namespace Assignment
 {
     public class Bear : Mammal
     {
@@ -51,7 +50,7 @@ namespace Assignment3
         /// Clone this animal. 
         /// </summary>
         /// <returns>a copy of this animal</returns>
-        public override Animal Clone()
+        public override IAnimal Clone()
         {
             return new Bear(this);
         }

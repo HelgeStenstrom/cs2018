@@ -2,7 +2,7 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// A list of all genders that this program recognizes. Some people recognize more genders than this.

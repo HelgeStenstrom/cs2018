@@ -2,12 +2,12 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// An animal which is a bird. Base class for birds.
     /// </summary>
-    public abstract class Bird : AnimalBase
+    public abstract class Bird : Animal
     {
         /// <summary>
         /// Constructor

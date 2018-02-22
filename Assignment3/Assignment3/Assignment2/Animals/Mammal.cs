@@ -2,12 +2,12 @@
 // ah7875
 // C# del II 2018
 
-namespace Assignment3
+namespace Assignment
 {
     /// <summary>
     /// A Mammal is an Animal.
     /// </summary>
-    public abstract class Mammal : AnimalBase
+    public abstract class Mammal : Animal
     {
         /// <summary>
         /// Constructor, called by subclass constructors. Mammals have teeth.

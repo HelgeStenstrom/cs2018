@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using Assignment;
+using System.Diagnostics;
 
 namespace Assignment
 {
@@ -246,7 +247,20 @@ namespace Assignment
         /// <param name="e"></param>
         private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
         {
-            _animalManager.SortBy(SortName(e.Column));
+            switch(lvAnimals.Columns[e.Column].Text)
+            {
+                case "ID":
+                    _animalManager.Sort(new CompareById());
+                    break;
+                case "Name":
+                    _animalManager.Sort(new CompareByName());
+                    break;
+                case "Age":
+                    _animalManager.Sort(new CompareByAge());
+                    break;
+                default: break;
+            }
+            // _animalManager.SortBy(SortName(e.Column));
             UpdateTable();
         }
 
@@ -486,6 +500,55 @@ namespace Assignment
         }
 
         #endregion
+
+        #region Sorter classes (helpers)
+
+        /// <summary>
+        /// Compare animals by age.
+        /// </summary>
+        private class CompareByAge : IComparer<IAnimal>
+        {
+            public int Compare(IAnimal animal1, IAnimal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (a1.Age.CompareTo(a2.Age));
+            }
+        }
+
+        /// <summary>
+        /// Compare animals by ID
+        /// </summary>
+        private class CompareById : IComparer<IAnimal>
+        {
+            public int Compare(IAnimal animal1, IAnimal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (string.CompareOrdinal(a1.Id, a2.Id));
+            }
+        }
+
+        /// <summary>
+        /// Compare animals by name.
+        /// </summary>
+        private class CompareByName : IComparer<IAnimal>
+        {
+            public int Compare(IAnimal animal1, IAnimal animal2)
+            {
+                var a1 = animal1;
+                var a2 = animal2;
+                Debug.Assert(a1 != null, nameof(a1) + " != null");
+                Debug.Assert(a2 != null, nameof(a2) + " != null");
+                return (string.CompareOrdinal(a1.Name, a2.Name));
+            }
+        }
+
+        #endregion        
 
     }
 }

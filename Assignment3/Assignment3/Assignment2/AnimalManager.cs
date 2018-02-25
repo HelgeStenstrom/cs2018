@@ -17,11 +17,6 @@ namespace Assignment
         #region Fields
 
         /// <summary>
-        /// The number in turn to make a unique ID from.
-        /// </summary>
-        private static int _lastAssignedNumber = 1000;
-
-        /// <summary>
         /// The list of animals that this class maintains.
         /// </summary>
         private readonly List<IAnimal> _animals;
@@ -43,7 +38,21 @@ namespace Assignment
         /// Data to fill a ListView, one animal per item in the list.
         /// </summary>
         public IEnumerable<string[]> AnimalssAsRows => _animals.Select(animal => animal.RowStrings).ToList();
+        
+        public IEnumerable<string[]> AnimalssAsRows2
+        {
+            get
+            {
+                List<string[]> l = new List<string[]>();
+                for (var i = 0; i < Count; i++)
+                {
+                    l.Add(GetAt(i).RowStrings);
+                }
+                return l;
+            }
+        }
 
+        
         #endregion
 
         #region Methods
@@ -79,6 +88,7 @@ namespace Assignment
         public void AddAnimal(IAnimal animal)
         {
             _animals.Add(animal);
+            Add(animal);
         }
 
         /// <summary>
@@ -88,34 +98,16 @@ namespace Assignment
         /// <returns></returns>
         public IAnimal GetAnimal(int index)
         {
+            //return GetAt(index).Clone();
             return _animals[index].Clone();
+            
         }
 
-        /// <summary>
-        /// Sort the animals according to the given criterium.
-        /// </summary>
-        /// <param name="sortCriterium"></param>
-        public void SortBy(string sortCriterium)
+        public void Sort(IComparer<IAnimal> comparer)
         {
-            IComparer<IAnimal> c; // = new Animal.SortByName();
-            switch (sortCriterium)
-            {
-                case "Age":
-                    c = new CompareByAge();
-                    break;
-                case "ID":
-                    c = new CompareById();
-                    break;
-                case "Name":
-                    c = new CompareByName();
-                    break;
-                case "no sort":
-                    return;
-                default:
-                    throw new NotImplementedException();
-            }
-            _animals.Sort(c);
+            _animals.Sort(comparer);
         }
+
 
         #endregion
 

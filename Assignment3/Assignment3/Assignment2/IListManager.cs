@@ -6,7 +6,7 @@ namespace Assignment
     /// Interface for implementation by manager classes hosting a collection.
     /// </summary>
     /// <typeparam name="T">object type</typeparam>
-    public interface IListManager<T>
+    public partial interface IListManager<T>
     {
         /// <summary>
         /// Returns the number of items in the collection
@@ -65,5 +65,13 @@ namespace Assignment
         /// </summary>
         /// <returns>a list of representative strings of all items in the collection</returns>
         List<string> ToStringList();
+    }
+}
+
+namespace Assignment
+{
+    public partial interface IListManager<T>
+    {
+        void Sort(IComparer<T> comparer);
     }
 }

@@ -87,7 +87,7 @@ namespace Assignment
         /// <param name="animal"></param>
         public void AddAnimal(IAnimal animal)
         {
-            _animals.Add(animal);
+            //_animals.Add(animal);
             Add(animal);
         }
 
@@ -98,67 +98,19 @@ namespace Assignment
         /// <returns></returns>
         public IAnimal GetAnimal(int index)
         {
-            //return GetAt(index).Clone();
-            return _animals[index].Clone();
-            
+            return GetAt(index).Clone();
+            //return _animals[index].Clone();
         }
 
         public void Sort(IComparer<IAnimal> comparer)
+        // TODO: Ta bort denna, och se till att ListManagers motsvarande används. Men då måste dess _list användas.
         {
-            _animals.Sort(comparer);
+            //_animals.Sort(comparer);
+            base.Sort(comparer);
         }
 
 
         #endregion
-
-        #region Sorter classes (helpers)
-
-        /// <summary>
-        /// Compare animals by age.
-        /// </summary>
-        private class CompareByAge : IComparer<IAnimal>
-        {
-            public int Compare(IAnimal animal1, IAnimal animal2)
-            {
-                var a1 = animal1;
-                var a2 = animal2;
-                Debug.Assert(a1 != null, nameof(a1) + " != null");
-                Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (a1.Age.CompareTo(a2.Age));
-            }
-        }
-
-        /// <summary>
-        /// Compare animals by ID
-        /// </summary>
-        private class CompareById : IComparer<IAnimal>
-        {
-            public int Compare(IAnimal animal1, IAnimal animal2)
-            {
-                var a1 = animal1;
-                var a2 = animal2;
-                Debug.Assert(a1 != null, nameof(a1) + " != null");
-                Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (string.CompareOrdinal(a1.Id, a2.Id));
-            }
-        }
-
-        /// <summary>
-        /// Compare animals by name.
-        /// </summary>
-        private class CompareByName : IComparer<IAnimal>
-        {
-            public int Compare(IAnimal animal1, IAnimal animal2)
-            {
-                var a1 = animal1;
-                var a2 = animal2;
-                Debug.Assert(a1 != null, nameof(a1) + " != null");
-                Debug.Assert(a2 != null, nameof(a2) + " != null");
-                return (string.CompareOrdinal(a1.Name, a2.Name));
-            }
-        }
-
-        #endregion        
     }
     
 

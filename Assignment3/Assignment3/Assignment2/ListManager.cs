@@ -62,6 +62,11 @@ namespace Assignment
             return _list[index];
         }
 
+        public void Sort(IComparer<T> comparer)
+        {
+            _list.Sort(comparer);
+        }
+        
         public string[] ToStringArray()
         {
             return ToStringList().ToArray();

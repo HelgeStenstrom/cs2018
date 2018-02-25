@@ -280,15 +280,12 @@ namespace Assignment
 
                 lbxFoodSchedule.Items.Clear();
                 var foods = animal.GetFoodSchedule();
-                // TODO: hitta sätt att iterera över foodschedule.
                 foreach (var food in foods)
-                {
-                    // TODO: Vad vill jag göra med maten?   
+                { 
                     lbxFoodSchedule.Items.Add(food);
                 }
 
             }
-            // TODO: uppdatera saker med valt djur
         }
 
         #endregion
@@ -299,7 +296,7 @@ namespace Assignment
         private void UpdateTable()
         {
             lvAnimals.Items.Clear();
-            foreach (var customer in _animalManager.AnimalssAsRows)
+            foreach (var customer in _animalManager.AnimalssAsRows2)
             {
                 // Create a row of the data
                 var row = new ListViewItem(customer);

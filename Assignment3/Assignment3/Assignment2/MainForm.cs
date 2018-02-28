@@ -190,7 +190,7 @@ namespace Assignment
             var argumentsOk = ageOk;
             if (argumentsOk)
             {
-                _animalManager.AddAnimal(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species));                
+                _animalManager.Add(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species));                
             }
                 
 
@@ -275,7 +275,7 @@ namespace Assignment
             if (indices.Count == 1) // There will never be more than one row selected.
             {
                 var index = indices[0];
-                var animal = _animalManager.GetAnimal(index);
+                var animal = _animalManager.GetAt(index);
                 txtEaterType.Text = animal.GetEaterType().ToString();
 
                 lbxFoodSchedule.Items.Clear();
@@ -296,7 +296,7 @@ namespace Assignment
         private void UpdateTable()
         {
             lvAnimals.Items.Clear();
-            foreach (var customer in _animalManager.AnimalssAsRows2)
+            foreach (var customer in _animalManager.AnimalssAsRows)
             {
                 // Create a row of the data
                 var row = new ListViewItem(customer);

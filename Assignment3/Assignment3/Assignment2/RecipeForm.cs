@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment2
+namespace Assignment
 {
     public partial class RecipeForm : Form
     {

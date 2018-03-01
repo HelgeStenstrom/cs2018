@@ -575,6 +575,8 @@ namespace Assignment
 
         private void btnAddFood_Click(object sender, EventArgs e)
         {
+            RecipeForm recipeForm = new RecipeForm();
+            DialogResult dialogResult = recipeForm.ShowDialog();
 
         }
 

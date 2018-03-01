@@ -1,4 +1,4 @@
-﻿namespace Assignment2
+﻿namespace Assignment
 {
     partial class RecipeForm
     {

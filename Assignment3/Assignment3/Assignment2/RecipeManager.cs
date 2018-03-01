@@ -1,7 +1,9 @@
 ﻿namespace Assignment
 {
-    public class RecipeManager
+    public class RecipeManager : ListManager<Recipe> 
     {
-        
+        public RecipeManager()
+        {
+        }
     }
 }

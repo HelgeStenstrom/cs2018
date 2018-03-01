@@ -27,16 +27,6 @@ namespace Assignment
             InitGui();
             InitObjectChoser(AnimalCategory.All);
 
-            //var rb1 = new RadioButton();
-            //rb1.Location = new System.Drawing.Point(0, 90);
-            //panel1 = new Panel();
-            //panel1.Controls.Add(rb1);
-            ////animalpanel.
-            //var animalPanel = AnimalHelper.AnimalPanel("Bear");
-            //animalPanel.Location = new System.Drawing.Point(223, 145); // (257, 16);
-            
-            //groupBox1.Controls.Add(animalPanel);
-            //animalPanel.BringToFront();
         }
         #endregion
 
@@ -45,7 +35,12 @@ namespace Assignment
         /// <summary>
         /// The list of animals.
         /// </summary>
-        readonly AnimalManager _animalManager = new AnimalManager();
+        private readonly AnimalManager _animalManager = new AnimalManager();
+
+        /// <summary>
+        /// Collection of recipes.
+        /// </summary>
+        private readonly RecipeManager _recipeManager = new RecipeManager();
         #endregion
 
         
@@ -142,6 +137,7 @@ namespace Assignment
             InitCategoryBox();
             InitAnimalList();
             btnAdd.Enabled = ValidateInputs();
+            ControlButtons();
         }
 
         #endregion
@@ -272,7 +268,7 @@ namespace Assignment
         private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
         {
             var indices = lvAnimals.SelectedIndices;
-            if (indices.Count == 1) // There will never be more than one row selected.
+            if (ControlButtons()) // There will never be more than one row selected.
             {
                 var index = indices[0];
                 var animal = _animalManager.GetAt(index);
@@ -284,8 +280,8 @@ namespace Assignment
                 { 
                     lbxFoodSchedule.Items.Add(food);
                 }
-
             }
+            
         }
 
         #endregion
@@ -545,7 +541,47 @@ namespace Assignment
             }
         }
 
-        #endregion        
+        #endregion
 
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var index = lvAnimals.SelectedIndices[0];
+            _animalManager.DeleteAt(index);
+            UpdateTable();
+            ControlButtons();
+        }
+
+        private bool ControlButtons()
+        {
+            bool enabled = (1 == lvAnimals.SelectedIndices.Count);
+            
+            if (enabled)
+            {
+                btnDelete.Enabled = true;
+                btnChange.Enabled = true;
+            }
+            else
+            {
+                btnDelete.Enabled = false;
+                btnChange.Enabled = false;
+            }
+
+            return enabled;
+        }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddStaff_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

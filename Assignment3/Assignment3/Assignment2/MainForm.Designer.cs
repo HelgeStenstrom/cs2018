@@ -54,6 +54,10 @@
             this.lbxFoodSchedule = new System.Windows.Forms.ListBox();
             this.txtEaterType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnChange = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnAddFood = new System.Windows.Forms.Button();
+            this.btnAddStaff = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -145,7 +149,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(392, 294);
+            this.btnAdd.Location = new System.Drawing.Point(352, 133);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(120, 23);
             this.btnAdd.TabIndex = 9;
@@ -155,11 +159,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btnDelete);
+            this.groupBox4.Controls.Add(this.btnChange);
             this.groupBox4.Controls.Add(this.lvAnimals);
             this.groupBox4.Controls.Add(this.lblBredd);
             this.groupBox4.Location = new System.Drawing.Point(12, 357);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(683, 168);
+            this.groupBox4.Size = new System.Drawing.Size(793, 168);
             this.groupBox4.TabIndex = 11;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "List of registered animals";
@@ -168,7 +174,7 @@
             // 
             this.lvAnimals.FullRowSelect = true;
             this.lvAnimals.GridLines = true;
-            this.lvAnimals.Location = new System.Drawing.Point(12, 32);
+            this.lvAnimals.Location = new System.Drawing.Point(122, 32);
             this.lvAnimals.MultiSelect = false;
             this.lvAnimals.Name = "lvAnimals";
             this.lvAnimals.Size = new System.Drawing.Size(665, 130);
@@ -191,7 +197,7 @@
             // lbxCategory
             // 
             this.lbxCategory.FormattingEnabled = true;
-            this.lbxCategory.Location = new System.Drawing.Point(241, 32);
+            this.lbxCategory.Location = new System.Drawing.Point(215, 32);
             this.lbxCategory.Name = "lbxCategory";
             this.lbxCategory.Size = new System.Drawing.Size(121, 95);
             this.lbxCategory.TabIndex = 14;
@@ -200,9 +206,9 @@
             // lbxAnimalObject
             // 
             this.lbxAnimalObject.FormattingEnabled = true;
-            this.lbxAnimalObject.Location = new System.Drawing.Point(378, 32);
+            this.lbxAnimalObject.Location = new System.Drawing.Point(352, 32);
             this.lbxAnimalObject.Name = "lbxAnimalObject";
-            this.lbxAnimalObject.Size = new System.Drawing.Size(142, 225);
+            this.lbxAnimalObject.Size = new System.Drawing.Size(142, 95);
             this.lbxAnimalObject.TabIndex = 15;
             this.lbxAnimalObject.SelectedIndexChanged += new System.EventHandler(this.lbxAnimalObject_SelectedIndexChanged);
             // 
@@ -258,6 +264,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddStaff);
             this.groupBox1.Controls.Add(this.gbxSpecification);
             this.groupBox1.Controls.Add(this.lbxAnimalObject);
             this.groupBox1.Controls.Add(this.lbxCategory);
@@ -278,6 +285,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnAddFood);
             this.groupBox5.Controls.Add(this.lbxFoodSchedule);
             this.groupBox5.Controls.Add(this.txtEaterType);
             this.groupBox5.Controls.Add(this.label7);
@@ -290,11 +298,10 @@
             // 
             // lbxFoodSchedule
             // 
-            this.lbxFoodSchedule.BackColor = System.Drawing.SystemColors.Control;
             this.lbxFoodSchedule.FormattingEnabled = true;
             this.lbxFoodSchedule.Location = new System.Drawing.Point(10, 45);
             this.lbxFoodSchedule.Name = "lbxFoodSchedule";
-            this.lbxFoodSchedule.Size = new System.Drawing.Size(232, 277);
+            this.lbxFoodSchedule.Size = new System.Drawing.Size(232, 186);
             this.lbxFoodSchedule.TabIndex = 3;
             // 
             // txtEaterType
@@ -313,6 +320,47 @@
             this.label7.Size = new System.Drawing.Size(55, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Eater type";
+            // 
+            // btnChange
+            // 
+            this.btnChange.Enabled = false;
+            this.btnChange.Location = new System.Drawing.Point(11, 42);
+            this.btnChange.Name = "btnChange";
+            this.btnChange.Size = new System.Drawing.Size(75, 23);
+            this.btnChange.TabIndex = 17;
+            this.btnChange.Text = "Change";
+            this.btnChange.UseVisualStyleBackColor = true;
+            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(11, 88);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 18;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnAddFood
+            // 
+            this.btnAddFood.Location = new System.Drawing.Point(10, 241);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFood.TabIndex = 4;
+            this.btnAddFood.Text = "Add Food";
+            this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
+            // 
+            // btnAddStaff
+            // 
+            this.btnAddStaff.Location = new System.Drawing.Point(368, 272);
+            this.btnAddStaff.Name = "btnAddStaff";
+            this.btnAddStaff.Size = new System.Drawing.Size(75, 23);
+            this.btnAddStaff.TabIndex = 16;
+            this.btnAddStaff.Text = "Add Staff";
+            this.btnAddStaff.UseVisualStyleBackColor = true;
+            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
             // 
             // MainForm
             // 
@@ -364,6 +412,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEaterType;
         private System.Windows.Forms.ListBox lbxFoodSchedule;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnChange;
+        private System.Windows.Forms.Button btnAddFood;
+        private System.Windows.Forms.Button btnAddStaff;
     }
 }
 

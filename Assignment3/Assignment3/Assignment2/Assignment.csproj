@@ -76,6 +76,12 @@
     <Compile Include="Animals\Mammals.cs" />
     <Compile Include="ListManager.cs" />
     <Compile Include="Recipe.cs" />
+    <Compile Include="RecipeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecipeForm.Designer.cs">
+      <DependentUpon>RecipeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecipeManager.cs" />
     <Compile Include="FoodSchedule.cs" />
     <Compile Include="MainForm.cs">
@@ -101,6 +107,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RecipeForm.resx">
+      <DependentUpon>RecipeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">

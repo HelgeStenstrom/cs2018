@@ -24,8 +24,7 @@ namespace UnitTests
             mgr.Add(p2); // a Penguin
             
             // Verify
-            var x = mgr.AnimalssAsRows;
-            Assert.AreEqual(2, x.Count());
+            Assert.AreEqual(2, mgr.AnimalssAsRows.Count());
 
         }
 

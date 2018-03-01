@@ -256,7 +256,6 @@ namespace Assignment
                     break;
                 default: break;
             }
-            // _animalManager.SortBy(SortName(e.Column));
             UpdateTable();
         }
 
@@ -271,11 +270,11 @@ namespace Assignment
             if (ControlButtons()) // There will never be more than one row selected.
             {
                 var index = indices[0];
-                var animal = _animalManager.GetAt(index);
+                IAnimal animal = _animalManager.GetAt(index);
                 txtEaterType.Text = animal.GetEaterType().ToString();
 
                 lbxFoodSchedule.Items.Clear();
-                var foods = animal.GetFoodSchedule();
+                FoodSchedule foods = animal.GetFoodSchedule();
                 foreach (var food in foods)
                 { 
                     lbxFoodSchedule.Items.Add(food);
@@ -582,6 +581,14 @@ namespace Assignment
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPopulate_Click(object sender, EventArgs e)
+        {
+            var someAnimals = AnimalHelper.makeSomeAnimals();
+            foreach (var animal in someAnimals)
+                _animalManager.Add(animal);
+            UpdateTable();
         }
     }
 }

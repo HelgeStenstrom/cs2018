@@ -13,6 +13,11 @@ namespace Assignment
         /// </summary>
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
 
+        /// <summary>
+        /// How this animal is to be fed each day
+        /// </summary>
+        protected FoodSchedule FoodSchedule;
+
         #endregion
 
         #region Constructors
@@ -45,8 +50,9 @@ namespace Assignment
             Gender = other.Gender;
             FoodSchedule = other.FoodSchedule;
         }
+
         #endregion
-        
+
         #region Properties
 
         /// <summary>
@@ -63,11 +69,6 @@ namespace Assignment
         /// The gender (or sex) of the animal
         /// </summary>
         public Gender Gender { get; set; }
-
-        /// <summary>
-        /// How this animal is to be fed each day
-        /// </summary>
-        protected FoodSchedule FoodSchedule;
 
         /// <summary>
         /// Strings used to fill a row in a ListView. These must match the order set on the columns in MainForm.

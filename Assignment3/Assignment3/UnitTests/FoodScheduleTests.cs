@@ -34,8 +34,8 @@ namespace UnitTests
             var foodSchedule = new FoodSchedule(foods);
             
             // Exercise
-            Assert.AreEqual("two", foodSchedule.GetFoodSchedule(1));
-            Assert.AreEqual("one", foodSchedule.GetFoodSchedule(0));
+            Assert.AreEqual("two", foodSchedule.GetFoodItem(1));
+            Assert.AreEqual("one", foodSchedule.GetFoodItem(0));
         }
 
         [TestMethod]

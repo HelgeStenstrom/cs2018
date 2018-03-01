@@ -38,7 +38,7 @@ namespace Assignment
         /// </summary>
         /// <param name="index">index of the requested food item</param>
         /// <returns></returns>
-        public string GetFoodSchedule(int index)
+        public string GetFoodItem(int index)
         {
             return _foodDescriptionList[index];
         }

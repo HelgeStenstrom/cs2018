@@ -6,6 +6,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Assignment;
+using System.Collections.Generic;
 
 namespace Assignment
 {
@@ -140,6 +141,15 @@ namespace Assignment
             }
 
             return animal;
+        }
+        
+        public static List<IAnimal> makeSomeAnimals()
+        {
+            var some = new List<IAnimal>();
+            some.Add(new Bear("Teddy", Gender.Male, 13, 42, 4711));
+            some.Add(new Bear("Freddie", Gender.Female, 13, 42, 3141));
+            some.Add(new Gnu("Richard M Stallman", Gender.Male, 63, 32, 172));
+            return some;
         }
         
     }

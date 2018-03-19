@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment
-{
+{ // TODO: Hitta orsak till duplicerad definition av Staff. Denna fil och vilken annan?
     class Staff
     {
         private string name;

@@ -577,7 +577,17 @@ namespace Assignment
         {
             RecipeForm recipeForm = new RecipeForm();
             DialogResult dialogResult = recipeForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                _recipeManager.Add(recipeForm.Recipe);
+                UpdateDetails(_recipeManager);
+            }
+        }
 
+        private void  UpdateDetails<T>(ListManager<T> listManager)
+        {
+            lbxFoodStaff.Items.Clear();
+            lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
         }
 
         private void btnAddStaff_Click(object sender, EventArgs e)

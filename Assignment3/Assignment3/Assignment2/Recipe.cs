@@ -1,11 +1,53 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Assignment
 {
     public class Recipe
     {
-        private string _name;
-        private List<string> _ingredients;
+        public Recipe()
+        {
+            _ingredients = new ListManager<string>();
+        }
+
+        public Recipe(Recipe other)
+        {
+            this.Name = other.Name;
+            this._ingredients = other._ingredients;
+        }
+
+        public string Name { get; set; }
+
+        public ListManager<string> Ingredients => _ingredients;
+
+        private ListManager<string> _ingredients;
         
+        public override string ToString()
+        {
+            var result = Name;
+
+            foreach (var ingredient in _ingredients)
+            {
+                result += ", " + ingredient;                
+            }
+            
+            return base.ToString();
+        }
+
+        public void Add(string item)
+        {
+            _ingredients.Add(item);
+        }
+
+        public void DeleteAt(int index)
+        {
+            _ingredients.DeleteAt(index);
+        }
+
+        public string[] ToStringArray()
+        {
+            return _ingredients.ToStringArray();
+        }
     }
 }

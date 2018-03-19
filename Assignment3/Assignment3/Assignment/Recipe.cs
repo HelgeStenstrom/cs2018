@@ -25,14 +25,7 @@ namespace Assignment
         
         public override string ToString()
         {
-            var result = Name;
-
-            foreach (var ingredient in _ingredients)
-            {
-                result += ", " + ingredient;                
-            }
-            
-            return base.ToString();
+            return Name + ": " + string.Join(", ", _ingredients) + ".";
         }
 
         public void Add(string item)

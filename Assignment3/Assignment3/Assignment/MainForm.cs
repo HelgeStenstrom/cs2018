@@ -40,7 +40,8 @@ namespace Assignment
         /// <summary>
         /// Collection of recipes.
         /// </summary>
-        private readonly RecipeManager _recipeManager = new RecipeManager();
+        private readonly RecipeManager _recipeManager = new RecipeManager(); // TODO: Varför används inte denna?
+        private readonly Staff staff = new Staff();
         #endregion
 
         
@@ -143,6 +144,39 @@ namespace Assignment
         #endregion
 
         #region Callbacks
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            RecipeForm recipeForm = new RecipeForm();
+            DialogResult dialogResult = recipeForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                _recipeManager.Add(recipeForm.Recipe);
+                UpdateDetails(_recipeManager);
+            }
+        }
+
+
+        private void btnAddStaff_Click(object sender, EventArgs e)
+        {
+            var staffForm = new StaffForm();
+            DialogResult dialogResult = staffForm.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                string description = staffForm.Staff.ToString();
+                staff.Add(description);
+                UpdateDetailsStaff(staff);
+            }
+        }
+
+        private void btnPopulate_Click(object sender, EventArgs e)
+        {
+            var someAnimals = AnimalHelper.makeSomeAnimals();
+            foreach (var animal in someAnimals)
+                _animalManager.Add(animal);
+            UpdateTable();
+        }
+
 
         /// <summary>
         /// Called when an animal category is selected. Calls the animal list setup with the chosen category.
@@ -573,34 +607,16 @@ namespace Assignment
             return enabled;
         }
 
-        private void btnAddFood_Click(object sender, EventArgs e)
-        {
-            RecipeForm recipeForm = new RecipeForm();
-            DialogResult dialogResult = recipeForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                _recipeManager.Add(recipeForm.Recipe);
-                UpdateDetails(_recipeManager);
-            }
-        }
-
         private void  UpdateDetails<T>(ListManager<T> listManager)
         {
             lbxFoodStaff.Items.Clear();
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
         }
-
-        private void btnAddStaff_Click(object sender, EventArgs e)
+        private void UpdateDetailsStaff(Staff staff)
         {
-
+            lbxFoodStaff.Items.Clear();
+            lbxFoodStaff.Items.AddRange(staff.ToStringArray());
         }
 
-        private void btnPopulate_Click(object sender, EventArgs e)
-        {
-            var someAnimals = AnimalHelper.makeSomeAnimals();
-            foreach (var animal in someAnimals)
-                _animalManager.Add(animal);
-            UpdateTable();
-        }
     }
 }

@@ -40,7 +40,11 @@ namespace Assignment
         /// <summary>
         /// Collection of recipes.
         /// </summary>
-        private readonly RecipeManager _recipeManager = new RecipeManager(); // TODO: Varför används inte denna?
+        private readonly RecipeManager _recipeManager = new RecipeManager();
+        
+        /// <summary>
+        /// Collection of personell
+        /// </summary>
         private readonly Staff staff = new Staff();
         #endregion
 
@@ -145,18 +149,26 @@ namespace Assignment
 
         #region Callbacks
 
+        /// <summary>
+        /// Add some food. Called when Add Food is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             RecipeForm recipeForm = new RecipeForm();
             DialogResult dialogResult = recipeForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
-            {
-                _recipeManager.Add(recipeForm.Recipe);
-                UpdateDetails(_recipeManager);
-            }
+            if (dialogResult != DialogResult.OK) return;
+            _recipeManager.Add(recipeForm.Recipe);
+            UpdateDetails(_recipeManager);
         }
 
 
+        /// <summary>
+        /// Add some personell
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             var staffForm = new StaffForm();
@@ -169,6 +181,11 @@ namespace Assignment
             }
         }
 
+        /// <summary>
+        /// Populate the animal list with some pre-prepared animals.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPopulate_Click(object sender, EventArgs e)
         {
             var someAnimals = AnimalHelper.makeSomeAnimals();
@@ -316,6 +333,83 @@ namespace Assignment
             }
             
         }
+        
+        
+        /// <summary>
+        ///  Called when Change is clicked. Do nothing.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            // Do nothing, it's optional.
+        }
+
+        /// <summary>
+        /// Delete the selected animal from the list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var index = lvAnimals.SelectedIndices[0];
+            _animalManager.DeleteAt(index);
+            UpdateTable();
+            ControlButtons();
+        }
+
+
+        /// <summary>
+        /// Called when the name is changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the age is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the gender is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lbxGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the category is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtCatProperty_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        /// <summary>
+        /// Called when the selected species is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txtSpeciesProperty_TextChanged(object sender, EventArgs e)
+        {
+            UpdateButton();
+        }
+
+        
 
         #endregion
 
@@ -370,55 +464,6 @@ namespace Assignment
             btnAdd.Enabled = ValidateInputs();
         }
 
-        /// <summary>
-        /// Called when the name is changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-            UpdateButton();
-        }
-
-        /// <summary>
-        /// Called when the age is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtAge_TextChanged(object sender, EventArgs e)
-        {
-            UpdateButton();
-        }
-
-        /// <summary>
-        /// Called when the gender is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lbxGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdateButton();
-        }
-
-        /// <summary>
-        /// Called when the category is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtCatProperty_TextChanged(object sender, EventArgs e)
-        {
-            UpdateButton();
-        }
-
-        /// <summary>
-        /// Called when the selected species is changed.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void txtSpeciesProperty_TextChanged(object sender, EventArgs e)
-        {
-            UpdateButton();
-        }
 
         #region Validators
 
@@ -576,19 +621,10 @@ namespace Assignment
 
         #endregion
 
-        private void btnChange_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            var index = lvAnimals.SelectedIndices[0];
-            _animalManager.DeleteAt(index);
-            UpdateTable();
-            ControlButtons();
-        }
-
+        /// <summary>
+        /// Enable or disable Delete and Change buttons, depending on some data.
+        /// </summary>
+        /// <returns>true if the buttons are enabled.</returns>
         private bool ControlButtons()
         {
             bool enabled = (1 == lvAnimals.SelectedIndices.Count);
@@ -607,11 +643,23 @@ namespace Assignment
             return enabled;
         }
 
+        /// <summary>
+        /// Partial GUI update: list of food or staff.
+        /// Called when the food list is updated.
+        /// </summary>
+        /// <param name="listManager"></param>
+        /// <typeparam name="T"></typeparam>
         private void  UpdateDetails<T>(ListManager<T> listManager)
         {
             lbxFoodStaff.Items.Clear();
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
         }
+        
+        /// <summary>
+        /// Partial GUI update: list of food or staff.
+        /// Called when the staff list is updated.
+        /// </summary>
+        /// <param name="staff"></param>
         private void UpdateDetailsStaff(Staff staff)
         {
             lbxFoodStaff.Items.Clear();

@@ -21,6 +21,10 @@ namespace Assignment
             ToothCount = toothCount;
         }
 
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"></param>
         public Mammal(Mammal other) : base(other)
         {
             this.ToothCount = other.ToothCount;
@@ -34,7 +38,7 @@ namespace Assignment
         /// <summary>
         ///  A string that represents this particular Mammal.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>a string that represents this particular Mammal</returns>
         public override string ToString()
         {
             return $"Has is {ToothCount} teeth.";

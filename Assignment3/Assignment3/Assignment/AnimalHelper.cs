@@ -143,6 +143,10 @@ namespace Assignment
             return animal;
         }
         
+        /// <summary>
+        /// Create a list of three animals, useful for populating a list with no typing.
+        /// </summary>
+        /// <returns> a list of three animals</returns>
         public static List<IAnimal> makeSomeAnimals()
         {
             var some = new List<IAnimal>();

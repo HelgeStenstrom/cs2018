@@ -27,6 +27,10 @@ namespace Assignment
             FoodSchedule = new FoodSchedule(new List<string>() { "Sork till frukost", "Kattunge till lunch" });
         }
 
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"></param>
         public Eagle(Eagle other) : base(other)
         {
             this.FlightSpeed = other.FlightSpeed;

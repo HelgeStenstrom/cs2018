@@ -65,6 +65,12 @@ namespace Assignment
         /// </summary>
         /// <returns>a list of representative strings of all items in the collection</returns>
         List<string> ToStringList();
+        
+        /// <summary>
+        /// Make objects of this class comparable.
+        /// </summary>
+        /// <param name="comparer"></param>
+        void Sort(IComparer<T> comparer);
     }
 }
 
@@ -72,6 +78,6 @@ namespace Assignment
 {
     public partial interface IListManager<T>
     {
-        void Sort(IComparer<T> comparer);
+        // Sort was here
     }
 }

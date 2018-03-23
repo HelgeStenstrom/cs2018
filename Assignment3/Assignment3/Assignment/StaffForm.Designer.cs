@@ -31,11 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbxIngredients = new System.Windows.Forms.ListBox();
+            this.lbxQualifications = new System.Windows.Forms.ListBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnChange = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtIngredient = new System.Windows.Forms.TextBox();
+            this.txtQualification = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btkOk = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -60,11 +60,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lbxIngredients);
+            this.groupBox1.Controls.Add(this.lbxQualifications);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnChange);
             this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.txtIngredient);
+            this.groupBox1.Controls.Add(this.txtQualification);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(16, 50);
             this.groupBox1.Name = "groupBox1";
@@ -75,12 +75,12 @@
             // 
             // lbxIngredients
             // 
-            this.lbxIngredients.FormattingEnabled = true;
-            this.lbxIngredients.Location = new System.Drawing.Point(91, 56);
-            this.lbxIngredients.Name = "lbxIngredients";
-            this.lbxIngredients.Size = new System.Drawing.Size(159, 134);
-            this.lbxIngredients.TabIndex = 5;
-            this.lbxIngredients.SelectedIndexChanged += new System.EventHandler(this.lbxIngredients_SelectedIndexChanged);
+            this.lbxQualifications.FormattingEnabled = true;
+            this.lbxQualifications.Location = new System.Drawing.Point(91, 56);
+            this.lbxQualifications.Name = "lbxQualifications";
+            this.lbxQualifications.Size = new System.Drawing.Size(159, 134);
+            this.lbxQualifications.TabIndex = 5;
+            this.lbxQualifications.SelectedIndexChanged += new System.EventHandler(this.lbxIngredients_SelectedIndexChanged);
             // 
             // btnDelete
             // 
@@ -114,10 +114,10 @@
             // 
             // txtIngredient
             // 
-            this.txtIngredient.Location = new System.Drawing.Point(86, 12);
-            this.txtIngredient.Name = "txtIngredient";
-            this.txtIngredient.Size = new System.Drawing.Size(164, 20);
-            this.txtIngredient.TabIndex = 1;
+            this.txtQualification.Location = new System.Drawing.Point(86, 12);
+            this.txtQualification.Name = "txtQualification";
+            this.txtQualification.Size = new System.Drawing.Size(164, 20);
+            this.txtQualification.TabIndex = 1;
             // 
             // label2
             // 
@@ -162,11 +162,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox lbxIngredients;
+        private System.Windows.Forms.ListBox lbxQualifications;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.TextBox txtIngredient;
+        private System.Windows.Forms.TextBox txtQualification;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btkOk;
     }

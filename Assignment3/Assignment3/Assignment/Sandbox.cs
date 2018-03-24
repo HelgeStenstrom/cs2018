@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
+    /// <summary>
+    /// My playing ground. Therefore not commented.
+    /// </summary>
+    /// <typeparam name="Ty"></typeparam>
     class Sandbox<Ty>
     {
         double f = 3.14;

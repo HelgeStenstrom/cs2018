@@ -10,7 +10,7 @@ namespace Assignment
     /// <summary>
     /// Information about how an animal motel guest is to be fed every day.
     /// </summary>
-    public class FoodSchedule : IEnumerable<string>
+    public class FoodSchedule : IFoodSchedule
     {
         #region Fields and properties
         /// <summary>

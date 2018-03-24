@@ -45,7 +45,7 @@ namespace Assignment
         /// How the animal is to be fed every day.
         /// </summary>
         /// <returns>The food schedule of the animal</returns>
-        FoodSchedule GetFoodSchedule();
+        IFoodSchedule GetFoodSchedule();
 
         /// <summary>
         /// The species of the animal, which is the same as its class name.

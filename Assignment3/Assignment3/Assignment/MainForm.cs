@@ -325,7 +325,7 @@ namespace Assignment
                 txtEaterType.Text = animal.GetEaterType().ToString();
 
                 lbxFoodSchedule.Items.Clear();
-                FoodSchedule foods = animal.GetFoodSchedule();
+                IEnumerable<string> foods = animal.GetFoodSchedule();
                 foreach (var food in foods)
                 { 
                     lbxFoodSchedule.Items.Add(food);

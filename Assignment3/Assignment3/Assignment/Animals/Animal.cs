@@ -16,7 +16,7 @@ namespace Assignment
         /// <summary>
         /// How this animal is to be fed each day
         /// </summary>
-        protected FoodSchedule FoodSchedule;
+        protected IFoodSchedule FoodSchedule;
 
         #endregion
 
@@ -111,7 +111,7 @@ namespace Assignment
         /// Returns the food schedule of the animal.
         /// </summary>
         /// <returns>the food schedule of the animal</returns>
-        public FoodSchedule GetFoodSchedule()
+        public IFoodSchedule GetFoodSchedule()
         {
             return FoodSchedule;
         }

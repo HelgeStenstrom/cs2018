@@ -72,6 +72,8 @@
     <Compile Include="Animals\EaterType.cs" />
     <Compile Include="Animals\Gender.cs" />
     <Compile Include="Animals\IAnimal.cs" />
+    <Compile Include="FoodScheduleDictionary.cs" />
+    <Compile Include="IFoodSchedule.cs" />
     <Compile Include="IListManager.cs" />
     <Compile Include="Animals\Mammals.cs" />
     <Compile Include="ListManager.cs" />
@@ -123,6 +125,7 @@
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram3.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

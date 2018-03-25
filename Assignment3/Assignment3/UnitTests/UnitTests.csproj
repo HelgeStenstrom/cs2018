@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AnimalManagerTests.cs" />
     <Compile Include="AnimalTest.cs" />
+    <Compile Include="FoodScheduleDictTests.cs" />
     <Compile Include="FoodScheduleTests.cs" />
     <Compile Include="ListManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

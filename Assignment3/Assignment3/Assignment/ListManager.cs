@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;

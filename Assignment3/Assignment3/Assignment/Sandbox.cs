@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

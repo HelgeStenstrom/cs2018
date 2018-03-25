@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Assignment
 {
-    class FoodScheduleDictionary : IFoodSchedule
+    public class FoodScheduleDictionary : IFoodSchedule
     {
         Dictionary<string, string[]> foodDictionary;
 
@@ -18,7 +22,7 @@ namespace Assignment
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }

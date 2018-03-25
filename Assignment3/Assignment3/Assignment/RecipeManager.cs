@@ -1,4 +1,8 @@
-﻿namespace Assignment
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+namespace Assignment
 {
     /// <summary>
     /// Handles a list of recipes.

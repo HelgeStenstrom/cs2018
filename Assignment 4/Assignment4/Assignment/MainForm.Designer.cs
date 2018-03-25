@@ -52,15 +52,29 @@
             this.lblSpeciesProperty = new System.Windows.Forms.Label();
             this.lblCatProperty = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPopulate = new System.Windows.Forms.Button();
             this.btnAddStaff = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnAddFood = new System.Windows.Forms.Button();
             this.lbxFoodSchedule = new System.Windows.Forms.ListBox();
             this.txtEaterType = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnAddFood = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbxFoodStaff = new System.Windows.Forms.ListBox();
-            this.btnPopulate = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.xMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileXmlImport = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFileXmlExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -68,6 +82,7 @@
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -167,7 +182,7 @@
             this.groupBox4.Controls.Add(this.btnChange);
             this.groupBox4.Controls.Add(this.lvAnimals);
             this.groupBox4.Controls.Add(this.lblBredd);
-            this.groupBox4.Location = new System.Drawing.Point(12, 357);
+            this.groupBox4.Location = new System.Drawing.Point(12, 379);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(688, 168);
             this.groupBox4.TabIndex = 11;
@@ -301,12 +316,22 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(544, 338);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animal Specifications";
+            // 
+            // btnPopulate
+            // 
+            this.btnPopulate.Location = new System.Drawing.Point(215, 299);
+            this.btnPopulate.Name = "btnPopulate";
+            this.btnPopulate.Size = new System.Drawing.Size(75, 23);
+            this.btnPopulate.TabIndex = 14;
+            this.btnPopulate.Text = "Populate";
+            this.btnPopulate.UseVisualStyleBackColor = true;
+            this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
             // 
             // btnAddStaff
             // 
@@ -329,16 +354,6 @@
             this.groupBox5.TabIndex = 12;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Feeding Schedule";
-            // 
-            // btnAddFood
-            // 
-            this.btnAddFood.Location = new System.Drawing.Point(6, 19);
-            this.btnAddFood.Name = "btnAddFood";
-            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFood.TabIndex = 4;
-            this.btnAddFood.Text = "Add Food";
-            this.btnAddFood.UseVisualStyleBackColor = true;
-            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
             // 
             // lbxFoodSchedule
             // 
@@ -366,12 +381,22 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Eater type";
             // 
+            // btnAddFood
+            // 
+            this.btnAddFood.Location = new System.Drawing.Point(6, 19);
+            this.btnAddFood.Name = "btnAddFood";
+            this.btnAddFood.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFood.TabIndex = 4;
+            this.btnAddFood.Text = "Add Food";
+            this.btnAddFood.UseVisualStyleBackColor = true;
+            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.lbxFoodStaff);
             this.groupBox3.Controls.Add(this.btnAddStaff);
             this.groupBox3.Controls.Add(this.btnAddFood);
-            this.groupBox3.Location = new System.Drawing.Point(581, 13);
+            this.groupBox3.Location = new System.Drawing.Point(581, 27);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(322, 193);
             this.groupBox3.TabIndex = 13;
@@ -386,26 +411,119 @@
             this.lbxFoodStaff.Size = new System.Drawing.Size(229, 160);
             this.lbxFoodStaff.TabIndex = 17;
             // 
-            // btnPopulate
+            // menuStrip1
             // 
-            this.btnPopulate.Location = new System.Drawing.Point(215, 299);
-            this.btnPopulate.Name = "btnPopulate";
-            this.btnPopulate.Size = new System.Drawing.Size(75, 23);
-            this.btnPopulate.TabIndex = 14;
-            this.btnPopulate.Text = "Populate";
-            this.btnPopulate.UseVisualStyleBackColor = true;
-            this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFile});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(915, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnuFile
+            // 
+            this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileNew,
+            this.mnuFileOpen,
+            this.mnuFileSave,
+            this.mnuFileSaveAs,
+            this.toolStripSeparator1,
+            this.xMLToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.mnuFileExit});
+            this.mnuFile.Name = "mnuFile";
+            this.mnuFile.Size = new System.Drawing.Size(37, 20);
+            this.mnuFile.Text = "File";
+            // 
+            // mnuFileNew
+            // 
+            this.mnuFileNew.Name = "mnuFileNew";
+            this.mnuFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mnuFileNew.Size = new System.Drawing.Size(158, 22);
+            this.mnuFileNew.Text = "New";
+            this.mnuFileNew.Click += new System.EventHandler(this.mnuFileNew_Click);
+            // 
+            // mnuFileOpen
+            // 
+            this.mnuFileOpen.Name = "mnuFileOpen";
+            this.mnuFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mnuFileOpen.Size = new System.Drawing.Size(158, 22);
+            this.mnuFileOpen.Text = "Open ...";
+            this.mnuFileOpen.Click += new System.EventHandler(this.MnuFileOpen_Click);
+            // 
+            // mnuFileSave
+            // 
+            this.mnuFileSave.Name = "mnuFileSave";
+            this.mnuFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mnuFileSave.Size = new System.Drawing.Size(158, 22);
+            this.mnuFileSave.Text = "Save";
+            this.mnuFileSave.Click += new System.EventHandler(this.MnuFileSave_Click);
+            // 
+            // mnuFileSaveAs
+            // 
+            this.mnuFileSaveAs.Name = "mnuFileSaveAs";
+            this.mnuFileSaveAs.Size = new System.Drawing.Size(158, 22);
+            this.mnuFileSaveAs.Text = "Save As ...";
+            this.mnuFileSaveAs.Click += new System.EventHandler(this.MnuFileSaveAs_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(155, 6);
+            // 
+            // xMLToolStripMenuItem
+            // 
+            this.xMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFileXmlImport,
+            this.mnuFileXmlExport});
+            this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            this.xMLToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.xMLToolStripMenuItem.Text = "XML";
+            // 
+            // mnuFileXmlImport
+            // 
+            this.mnuFileXmlImport.Name = "mnuFileXmlImport";
+            this.mnuFileXmlImport.Size = new System.Drawing.Size(185, 22);
+            this.mnuFileXmlImport.Text = "Import from XML file";
+            this.mnuFileXmlImport.Click += new System.EventHandler(this.MnuFileXmlImport_Click);
+            // 
+            // mnuFileXmlExport
+            // 
+            this.mnuFileXmlExport.Name = "mnuFileXmlExport";
+            this.mnuFileXmlExport.Size = new System.Drawing.Size(185, 22);
+            this.mnuFileXmlExport.Text = "Export to XML file";
+            this.mnuFileXmlExport.Click += new System.EventHandler(this.MnuFileXmlExport_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(155, 6);
+            // 
+            // mnuFileExit
+            // 
+            this.mnuFileExit.Name = "mnuFileExit";
+            this.mnuFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.mnuFileExit.Size = new System.Drawing.Size(158, 22);
+            this.mnuFileExit.Text = "Exit";
+            this.mnuFileExit.Click += new System.EventHandler(this.MnuFileExit_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 537);
+            this.ClientSize = new System.Drawing.Size(915, 560);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Apu Animal Motel";
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -418,7 +536,10 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -455,6 +576,20 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox lbxFoodStaff;
         private System.Windows.Forms.Button btnPopulate;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mnuFile;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileNew;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileOpen;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileSave;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileSaveAs;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem xMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileXmlImport;
+        private System.Windows.Forms.ToolStripMenuItem mnuFileXmlExport;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

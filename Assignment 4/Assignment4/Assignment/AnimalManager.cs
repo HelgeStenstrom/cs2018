@@ -2,6 +2,7 @@
 // ah7875
 // C# del II 2018
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -21,7 +22,7 @@ namespace Assignment
         /// <summary>
         /// Data to fill a ListView, one animal per item in the list.
         /// </summary>
-        public IEnumerable<string[]> AnimalssAsRows => this.Select(animal => animal.RowStrings).ToList();
+        public IEnumerable<string[]> AnimalssAsRows => this.Select(animalObj => animalObj.RowStrings).ToList();
 
         /// <summary>
         /// A new ID string is generated each time this function is called, starting with A1000.

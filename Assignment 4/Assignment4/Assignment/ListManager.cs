@@ -2,6 +2,7 @@
 // ah7875
 // C# del II 2018
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -49,6 +50,11 @@ namespace Assignment
             if (isOk)
                 _list[index] = item;
             return isOk;
+        }
+
+        internal void Clear()
+        {
+            _list.Clear();
         }
 
         /// <summary>

@@ -9,7 +9,7 @@ namespace Assignment
         #region Fields
 
         /// <summary>
-        /// ID numbers are taken from this value value, which is update one each use.
+        /// ID numbers are taken from this value value, which is updated one each use.
         /// </summary>
         private static int _lastAssignedIdNumber = 1000; // We give each individual animal a unique number, starting at 1000.
 
@@ -61,6 +61,11 @@ namespace Assignment
         public string Id { get; }
 
         /// <summary>
+        /// Identification of the animal. Uniqueness maintained by AnimalManager.
+        /// </summary>
+        public string AltId { get; set; }
+
+        /// <summary>
         /// The age of the animal.
         /// </summary>
         public int Age { get; }
@@ -75,7 +80,7 @@ namespace Assignment
         /// </summary>
         public string[] RowStrings => new[]
         {
-            Id,
+            AltId,
             Name,
             Age.ToString(),
             Gender.ToString(),

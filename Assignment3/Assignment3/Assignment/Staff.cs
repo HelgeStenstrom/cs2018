@@ -2,12 +2,6 @@
 // ah7875
 // C# del II 2018
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Assignment
 { 
     /// <summary>
@@ -34,6 +28,10 @@ namespace Assignment
             qualifications = new ListManager<string>();
         }
 
+        /// <summary>
+        /// Copy constructor
+        /// </summary>
+        /// <param name="other"></param>
         public Staff(Staff other)
         {
             this.name = other.name;
@@ -56,6 +54,17 @@ namespace Assignment
         public void Add(string qualification)
         {
             qualifications.Add(qualification);
+        }
+
+        /// <summary>
+        /// Replaces a qualification
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool ChangeAt(string item, int index)
+        {
+            return qualifications.ChangeAt(item, index);
         }
 
         /// <summary>

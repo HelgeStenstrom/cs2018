@@ -2,10 +2,6 @@
 // ah7875
 // C# del II 2018
 
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-
 namespace Assignment
 {
     /// <summary>
@@ -62,6 +58,17 @@ namespace Assignment
         public void Add(string item)
         {
             _ingredients.Add(item);
+        }
+
+        /// <summary>
+        /// Replaces an ingredient in the recipe
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public bool ChangeAt(string item, int index)
+        {
+            return _ingredients.ChangeAt(item, index);
         }
 
         /// <summary>

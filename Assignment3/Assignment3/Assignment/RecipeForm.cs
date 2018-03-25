@@ -72,8 +72,9 @@ namespace Assignment
         private void btnChange_Click(object sender, EventArgs e)
         {
             var index = lbxIngredients.SelectedIndex;
-            // Does nothing more. Implementation missing.
-            
+            var ingredient = txtIngredient.Text;
+            _recipe.ChangeAt(ingredient, index);
+            UpdateGui();
         }
 
         /// <summary>

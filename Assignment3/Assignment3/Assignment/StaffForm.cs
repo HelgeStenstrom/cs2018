@@ -77,9 +77,10 @@ namespace Assignment
         private void btnChange_Click(object sender, EventArgs e)
         {
             var index = lbxQualifications.SelectedIndex;
-            // Do nothing else. 
-            // Code not completed.
-            
+            var ingredient = txtQualification.Text;
+            staff.ChangeAt(ingredient, index);
+            UpdateGui();
+
         }
 
         /// <summary>

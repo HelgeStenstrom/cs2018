@@ -6,7 +6,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Assignment;
 using System.Diagnostics;
 
 namespace Assignment

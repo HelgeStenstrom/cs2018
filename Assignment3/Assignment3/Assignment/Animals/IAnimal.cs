@@ -25,6 +25,11 @@ namespace Assignment
         string Id { get;  }
 
         /// <summary>
+        /// Identification of the animal. Uniqueness maintained outside this class.
+        /// </summary>
+        string AltId { get; set; }
+
+        /// <summary>
         /// The name of this individual animal (not to be confused with species)
         /// </summary>
         string Name { get; }

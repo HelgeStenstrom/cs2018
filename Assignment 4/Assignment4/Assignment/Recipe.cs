@@ -10,11 +10,21 @@ namespace Assignment
     public class Recipe
     {
         /// <summary>
+        /// The ingredients of this recipe
+        /// </summary>
+        private ListManager<string> _ingredients = new ListManager<string>();
+
+        /// <summary>
+        /// Return the ingredients of this recipe
+        /// </summary>
+        public ListManager<string> Ingredients => _ingredients;
+
+        /// <summary>
         /// Constructor, initialies an empty ingredient list.
         /// </summary>
         public Recipe()
         {
-            _ingredients = new ListManager<string>();
+            //_ingredients = new ListManager<string>();
         }
 
         /// <summary>
@@ -32,16 +42,6 @@ namespace Assignment
         /// </summary>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Return the ingredients of this recipe
-        /// </summary>
-        public ListManager<string> Ingredients => _ingredients;
-
-        /// <summary>
-        /// The ingredients of this recipe
-        /// </summary>
-        private ListManager<string> _ingredients;
-        
         /// <summary>
         /// Returns a string representatio of this recipe.
         /// </summary>
@@ -83,7 +83,7 @@ namespace Assignment
         /// <summary>
         /// Return all ingredients as an array of strings.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>all ingredients as an array of strings</returns>
         public string[] ToStringArray()
         {
             return _ingredients.ToStringArray();

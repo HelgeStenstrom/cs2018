@@ -701,7 +701,7 @@ namespace Assignment
                 fileName = openFileDialog1.FileName;
                 string msg = ReadFile();
 
-                if (msg != String.Empty)
+                if (msg != string.Empty)
                     MessageBox.Show(msg);
                 else
                     UpdateTable();

@@ -48,6 +48,7 @@ namespace Assignment
         /// <returns></returns>
         public override string ToString()
         {
+            return $"{Name}: {string.Join(", ", _ingredients)}.";
             return Name + ": " + string.Join(", ", _ingredients) + ".";
         }
 

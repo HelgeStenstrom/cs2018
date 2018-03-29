@@ -44,14 +44,14 @@ namespace Assignment
         /// <summary>
         /// Collection of personell
         /// </summary>
-        private readonly ListManager<string> staff = new ListManager<string>();
+        private readonly ListManager<string> _staff = new ListManager<string>();
 
-        private bool animalManagerChanged = false;
+        private bool _animalManagerChanged = false;
         // TODO: Se till att den sätts till true på rätt sätt
         // true när data ändras
         // false när det sparas.
 
-        private string fileName;
+        private string _fileName;
 
         #endregion
 
@@ -183,8 +183,8 @@ namespace Assignment
             if (dialogResult == DialogResult.OK)
             {
                 string description = staffForm.Staff.ToString();
-                staff.Add(description);
-                UpdateDetails(staff);
+                _staff.Add(description);
+                UpdateDetails(_staff);
             }
         }
 
@@ -416,7 +416,82 @@ namespace Assignment
             UpdateButton();
         }
 
+        private void MnuFileExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuFileXmlImport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuFileXmlExport_Click(object sender, EventArgs e)
+        {
+
+        }
         
+        private void mnuFileNew_Click(object sender, EventArgs e)
+        {
+            bool animalManagerChanged = true;
+            if (animalManagerChanged)
+            {
+                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
+                DialogResult result = MessageBox.Show("Current animal list will be lost, OK or Cancel?", 
+                    "Confirmation", buttons);
+
+                if (result == DialogResult.OK)
+                {
+                    _animalManager.Clear();
+                    UpdateTable();
+                }
+            }
+        }
+
+        private void MnuFileOpen_Click(object sender, EventArgs e)
+        {
+            // Code from assignment
+            AskUserIfSaveDataToFile(sender, e); // Save current data?
+            // Show open dialog box
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _fileName = openFileDialog1.FileName;
+                string msg = ReadFile();
+
+                if (msg != string.Empty)
+                    MessageBox.Show(msg);
+                else
+                    UpdateTable();
+            }
+        }
+
+        private void AskUserIfSaveDataToFile(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void MnuFileSave_Click(object sender, EventArgs e)
+        {
+            // Code from assignment
+            if (_fileName == String.Empty)
+            {
+                MnuFileSaveAs_Click(sender, e);
+            }
+            else
+                SaveToFile();
+        }
+
+        private void MnuFileSaveAs_Click(object sender, EventArgs e)
+        {
+            // Show save dialog box
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                _fileName = saveFileDialog1.FileName;
+                SaveToFile();
+            }
+        }
+
+
 
         #endregion
 
@@ -660,90 +735,20 @@ namespace Assignment
         {
             lbxFoodStaff.Items.Clear();
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
-        }        private void mnuFileNew_Click(object sender, EventArgs e)
-        {
-            bool animalManagerChanged = true;
-            if (animalManagerChanged)
-            {
-                MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show("Current animal list will be lost, OK or Cancel?", 
-                    "Confirmation", buttons);
-
-                if (result == DialogResult.OK)
-                {
-                    _animalManager.Clear();
-                    UpdateTable();
-                }
-            }
-        }
-
-        private void MnuFileOpen_Click(object sender, EventArgs e)
-        {
-            // Code from assignment
-            AskUserIfSaveDataToFile(sender, e); // Save current data?
-            // Show open dialog box
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                fileName = openFileDialog1.FileName;
-                string msg = ReadFile();
-
-                if (msg != string.Empty)
-                    MessageBox.Show(msg);
-                else
-                    UpdateTable();
-            }
-        }
-
-        private void AskUserIfSaveDataToFile(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
+        }        
+        
+        
         private string ReadFile()
         {
             throw new NotImplementedException();
         }
 
-        private void MnuFileSave_Click(object sender, EventArgs e)
-        {
-            // Code from assignment
-            if (fileName == String.Empty)
-            {
-                MnuFileSaveAs_Click(sender, e);
-            }
-            else
-                SaveToFile();
-        }
-
-        private void MnuFileSaveAs_Click(object sender, EventArgs e)
-        {
-            // Show save dialog box
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                fileName = saveFileDialog1.FileName;
-                SaveToFile();
-            }
-        }
-
         private void SaveToFile()
         {
-            this.Text += ": " + fileName;
+            this.Text += ": " + _fileName;
             //throw new NotImplementedException();
         }
 
-        private void MnuFileExit_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void MnuFileXmlImport_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MnuFileXmlExport_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

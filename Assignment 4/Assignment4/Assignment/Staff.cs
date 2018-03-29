@@ -8,7 +8,7 @@ namespace Assignment
     /// Works more or less like an IListManager<string>, but a few methods are missing.
     /// Each Staff object is a person. The person has qualifications, which are stored in a list.
     /// </summary>
-    public class Staff // could have been an  IListManager<string>
+    public class StaffPerson // could have been an  IListManager<string>
     {
         /// <summary>
         /// name of the person
@@ -23,7 +23,7 @@ namespace Assignment
         /// <summary>
         /// Constructor. Initializes an empty qualification list.
         /// </summary>
-        public Staff()
+        public StaffPerson()
         {
             qualifications = new ListManager<string>();
         }
@@ -32,7 +32,7 @@ namespace Assignment
         /// Copy constructor
         /// </summary>
         /// <param name="other"></param>
-        public Staff(Staff other)
+        public StaffPerson(StaffPerson other)
         {
             this.name = other.name;
             this.qualifications = other.qualifications;

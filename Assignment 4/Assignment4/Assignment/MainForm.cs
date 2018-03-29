@@ -44,8 +44,7 @@ namespace Assignment
         /// <summary>
         /// Collection of personell
         /// </summary>
-        private readonly Staff staff = new Staff();
-
+        private readonly ListManager<string> staff = new ListManager<string>();
 
         private bool animalManagerChanged = false;
         // TODO: Se till att den sätts till true på rätt sätt
@@ -185,7 +184,7 @@ namespace Assignment
             {
                 string description = staffForm.Staff.ToString();
                 staff.Add(description);
-                UpdateDetailsStaff(staff);
+                UpdateDetails(staff);
             }
         }
 
@@ -661,20 +660,7 @@ namespace Assignment
         {
             lbxFoodStaff.Items.Clear();
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
-        }
-        
-        /// <summary>
-        /// Partial GUI update: list of food or staff.
-        /// Called when the staff list is updated.
-        /// </summary>
-        /// <param name="staff"></param>
-        private void UpdateDetailsStaff(Staff staff)
-        {
-            lbxFoodStaff.Items.Clear();
-            lbxFoodStaff.Items.AddRange(staff.ToStringArray());
-        }
-
-        private void mnuFileNew_Click(object sender, EventArgs e)
+        }        private void mnuFileNew_Click(object sender, EventArgs e)
         {
             bool animalManagerChanged = true;
             if (animalManagerChanged)

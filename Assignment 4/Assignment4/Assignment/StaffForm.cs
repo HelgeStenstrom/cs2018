@@ -16,12 +16,12 @@ namespace Assignment
         /// <summary>
         /// staff object that the form works on.
         /// </summary>
-        private Staff staff;
+        private StaffPerson staff;
 
         /// <summary>
         /// Staff property to be returned to the caller.
         /// </summary>
-        public Staff Staff => new Staff(staff);
+        public StaffPerson Staff => new StaffPerson(staff);
 
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Assignment
         {
             InitializeComponent();
             if (staff == null)
-                staff = new Staff();
+                staff = new StaffPerson();
         }
 
         #region callbacks

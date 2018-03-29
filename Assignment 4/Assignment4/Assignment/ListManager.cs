@@ -6,6 +6,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms.VisualStyles;
 
 namespace Assignment
 {
@@ -145,6 +148,75 @@ namespace Assignment
                 x.Add(item.ToString());
             }
             return x;
+        }
+
+        public void BinarySerialize(string fileName)
+        {
+            FileStream fileStream = null;
+            string errorMsg;
+
+            try
+            {
+                fileStream = new FileStream(fileName, FileMode.Create);
+                var formatter = new BinaryFormatter();
+                // TODO: bara en av dessa två.
+                //formatter.Serialize(fileStream, this);
+                formatter.Serialize(fileStream, _list);
+            }
+            // Don't catch the exception here, but in calling function. Just ensure the stream is closed.
+            finally
+            {
+                fileStream?.Close();
+            } 
+        }
+        
+        public void AltBinarySerialize(string fileName)
+        {
+            using (var fileStream = new FileStream(fileName, FileMode.Create))
+                new BinaryFormatter().Serialize(fileStream, _list);
+        }
+
+        public void BinaryDeserialize(string fileName)
+        {
+            // Det känns som om koden från Serialize-dokumentet hamar i fel klass, eller att denna metod
+            // (vars signatur är given) inte är den som ska ha implementationen. Den är ju void.
+
+            FileStream fileStream = null;
+            object obj = null;
+
+            try
+            {
+                if (!File.Exists(fileName))
+                {
+                    throw new FileNotFoundException($"The file {fileName} was not found. ");
+                }
+
+                fileStream = new FileStream(fileName, FileMode.Open);
+                BinaryFormatter b = new BinaryFormatter();
+                obj = b.Deserialize(fileStream);
+            }
+            // Don't catch the exception here, but in calling function. Just ensure the stream is closed.
+            finally
+            {
+                fileStream?.Close();
+            }
+
+            _list = (List<T>) obj;
+        }
+
+	// Inspiration from https://stackoverflow.com/questions/11467240/how-to-use-streamwriter-class-properly
+        public void AltBinaryDeserialize(string fileName)
+        {
+            if (!File.Exists(fileName))
+                throw new FileNotFoundException($"The file {fileName} was not found. ");
+
+            using (var fileStream = new FileStream(fileName, FileMode.Open))
+                _list = (List<T>) new BinaryFormatter().Deserialize(fileStream);
+        }
+
+        public void XmlSerialize(string fileName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

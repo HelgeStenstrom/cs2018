@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Assignment
 {
+    [Serializable]
     class Bomb
     {
         static ISet<Object> bomb(int size)

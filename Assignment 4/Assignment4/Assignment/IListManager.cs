@@ -10,8 +10,11 @@ namespace Assignment
     /// Interface for implementation by manager classes hosting a collection.
     /// </summary>
     /// <typeparam name="T">object type</typeparam>
-    public partial interface IListManager<T>
+    public interface IListManager<T>
     {
+
+        #region All Assignment2 method definitions
+
         /// <summary>
         /// Returns the number of items in the collection
         /// </summary>
@@ -75,13 +78,13 @@ namespace Assignment
         /// </summary>
         /// <param name="comparer"></param>
         void Sort(IComparer<T> comparer);
-    }
-}
 
-namespace Assignment
-{
-    public partial interface IListManager<T>
-    {
-        // Sort was here
+        #endregion
+
+        #region Assignment 4 serialization
+        void BinarySerialize(string fileName);
+        void BinaryDeserialize(string fileName);
+        void XmlSerialize(string fileName);
+        #endregion
     }
 }

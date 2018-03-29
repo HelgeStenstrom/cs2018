@@ -2,8 +2,11 @@
 // ah7875
 // C# del II 2018
 
+using System;
+
 namespace Assignment
 {
+    [Serializable]
     public abstract class Animal : IAnimal
     {
         #region Fields

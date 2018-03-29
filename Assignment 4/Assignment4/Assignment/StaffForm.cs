@@ -23,7 +23,6 @@ namespace Assignment
         /// </summary>
         public StaffPerson Staff => new StaffPerson(staff);
 
-
         /// <summary>
         /// Constructor. Initializes the form with an empty staff
         /// </summary>

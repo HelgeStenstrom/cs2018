@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Assignment
 {
@@ -740,17 +741,38 @@ namespace Assignment
         
         private string ReadFile()
         {
-            // TODO: try catch finaly
+            var message = "";
 
-            _animalManager.BinaryDeserialize(_fileName);
-            return "";
+            try
+            {
+                _animalManager.BinaryDeserialize(_fileName);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine(e);
+                message = e.Message;
+            }
+            return message;
         }
 
         private void SaveToFile()
         {
-            this.Text = "Apu Animal Motel: " + _fileName;
-            //throw new NotImplementedException();
-            _animalManager.BinarySerialize(_fileName);
+            var message = "";
+
+            try
+            {
+                _animalManager.BinarySerialize(_fileName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                message = e.Message;
+            }
+
+            if (!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show(message);
+            }
         }
 
 

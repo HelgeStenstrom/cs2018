@@ -161,6 +161,7 @@ namespace Assignment
                 var formatter = new BinaryFormatter();
                 // TODO: bara en av dessa två.
                 //formatter.Serialize(fileStream, this);
+                // stop here
                 formatter.Serialize(fileStream, _list);
             }
             // Don't catch the exception here, but in calling function. Just ensure the stream is closed.

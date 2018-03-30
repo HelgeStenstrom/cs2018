@@ -2,11 +2,14 @@
 // ah7875
 // C# del II 2018
 
+using System;
+
 namespace Assignment
 {
     /// <summary>
     /// An animal which is a bird. Base class for birds.
     /// </summary>
+    [Serializable]
     public abstract class Bird : Animal
     {
         /// <summary>

@@ -2,11 +2,14 @@
 // ah7875
 // C# del II 2018
 
+using System;
+
 namespace Assignment
 {
     /// <summary>
     /// A Mammal is an Animal.
     /// </summary>
+    [Serializable]
     public abstract class Mammal : Animal
     {
         /// <summary>

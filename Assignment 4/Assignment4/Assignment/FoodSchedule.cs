@@ -2,6 +2,7 @@
 // ah7875
 // C# del II 2018
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -10,6 +11,7 @@ namespace Assignment
     /// <summary>
     /// Information about how an animal motel guest is to be fed every day.
     /// </summary>
+    [Serializable]
     public class FoodSchedule : IFoodSchedule
     {
         #region Fields and properties

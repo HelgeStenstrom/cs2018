@@ -467,13 +467,13 @@ namespace Assignment
 
         private void AskUserIfSaveDataToFile(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void MnuFileSave_Click(object sender, EventArgs e)
         {
             // Code from assignment
-            if (_fileName == String.Empty)
+            if (String.IsNullOrEmpty(_fileName))
             {
                 MnuFileSaveAs_Click(sender, e);
             }
@@ -740,13 +740,17 @@ namespace Assignment
         
         private string ReadFile()
         {
-            throw new NotImplementedException();
+            // TODO: try catch finaly
+
+            _animalManager.BinaryDeserialize(_fileName);
+            return "";
         }
 
         private void SaveToFile()
         {
-            this.Text += ": " + _fileName;
+            this.Text = "Apu Animal Motel: " + _fileName;
             //throw new NotImplementedException();
+            _animalManager.BinarySerialize(_fileName);
         }
 
 

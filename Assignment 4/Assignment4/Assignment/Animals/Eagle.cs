@@ -2,6 +2,7 @@
 // ah7875
 // C# del II 2018
 
+using System;
 using System.Collections.Generic;
 
 namespace Assignment
@@ -9,6 +10,7 @@ namespace Assignment
     /// <summary>
     /// The Eagle is a Bird.
     /// </summary>
+    [Serializable]
     public class Eagle : Bird
     {
         //private EaterType 

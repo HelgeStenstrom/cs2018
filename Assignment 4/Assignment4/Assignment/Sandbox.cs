@@ -6,7 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Assignment4
+namespace Assignment
 {
     /// <summary>
     /// My playing ground. Therefore not commented.

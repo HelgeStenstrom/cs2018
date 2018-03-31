@@ -5,7 +5,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Assignment;
 using System.Collections.Generic;
 
 namespace Assignment
@@ -147,7 +146,7 @@ namespace Assignment
         /// Create a list of three animals, useful for populating a list with no typing.
         /// </summary>
         /// <returns> a list of three animals</returns>
-        public static List<IAnimal> makeSomeAnimals()
+        public static List<IAnimal> MakeSomeAnimals()
         {
             var some = new List<IAnimal>();
             some.Add(new Bear("Teddy", Gender.Male, 13, 42, 4711));

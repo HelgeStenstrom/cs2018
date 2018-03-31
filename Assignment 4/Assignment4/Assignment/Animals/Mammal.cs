@@ -30,7 +30,7 @@ namespace Assignment
         /// <param name="other"></param>
         public Mammal(Mammal other) : base(other)
         {
-            this.ToothCount = other.ToothCount;
+            ToothCount = other.ToothCount;
         }
 
         /// <summary>

@@ -197,7 +197,7 @@ namespace Assignment
         /// <param name="e"></param>
         private void btnPopulate_Click(object sender, EventArgs e)
         {
-            var someAnimals = AnimalHelper.makeSomeAnimals();
+            var someAnimals = AnimalHelper.MakeSomeAnimals();
             foreach (var animal in someAnimals)
                 _animalManager.Add(animal);
             UpdateTable();

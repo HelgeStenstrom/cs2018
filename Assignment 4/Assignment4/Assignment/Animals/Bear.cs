@@ -22,7 +22,7 @@ namespace Assignment
             base(name, gender, age, toothCount)
         {
             BlueBerriesEaten = blueBerriesEaten;
-            FoodSchedule = new FoodSchedule(new List<string>(){"Blåbär till frukost", "Älg till lunch"});
+            FoodSchedule = new FoodSchedule(new List<string> {"Blåbär till frukost", "Älg till lunch"});
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Assignment
         /// <param name="other"> Bear to be copied.</param>
         public Bear(Bear other) : base(other)
         {
-            this.BlueBerriesEaten = other.BlueBerriesEaten;
+            BlueBerriesEaten = other.BlueBerriesEaten;
         }
 
         /// <summary>

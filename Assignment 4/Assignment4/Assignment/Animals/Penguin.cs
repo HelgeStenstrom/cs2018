@@ -33,7 +33,7 @@ namespace Assignment
         /// <param name="other">penguin to be copied</param>
         public Penguin(Penguin other) : base(other)
         {
-            this.SwimSpeed = other.SwimSpeed;
+            SwimSpeed = other.SwimSpeed;
         }
 
         /// <summary>

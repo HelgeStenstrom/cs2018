@@ -26,7 +26,7 @@ namespace Assignment
         public Eagle(string name, Gender gender, int age, double wingSpan, double flightSpeed) : base(name, gender, age, wingSpan)
         {
             FlightSpeed = flightSpeed;
-            FoodSchedule = new FoodSchedule(new List<string>() { "Sork till frukost", "Kattunge till lunch" });
+            FoodSchedule = new FoodSchedule(new List<string> { "Sork till frukost", "Kattunge till lunch" });
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace Assignment
         /// <param name="other"></param>
         public Eagle(Eagle other) : base(other)
         {
-            this.FlightSpeed = other.FlightSpeed;
+            FlightSpeed = other.FlightSpeed;
         }
 
         /// <summary>

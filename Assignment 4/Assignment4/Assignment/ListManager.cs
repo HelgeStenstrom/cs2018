@@ -2,14 +2,10 @@
 // ah7875
 // C# del II 2018
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Net.Mail;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Forms.VisualStyles;
 using System.Xml.Serialization;
 
 namespace Assignment

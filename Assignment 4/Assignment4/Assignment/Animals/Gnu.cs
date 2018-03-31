@@ -24,7 +24,7 @@ namespace Assignment
         public Gnu(string name, Gender gender, int age, int toothCount, int tonsEaten) : base(name, gender, age, toothCount)
         {
             TonsEaten = tonsEaten;
-            FoodSchedule = new FoodSchedule(new List<string>() { "Gräs till frukost", "Gräs till lunch" });
+            FoodSchedule = new FoodSchedule(new List<string> { "Gräs till frukost", "Gräs till lunch" });
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Assignment
         /// <param name="other">a Gnu to be copied</param>
         public Gnu(Gnu other) : base(other)
         {
-            this.TonsEaten = other.TonsEaten;
+            TonsEaten = other.TonsEaten;
         }
 
         /// <summary>

@@ -3,6 +3,7 @@
 // C# del II 2018
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Assignment
@@ -95,7 +96,7 @@ namespace Assignment
         private void UpdateGui()
         {
             lbxIngredients.Items.Clear();
-            lbxIngredients.Items.AddRange(_recipe.ToStringArray());
+            lbxIngredients.Items.AddRange(_recipe.ToStringArray().ToArray<object>());
         }
 
         /// <summary>

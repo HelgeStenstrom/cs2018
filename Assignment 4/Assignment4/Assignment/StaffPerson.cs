@@ -2,10 +2,13 @@
 // ah7875
 // C# del II 2018
 
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Assignment
 { 
     /// <summary>
-    /// Works more or less like an IListManager<string>, but a few methods are missing.
+    /// Works more or less like an IListManager(string), but a few methods are missing.
     /// Each Staff object is a person. The person has qualifications, which are stored in a list.
     /// </summary>
     public class StaffPerson // could have been an  IListManager<string>
@@ -13,7 +16,7 @@ namespace Assignment
         /// <summary>
         /// name of the person
         /// </summary>
-        private string name;
+        private string _name;
         
         /// <summary>
         /// The list of qualifications
@@ -34,8 +37,8 @@ namespace Assignment
         /// <param name="other"></param>
         public StaffPerson(StaffPerson other)
         {
-            this.name = other.name;
-            this.qualifications = other.qualifications;
+            _name = other._name;
+            qualifications = other.qualifications;
         }
 
         /// <summary>
@@ -43,8 +46,8 @@ namespace Assignment
         /// </summary>
         public string Name
         {
-            get { return name; }
-            set { name = value; }
+            get { return _name; }
+            set { _name = value; }
         }
 
         /// <summary>
@@ -84,6 +87,11 @@ namespace Assignment
         public string[] ToStringArray()
         {
             return  qualifications.ToStringArray();
+        }
+
+        public IEnumerable<string> ToEnumerable()
+        {
+            return qualifications.ToStringArray().AsEnumerable();
         }
 
         /// <summary>

@@ -8,18 +8,10 @@ namespace UnitTests
     public class FoodScheduleDictTests
     {
         [TestMethod]
-        public void add_food()
-        {
-            var fs = new FoodScheduleDictionary();
-            //fs.Add("key")
-            Assert.Fail("Test not done");
-        }
-
-        [TestMethod]
         public void List_constructor()
         {
             // setup
-            List<string> foods = new List<string>();
+            var foods = new List<string>();
             foods.Add("one");
             foods.Add("two");
             
@@ -34,7 +26,7 @@ namespace UnitTests
         public void Get_item()
         {
             // Setup
-            List<string> foods = new List<string>();
+            var foods = new List<string>();
             foods.Add("one");
             foods.Add("two");
             var foodSchedule = new FoodSchedule(foods);

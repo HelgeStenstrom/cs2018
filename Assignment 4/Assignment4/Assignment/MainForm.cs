@@ -314,7 +314,6 @@ namespace Assignment
                 case "Age":
                     _animalManager.Sort(new CompareByAge());
                     break;
-                default: break;
             }
             UpdateTable();
         }

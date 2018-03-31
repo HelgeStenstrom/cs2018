@@ -36,8 +36,8 @@ namespace Assignment
         /// <param name="other"></param>
         public Recipe(Recipe other)
         {
-            this.Name = other.Name;
-            this._ingredients = other._ingredients;
+            Name = other.Name;
+            _ingredients = other._ingredients;
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Assignment
             List<string> strings = new List<string>();
             foreach (var item in _ingredients)
             {
-                strings.Add(item.ToString());
+                strings.Add(item);
             }
             return strings.ToArray();
         }

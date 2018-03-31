@@ -3,6 +3,7 @@
 // C# del II 2018
 
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Assignment
@@ -115,7 +116,7 @@ namespace Assignment
         private void UpdateGui()
         {
             lbxQualifications.Items.Clear();
-            lbxQualifications.Items.AddRange(staff.ToStringArray());
+            lbxQualifications.Items.AddRange(staff.ToStringArray().ToArray<object>());
         }
     }
 }

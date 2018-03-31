@@ -1,23 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Assignment;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assignment;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Assignment.Tests
+namespace UnitTests
 {
     [TestClass()]
     public class ListManagerTests
     {
         ListManager<int> lm = new ListManager<int>();
-
-        [TestInitialize]
-        public void setup()
-        {
-        }
-
 
         [TestMethod()]
         public void ListManagerTest()
@@ -38,8 +27,8 @@ namespace Assignment.Tests
         [TestMethod()]
         public void AddTestFail()
         {
-            ListManager<Animal> lm = new ListManager<Animal>();
-            var ok = lm.Add(null);
+            ListManager<Animal> lmAnimal = new ListManager<Animal>();
+            var ok = lmAnimal.Add(null);
             Assert.IsFalse(ok);
         }
 
@@ -57,11 +46,11 @@ namespace Assignment.Tests
         [TestMethod()]
         public void ChangeFail()
         {
-            ListManager<string> lm = new ListManager<string>();
-            lm.Add("hej");
-            var ok = lm.ChangeAt("x", 0);
+            ListManager<string> lmString = new ListManager<string>();
+            lmString.Add("hej");
+            var ok = lmString.ChangeAt("x", 0);
             Assert.IsTrue(ok);
-            ok = lm.ChangeAt(null, 0);
+            ok = lmString.ChangeAt(null, 0);
             Assert.IsFalse(ok);
         }
 

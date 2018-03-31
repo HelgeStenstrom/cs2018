@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Assignment2
+namespace Assignment
 {
     public class BadAnimal : AnimalBase
     {

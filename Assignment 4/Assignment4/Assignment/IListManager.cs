@@ -13,7 +13,7 @@ namespace Assignment
     public interface IListManager<T>
     {
 
-        #region All Assignment2 method definitions
+        #region All Assignment 3 method definitions
 
         /// <summary>
         /// Returns the number of items in the collection

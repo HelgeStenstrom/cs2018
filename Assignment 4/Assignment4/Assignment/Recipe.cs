@@ -2,6 +2,9 @@
 // ah7875
 // C# del II 2018
 
+using System;
+using System.Collections.Generic;
+
 namespace Assignment
 {
     /// <summary>
@@ -12,12 +15,12 @@ namespace Assignment
         /// <summary>
         /// The ingredients of this recipe
         /// </summary>
-        private ListManager<string> _ingredients = new ListManager<string>();
+        private List<string> _ingredients = new List<string>();
 
         /// <summary>
         /// Return the ingredients of this recipe
         /// </summary>
-        public ListManager<string> Ingredients => _ingredients;
+        public List<string> Ingredients => _ingredients;
 
         /// <summary>
         /// Constructor, initialies an empty ingredient list.
@@ -48,7 +51,7 @@ namespace Assignment
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{Name}: {string.Join(", ", _ingredients)}.";
+            //return $"{Name}: {string.Join(", ", _ingredients)}.";
             return Name + ": " + string.Join(", ", _ingredients) + ".";
         }
 
@@ -69,7 +72,16 @@ namespace Assignment
         /// <returns></returns>
         public bool ChangeAt(string item, int index)
         {
-            return _ingredients.ChangeAt(item, index);
+            try
+            {
+                _ingredients[index] = item;
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+            //return _ingredients.ChangeAt(item, index);
         }
 
         /// <summary>
@@ -78,7 +90,7 @@ namespace Assignment
         /// <param name="index">index of ingredient to be deleted</param>
         public void DeleteAt(int index)
         {
-            _ingredients.DeleteAt(index);
+            _ingredients.RemoveAt(index);
         }
 
         /// <summary>
@@ -87,7 +99,12 @@ namespace Assignment
         /// <returns>all ingredients as an array of strings</returns>
         public string[] ToStringArray()
         {
-            return _ingredients.ToStringArray();
+            List<string> strings = new List<string>();
+            foreach (var item in _ingredients)
+            {
+                strings.Add(item.ToString());
+            }
+            return strings.ToArray();
         }
     }
 }

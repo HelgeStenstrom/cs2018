@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 
 namespace Assignment
 {
-    /// <summary>
+    /// <summary> 
     /// A manager that hosts a collection.
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -216,7 +216,7 @@ namespace Assignment
 
         public void XmlSerialize(string fileName)
         {
-            var serializer = new XmlSerializer(typeof(T));
+            var serializer = new XmlSerializer(typeof(List<T>));
             using (var writer = new StreamWriter(fileName))
                 serializer.Serialize(writer, _list);
         }

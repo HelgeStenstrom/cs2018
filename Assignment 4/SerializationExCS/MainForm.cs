@@ -133,30 +133,30 @@ namespace SerializationExProjCS
         timer1.Enabled = true;
         }
 
-        /// <summary>
-        /// Read the xmlFileName (data file) and save the data into an object of a person
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <remarks></remarks>
-        private void btnXMLDeserialize_Click(object sender, EventArgs e)
+    /// <summary>
+    /// Read the xmlFileName (data file) and save the data into an object of a person
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    /// <remarks></remarks>
+    private void btnXMLDeserialize_Click(object sender, EventArgs e)
+    {
+	    string strMessage = string.Format("File corrupt or not found. Deserialization cannot continue!");
+
+	    Person pers = XMLSerialization.DeserializeFromFile<Person>(xmlFileName);
+
+	    if (pers != null) 
         {
-	        string strMessage = string.Format("File corrupt or not found. Deserialization cannot continue!");
+		    strMessage = string.Format("{0},{2} From the xml-file: {2}{1} back as a Person.",
+                pers.ToString(), xmlFileName, Environment.NewLine);
+            txtFirstName.Text = pers.FirstName.ToUpper();
+            txtLastName.Text = pers.LastName.ToUpper();
 
-	        Person pers = XMLSerialization.DeserializeFromFile<Person>(xmlFileName);
+	    }
 
-	        if (pers != null) 
-            {
-		        strMessage = string.Format("{0},{2} From the xml-file: {2}{1} back as a Person.",
-                    pers.ToString(), xmlFileName, Environment.NewLine);
-                txtFirstName.Text = pers.FirstName.ToUpper();
-                txtLastName.Text = pers.LastName.ToUpper();
-
-	        }
-
-	        lblMessage.Text = strMessage;
-	        timer1.Enabled = true;
-        }
+	    lblMessage.Text = strMessage;
+	    timer1.Enabled = true;
+    }
     }   
   
 }

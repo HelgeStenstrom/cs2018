@@ -73,8 +73,10 @@
             this.mnuFileXmlExport = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openBinaryFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveBinaryFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openXmlFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveXmlFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -508,14 +510,23 @@
             this.mnuFileExit.Text = "Exit";
             this.mnuFileExit.Click += new System.EventHandler(this.MnuFileExit_Click);
             // 
-            // openFileDialog1
+            // openBinaryFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "Binary serialized file | *.dat|All files | *.*";
+            this.openBinaryFileDialog.FileName = "openFileDialog1";
+            this.openBinaryFileDialog.Filter = "Binary serialized file | *.dat|All files | *.*";
             // 
-            // saveFileDialog1
+            // saveBinaryFileDialog
             // 
-            this.saveFileDialog1.Filter = "Binary serialized file | *.dat";
+            this.saveBinaryFileDialog.Filter = "Binary serialized file | *.dat";
+            // 
+            // openXmlFileDialog
+            // 
+            this.openXmlFileDialog.FileName = "openFileDialog1";
+            this.openXmlFileDialog.Filter = "XML serialized file | *.xml|All files | *.*";
+            // 
+            // saveXmlFileDialog
+            // 
+            this.saveXmlFileDialog.Filter = "XML serialized file | *.xml";
             // 
             // MainForm
             // 
@@ -593,8 +604,10 @@
         private System.Windows.Forms.ToolStripMenuItem mnuFileExit;
         private System.Windows.Forms.ToolStripMenuItem mnuFileXmlImport;
         private System.Windows.Forms.ToolStripMenuItem mnuFileXmlExport;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog openBinaryFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveBinaryFileDialog;
+        private System.Windows.Forms.OpenFileDialog openXmlFileDialog;
+        private System.Windows.Forms.SaveFileDialog saveXmlFileDialog;
     }
 }
 

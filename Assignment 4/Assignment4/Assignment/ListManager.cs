@@ -7,8 +7,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Net.Mail;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms.VisualStyles;
+using System.Xml.Serialization;
 
 namespace Assignment
 {
@@ -150,7 +152,7 @@ namespace Assignment
             return x;
         }
 
-        public void BinarySerialize(string fileName)
+        public void OldBinarySerialize(string fileName)
         {
             FileStream fileStream = null;
             string errorMsg;
@@ -171,17 +173,14 @@ namespace Assignment
             } 
         }
         
-        public void AltBinarySerialize(string fileName)
+        public void BinarySerialize(string fileName)
         {
             using (var fileStream = new FileStream(fileName, FileMode.Create))
                 new BinaryFormatter().Serialize(fileStream, _list);
         }
 
-        public void BinaryDeserialize(string fileName)
+        public void OldBinaryDeserialize(string fileName)
         {
-            // Det känns som om koden från Serialize-dokumentet hamar i fel klass, eller att denna metod
-            // (vars signatur är given) inte är den som ska ha implementationen. Den är ju void.
-
             FileStream fileStream = null;
             object obj = null;
 
@@ -206,7 +205,7 @@ namespace Assignment
         }
 
 	// Inspiration from https://stackoverflow.com/questions/11467240/how-to-use-streamwriter-class-properly
-        public void AltBinaryDeserialize(string fileName)
+        public void BinaryDeserialize(string fileName)
         {
             if (!File.Exists(fileName))
                 throw new FileNotFoundException($"The file {fileName} was not found. ");
@@ -217,7 +216,9 @@ namespace Assignment
 
         public void XmlSerialize(string fileName)
         {
-            throw new NotImplementedException();
+            var serializer = new XmlSerializer(typeof(T));
+            using (var writer = new StreamWriter(fileName))
+                serializer.Serialize(writer, _list);
         }
     }
 }

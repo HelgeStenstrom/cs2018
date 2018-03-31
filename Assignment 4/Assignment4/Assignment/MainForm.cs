@@ -52,7 +52,8 @@ namespace Assignment
         // true när data ändras
         // false när det sparas.
 
-        private string _fileName;
+        private string _binFileName, _xmlFileName;
+
 
         #endregion
 
@@ -429,9 +430,14 @@ namespace Assignment
 
         private void MnuFileXmlExport_Click(object sender, EventArgs e)
         {
-
+            // Show save dialog box
+            if (saveXmlFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _xmlFileName = saveXmlFileDialog.FileName;
+                SaveToXmlFile();
+            }
         }
-        
+
         private void mnuFileNew_Click(object sender, EventArgs e)
         {
             bool animalManagerChanged = true;
@@ -454,10 +460,10 @@ namespace Assignment
             // Code from assignment
             AskUserIfSaveDataToFile(sender, e); // Save current data?
             // Show open dialog box
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openBinaryFileDialog.ShowDialog() == DialogResult.OK)
             {
-                _fileName = openFileDialog1.FileName;
-                string msg = ReadFile();
+                _binFileName = openBinaryFileDialog.FileName;
+                string msg = ReadBinaryFile();
 
                 if (msg != string.Empty)
                     MessageBox.Show(msg);
@@ -466,29 +472,24 @@ namespace Assignment
             }
         }
 
-        private void AskUserIfSaveDataToFile(object sender, EventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
         private void MnuFileSave_Click(object sender, EventArgs e)
         {
             // Code from assignment
-            if (String.IsNullOrEmpty(_fileName))
+            if (String.IsNullOrEmpty(_binFileName))
             {
                 MnuFileSaveAs_Click(sender, e);
             }
             else
-                SaveToFile();
+                SaveToBinaryFile();
         }
 
         private void MnuFileSaveAs_Click(object sender, EventArgs e)
         {
             // Show save dialog box
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveBinaryFileDialog.ShowDialog() == DialogResult.OK)
             {
-                _fileName = saveFileDialog1.FileName;
-                SaveToFile();
+                _binFileName = saveBinaryFileDialog.FileName;
+                SaveToBinaryFile();
             }
         }
 
@@ -736,32 +737,16 @@ namespace Assignment
         {
             lbxFoodStaff.Items.Clear();
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
-        }        
-        
-        
-        private string ReadFile()
-        {
-            var message = "";
-
-            try
-            {
-                _animalManager.BinaryDeserialize(_fileName);
-            }
-            catch (SerializationException e)
-            {
-                Console.WriteLine(e);
-                message = e.Message;
-            }
-            return message;
         }
 
-        private void SaveToFile()
+
+        private void SaveToBinaryFile()
         {
             var message = "";
 
             try
             {
-                _animalManager.BinarySerialize(_fileName);
+                _animalManager.BinarySerialize(_binFileName);
             }
             catch (Exception e)
             {
@@ -775,6 +760,47 @@ namespace Assignment
             }
         }
 
+        private string ReadBinaryFile()
+        {
+            var message = "";
+
+            try
+            {
+                _animalManager.BinaryDeserialize(_binFileName);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine(e);
+                message = e.Message;
+            }
+            return message;
+        }
+
+
+        private void SaveToXmlFile()
+        {
+            var message = "";
+
+            try
+            {
+                _recipeManager.XmlSerialize(_xmlFileName);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                message = e.Message;
+            }
+
+            if (!string.IsNullOrEmpty(message))
+            {
+                MessageBox.Show(message);
+            }
+            //throw new NotImplementedException();
+        }
+        private void AskUserIfSaveDataToFile(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
 
     }
 }

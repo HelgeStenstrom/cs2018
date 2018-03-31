@@ -106,9 +106,9 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
-            this.txtName.Validated += new System.EventHandler(this.txtName_Validated);
+            this.txtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtName_Validating);
+            this.txtName.Validated += new System.EventHandler(this.TxtName_Validated);
             // 
             // label2
             // 
@@ -125,9 +125,9 @@
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(100, 20);
             this.txtAge.TabIndex = 3;
-            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
-            this.txtAge.Validating += new System.ComponentModel.CancelEventHandler(this.txtAge_Validating);
-            this.txtAge.Validated += new System.EventHandler(this.txtAge_Validated);
+            this.txtAge.TextChanged += new System.EventHandler(this.TxtAge_TextChanged);
+            this.txtAge.Validating += new System.ComponentModel.CancelEventHandler(this.TxtAge_Validating);
+            this.txtAge.Validated += new System.EventHandler(this.TxtAge_Validated);
             // 
             // groupBox2
             // 
@@ -146,9 +146,9 @@
             this.lbxGender.Name = "lbxGender";
             this.lbxGender.Size = new System.Drawing.Size(154, 95);
             this.lbxGender.TabIndex = 14;
-            this.lbxGender.SelectedIndexChanged += new System.EventHandler(this.lbxGender_SelectedIndexChanged);
-            this.lbxGender.Validating += new System.ComponentModel.CancelEventHandler(this.lbxGender_Validating);
-            this.lbxGender.Validated += new System.EventHandler(this.lbxGender_Validated);
+            this.lbxGender.SelectedIndexChanged += new System.EventHandler(this.LbxGender_SelectedIndexChanged);
+            this.lbxGender.Validating += new System.ComponentModel.CancelEventHandler(this.LbxGender_Validating);
+            this.lbxGender.Validated += new System.EventHandler(this.LbxGender_Validated);
             // 
             // label3
             // 
@@ -176,7 +176,7 @@
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add this new animal";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // groupBox4
             // 
@@ -199,7 +199,7 @@
             this.btnDelete.TabIndex = 18;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // btnChange
             // 
@@ -210,7 +210,7 @@
             this.btnChange.TabIndex = 17;
             this.btnChange.Text = "Change";
             this.btnChange.UseVisualStyleBackColor = true;
-            this.btnChange.Click += new System.EventHandler(this.btnChange_Click);
+            this.btnChange.Click += new System.EventHandler(this.BtnChange_Click);
             // 
             // lvAnimals
             // 
@@ -224,9 +224,9 @@
             this.lvAnimals.TabStop = false;
             this.lvAnimals.UseCompatibleStateImageBehavior = false;
             this.lvAnimals.View = System.Windows.Forms.View.Details;
-            this.lvAnimals.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.lvAnimals_ColumnClick);
-            this.lvAnimals.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvAnimals_ColumnWidthChanging);
-            this.lvAnimals.SelectedIndexChanged += new System.EventHandler(this.lvAnimals_SelectedIndexChanged);
+            this.lvAnimals.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.LvAnimals_ColumnClick);
+            this.lvAnimals.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.LvAnimals_ColumnWidthChanging);
+            this.lvAnimals.SelectedIndexChanged += new System.EventHandler(this.LvAnimals_SelectedIndexChanged);
             // 
             // lblBredd
             // 
@@ -243,7 +243,7 @@
             this.lbxCategory.Name = "lbxCategory";
             this.lbxCategory.Size = new System.Drawing.Size(121, 95);
             this.lbxCategory.TabIndex = 14;
-            this.lbxCategory.SelectedIndexChanged += new System.EventHandler(this.lbxCategory_SelectedIndexChanged);
+            this.lbxCategory.SelectedIndexChanged += new System.EventHandler(this.LbxCategory_SelectedIndexChanged);
             // 
             // lbxAnimalObject
             // 
@@ -252,7 +252,7 @@
             this.lbxAnimalObject.Name = "lbxAnimalObject";
             this.lbxAnimalObject.Size = new System.Drawing.Size(142, 95);
             this.lbxAnimalObject.TabIndex = 15;
-            this.lbxAnimalObject.SelectedIndexChanged += new System.EventHandler(this.lbxAnimalObject_SelectedIndexChanged);
+            this.lbxAnimalObject.SelectedIndexChanged += new System.EventHandler(this.LbxAnimalObject_SelectedIndexChanged);
             // 
             // gbxSpecification
             // 
@@ -274,9 +274,9 @@
             this.txtCatProperty.Name = "txtCatProperty";
             this.txtCatProperty.Size = new System.Drawing.Size(68, 20);
             this.txtCatProperty.TabIndex = 4;
-            this.txtCatProperty.TextChanged += new System.EventHandler(this.txtCatProperty_TextChanged);
-            this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.txtCatProperty_Validating);
-            this.txtCatProperty.Validated += new System.EventHandler(this.txtCatProperty_Validated);
+            this.txtCatProperty.TextChanged += new System.EventHandler(this.TxtCatProperty_TextChanged);
+            this.txtCatProperty.Validating += new System.ComponentModel.CancelEventHandler(this.TxtCatProperty_Validating);
+            this.txtCatProperty.Validated += new System.EventHandler(this.TxtCatProperty_Validated);
             // 
             // txtSpeciesProperty
             // 
@@ -284,7 +284,7 @@
             this.txtSpeciesProperty.Name = "txtSpeciesProperty";
             this.txtSpeciesProperty.Size = new System.Drawing.Size(68, 20);
             this.txtSpeciesProperty.TabIndex = 3;
-            this.txtSpeciesProperty.TextChanged += new System.EventHandler(this.txtSpeciesProperty_TextChanged);
+            this.txtSpeciesProperty.TextChanged += new System.EventHandler(this.TxtSpeciesProperty_TextChanged);
             // 
             // lblSpeciesProperty
             // 
@@ -333,7 +333,7 @@
             this.btnPopulate.TabIndex = 14;
             this.btnPopulate.Text = "Populate";
             this.btnPopulate.UseVisualStyleBackColor = true;
-            this.btnPopulate.Click += new System.EventHandler(this.btnPopulate_Click);
+            this.btnPopulate.Click += new System.EventHandler(this.BtnPopulate_Click);
             // 
             // btnAddStaff
             // 
@@ -343,7 +343,7 @@
             this.btnAddStaff.TabIndex = 16;
             this.btnAddStaff.Text = "Add Staff";
             this.btnAddStaff.UseVisualStyleBackColor = true;
-            this.btnAddStaff.Click += new System.EventHandler(this.btnAddStaff_Click);
+            this.btnAddStaff.Click += new System.EventHandler(this.BtnAddStaff_Click);
             // 
             // groupBox5
             // 
@@ -391,7 +391,7 @@
             this.btnAddFood.TabIndex = 4;
             this.btnAddFood.Text = "Add Food";
             this.btnAddFood.UseVisualStyleBackColor = true;
-            this.btnAddFood.Click += new System.EventHandler(this.btnAddFood_Click);
+            this.btnAddFood.Click += new System.EventHandler(this.BtnAddFood_Click);
             // 
             // groupBox3
             // 
@@ -444,7 +444,7 @@
             this.mnuFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.mnuFileNew.Size = new System.Drawing.Size(158, 22);
             this.mnuFileNew.Text = "New";
-            this.mnuFileNew.Click += new System.EventHandler(this.mnuFileNew_Click);
+            this.mnuFileNew.Click += new System.EventHandler(this.MnuFileNew_Click);
             // 
             // mnuFileOpen
             // 

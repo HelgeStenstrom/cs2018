@@ -163,7 +163,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAddFood_Click(object sender, EventArgs e)
+        private void BtnAddFood_Click(object sender, EventArgs e)
         {
             RecipeForm recipeForm = new RecipeForm();
             DialogResult dialogResult = recipeForm.ShowDialog();
@@ -178,7 +178,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAddStaff_Click(object sender, EventArgs e)
+        private void BtnAddStaff_Click(object sender, EventArgs e)
         {
             var staffForm = new StaffForm();
             DialogResult dialogResult = staffForm.ShowDialog();
@@ -195,7 +195,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnPopulate_Click(object sender, EventArgs e)
+        private void BtnPopulate_Click(object sender, EventArgs e)
         {
             var someAnimals = AnimalHelper.MakeSomeAnimals();
             foreach (var animal in someAnimals)
@@ -209,7 +209,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lbxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        private void LbxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Find which category was selected
             var index = lbxCategory.SelectedIndex;
@@ -232,7 +232,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             var name = txtName.Text;
             var ageString = txtAge.Text;
@@ -259,7 +259,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
+        private void LvAnimals_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)
         {
             var newWidth = e.NewWidth;
             lblBredd.Text = $@"Width of the adjusted column: {newWidth}";
@@ -270,7 +270,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lbxAnimalObject_SelectedIndexChanged(object sender, EventArgs e)
+        private void LbxAnimalObject_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = lbxAnimalObject.SelectedItem;
 
@@ -301,7 +301,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
+        private void LvAnimals_ColumnClick(object sender, ColumnClickEventArgs e)
         {
             switch(lvAnimals.Columns[e.Column].Text)
             {
@@ -324,7 +324,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lvAnimals_SelectedIndexChanged(object sender, EventArgs e)
+        private void LvAnimals_SelectedIndexChanged(object sender, EventArgs e)
         {
             var indices = lvAnimals.SelectedIndices;
             if (ControlButtons()) // There will never be more than one row selected.
@@ -349,7 +349,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnChange_Click(object sender, EventArgs e)
+        private void BtnChange_Click(object sender, EventArgs e)
         {
             // Do nothing, it's optional.
         }
@@ -359,7 +359,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void BtnDelete_Click(object sender, EventArgs e)
         {
             var index = lvAnimals.SelectedIndices[0];
             _animalManager.DeleteAt(index);
@@ -373,7 +373,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtName_TextChanged(object sender, EventArgs e)
+        private void TxtName_TextChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
@@ -383,7 +383,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtAge_TextChanged(object sender, EventArgs e)
+        private void TxtAge_TextChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
@@ -393,7 +393,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lbxGender_SelectedIndexChanged(object sender, EventArgs e)
+        private void LbxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
@@ -403,7 +403,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtCatProperty_TextChanged(object sender, EventArgs e)
+        private void TxtCatProperty_TextChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
@@ -413,7 +413,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtSpeciesProperty_TextChanged(object sender, EventArgs e)
+        private void TxtSpeciesProperty_TextChanged(object sender, EventArgs e)
         {
             UpdateButton();
         }
@@ -438,7 +438,7 @@ namespace Assignment
             }
         }
 
-        private void mnuFileNew_Click(object sender, EventArgs e)
+        private void MnuFileNew_Click(object sender, EventArgs e)
         {
             bool animalManagerChanged = true;
             if (animalManagerChanged)
@@ -556,7 +556,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtAge_Validating(object sender, CancelEventArgs e)
+        private void TxtAge_Validating(object sender, CancelEventArgs e)
         {
             ValidateAge(txtAge, e, errorProvider1);
         }
@@ -579,7 +579,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtAge_Validated(object sender, EventArgs e)
+        private void TxtAge_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(txtAge, "");
@@ -590,7 +590,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtCatProperty_Validating(object sender, CancelEventArgs e)
+        private void TxtCatProperty_Validating(object sender, CancelEventArgs e)
         {
             if ((int.TryParse(txtCatProperty.Text, out var age)) && (age >= 0)) return;
             e.Cancel = true;
@@ -602,7 +602,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtCatProperty_Validated(object sender, EventArgs e)
+        private void TxtCatProperty_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(txtCatProperty, "");
@@ -613,7 +613,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lbxGender_Validating(object sender, CancelEventArgs e)
+        private void LbxGender_Validating(object sender, CancelEventArgs e)
         {
             if (lbxGender.SelectedIndex >= 0) return;
             e.Cancel = true;
@@ -625,7 +625,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void lbxGender_Validated(object sender, EventArgs e)
+        private void LbxGender_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(lbxGender, "");
@@ -636,7 +636,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtName_Validating(object sender, CancelEventArgs e)
+        private void TxtName_Validating(object sender, CancelEventArgs e)
         {
             if (!string.IsNullOrEmpty(txtName.Text)) return;
             e.Cancel = true;
@@ -648,7 +648,7 @@ namespace Assignment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void txtName_Validated(object sender, EventArgs e)
+        private void TxtName_Validated(object sender, EventArgs e)
         {
             // If all conditions have been met, clear the ErrorProvider of errors.
             errorProvider1.SetError(txtName, "");

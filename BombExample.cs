@@ -6,9 +6,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace Assignment
 {
     [Serializable]
-    class BombExample
+    public class BombExample
     {
-        static ISet<Object> Bomb(int size)
+        public static ISet<Object> Bomb(int size)
         {
             ISet<Object> root = new HashSet<Object>();
             ISet<Object> s1 = root;

@@ -82,8 +82,23 @@ namespace Assignment
         #endregion
 
         #region Assignment 4 serialization
+
+        /// <summary>
+        /// Serialize the list of this list manager into a binary file.
+        /// </summary>
+        /// <param name="fileName">file to write to</param>
         void BinarySerialize(string fileName);
+
+        /// <summary>
+        /// Deserialize from a binary file into the list of this list manager.
+        /// </summary>
+        /// <param name="fileName">file to read from</param>
         void BinaryDeserialize(string fileName);
+
+        /// <summary>
+        /// Serialize the list of this list manager into an XML file.
+        /// </summary>
+        /// <param name="fileName">file to write to</param>
         void XmlSerialize(string fileName);
         #endregion
     }

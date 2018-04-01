@@ -72,7 +72,6 @@
     <Compile Include="Animals\EaterType.cs" />
     <Compile Include="Animals\Gender.cs" />
     <Compile Include="Animals\IAnimal.cs" />
-    <Compile Include="BombExample.cs" />
     <Compile Include="FoodScheduleDictionary.cs" />
     <Compile Include="IFoodSchedule.cs" />
     <Compile Include="IListManager.cs" />

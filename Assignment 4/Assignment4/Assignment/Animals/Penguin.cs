@@ -39,7 +39,7 @@ namespace Assignment
         /// <summary>
         /// How fast this particular penguin can swim.
         /// </summary>
-        private double SwimSpeed { get; }
+        private double SwimSpeed { get; }   
 
         /// <summary>
         /// A string that represents this particular penguin.

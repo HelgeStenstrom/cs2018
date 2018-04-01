@@ -423,11 +423,19 @@ namespace Assignment
             UpdateButton();
         }
 
+        /// <summary>
+        /// Exit the program.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MnuFileExit_Click(object sender, EventArgs e)
         {
-
+            // TODO: Exit program
         }
 
+        /// <summary>
+        /// Import the food schedule from an XML file. The file is chosen using a dialog.
+        /// </summary>
         private void MnuFileXmlImport_Click(object sender, EventArgs e)
         {
             // Show open dialog box
@@ -440,10 +448,12 @@ namespace Assignment
                     MessageBox.Show(msg);
                 else
                     UpdateDetails(_recipeManager);
-
             }
         }
 
+        /// <summary>
+        /// Export the food schedule into an XML file. The file is chosen using a dialog.
+        /// </summary>
         private void MnuFileXmlExport_Click(object sender, EventArgs e)
         {
             // Show save dialog box
@@ -454,9 +464,12 @@ namespace Assignment
             }
         }
 
+        /// <summary>
+        /// Empty the animal list, thereby allowing a new list to be made. 
+        /// Just like when the program is freshly started.
+        /// </summary>
         private void MnuFileNew_Click(object sender, EventArgs e)
         {
-            //bool animalManagerChanged = true;
             DialogResult result = DialogResult.OK;
             if (_animalManagerChanged)
             {
@@ -474,6 +487,9 @@ namespace Assignment
             
         }
 
+        /// <summary>
+        /// Read in an animal list from a binary serialized file.
+        /// </summary>
         private void MnuFileOpen_Click(object sender, EventArgs e)
         {
             // Code from assignment
@@ -490,6 +506,11 @@ namespace Assignment
             }
         }
 
+        /// <summary>
+        /// Save the animal list into a file, in binary format. 
+        /// The last used filename is used by default. 
+        /// If none such, a dialog is shown to select the file.
+        /// </summary>
         private void MnuFileSave_Click(object sender, EventArgs e)
         {
             // Code from assignment
@@ -501,6 +522,10 @@ namespace Assignment
                 SaveToBinaryFile();
         }
 
+        /// <summary>
+        /// Save the animal list into a file, in binary format. 
+        /// The file name is supplied using a dialog.
+        /// </summary>
         private void MnuFileSaveAs_Click(object sender, EventArgs e)
         {
             // Show save dialog box
@@ -696,6 +721,12 @@ namespace Assignment
         /// </summary>
         private class CompareById : IComparer<IAnimal>
         {
+            /// <summary>
+            /// Compare two animals by ID. Used for sorting.
+            /// </summary>
+            /// <param name="animal1"></param>
+            /// <param name="animal2"></param>
+            /// <returns></returns>
             public int Compare(IAnimal animal1, IAnimal animal2)
             {
                 var a1 = animal1;
@@ -757,7 +788,9 @@ namespace Assignment
             lbxFoodStaff.Items.AddRange(listManager.ToStringArray());
         }
 
-
+        /// <summary>
+        /// Save the animal list to a binary file. The file is chosen using a dialog.
+        /// </summary>
         private void SaveToBinaryFile()
         {
             var message = "";
@@ -769,7 +802,7 @@ namespace Assignment
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                //Console.WriteLine(e);
                 message = e.Message;
             }
 
@@ -779,6 +812,10 @@ namespace Assignment
             }
         }
 
+        /// <summary>
+        /// Read the animal list from a binary file.
+        /// </summary>
+        /// <returns></returns>
         private string ReadBinaryFile()
         {
             var message = "";
@@ -795,7 +832,9 @@ namespace Assignment
             return message;
         }
 
-
+        /// <summary>
+        /// Save (export) the food schedule to an XML file
+        /// </summary>
         private void SaveToXmlFile()
         {
             var message = "";
@@ -817,6 +856,10 @@ namespace Assignment
             //throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Read (import) the food schedule form an XML file.
+        /// </summary>
+        /// <returns></returns>
         private string ReadXmlFile()
         {
             var message = "";
@@ -833,11 +876,21 @@ namespace Assignment
             return message;
         }
 
+        /// <summary>
+        /// Useless method that exist in the course material, but isn't explained,
+        /// neither by purpose or implementation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AskUserIfSaveDataToFile(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Returns an asterisk if the current animal list has changed since the last save.
+        /// </summary>
+        /// <returns>an asterisk if the current animal list has changed since the last save</returns>
         string changedMarker()
         {
             if (_animalManagerChanged) return "*";

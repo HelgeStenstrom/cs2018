@@ -54,6 +54,9 @@ namespace Assignment
             return isOk;
         }
 
+        /// <summary>
+        /// Empty the list.
+        /// </summary>
         internal void Clear()
         {
             _list.Clear();
@@ -148,18 +151,18 @@ namespace Assignment
             return x;
         }
 
+        /// <summary>
+        /// Old implementation of binary serialization, using try-finaly clauses. Not used.
+        /// </summary>
+        /// <param name="fileName">file to be written to</param>
         public void OldBinarySerialize(string fileName)
         {
             FileStream fileStream = null;
-            string errorMsg;
 
             try
             {
                 fileStream = new FileStream(fileName, FileMode.Create);
                 var formatter = new BinaryFormatter();
-                // TODO: bara en av dessa två.
-                //formatter.Serialize(fileStream, this);
-                // stop here
                 formatter.Serialize(fileStream, _list);
             }
             // Don't catch the exception here, but in calling function. Just ensure the stream is closed.
@@ -169,12 +172,20 @@ namespace Assignment
             } 
         }
         
+        /// <summary>
+        /// Serialize the list of this list manager into a binary file.
+        /// </summary>
+        /// <param name="fileName">file to be written to</param>
         public void BinarySerialize(string fileName)
         {
             using (var fileStream = new FileStream(fileName, FileMode.Create))
                 new BinaryFormatter().Serialize(fileStream, _list);
         }
 
+        /// <summary>
+        /// Old implementation of binaryde serialization, using try-finaly clauses. Not used.
+        /// </summary>
+        /// <param name="fileName">file to read from</param>
         public void OldBinaryDeserialize(string fileName)
         {
             FileStream fileStream = null;
@@ -200,16 +211,24 @@ namespace Assignment
             _list = (List<T>) obj;
         }
 
-	// Inspiration from https://stackoverflow.com/questions/11467240/how-to-use-streamwriter-class-properly
+        /// <summary>
+        /// Deserialization from a binary file, into the list of this list manager.
+        /// </summary>
+        /// <param name="fileName">file to read from.</param>
         public void BinaryDeserialize(string fileName)
         {
+            // Inspiration from https://stackoverflow.com/questions/11467240/how-to-use-streamwriter-class-properly
             if (!File.Exists(fileName))
                 throw new FileNotFoundException($"The file {fileName} was not found. ");
 
             using (var fileStream = new FileStream(fileName, FileMode.Open))
-                _list = (List<T>) new BinaryFormatter().Deserialize(fileStream);
+                _list = (List<T>) new BinaryFormatter().Deserialize(fileStream); // cast into the wanted type.
         }
 
+        /// <summary>
+        /// Serialize the list of this list manager into an XML file.
+        /// </summary>
+        /// <param name="fileName"></param>
         public void XmlSerialize(string fileName)
         {
             var serializer = new XmlSerializer(typeof(List<T>));
@@ -217,6 +236,10 @@ namespace Assignment
                 serializer.Serialize(writer, _list);
         }
 
+        /// <summary>
+        /// Deserialize from an XML file into the list of this list manager.
+        /// </summary>
+        /// <param name="fileName"></param>
         public void XmlDeserialize(string fileName)
         {
             var serializer = new XmlSerializer(typeof(List<T>));

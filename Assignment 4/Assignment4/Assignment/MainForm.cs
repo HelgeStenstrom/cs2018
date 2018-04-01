@@ -199,7 +199,10 @@ namespace Assignment
         {
             var someAnimals = AnimalHelper.MakeSomeAnimals();
             foreach (var animal in someAnimals)
+            {
                 _animalManager.Add(animal);
+                _animalManagerChanged = true;
+            }
             UpdateTable();
         }
 
@@ -246,7 +249,8 @@ namespace Assignment
             var argumentsOk = ageOk;
             if (argumentsOk)
             {
-                _animalManager.Add(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species));                
+                _animalManager.Add(AnimalHelper.MakeAnimal(name, age, gender, categoryProperty, speciesProperty, species));
+                _animalManagerChanged = true;
             }
                 
 
@@ -315,6 +319,7 @@ namespace Assignment
                     _animalManager.Sort(new CompareByAge());
                     break;
             }
+            //_animalManagerChanged = true;
             UpdateTable();
         }
 
@@ -362,6 +367,7 @@ namespace Assignment
         {
             var index = lvAnimals.SelectedIndices[0];
             _animalManager.DeleteAt(index);
+            _animalManagerChanged = true;
             UpdateTable();
             ControlButtons();
         }
@@ -424,7 +430,18 @@ namespace Assignment
 
         private void MnuFileXmlImport_Click(object sender, EventArgs e)
         {
+            // Show open dialog box
+            if (openXmlFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                _xmlFileName = openXmlFileDialog.FileName;
+                string msg = ReadXmlFile();
 
+                if (msg != string.Empty)
+                    MessageBox.Show(msg);
+                else
+                    UpdateDetails(_recipeManager);
+
+            }
         }
 
         private void MnuFileXmlExport_Click(object sender, EventArgs e)
@@ -439,25 +456,27 @@ namespace Assignment
 
         private void MnuFileNew_Click(object sender, EventArgs e)
         {
-            bool animalManagerChanged = true;
-            if (animalManagerChanged)
+            //bool animalManagerChanged = true;
+            DialogResult result = DialogResult.OK;
+            if (_animalManagerChanged)
             {
                 MessageBoxButtons buttons = MessageBoxButtons.OKCancel;
-                DialogResult result = MessageBox.Show("Current animal list will be lost, OK or Cancel?", 
+                result = MessageBox.Show("Current animal list will be lost, OK or Cancel?",
                     "Confirmation", buttons);
+            }
 
-                if (result == DialogResult.OK)
+            if (result == DialogResult.OK)
                 {
                     _animalManager.Clear();
+                    _animalManagerChanged = false;
                     UpdateTable();
                 }
-            }
+            
         }
 
         private void MnuFileOpen_Click(object sender, EventArgs e)
         {
             // Code from assignment
-            AskUserIfSaveDataToFile(sender, e); // Save current data?
             // Show open dialog box
             if (openBinaryFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -746,6 +765,7 @@ namespace Assignment
             try
             {
                 _animalManager.BinarySerialize(_binFileName);
+                _animalManagerChanged = false;
             }
             catch (Exception e)
             {
@@ -796,9 +816,32 @@ namespace Assignment
             }
             //throw new NotImplementedException();
         }
+
+        private string ReadXmlFile()
+        {
+            var message = "";
+
+            try
+            {
+                _recipeManager.XmlDeserialize(_xmlFileName);
+            }
+            catch (SerializationException e)
+            {
+                Console.WriteLine(e);
+                message = e.Message;
+            }
+            return message;
+        }
+
         private void AskUserIfSaveDataToFile(object sender, EventArgs e)
         {
             //throw new NotImplementedException();
+        }
+
+        string changedMarker()
+        {
+            if (_animalManagerChanged) return "*";
+            return "";
         }
 
     }

@@ -216,5 +216,18 @@ namespace Assignment
             using (var writer = new StreamWriter(fileName))
                 serializer.Serialize(writer, _list);
         }
+
+        public void XmlDeserialize(string fileName)
+        {
+            var serializer = new XmlSerializer(typeof(List<T>));
+            if (!File.Exists(fileName))
+                throw new FileNotFoundException($"The file {fileName} was not found. ");
+
+            using (var fileStream = new FileStream(fileName, FileMode.Open))
+            {
+                _list = (List<T>) serializer.Deserialize(fileStream);
+            }
+        }
+
     }
 }

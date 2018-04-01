@@ -47,11 +47,14 @@ namespace Assignment
         /// </summary>
         private readonly ListManager<string> _staff = new ListManager<string>();
 
+        /// <summary>
+        /// Flag to indicate if the animal list has changed since the last save to file.
+        /// </summary>
         private bool _animalManagerChanged = false;
-        // TODO: Se till att den sätts till true på rätt sätt
-        // true när data ändras
-        // false när det sparas.
 
+        /// <summary>
+        /// Names of files for serialization.
+        /// </summary>
         private string _binFileName, _xmlFileName;
 
 
@@ -101,25 +104,6 @@ namespace Assignment
             lvAnimals.Columns.Add("Special characteristics", 250, HorizontalAlignment.Center);
         }
 
-        /// <summary>
-        /// Convert a column number into a column name, used to define sorting of a column
-        /// </summary>
-        /// <param name="sortColumn">the number of the column to be sorted</param>
-        /// <returns></returns>
-        private string SortName(int sortColumn)
-        {
-            switch (sortColumn)
-            {
-                    case 0: 
-                        return "ID";
-                    case 1: 
-                        return "Name";
-                    case 2: 
-                        return "Age";
-                    default:
-                        return "no sort";
-            }
-        }
 
         /// <summary>
         /// Set up the animal category chooser.
@@ -430,7 +414,7 @@ namespace Assignment
         /// <param name="e"></param>
         private void MnuFileExit_Click(object sender, EventArgs e)
         {
-            // TODO: Exit program
+            Application.Exit();
         }
 
         /// <summary>
@@ -891,7 +875,7 @@ namespace Assignment
         /// Returns an asterisk if the current animal list has changed since the last save.
         /// </summary>
         /// <returns>an asterisk if the current animal list has changed since the last save</returns>
-        string changedMarker()
+        string ChangedMarker()
         {
             if (_animalManagerChanged) return "*";
             return "";

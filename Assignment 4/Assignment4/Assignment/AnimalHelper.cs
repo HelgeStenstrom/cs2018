@@ -76,8 +76,6 @@ namespace Assignment
             lblSpecies.Location = new Point(0, lblMammal1.Bottom + 5);
             txtSpecies.Location = new Point(lblSpecies.Right + 5, lblSpecies.Top);
 
-
-            // TODO: validate species as a class name, and switch on it.
             return panel;
         }
 

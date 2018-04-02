@@ -30,7 +30,7 @@ namespace Assignment
         /// <param name="other">a copy of this Bird</param>
         public Bird(Bird other) : base(other)
         {
-            WingSpan = other.WingSpan;
+           WingSpan = other.WingSpan;
         }
 
         /// <summary>

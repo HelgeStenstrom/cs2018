@@ -1,23 +1,24 @@
-﻿<Window x:Class="BidHouseWPFCS.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Apu's Bidhouse -  Main Window" Height="355" Width="759">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="BidHouseWPFCS.MainWindow"
+        Title="Apu's Bad house -  Main Window" >
     <Grid>
-        <Label Content="Name/ID" Height="27" HorizontalAlignment="Left" Margin="41,18,0,0" Name="label1" VerticalAlignment="Top" Width="68" BorderBrush="{x:Null}" FontFamily="MV Boli" FontSize="12" />
-        <Border BorderBrush="Silver" BorderThickness="1" CornerRadius="20" Height="40" HorizontalAlignment="Left" Margin="115,12,0,0" Name="border1" VerticalAlignment="Top" Width="180">
-            <TextBox Height="35" BorderThickness="0" Name="txtProductName" Width="157" Padding="0" TextWrapping="Wrap" TextAlignment="Right" VerticalContentAlignment="Center"></TextBox>
+        <Label Content="Namn/ID" Height="27" HorizontalAlignment="Left" Margin="12,18,0,0" x:Name="label1" VerticalAlignment="Top" Width="68" BorderBrush="{x:Null}" FontFamily="MV Boli" FontSize="12" />
+        <Border BorderBrush="Silver" BorderThickness="1" CornerRadius="20" Height="40" HorizontalAlignment="Left" Margin="115,12,0,0" x:Name="border1" VerticalAlignment="Top" Width="180">
+            <TextBox Height="35" BorderThickness="0" x:Name="txtProductName" Width="157" Padding="0" TextWrapping="Wrap" TextAlignment="Right" VerticalContentAlignment="Center"/>
         </Border>
-        <TextBlock Height="24" HorizontalAlignment="Left" Margin="28,70,0,0" Name="textBlock1" Text="Retailer price" VerticalAlignment="Top" Width="162" FontFamily="MV Boli" />
-        <TextBox Height="22" HorizontalAlignment="Left" Margin="196,68,0,0" Name="txtListPrice" VerticalAlignment="Top" Width="87" TextAlignment="Right" />
-        <TextBlock FontFamily="MV Boli" Height="24" HorizontalAlignment="Left" Margin="28,100,0,0" Name="textBlock2" Text="Quantity included" VerticalAlignment="Top" Width="162" />
-        <TextBox Height="22" HorizontalAlignment="Left" Margin="196,102,0,0" Name="txtCount" VerticalAlignment="Top" Width="87" TextAlignment="Right" />
-        <Border BorderBrush="Silver" Background="BlanchedAlmond" BorderThickness="1" Height="155" HorizontalAlignment="Left" Margin="302,11,0,0" Name="border2" VerticalAlignment="Top" Width="189">
-            <TextBox Height="128" Name="txtDescription" Width="168" />
+        <TextBlock Height="24" HorizontalAlignment="Left" Margin="12,70,0,0" x:Name="textBlock1" Text="Retailer price" VerticalAlignment="Top" Width="162" FontFamily="MV Boli" />
+        <TextBox Height="22" HorizontalAlignment="Left" Margin="196,68,0,0" x:Name="txtListPrice" VerticalAlignment="Top" Width="87" TextAlignment="Right" />
+        <TextBlock FontFamily="MV Boli" Height="24" HorizontalAlignment="Left" Margin="12,100,0,0" x:Name="textBlock2" Text="Quantity included" VerticalAlignment="Top" Width="162" />
+        <TextBox Height="22" HorizontalAlignment="Left" Margin="196,102,0,0" x:Name="txtCount" VerticalAlignment="Top" Width="87" TextAlignment="Right" />
+        <Border BorderBrush="Silver" Background="BlanchedAlmond" BorderThickness="1" Height="155" HorizontalAlignment="Left" Margin="302,11,0,0" x:Name="border2" VerticalAlignment="Top" Width="189">
+            <TextBox Height="128" x:Name="txtDescription" Width="168" />
         </Border>
-        <Button Content="Start a bid manager for this object" Height="36" HorizontalAlignment="Left" Margin="34,130,0,0" Name="btnStartBid" VerticalAlignment="Top" Width="240" Click="btnStartBid_Click" />
-        <ListBox Height="121" HorizontalAlignment="Left" Margin="12,178,0,0" Name="lstStatus" VerticalAlignment="Top" Width="479" />
-        <Border BorderBrush="Silver" BorderThickness="1" Height="288" HorizontalAlignment="Left" Margin="497,11,0,0" Name="border3" VerticalAlignment="Top" Width="228">
-            <TextBlock Height="262" Name="lblMessage" Text="TextBlock" Width="209" />
+        <Button Content="Start a bid manager for this object" Height="36" HorizontalAlignment="Left" Margin="12,130,0,0" x:Name="btnStartBid" VerticalAlignment="Top" Width="240" Click="btnStartBid_Click" />
+        <ListBox Height="121" HorizontalAlignment="Left" Margin="12,178,0,0" x:Name="lstStatus" VerticalAlignment="Top" Width="479" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="288" HorizontalAlignment="Left" Margin="497,11,0,0" x:Name="border3" VerticalAlignment="Top" Width="228">
+            <TextBlock Height="262" x:Name="lblMessage" Text="TextBlock" Width="209" />
         </Border>
     </Grid>
 </Window>

@@ -5,46 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment5"
         mc:Ignorable="d"
-        Title="Control Tower" Height="350" Width="925">
+        Title="Control Tower">
     <Grid>
-        <Viewbox Margin="8" >
-            <StackPanel  Orientation="Horizontal">
-                <Label Content="Next flight:" />
-                <TextBox 
-                   
-                    
-                
-                    Text="TextBox" 
-                
-                    
-                    />
-                <Button Content="Send next plane to runway"  Click="Button_Send_Click"/>
-            </StackPanel>
-        </Viewbox>
-        <DataGrid x:Name="Flighter" 
-            HorizontalAlignment="Left" 
-            Height="100" 
-            Margin="84,78,0,0" 
-            VerticalAlignment="Top" 
-            Width="144">
-            <DataGrid.Columns>
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Ett" HeaderStringFormat="sträng"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Två"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" HeaderStringFormat="TreSträng" Header="3:a"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBlock x:Name="textBlock" 
-                   HorizontalAlignment="Left" 
-                   Margin="195,170,0,0" 
-                   TextWrapping="Wrap" 
-                   Text="Hello World!" 
-                   Height="44"
-                   Width="102"
-                   VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="361,65,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
-        <DatePicker HorizontalAlignment="Left" Margin="211,56,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="297,145,0,0" VerticalAlignment="Top" Width="100"/>
+        <StackPanel Margin="5,0">
+            <DataGrid x:Name="Flighter" 
+                Height="500" 
+                VerticalAlignment="Top" MinWidth="600">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Flight Code" MinWidth="50"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Status" MinWidth="80"/>
+                    <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Time" MinWidth="80"/>
+                </DataGrid.Columns>
+            </DataGrid>
 
+            <Viewbox >
+                <StackPanel  Orientation="Horizontal">
+                    <Label Content="Next flight:" />
+                    <TextBox Text="TextBox" Width="400" />
+                    <Button Content="Send next plane to runway"  Click="Button_Send_Click"/>
+                </StackPanel>
+            </Viewbox>
+        </StackPanel>
     </Grid>
 </Window>

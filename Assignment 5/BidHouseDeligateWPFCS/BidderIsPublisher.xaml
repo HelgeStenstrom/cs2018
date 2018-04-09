@@ -1,0 +1,15 @@
+﻿<Window x:Class="BidHouseWPFCS.BidderIsPublisher"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="New bidder" Height="192" Width="300">
+    <Grid Width="255" Height="137">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="62*" />
+        </Grid.RowDefinitions>
+        <Label Content="New amount" Height="25" HorizontalAlignment="Left" Margin="12,11,0,0" Name="label1" VerticalAlignment="Top" Width="223" />
+        <TextBox Height="27" HorizontalAlignment="Left" Margin="114,13,0,0" Name="txtAmount" VerticalAlignment="Top" Width="110" />
+        <Button Content="Send bid" Height="28" HorizontalAlignment="Left" Margin="44,47,0,0" Name="btnSubmit" VerticalAlignment="Top" Width="181" Click="btnSubmit_Click" />
+        <Button Content="Quit" Height="31" HorizontalAlignment="Left" Margin="44,6,0,0" Name="btnQuit" VerticalAlignment="Top" Width="180" Grid.Row="1" Click="btnQuit_Click" />
+    </Grid>
+</Window>

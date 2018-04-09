@@ -1,0 +1,16 @@
+﻿<Window x:Class="BidHouseWPFCS.BidManagerIsSubscriber"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BidManagerIsSubscriber" Height="472" Width="581">
+    <Grid Width="548" Height="416">
+        <Label Content="Name of bidder" Height="27" HorizontalAlignment="Left" Margin="8,23,0,0" Name="label1" VerticalAlignment="Top" Width="107" />
+        <TextBox Height="27" HorizontalAlignment="Left" Margin="106,23,0,0" Name="txtName" VerticalAlignment="Top" Width="253" />
+        <Button Content="Add" Height="27" HorizontalAlignment="Left" Margin="381,23,0,0" Name="btnAdd" VerticalAlignment="Top" Width="145" Click="btnAdd_Click" ToolTip="Add more bidders" />
+        <Button Content="Start bidding" Height="29" HorizontalAlignment="Left" Margin="381,80,0,0" Name="btnStart" VerticalAlignment="Top" Width="145" Click="btnStart_Click" />
+        <Button Content="Sold!  End bit" Height="31" HorizontalAlignment="Left" Margin="381,115,0,0" Name="btnEnd" VerticalAlignment="Top" Width="145" Click="btnEnd_Click" />
+        <ListBox Height="236" HorizontalAlignment="Left" Margin="6,168,0,0" Name="lstBidHistory" VerticalAlignment="Top" Width="530" ToolTip="Add more bidders" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="105" HorizontalAlignment="Left" Margin="8,56,0,0" Name="border1" VerticalAlignment="Top" Width="351" Background="#FFF2E9E9" OpacityMask="Black">
+            <TextBlock Height="87" Name="lblDescription" Text="TextBlock" Width="331" />
+        </Border>
+    </Grid>
+</Window>

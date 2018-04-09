@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Baserat på https://www.youtube.com/watch?v=jQgwEsJISy0
+
 namespace EventsDelegatesConsole
 {
     class Program

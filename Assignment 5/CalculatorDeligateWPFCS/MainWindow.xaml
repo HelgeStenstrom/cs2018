@@ -1,0 +1,31 @@
+﻿<Window x:Class="CaclulatorDelegateCS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calculator using WPF and delegates in C#" mc:Ignorable="d" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Height="221" Width="556">
+    <Grid Width="533" Height="180">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="532*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Content="Number 1" FontSize="12" Height="25" HorizontalAlignment="left" Margin="21,0,0,0" Name="Label1" VerticalAlignment="Top" Width="74.704" />
+        <TextBox FlowDirection="RightToLeft" FontWeight="Bold" HorizontalAlignment="Left" Margin="12,26,0,128" Name="txtNumber1" Padding="1" Width="63" Text="0.00" />
+        <Label Content="Number 2" FontSize="12" Height="25" Margin="0,0,297,0" Name="Label2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="74" />
+        <TextBox FlowDirection="RightToLeft" FontWeight="Bold" HorizontalAlignment="Left" Margin="161,26,0,128" Name="txtNumber2" Padding="1" Width="71" Text="0.0" />
+        <ComboBox FontFamily="Arial" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Margin="82,26,0,128" Name="cmbOperator" VerticalContentAlignment="Center" Width="68" SelectionChanged="cmbOperator_SelectionChanged" />
+        <Label Content="=" ContentStringFormat="" HorizontalAlignment="left" Margin="229,21,0,132" Name="Label3" Width="22.678" />
+        <Label BorderBrush="Transparent" BorderThickness="2" FlowDirection="RightToLeft" FontWeight="Bold" Foreground="#FF190000" HorizontalAlignment="left" Margin="282,26,0,0" Padding="1" Width="69" Name="lblResult" Height="22" VerticalAlignment="Top" />
+        <Button Content="Calculate" FontSize="20" Height="38" Margin="141,0,149,40" Name="btnOK" VerticalAlignment="Bottom" Click="btnOK_Click" />
+        <Button Content="+ .0" FontFamily="Arial" FontSize="12" Height="18" HorizontalAlignment="Left" Margin="414,21,0,0" Name="btnIncrDecimals" VerticalAlignment="Top" Width="30" Click="btnIncrDecimals_Click" />
+        <Button Content="-  .0" FontFamily="Arial" Height="19" HorizontalAlignment="Left" Margin="414,0,0,116" Name="btnDecrDecimals" VerticalAlignment="Bottom" Visibility="Visible" Width="30" Click="btnDecrDecimals_Click" />
+        <Border BorderBrush="Silver" BorderThickness="1" Height="79" HorizontalAlignment="Left" Margin="417,83,0,0" Name="Border1" VerticalAlignment="Top" Visibility="Visible" Width="97">
+            <Border.Effect>
+                <DropShadowEffect Opacity=" 0.5" ShadowDepth="8" />
+            </Border.Effect>
+            <Border.RenderTransform>
+                <SkewTransform AngleX="-3" AngleY="-8" CenterX="0" CenterY="0" />
+            </Border.RenderTransform>
+            <Image Height="55" Name="Image1" Source="/happyface.jpg" Stretch="Fill" Visibility="Visible" Width="79" />
+        </Border>
+        <Image Height="78" HorizontalAlignment="Left" Margin="21,80,0,0" Name="Image2" Source="/happyface.jpg" Stretch="Fill" VerticalAlignment="Top" Visibility="Visible" Width="85" />
+    </Grid>
+</Window>

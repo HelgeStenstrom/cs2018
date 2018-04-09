@@ -1,6 +1,6 @@
 ﻿namespace EventsDelegatesConsole
 {
-    internal class Video
+    public class Video
     {
         public Video()
         {

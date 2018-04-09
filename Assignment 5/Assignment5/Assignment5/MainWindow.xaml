@@ -21,8 +21,8 @@
             <Viewbox >
                 <StackPanel  Orientation="Horizontal">
                     <Label Content="Next flight:" />
-                    <TextBox Text="TextBox" Width="400" />
-                    <Button Content="Send next plane to runway"  Click="Button_Send_Click"/>
+                    <TextBox x:Name="txtFlightCode" Width="200" ToolTip="Flight code" LostFocus="ValidateFlightButton" FocusableChanged="ValidateFlightButton" KeyUp="txtFlightCode_KeyUp" />
+                    <Button x:Name="btnSend" Content="Send next plane to runway"  Click="Button_Send_Click"/>
                 </StackPanel>
             </Viewbox>
         </StackPanel>

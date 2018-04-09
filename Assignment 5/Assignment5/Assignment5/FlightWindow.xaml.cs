@@ -22,6 +22,15 @@ namespace Assignment5
         public FlightWindow()
         {
             InitializeComponent();
+            InitializeGUI();
         }
+
+        private void InitializeGUI()
+        {
+            throw new NotImplementedException();
+        }
+
+        // TODO: Disable rutt och Land
+        // TODO: Visa logga
     }
 }

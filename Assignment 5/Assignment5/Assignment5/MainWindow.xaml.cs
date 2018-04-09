@@ -23,15 +23,74 @@ namespace Assignment5
         public MainWindow()
         {
             InitializeComponent();
+            InitializeGUI();
+        }
+
+        private void InitializeGUI()
+        {
+            btnSend.IsEnabled = false;
+            ValidateFlightButton();
+            
+        }
+
+        private void ValidateFlightButton()
+        {
+            var txt = txtFlightCode.Text;
+            btnSend.IsEnabled = !(string.IsNullOrEmpty(txt));
         }
 
         private void Button_Send_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Du klickade Sänd plan till starten");
+            //MessageBox.Show("Du klickade Sänd plan till starten");
             var x = new FlightWindow();
-            x.Show();
+            //x.Show();
+            x.ShowDialog();
             Console.WriteLine("FLightfönster skapat");
         }
 
+        private void Validate(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ValidateFlightButton(object sender, RoutedEventArgs e)
+        {
+            ValidateFlightButton();
+        }
+
+        private void ValidateFlightButton(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            ValidateFlightButton();
+        }
+
+        private void txtFlightCode_KeyUp(object sender, KeyEventArgs e)
+        {
+            ValidateFlightButton();
+        }
+
+
+
+        // TODO: Läs in bild när klassobjektet skapas
+        // TODO: Publicera event när någon knapp klickas
+        // TODO: Hitta på ett event-objekt. Ska innehålla flight#
+        // TODO: SetupGUI: flyll i något plan som har landat.
+
+    }
+
+    class FlightEventARgs : EventArgs
+    {
+        public Flight Flight { get; set; }
+    }
+
+    class Flight
+    {
+        public string FlightNo { get; set; }
+        public FlightAction FlightAction  { get; set; }
+    }
+
+    enum FlightAction
+    {
+        starting,
+        landing
     }
 }

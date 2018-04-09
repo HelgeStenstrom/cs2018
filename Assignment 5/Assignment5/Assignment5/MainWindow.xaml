@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment5"
         mc:Ignorable="d"
-        Title="Control Tower">
+        Title="Control Tower" Height="574">
     <Grid>
-        <StackPanel Margin="5,0">
-            <DataGrid x:Name="Flighter" 
+        <StackPanel>
+            <DataGrid x:Name="Flights" 
                 Height="500" 
-                VerticalAlignment="Top" MinWidth="600">
+                VerticalAlignment="Top" MinWidth="400">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Flight Code" MinWidth="50"/>
                     <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Status" MinWidth="80"/>

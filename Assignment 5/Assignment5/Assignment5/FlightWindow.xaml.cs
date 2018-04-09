@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Assignment5
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FlightWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class FlightWindow : Window
     {
-        public MainWindow()
+        public FlightWindow()
         {
             InitializeComponent();
         }
-
-        private void Button_Send_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Du klickade Sänd plan till starten");
-            var x = new FlightWindow();
-            x.Show();
-            Console.WriteLine("FLightfönster skapat");
-        }
-
     }
 }

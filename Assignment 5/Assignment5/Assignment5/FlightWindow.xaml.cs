@@ -31,9 +31,7 @@ namespace Assignment5
         {
             this.Title = $"Flight {flightName}";
             Uri uri;
-            uri = new Uri(@"/icons/qatar.jpeg", UriKind.Relative);
-            uri = new Uri(@"/icons/klm.png", UriKind.Relative);
-            //var x = this.logo.Source.
+            uri = new Uri(@"/icons/" + Airline(flightName), UriKind.Relative);
            this.logo.Source = new BitmapImage(uri);
             //throw new NotImplementedException();
         }
@@ -41,15 +39,37 @@ namespace Assignment5
         // TODO: Disable rutt och Land
         // TODO: Visa logga
 
-        private string airline(string code)
+        /// <summary>
+        /// Convert a flight code to an airline logo filename, 
+        /// by looking at the first two characters of the flight code.
+        /// </summary>
+        /// <param name="code">flight code</param>
+        /// <returns>file name of logo file (not including containing path)</returns>
+        private string Airline(string code)
         {
-	    // https://en.wikipedia.org/wiki/List_of_airline_codes
+            // https://en.wikipedia.org/wiki/List_of_airline_codes
             // DL Delta
             // KL KLM
             // DY Norwegian
             // QR Qatar
             // SQ Singapore
-            return "";
+
+            code = code.ToUpper() + "  "; // Ensure string is at least two characters long.
+            switch (code.Substring(0, 2))
+            {
+                case "DL":
+                    return @"delta.png";
+                case "KL":
+                    return @"klm.png";
+                case "DY":
+                    return @"norwegian.png";
+                case "QR":
+                    return @"qatar.jpeg";
+                case "SQ":
+                    return @"singapore.png";
+                default:
+                    return @"question-128sq.png";
+            }
         }
     }
 }

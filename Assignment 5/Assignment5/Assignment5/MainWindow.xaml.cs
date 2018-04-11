@@ -77,7 +77,7 @@ namespace Assignment5
 
     }
 
-    class FlightEventARgs : EventArgs
+    public class FlightEventArgsMain : EventArgs
     {
         public string FlightNo { get; set; }
         public string FlightAction  { get; set; }

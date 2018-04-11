@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="FlightWindow" Height="200" Width="200">
     <StackPanel>
-        <Image x:Name="logo" Height="128" Width="128" MinWidth="128" MinHeight="128" Source="singapore.png" Stretch="None"/>
+        <Image x:Name="logo" Height="128" Width="128" MinWidth="128" MinHeight="128" Source="icons/klm.png" Stretch="None"/>
         <StackPanel Height="30" Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
             <Button x:Name="Start" Height="30" Content="Start" Click="Start_Click"/>
             <ComboBox x:Name="direction" Width="119" SelectionChanged="direction_SelectionChanged">

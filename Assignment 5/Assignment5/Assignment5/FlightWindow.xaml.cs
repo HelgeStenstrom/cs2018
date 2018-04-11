@@ -21,6 +21,7 @@ namespace Assignment5
     {
         private string flightName;
         private bool isFlying;
+        public event EventHandler<FlightEventArgsMain> FlightChanged;
 
         public FlightWindow(string flightName)
         {
@@ -88,6 +89,19 @@ namespace Assignment5
         {
             isFlying = true;
             UpdateGui();
+            OnStart();
+        }
+
+        private void OnStart()
+        {
+            //FlightChanged?.Invoke(this, EventArgs.Empty);
+            if (FlightChanged != null)
+                FlightChanged(this, new FlightEventArgsMain()
+                {
+                    FlightNo = flightName,
+                    FlightAction = "Start",
+                    DateTime = DateTime.Now
+                });
         }
 
         private void Land_Click(object sender, RoutedEventArgs e)
@@ -102,5 +116,11 @@ namespace Assignment5
         {
             Console.Out.WriteLine("Ändrade kurs");
         }
+    }
+
+    public class FlightEventArgs : EventArgs
+    {
+        public string ChangeDescription { get; set; }
+        public DateTime DateTime  { get; set; }
     }
 }

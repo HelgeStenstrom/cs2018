@@ -34,6 +34,7 @@ namespace Assignment5
             uri = new Uri(@"/icons/" + Airline(flightName), UriKind.Relative);
            this.logo.Source = new BitmapImage(uri);
             //throw new NotImplementedException();
+            this.Show();
         }
 
         // TODO: Disable rutt och Land

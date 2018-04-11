@@ -46,9 +46,6 @@ namespace Assignment5
             if (string.IsNullOrEmpty(flightName))
                 throw new InvalidOperationException("flight code must not be empty when the Send button is clicked.");
             var x = new FlightWindow(flightName);
-            //x.Show();
-            x.ShowDialog();
-            Console.WriteLine("FLightfönster skapat");
         }
 
         private void Validate(object sender, RoutedEventArgs e)

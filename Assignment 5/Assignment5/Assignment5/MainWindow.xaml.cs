@@ -42,7 +42,10 @@ namespace Assignment5
         private void Button_Send_Click(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("Du klickade Sänd plan till starten");
-            var x = new FlightWindow();
+            var flightName = txtFlightCode.Text;
+            if (string.IsNullOrEmpty(flightName))
+                throw new InvalidOperationException("flight code must not be empty when the Send button is clicked.");
+            var x = new FlightWindow(flightName);
             //x.Show();
             x.ShowDialog();
             Console.WriteLine("FLightfönster skapat");
@@ -79,18 +82,9 @@ namespace Assignment5
 
     class FlightEventARgs : EventArgs
     {
-        public Flight Flight { get; set; }
-    }
-
-    class Flight
-    {
         public string FlightNo { get; set; }
-        public FlightAction FlightAction  { get; set; }
+        public string FlightAction  { get; set; }
+        public DateTime DateTime  { get; set; } // TODO: Ska tiden sättas av planet eller tornet?
     }
 
-    enum FlightAction
-    {
-        starting,
-        landing
-    }
 }

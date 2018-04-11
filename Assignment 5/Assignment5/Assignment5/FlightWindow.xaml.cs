@@ -19,18 +19,37 @@ namespace Assignment5
     /// </summary>
     public partial class FlightWindow : Window
     {
-        public FlightWindow()
+        private string flightName;
+        public FlightWindow(string flightName)
         {
+            this.flightName = flightName;
             InitializeComponent();
             InitializeGUI();
         }
 
         private void InitializeGUI()
         {
-            throw new NotImplementedException();
+            this.Title = $"Flight {flightName}";
+            Uri uri;
+            uri = new Uri(@"/icons/qatar.jpeg", UriKind.Relative);
+            uri = new Uri(@"/icons/klm.png", UriKind.Relative);
+            //var x = this.logo.Source.
+           this.logo.Source = new BitmapImage(uri);
+            //throw new NotImplementedException();
         }
 
         // TODO: Disable rutt och Land
         // TODO: Visa logga
+
+        private string airline(string code)
+        {
+	    // https://en.wikipedia.org/wiki/List_of_airline_codes
+            // DL Delta
+            // KL KLM
+            // DY Norwegian
+            // QR Qatar
+            // SQ Singapore
+            return "";
+        }
     }
 }

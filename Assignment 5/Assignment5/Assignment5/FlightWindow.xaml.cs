@@ -20,11 +20,15 @@ namespace Assignment5
     public partial class FlightWindow : Window
     {
         private string flightName;
+        private bool isFlying;
+
         public FlightWindow(string flightName)
         {
             this.flightName = flightName;
+            isFlying = false;
             InitializeComponent();
             InitializeGUI();
+
         }
 
         private void InitializeGUI()
@@ -32,9 +36,16 @@ namespace Assignment5
             this.Title = $"Flight {flightName}";
             Uri uri;
             uri = new Uri(@"/icons/" + Airline(flightName), UriKind.Relative);
-           this.logo.Source = new BitmapImage(uri);
-            //throw new NotImplementedException();
+            this.logo.Source = new BitmapImage(uri);
+            UpdateGui();
             this.Show();
+        }
+
+        private void UpdateGui()
+        {
+            this.direction.IsEnabled = isFlying;
+            this.Land.IsEnabled = isFlying;
+            this.Start.IsEnabled = !isFlying;
         }
 
         // TODO: Disable rutt och Land
@@ -71,6 +82,25 @@ namespace Assignment5
                 default:
                     return @"question-128sq.png";
             }
+        }
+
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            isFlying = true;
+            UpdateGui();
+        }
+
+        private void Land_Click(object sender, RoutedEventArgs e)
+        {
+            isFlying = false;
+            UpdateGui();
+            // TODO: ta bort fönstret
+            Close();
+        }
+
+        private void direction_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Console.Out.WriteLine("Ändrade kurs");
         }
     }
 }

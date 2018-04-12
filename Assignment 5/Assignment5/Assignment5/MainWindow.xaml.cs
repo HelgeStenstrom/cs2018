@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 
@@ -9,6 +10,8 @@ namespace Assignment5
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<FlightEventArgsMain> flightItems = new List<FlightEventArgsMain>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -19,7 +22,15 @@ namespace Assignment5
         {
             btnSend.IsEnabled = false;
             ValidateFlightButton();
-            
+            var items = new List<FlightEventArgsMain>();
+            items.Add(new FlightEventArgsMain() {FlightNo="DummyFlight 1", FlightAction = "crach", DateTime = DateTime.Now });
+            items.Add(new FlightEventArgsMain() { FlightNo = "DummyFlight 2", FlightAction = "crackle", DateTime = DateTime.Now });
+            items.Add(new FlightEventArgsMain() { FlightNo = "Dumbo Flight 3", FlightAction = "pop", DateTime = DateTime.Now });
+            Flights.ItemsSource = items;
+            // TODO: Lägg till några dummyvärden till min ListView
+
+            //Flights.ItemsSource = flightItems;
+
         }
 
         private void ValidateFlightButton()
@@ -42,6 +53,9 @@ namespace Assignment5
         {
             Console.Out.WriteLine($"{e.FlightNo}: {e.FlightAction}, {e.DateTime} ");
             //TODO: Skriv i tabellen istället
+            flightItems.Add(e);
+            Flights.ItemsSource = flightItems;
+            Flights.UpdateLayout();
         }
 
         private void ValidateFlightButton(object sender, RoutedEventArgs e)

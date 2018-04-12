@@ -5,18 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment5"
         mc:Ignorable="d"
-        Title="Control Tower" Height="440.5" >
+        Title="Control Tower" Height="479.5" >
     <StackPanel>
-        <ListView x:Name="Flights" Height="362">
-            <ListView.View>
-                <GridView>
-                    <!-- http://www.wpf-tutorial.com/listview-control/listview-with-gridview/ -->
-                    <GridViewColumn Header="Flight" DisplayMemberBinding="{Binding FlightNo}"/>
-                    <GridViewColumn Header="Last action" DisplayMemberBinding="{Binding FlightAction}"/>
-                    <GridViewColumn Header="Time" DisplayMemberBinding="{Binding DateTime}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+
+        <StackPanel Width="734" HorizontalAlignment="Left">
+            <ListView x:Name="Flights" Height="210" Margin="0,0,305,0" Width="429">
+                <ListView.View>
+                    <GridView>
+                        <!-- http://www.wpf-tutorial.com/listview-control/listview-with-gridview/ -->
+                        <GridViewColumn Header="Flight" DisplayMemberBinding="{Binding FlightNo}" Width="70"/>
+                        <GridViewColumn Header="Last action" DisplayMemberBinding="{Binding FlightAction}" Width="140"/>
+                        <GridViewColumn Header="Time" DisplayMemberBinding="{Binding DateTime}" Width="140"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <TextBox x:Name="StartsAndLandings" Height="81" TextWrapping="Wrap" Margin="71,0,331,0"/>
+
+        </StackPanel>
 
         <Viewbox >
             <StackPanel  Orientation="Horizontal">
@@ -25,5 +30,7 @@
                 <Button x:Name="btnSend" Content="Send next plane to runway"  Click="Button_Send_Click" TextOptions.TextHintingMode="Fixed" Width="160"/>
             </StackPanel>
         </Viewbox>
+        <TextBox Height="54" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Text="DL Delta KL KLM DY Norwegian QR Qatar SQ Singapore"/>
+        <Label x:Name="rn_msdda_text"/>
     </StackPanel>
 </Window>

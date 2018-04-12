@@ -66,6 +66,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FlightEventArgs.cs" />
     <Compile Include="FlightWindow.xaml.cs">
       <DependentUpon>FlightWindow.xaml</DependentUpon>
     </Compile>

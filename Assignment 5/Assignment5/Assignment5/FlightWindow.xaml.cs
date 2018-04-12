@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -12,8 +16,13 @@ namespace Assignment5
     {
         private readonly string _flightName;
         private bool _isFlying;
-        public event EventHandler<FlightEventArgsMain> FlightChanged;
+        public event EventHandler<FlightEventArgs> FlightChanged;
+        public event EventHandler<FlightEventArgs> StartedOrLanded;
 
+        /// <summary>
+        /// Constructor. Set up the flightWindow object.
+        /// </summary>
+        /// <param name="flightName"></param>
         public FlightWindow(string flightName)
         {
             _flightName = flightName;
@@ -23,6 +32,10 @@ namespace Assignment5
 
         }
 
+        /// <summary>
+        /// Initialize the GUI. Set the window title. 
+        /// Set a logo, based on the flight number.
+        /// </summary>
         private void InitializeGui()
         {
             Title = $"Flight {_flightName}";
@@ -32,6 +45,10 @@ namespace Assignment5
             Show();
         }
 
+        /// <summary>
+        /// Update the GUI.
+        /// The buttons are enabled or disabled, based on if the plane is flying or not.
+        /// </summary>
         private void UpdateGui()
         {
             direction.IsEnabled = _isFlying;
@@ -72,16 +89,26 @@ namespace Assignment5
             }
         }
 
+        /// <summary>
+        /// Called when Start is clicked.
+        /// Set the plane as flying. Send events.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             _isFlying = true;
             UpdateGui();
-            OnFlightChanged("Starting");
+            OnStartedOrLanded("Starting");
         }
 
-        private void OnFlightChanged(string flightAction)
+        /// <summary>
+        /// Event when the route is changed.
+        /// </summary>
+        /// <param name="flightAction"></param>
+        private void OnRouteChanged(string flightAction)
         {
-            FlightChanged?.Invoke(this, new FlightEventArgsMain()
+            FlightChanged?.Invoke(this, new FlightEventArgs()
             {
                 FlightNo = _flightName,
                 FlightAction = flightAction,
@@ -89,19 +116,43 @@ namespace Assignment5
             });
         }
 
+        /// <summary>
+        /// Event when the plane is started or landed.
+        /// </summary>
+        /// <param name="flightAction"></param>
+        private void OnStartedOrLanded(string flightAction)
+        {
+            StartedOrLanded?.Invoke(this, new FlightEventArgs()
+            {
+                FlightNo = _flightName,
+                FlightAction = flightAction,
+                DateTime = DateTime.Now
+            });
+        }
+
+        /// <summary>
+        /// Called when Land is clicked. Send an event and close the window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Land_Click(object sender, RoutedEventArgs e)
         {
             _isFlying = false;
             UpdateGui();
-            OnFlightChanged("Landed");
+            OnStartedOrLanded("Landed");
             Close();
         }
 
+        /// <summary>
+        /// Called when the direction is changed, by the combo box is used.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void direction_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var newDirection = direction.SelectedItem.ToString();
             UpdateGui();
-            OnFlightChanged($"Changed route: {newDirection}");
+            OnRouteChanged($"Changed route: {newDirection}");
         }
     }
 }

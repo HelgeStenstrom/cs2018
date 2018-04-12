@@ -27,10 +27,6 @@ namespace Assignment5
             items.Add(new FlightEventArgsMain() { FlightNo = "DummyFlight 2", FlightAction = "crackle", DateTime = DateTime.Now });
             items.Add(new FlightEventArgsMain() { FlightNo = "Dumbo Flight 3", FlightAction = "pop", DateTime = DateTime.Now });
             Flights.ItemsSource = items;
-            // TODO: Lägg till några dummyvärden till min ListView
-
-            //Flights.ItemsSource = flightItems;
-
         }
 
         private void ValidateFlightButton()
@@ -56,6 +52,8 @@ namespace Assignment5
             flightItems.Add(e);
             Flights.ItemsSource = flightItems;
             Flights.UpdateLayout();
+
+            // TODO: Förstå varför tabellen inte blir uppdaterad.
         }
 
         private void ValidateFlightButton(object sender, RoutedEventArgs e)

@@ -50,10 +50,10 @@ namespace Assignment5
             Console.Out.WriteLine($"{e.FlightNo}: {e.FlightAction}, {e.DateTime} ");
             //TODO: Skriv i tabellen istället
             flightItems.Add(e);
+            Flights.ItemsSource = null;
             Flights.ItemsSource = flightItems;
-            Flights.UpdateLayout();
 
-            // TODO: Förstå varför tabellen inte blir uppdaterad.
+            Flights.UpdateLayout();
         }
 
         private void ValidateFlightButton(object sender, RoutedEventArgs e)

@@ -1,17 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Assignment5
 {
@@ -23,10 +12,10 @@ namespace Assignment5
         public MainWindow()
         {
             InitializeComponent();
-            InitializeGUI();
+            InitializeGui();
         }
 
-        private void InitializeGUI()
+        private void InitializeGui()
         {
             btnSend.IsEnabled = false;
             ValidateFlightButton();
@@ -45,12 +34,14 @@ namespace Assignment5
             var flightName = txtFlightCode.Text;
             if (string.IsNullOrEmpty(flightName))
                 throw new InvalidOperationException("flight code must not be empty when the Send button is clicked.");
-            var x = new FlightWindow(flightName);
+            var flightWindow = new FlightWindow(flightName);
+            flightWindow.FlightChanged += OnFlightChanged;
         }
 
-        private void Validate(object sender, RoutedEventArgs e)
+        private void OnFlightChanged(object sender, FlightEventArgsMain e)
         {
-
+            Console.Out.WriteLine($"{e.FlightNo}: {e.FlightAction}, {e.DateTime} ");
+            //TODO: Skriv i tabellen istället
         }
 
         private void ValidateFlightButton(object sender, RoutedEventArgs e)
@@ -67,21 +58,12 @@ namespace Assignment5
         {
             ValidateFlightButton();
         }
-
-
-
-        // TODO: Läs in bild när klassobjektet skapas
-        // TODO: Publicera event när någon knapp klickas
-        // TODO: Hitta på ett event-objekt. Ska innehålla flight#
-        // TODO: SetupGUI: flyll i något plan som har landat.
-
     }
 
     public class FlightEventArgsMain : EventArgs
     {
         public string FlightNo { get; set; }
         public string FlightAction  { get; set; }
-        public DateTime DateTime  { get; set; } // TODO: Ska tiden sättas av planet eller tornet?
+        public DateTime DateTime  { get; set; }
     }
-
 }

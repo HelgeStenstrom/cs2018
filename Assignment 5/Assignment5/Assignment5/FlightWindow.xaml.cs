@@ -1,16 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Assignment5
 {
@@ -19,38 +10,34 @@ namespace Assignment5
     /// </summary>
     public partial class FlightWindow : Window
     {
-        private string flightName;
-        private bool isFlying;
+        private readonly string _flightName;
+        private bool _isFlying;
         public event EventHandler<FlightEventArgsMain> FlightChanged;
 
         public FlightWindow(string flightName)
         {
-            this.flightName = flightName;
-            isFlying = false;
+            _flightName = flightName;
+            _isFlying = false;
             InitializeComponent();
-            InitializeGUI();
+            InitializeGui();
 
         }
 
-        private void InitializeGUI()
+        private void InitializeGui()
         {
-            this.Title = $"Flight {flightName}";
-            Uri uri;
-            uri = new Uri(@"/icons/" + Airline(flightName), UriKind.Relative);
-            this.logo.Source = new BitmapImage(uri);
+            Title = $"Flight {_flightName}";
+            var uri = new Uri(@"/icons/" + Airline(_flightName), UriKind.Relative);
+            logo.Source = new BitmapImage(uri);
             UpdateGui();
-            this.Show();
+            Show();
         }
 
         private void UpdateGui()
         {
-            this.direction.IsEnabled = isFlying;
-            this.Land.IsEnabled = isFlying;
-            this.Start.IsEnabled = !isFlying;
+            direction.IsEnabled = _isFlying;
+            Land.IsEnabled = _isFlying;
+            Start.IsEnabled = !_isFlying;
         }
-
-        // TODO: Disable rutt och Land
-        // TODO: Visa logga
 
         /// <summary>
         /// Convert a flight code to an airline logo filename, 
@@ -87,40 +74,34 @@ namespace Assignment5
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            isFlying = true;
+            _isFlying = true;
             UpdateGui();
-            OnStart();
+            OnFlightChanged("Starting");
         }
 
-        private void OnStart()
+        private void OnFlightChanged(string flightAction)
         {
-            //FlightChanged?.Invoke(this, EventArgs.Empty);
-            if (FlightChanged != null)
-                FlightChanged(this, new FlightEventArgsMain()
-                {
-                    FlightNo = flightName,
-                    FlightAction = "Start",
-                    DateTime = DateTime.Now
-                });
+            FlightChanged?.Invoke(this, new FlightEventArgsMain()
+            {
+                FlightNo = _flightName,
+                FlightAction = flightAction,
+                DateTime = DateTime.Now
+            });
         }
 
         private void Land_Click(object sender, RoutedEventArgs e)
         {
-            isFlying = false;
+            _isFlying = false;
             UpdateGui();
-            // TODO: ta bort fönstret
+            OnFlightChanged("Landed");
             Close();
         }
 
         private void direction_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Console.Out.WriteLine("Ändrade kurs");
+            var newDirection = direction.SelectedItem.ToString();
+            UpdateGui();
+            OnFlightChanged($"Changed route: {newDirection}");
         }
-    }
-
-    public class FlightEventArgs : EventArgs
-    {
-        public string ChangeDescription { get; set; }
-        public DateTime DateTime  { get; set; }
     }
 }

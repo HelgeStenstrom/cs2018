@@ -1,0 +1,24 @@
+﻿-*- org -*-
+
+* Klassen InvoiceReader
+- Läser in en textfil
+- levererar ett objekt av type Invoce, alternativt ger en exception.
+- Funktionalitet för att tolka fakturafilen kan antingen läggas i
+  InvoiceReader, eller i Invoice. Jag väljer
+  InvoiceReader. InvoiceReader skapar en instans av Invoice, och
+  instanser av Contact respektive Item för att kunna skapa Invoice.
+
+
+* Klassen Invoice
+- I stort sett en DTO (data transfer object), som jag uppfattar det.
+- En strukturerad datamängd.
+
+** Klassen Contact
+- Kontaktuppgifter för företag, antingen avsändare eller mottagare av
+  faktura
+
+** Klassen Item
+- Data för en sak på fakturan. Det som upprepas för varje punkt på
+  fakturan, inklusive antal.
+
+

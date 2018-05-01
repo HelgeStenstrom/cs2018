@@ -65,9 +65,9 @@ namespace Assignment5
             if (string.IsNullOrEmpty(flightName))
                 throw new InvalidOperationException("flight code must not be empty when the Send button is clicked.");
             var flightWindow = new FlightWindow(flightName);
-            flightWindow.FlightChanged += OnFlightChanged;
-            flightWindow.StartedOrLanded += OnFlightChanged;
-            flightWindow.StartedOrLanded += OnStartedOrLanded;
+            flightWindow.FlightChanged_handlers += OnFlightChanged_handler;
+            flightWindow.StartedOrLanded_handlers += OnFlightChanged_handler;
+            flightWindow.StartedOrLanded_handlers += OnStartedOrLanded_handler;
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Assignment5
         /// </summary>
         /// <param name="sender">sender of the event</param>
         /// <param name="e">event arguments</param>
-        private void OnFlightChanged(object sender, FlightEventArgs e)
+        private void OnFlightChanged_handler(object sender, FlightEventArgs e)
         {
             Console.Out.WriteLine($"{e.FlightNo}: {e.FlightAction}, {e.DateTime} ");
             //TODO: Skriv i tabellen istället
@@ -91,7 +91,7 @@ namespace Assignment5
         /// </summary>
         /// <param name="sender">sender of the event</param>
         /// <param name="e">event arguments</param>
-        private void OnStartedOrLanded(object sender, FlightEventArgs e)
+        private void OnStartedOrLanded_handler(object sender, FlightEventArgs e)
         {
             Console.Out.WriteLine($"Extrafunktion: {e.FlightNo}: {e.FlightAction}, {e.DateTime} ");
             StartsAndLandings.Text += $"Flight {e.FlightNo} is  {e.FlightAction} at {e.DateTime}\n";

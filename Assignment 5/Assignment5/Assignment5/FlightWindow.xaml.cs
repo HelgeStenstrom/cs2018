@@ -16,8 +16,8 @@ namespace Assignment5
     {
         private readonly string _flightName;
         private bool _isFlying;
-        public event EventHandler<FlightEventArgs> FlightChanged;
-        public event EventHandler<FlightEventArgs> StartedOrLanded;
+        public event EventHandler<FlightEventArgs> FlightChanged_handlers;
+        public event EventHandler<FlightEventArgs> StartedOrLanded_handlers;
 
         /// <summary>
         /// Constructor. Set up the flightWindow object.
@@ -85,7 +85,7 @@ namespace Assignment5
                 case "SQ":
                     return @"singapore.png";
                 default:
-                    return @"question-128sq.png";
+                    return @"q128-128.png";
             }
         }
 
@@ -99,16 +99,16 @@ namespace Assignment5
         {
             _isFlying = true;
             UpdateGui();
-            OnStartedOrLanded("Starting");
+            OnStartedOrLanded_publish("Starting");
         }
 
         /// <summary>
         /// Event when the route is changed.
         /// </summary>
         /// <param name="flightAction"></param>
-        private void OnRouteChanged(string flightAction)
+        private void OnRouteChanged_publish(string flightAction)
         {
-            FlightChanged?.Invoke(this, new FlightEventArgs()
+            FlightChanged_handlers?.Invoke(this, new FlightEventArgs()
             {
                 FlightNo = _flightName,
                 FlightAction = flightAction,
@@ -120,9 +120,9 @@ namespace Assignment5
         /// Event when the plane is started or landed.
         /// </summary>
         /// <param name="flightAction"></param>
-        private void OnStartedOrLanded(string flightAction)
+        private void OnStartedOrLanded_publish(string flightAction)
         {
-            StartedOrLanded?.Invoke(this, new FlightEventArgs()
+            StartedOrLanded_handlers?.Invoke(this, new FlightEventArgs()
             {
                 FlightNo = _flightName,
                 FlightAction = flightAction,
@@ -139,7 +139,7 @@ namespace Assignment5
         {
             _isFlying = false;
             UpdateGui();
-            OnStartedOrLanded("Landed");
+            OnStartedOrLanded_publish("Landed");
             Close();
         }
 
@@ -152,7 +152,7 @@ namespace Assignment5
         {
             var newDirection = direction.SelectedItem.ToString();
             UpdateGui();
-            OnRouteChanged($"Changed route: {newDirection}");
+            OnRouteChanged_publish($"Changed route: {newDirection}");
         }
     }
 }

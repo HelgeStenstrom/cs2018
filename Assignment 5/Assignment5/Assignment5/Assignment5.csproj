@@ -113,5 +113,8 @@
     <Resource Include="icons\norwegian.png" />
     <Resource Include="icons\qatar.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\q128-128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

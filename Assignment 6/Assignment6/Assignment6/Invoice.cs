@@ -10,24 +10,39 @@ namespace Assignment6
     /// <summary>
     /// All data of an invoice.
     /// </summary>
-    class Invoice
+    public class Invoice
     {
         /// <summary>
         /// Data for an item of an invoice
         /// </summary>
-        internal class Item
+        public class Item
         {
             private string description;
             private int quantity;
             private double unitPrice;
             private double taxPercent;
-            
+
+            public Item(string description, int quantity, double unitPrice, double taxPercent)
+            {
+                this.description = description;
+                this.quantity = quantity;
+                this.unitPrice = unitPrice;
+                this.taxPercent = taxPercent;
+            }
+
+            public double TaxPercent => taxPercent;
+
+            public double UnitPrice => unitPrice;
+
+            public int Quantity => quantity;
+
+            public string Description => description;
         }
 
         /// <summary>
         /// Contact data for a company; either a sender or a receiver of an invoice
         /// </summary>
-        internal class Contact
+        public class Contact
         {
             private string companyName;
             private string personName;
@@ -35,6 +50,28 @@ namespace Assignment6
             private string zip;
             private string city;
             private string country;
+
+            public Contact(string companyName, string personName, string street, string zip, string city, string country)
+            {
+                this.companyName = companyName ?? throw new ArgumentNullException(nameof(companyName));
+                this.personName = personName ?? throw new ArgumentNullException(nameof(personName));
+                this.street = street ?? throw new ArgumentNullException(nameof(street));
+                this.zip = zip ?? throw new ArgumentNullException(nameof(zip));
+                this.city = city ?? throw new ArgumentNullException(nameof(city));
+                this.country = country ?? throw new ArgumentNullException(nameof(country));
+            }
+
+            public string CompanyName => companyName;
+
+            public string PersonName => personName;
+
+            public string Street => street;
+
+            public string Zip => zip;
+
+            public string City => city;
+
+            public string Country => country;
         }
 
         private int invoiceNumber;
@@ -60,6 +97,26 @@ namespace Assignment6
             this.phone = phone;
             this.webAddress = webAddress;
             this.items = items;
+        }
+
+        public int InvoiceNumber => invoiceNumber;
+
+        public DateTime InvoiceDate => invoiceDate;
+
+        public DateTime DueDate => dueDate;
+
+        public Contact Receiver => receiver;
+
+        public Contact Sender => sender;
+
+        public string Phone => phone;
+
+        public string WebAddress => webAddress;
+
+        public List<Item> Items => items;
+
+        public Invoice()
+        {
         }
     }
 }

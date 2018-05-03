@@ -1,11 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Assignment6;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment6.Tests
 {
@@ -41,8 +36,17 @@ namespace Assignment6.Tests
         [TestMethod]
         public void readFile()
         {
+            // Setup
             var reader = new InvoiceReader("InvoiceDemo1.txt");
-            reader.Read();
+
+            // Execute
+            var invoice = reader.GetInvoice();
+
+            // Verify
+
+            Assert.AreEqual("Beverages.com", invoice.WebAddress);
         }
+
+
     }
 }

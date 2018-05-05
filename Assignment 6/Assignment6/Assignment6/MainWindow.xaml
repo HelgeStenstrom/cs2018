@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="Apu Invoice manager" Height="350" Width="525">
+    <DockPanel >
+        <!--https://stackoverflow.com/questions/9936796/create-a-menu-bar-in-wpf-->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open Invoice" Click="MenuItem_Click"/>
+                <MenuItem Header="_Nothing"/>
+                <MenuItem Header="_Quit"/>
+            </MenuItem>
+            <MenuItem Header="_Help"/>
+        </Menu>
+        <StackPanel Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <Image Height="128" OpacityMask="#FFE83B3B" Width="128"/>
+                <StackPanel Orientation="Vertical" Width="100">
+                    <Label Content="Invoice number" Height="26"/>
+                    <Label Content="Invoice date" Height="26"/>
+                </StackPanel>
+            </StackPanel>
+            <ListView x:Name="invoiceItems" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="275,0,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </DockPanel>
 </Window>

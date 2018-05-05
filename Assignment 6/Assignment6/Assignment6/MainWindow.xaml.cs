@@ -20,9 +20,31 @@ namespace Assignment6
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Invoice currentInvoice;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            // https://stackoverflow.com/questions/10315188/open-file-dialog-and-select-a-file-using-wpf-controls-and-c-sharp 
+
+            // Create OpenFileDialog
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "Invoice files (*.txt)|*.txt";
+
+            // Display dialog
+            Nullable<bool> result = dlg.ShowDialog();
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+                currentInvoice = new InvoiceReader(filename).GetInvoice();
+            }
         }
     }
 }

@@ -43,7 +43,24 @@ namespace Assignment6
             {
                 // Open document
                 string filename = dlg.FileName;
-                currentInvoice = new InvoiceReader(filename).GetInvoice();
+                try
+                {
+                    currentInvoice = new InvoiceReader(filename).GetInvoice();
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Invalid invoice file. Try a different file.", "Error: Invalid file");
+                }
+
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    MessageBox.Show("Invalid invoice file. Try a different file.", "Error: Invalid file");
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Unexpected exception when reading invoice file. Try again.", "Error");
+                }
             }
         }
     }

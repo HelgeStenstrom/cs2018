@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Assignment6
 {
@@ -46,6 +34,7 @@ namespace Assignment6
                 try
                 {
                     currentInvoice = new InvoiceReader(filename).GetInvoice();
+                    UpdateGui();
                 }
                 catch (FormatException ex)
                 {
@@ -61,6 +50,17 @@ namespace Assignment6
                 {
                     MessageBox.Show("Unexpected exception when reading invoice file. Try again.", "Error");
                 }
+            }
+        }
+
+        private void UpdateGui()
+        {
+            if (null != currentInvoice) {
+                var ci = currentInvoice;
+                lblInvoiceNumber.Content = currentInvoice.InvoiceNumber;
+                txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
+                txtDueDate.Text = ci.DueDate.ToShortDateString();
+                txtReceiver.Text = ci.Receiver.ToString();
             }
         }
     }

@@ -72,6 +72,10 @@ namespace Assignment6
             public string City => city;
 
             public string Country => country;
+            public override string ToString()
+            {
+                return $"{companyName}\n{personName}\n{street}\n{zip} {city}\n{country}";
+            }
         }
 
         private int invoiceNumber;

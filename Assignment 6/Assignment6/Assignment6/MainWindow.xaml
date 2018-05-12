@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment6"
         mc:Ignorable="d"
-        Title="Apu Invoice manager" Height="350" Width="525">
+        Title="Apu Invoice manager" Height="350" Width="525" Background="#FFF6F6F6">
     <DockPanel >
         <!--https://stackoverflow.com/questions/9936796/create-a-menu-bar-in-wpf-->
         <Menu DockPanel.Dock="Top">
@@ -19,12 +19,32 @@
         <StackPanel Orientation="Vertical" >
             <StackPanel Orientation="Horizontal">
                 <Image Height="128" OpacityMask="#FFE83B3B" Width="128"/>
-                <StackPanel Orientation="Vertical" Width="100">
-                    <Label Content="Invoice number" Height="26"/>
-                    <Label Content="Invoice date" Height="26"/>
+                <StackPanel Orientation="Vertical" Width="388">
+                    <Grid Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Invoice number" Grid.Row="0" Grid.Column="0" BorderBrush="#FFBB6363"    />
+                        <Label Content="Invoice date" Grid.Row="1" Grid.Column="0" BorderBrush="#FFBB6363" />
+                        <Label Content="Due date" Grid.Row="2" Grid.Column="0" BorderBrush="#FFBB6363" />
+                        <Label x:Name="lblInvoiceNumber" Content="Invoice number goes here" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" BorderBrush="#FFBB6363"/>
+                        <TextBox x:Name="txtInvoiceDate" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="date here" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1"/>
+                        <TextBox x:Name="txtDueDate" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="2" Grid.Column="1"/>
+                    </Grid>
+                    <TextBlock x:Name="txtReceiver" TextWrapping="Wrap" Text="Name and address goes here, its a very long text that will not fit into one line. IT will have embedded newlines." Margin="5">
+                        <TextBlock.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}"/>
+                        </TextBlock.Background>
+                    </TextBlock>
                 </StackPanel>
             </StackPanel>
-            <ListView x:Name="invoiceItems" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="275,0,0,0">
+            <ListView x:Name="invoiceItems" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="517">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn/>

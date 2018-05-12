@@ -37,6 +37,9 @@ namespace Assignment6
             public int Quantity => quantity;
 
             public string Description => description;
+
+            public double TotalTax => quantity * unitPrice* taxPercent * 0.01;
+            public double Total => quantity * unitPrice + TotalTax;
         }
 
         /// <summary>
@@ -116,6 +119,10 @@ namespace Assignment6
         public string Phone => phone;
 
         public string WebAddress => webAddress;
+
+        public double TotalTax => items.Sum(item => item.TotalTax);
+
+        public double Total => items.Sum(item => item.Total);
 
         public List<Item> Items => items;
 

@@ -25,13 +25,37 @@ namespace Assignment6.Tests
 
 
         [TestMethod()]
-        public void ItemTest()
+        public void ItemTest1()
         {
             var i = new Invoice.Item("desc", 7, 3.14, 2.71);
             Assert.AreEqual("desc", i.Description);
             Assert.AreEqual(7, i.Quantity);
             Assert.AreEqual(3.14, i.UnitPrice);
             Assert.AreEqual(2.71, i.TaxPercent);
+        }
+
+        [TestMethod()]
+        public void ItemTest2()
+        {
+            // Setup
+            var desc = "Strong Bear";
+            var quant = 5;
+            var up = 39.9;
+            var tax = 25.0;
+            var totalTax = 49.875; // 5 *  0.25 * 39.9;
+            var total = 249.375; //  quant * up + totalTax;
+
+            // Exercise
+            var i = new Invoice.Item(desc, quant, up, tax);
+
+            // Verify
+            Assert.AreEqual(desc, i.Description);
+            Assert.AreEqual(quant, i.Quantity);
+            Assert.AreEqual(up, i.UnitPrice);
+            Assert.AreEqual(tax, i.TaxPercent);
+            Assert.AreEqual(totalTax, i.TotalTax);
+            Assert.AreEqual(total, i.Total);
+
         }
 
         [TestMethod()]
@@ -55,6 +79,38 @@ namespace Assignment6.Tests
             Assert.AreEqual(iDate, invoice.InvoiceDate);
             Assert.AreEqual(receiver, invoice.Receiver);
             Assert.AreEqual("phone", invoice.Phone);
+        }
+
+
+        [TestMethod()]
+        public void InvoiceTotalTest()
+        {
+            // Setup
+            var iDate = new DateTime(2018, 5, 3);
+            var dueDate = new DateTime(2018, 7, 2);
+            var receiver = ValidContact();
+            var sender = ValidContact();
+            
+            var items =  new List<Invoice.Item>();
+            items.Add(new Invoice.Item("Strong Bear", 5, 39.9, 25));
+            items.Add(new Invoice.Item("Garlic Bread", 2, 4.99, 6));
+
+            // Execute
+            var invoice = new Invoice(123,
+                iDate, dueDate,
+                receiver, sender,
+                "phone", "webaddress",
+                items);
+
+            // Verify
+            Assert.AreEqual(50.4738, invoice.TotalTax);
+            
+            Assert.AreEqual(259.9538, invoice.Total);
+        }
+
+        private static Invoice.Contact ValidContact()
+        {
+            return new Invoice.Contact("sender", "n2", "3", "zip", "5", "6");
         }
     }
 }

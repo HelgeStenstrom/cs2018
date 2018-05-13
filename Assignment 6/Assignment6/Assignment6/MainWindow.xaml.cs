@@ -93,9 +93,16 @@ namespace Assignment6
 
         private void TxtDiscount_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
+            try
+            {
+                _currentInvoice.Discount = Double.Parse(txtDiscount.Text);
 
-            _currentInvoice.Discount = Double.Parse(txtDiscount.Text);
-            UpdateGui();
+                UpdateGui();
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Bad number. Only decimal values allowed.", "Error: Invalid value");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

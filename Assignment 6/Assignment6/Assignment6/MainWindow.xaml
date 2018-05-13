@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment6"
         mc:Ignorable="d"
-        Title="Apu Invoice manager" Width="600" Background="#FFF6F6F6">
+        Title="Apu Invoice manager" Width="600" Background="#FFF6F6F6" d:DesignHeight="571.25">
     <DockPanel >
         <!--https://stackoverflow.com/questions/9936796/create-a-menu-bar-in-wpf-->
         <Menu DockPanel.Dock="Top">
@@ -13,7 +13,6 @@
                 <MenuItem Header="_Open Invoice" Click="MenuItem_Click"/>
                 <MenuItem x:Name="mnuLogo" Header="_Change logo" Click="mnuLogo_Click"/>
             </MenuItem>
-            <MenuItem Header="_Help"/>
         </Menu>
         <StackPanel x:Name="panelAll" Orientation="Vertical" IsEnabled="False" Margin="10" >
             <StackPanel Orientation="Horizontal">
@@ -81,7 +80,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="footer" VerticalAlignment="Top">
-                <TextBlock x:Name="txtFooter" TextWrapping="Wrap" Text="TextBlock"/>
+                <TextBlock x:Name="txtFooter" TextWrapping="Wrap" Text="TextBlock" Height="100"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>

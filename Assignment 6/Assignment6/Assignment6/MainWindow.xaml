@@ -11,14 +11,18 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open Invoice" Click="MenuItem_Click"/>
-                <MenuItem Header="_Nothing"/>
-                <MenuItem Header="_Quit"/>
+                <MenuItem x:Name="mnuLogo" Header="_Change logo" Click="mnuLogo_Click"/>
             </MenuItem>
             <MenuItem Header="_Help"/>
         </Menu>
         <StackPanel x:Name="panelAll" Orientation="Vertical" IsEnabled="False" Margin="10" >
             <StackPanel Orientation="Horizontal">
-                <Image x:Name="logo" Height="128" Width="128" HorizontalAlignment="Left" OpacityMask="#FF38EA30" Source="duff_beer.gif"/>
+                <StackPanel Orientation="Vertical">
+                    <Label x:Name="lblCompany" Content="Apu Brvgs Inc" HorizontalAlignment="Center" FontSize="24" FontFamily="Harlow Solid Italic"/>
+                    <Button Click="Button_Click" Width="128" Height="128">
+                        <Image x:Name="imgLogo" HorizontalAlignment="Center" OpacityMask="#FF38EA30" Source="duff_beer.gif" Width="128" Height="128"/>
+                    </Button>
+                </StackPanel>
                 <StackPanel Orientation="Vertical" Width="388">
                     <Grid Background="White">
                         <Grid.RowDefinitions>
@@ -75,6 +79,9 @@
                     <Label Content="To Pay:" HorizontalAlignment="Right"/>
                     <Label x:Name="lblToPay" Content="amount here" HorizontalAlignment="Right" Width="120" HorizontalContentAlignment="Right"/>
                 </StackPanel>
+            </StackPanel>
+            <StackPanel x:Name="footer" VerticalAlignment="Top">
+                <TextBlock x:Name="txtFooter" TextWrapping="Wrap" Text="TextBlock"/>
             </StackPanel>
         </StackPanel>
     </DockPanel>

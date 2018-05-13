@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace Assignment6
 {
@@ -76,6 +77,14 @@ namespace Assignment6
 
                 lvInvoiceItems.ItemsSource = null;
                 lvInvoiceItems.ItemsSource = ci.Items;
+                lblCompany.Content = ci.Sender.CompanyName;
+
+
+                var footerText = $"{ci.Sender.CompanyName}\n{ci.Sender.Street}\n{ci.Sender.Zip} {ci.Sender.City}\n";
+                footerText += $"Phone: {ci.Phone}\n";
+                footerText += $"Web: {ci.WebAddress}\n";
+                txtFooter.Text = footerText;
+
             }
         }
 
@@ -86,5 +95,39 @@ namespace Assignment6
             UpdateGui();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void mnuLogo_Click(object sender, RoutedEventArgs e)
+        {
+            // https://stackoverflow.com/questions/10315188/open-file-dialog-and-select-a-file-using-wpf-controls-and-c-sharp 
+
+            // Create OpenFileDialog
+            var dlg = new Microsoft.Win32.OpenFileDialog();
+
+            dlg.DefaultExt = ".txt";
+            dlg.Filter = "Image files (*.png)|*.png";
+
+            // Display dialog
+            Nullable<bool> result = dlg.ShowDialog();
+
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+
+                try
+                {
+                    var uri = new Uri(filename); //, UriKind.Relative);
+                    imgLogo.Source = new BitmapImage(uri);
+                }
+                catch (NotImplementedException ex)
+                {
+                    MessageBox.Show("Bad image file. Try a different file", "Error: Invalid file");
+                }
+            }
+        }
     }
 }

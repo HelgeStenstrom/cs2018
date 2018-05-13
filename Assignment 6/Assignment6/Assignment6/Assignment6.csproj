@@ -103,5 +103,11 @@
   <ItemGroup>
     <Resource Include="Planering.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="duff_beer.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Duff-1-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

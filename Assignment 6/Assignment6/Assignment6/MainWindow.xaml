@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment6"
         mc:Ignorable="d"
-        Title="Apu Invoice manager" Height="350" Width="525" Background="#FFF6F6F6">
+        Title="Apu Invoice manager" Width="525" Background="#FFF6F6F6">
     <DockPanel >
         <!--https://stackoverflow.com/questions/9936796/create-a-menu-bar-in-wpf-->
         <Menu DockPanel.Dock="Top">
@@ -51,6 +51,24 @@
                     </GridView>
                 </ListView.View>
             </ListView>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Label Content="Total Tax" HorizontalAlignment="Right"/>
+                    <Label x:Name="lblTotalTax" Content="tax here" HorizontalAlignment="Right" Width="120" HorizontalContentAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-10,0,0,0">
+                    <Label Content="Total Amount" HorizontalAlignment="Right"/>
+                    <Label x:Name="lblTotalAmount" Content="amount here" HorizontalAlignment="Right" Width="120" HorizontalContentAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-10,0,0,0">
+                    <Label Content="Discount" HorizontalAlignment="Right"/>
+                    <TextBox Height="23" TextWrapping="Wrap" Text="0.00" Width="120" HorizontalContentAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-10,0,0,0">
+                    <Label Content="To Pay:" HorizontalAlignment="Right"/>
+                    <Label x:Name="lblToPay" Content="amount here" HorizontalAlignment="Right" Width="120" HorizontalContentAlignment="Right"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
     </DockPanel>
 </Window>

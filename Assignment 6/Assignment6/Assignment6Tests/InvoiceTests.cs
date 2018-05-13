@@ -101,11 +101,14 @@ namespace Assignment6.Tests
                 receiver, sender,
                 "phone", "webaddress",
                 items);
+            invoice.Discount = 100;
 
             // Verify
             Assert.AreEqual(50.4738, invoice.TotalTax);
             
             Assert.AreEqual(259.9538, invoice.Total);
+
+            Assert.AreEqual(159.9538, invoice.ToPay);
         }
 
         private static Invoice.Contact ValidContact()

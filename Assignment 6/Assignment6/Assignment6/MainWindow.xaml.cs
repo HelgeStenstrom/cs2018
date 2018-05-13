@@ -61,6 +61,9 @@ namespace Assignment6
                 txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
                 txtDueDate.Text = ci.DueDate.ToShortDateString();
                 txtReceiver.Text = ci.Receiver.ToString();
+                lblTotalTax.Content = $"{ci.TotalTax:f2}";
+                lblTotalAmount.Content = $"{ci.Total:f2}";
+                lblToPay.Content = $"{ci.ToPay:f2}";
             }
         }
     }

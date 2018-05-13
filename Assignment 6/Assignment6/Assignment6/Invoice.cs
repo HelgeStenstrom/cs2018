@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment6
 {
@@ -47,48 +44,41 @@ namespace Assignment6
         /// </summary>
         public class Contact
         {
-            private string companyName;
-            private string personName;
-            private string street;
-            private string zip;
-            private string city;
-            private string country;
+            private string _companyName;
+            private string _personName;
+            private string _street;
+            private string _zip;
+            private string _city;
+            private string _country;
 
             public Contact(string companyName, string personName, string street, string zip, string city, string country)
             {
-                this.companyName = companyName ?? throw new ArgumentNullException(nameof(companyName));
-                this.personName = personName ?? throw new ArgumentNullException(nameof(personName));
-                this.street = street ?? throw new ArgumentNullException(nameof(street));
-                this.zip = zip ?? throw new ArgumentNullException(nameof(zip));
-                this.city = city ?? throw new ArgumentNullException(nameof(city));
-                this.country = country ?? throw new ArgumentNullException(nameof(country));
+                _companyName = companyName ?? throw new ArgumentNullException(nameof(companyName));
+                _personName = personName ?? throw new ArgumentNullException(nameof(personName));
+                _street = street ?? throw new ArgumentNullException(nameof(street));
+                _zip = zip ?? throw new ArgumentNullException(nameof(zip));
+                _city = city ?? throw new ArgumentNullException(nameof(city));
+                _country = country ?? throw new ArgumentNullException(nameof(country));
             }
 
-            public string CompanyName => companyName;
+            public string CompanyName => _companyName;
 
-            public string PersonName => personName;
+            public string PersonName => _personName;
 
-            public string Street => street;
+            public string Street => _street;
 
-            public string Zip => zip;
+            public string Zip => _zip;
 
-            public string City => city;
+            public string City => _city;
 
-            public string Country => country;
+            public string Country => _country;
             public override string ToString()
             {
-                return $"{companyName}\n{personName}\n{street}\n{zip} {city}\n{country}";
+                return $"{_companyName}\n{_personName}\n{_street}\n{_zip} {_city}\n{_country}";
             }
         }
 
-        private int invoiceNumber;
-        private DateTime invoiceDate;
-        private DateTime dueDate;
-        private Contact receiver;
-        private Contact sender;
-        private string phone;
-        private string webAddress;
-        private List<Item> items;
+        public double Discount { get; set; } = 0;
 
         public Invoice(int invoiceNumber, 
             DateTime invoiceDate, DateTime dueDate, 
@@ -96,35 +86,36 @@ namespace Assignment6
             string phone, string webAddress, 
             List<Item> items)
         {
-            this.invoiceNumber = invoiceNumber;
-            this.invoiceDate = invoiceDate;
-            this.dueDate = dueDate;
-            this.receiver = receiver;
-            this.sender = sender;
-            this.phone = phone;
-            this.webAddress = webAddress;
-            this.items = items;
+            this.InvoiceNumber = invoiceNumber;
+            this.InvoiceDate = invoiceDate;
+            this.DueDate = dueDate;
+            this.Receiver = receiver;
+            this.Sender = sender;
+            this.Phone = phone;
+            this.WebAddress = webAddress;
+            this.Items = items;
         }
 
-        public int InvoiceNumber => invoiceNumber;
+        public int InvoiceNumber { get; }
 
-        public DateTime InvoiceDate => invoiceDate;
+        public DateTime InvoiceDate { get; }
 
-        public DateTime DueDate => dueDate;
+        public DateTime DueDate { get; }
 
-        public Contact Receiver => receiver;
+        public Contact Receiver { get; }
 
-        public Contact Sender => sender;
+        public Contact Sender { get; }
 
-        public string Phone => phone;
+        public string Phone { get; }
 
-        public string WebAddress => webAddress;
+        public string WebAddress { get; }
 
-        public double TotalTax => items.Sum(item => item.TotalTax);
+        public double TotalTax => Items.Sum(item => item.TotalTax);
 
-        public double Total => items.Sum(item => item.Total);
+        public double Total => Items.Sum(item => item.Total);
 
-        public List<Item> Items => items;
+        public List<Item> Items { get; }
+        public double ToPay => Total - Discount;
 
         public Invoice()
         {

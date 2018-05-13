@@ -109,9 +109,9 @@ namespace Assignment6
 
         public int InvoiceNumber { get; }
 
-        public DateTime InvoiceDate { get; }
+        public DateTime InvoiceDate { get; set; }
 
-        public DateTime DueDate { get; }
+        public DateTime DueDate { get; set; }
 
         public Contact Receiver { get; }
 

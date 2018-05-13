@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace Assignment6
@@ -68,8 +69,10 @@ namespace Assignment6
             if (_initialized && (null != _currentInvoice)) {
                 var ci = _currentInvoice;
                 lblInvoiceNumber.Content = _currentInvoice.InvoiceNumber;
-                txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
-                txtDueDate.Text = ci.DueDate.ToShortDateString();
+                //txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
+                dpInvoice.SelectedDate = ci.InvoiceDate;
+                dpDue.SelectedDate = ci.DueDate;
+                //txtDueDate.Text = ci.DueDate.ToShortDateString();
                 txtReceiver.Text = ci.Receiver.ToString();
                 lblTotalTax.Content = $"{ci.TotalTax:f2}";
                 lblTotalAmount.Content = $"{ci.Total:f2}";
@@ -129,10 +132,26 @@ namespace Assignment6
                 var uri = new Uri(filename); //, UriKind.Relative);
                 imgLogo.Source = new BitmapImage(uri);
             }
-            catch (NotImplementedException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Bad image file. Try a different file", "Error: Invalid file");
             }
+        }
+
+        private void txtInvoiceDate_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            // https://www.dotnetperls.com/datepicker-wpf
+            // ... Get nullable DateTime from SelectedDate.
+            if (dpInvoice.SelectedDate != null)
+                _currentInvoice.InvoiceDate = dpInvoice.SelectedDate.Value;
+            UpdateGui();
+        }
+
+        private void txtDueDate_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (dpDue.SelectedDate != null)
+                _currentInvoice.DueDate = dpDue.SelectedDate.Value;
+            UpdateGui();
         }
     }
 }

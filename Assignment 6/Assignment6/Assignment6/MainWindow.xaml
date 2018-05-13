@@ -18,12 +18,12 @@
         <StackPanel x:Name="panelAll" Orientation="Vertical" IsEnabled="False" Margin="10" >
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Vertical">
-                    <Label x:Name="lblCompany" Content="Apu Brvgs Inc" HorizontalAlignment="Center" FontSize="24" FontFamily="Harlow Solid Italic"/>
+                    <Label x:Name="lblCompany" HorizontalAlignment="Center" FontSize="24" FontFamily="Harlow Solid Italic"/>
                     <Button Click="Button_Click" Width="128" Height="128">
                         <Image x:Name="imgLogo" HorizontalAlignment="Center" OpacityMask="#FF38EA30" Source="duff_beer.gif" Width="128" Height="128"/>
                     </Button>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Width="388">
+                <StackPanel Orientation="Vertical" Width="350">
                     <Grid Background="White">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -38,8 +38,8 @@
                         <Label Content="Invoice date" Grid.Row="1" Grid.Column="0" BorderBrush="#FFBB6363" />
                         <Label Content="Due date" Grid.Row="2" Grid.Column="0" BorderBrush="#FFBB6363" />
                         <Label x:Name="lblInvoiceNumber" Content="Invoice number goes here" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="0" Grid.Column="1" BorderBrush="#FFBB6363"/>
-                        <TextBox x:Name="txtInvoiceDate" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="date here" VerticalAlignment="Top" Width="120" Grid.Row="1" Grid.Column="1"/>
-                        <TextBox x:Name="txtDueDate" HorizontalAlignment="Right" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Row="2" Grid.Column="1"/>
+                        <DatePicker x:Name="dpInvoice" Margin="0,10,47,18" Grid.Row="1" Grid.Column="1"/>
+                        <DatePicker x:Name="dpDue" Margin="0,10,47,18" Grid.Row="2" Grid.Column="1"/>
                     </Grid>
                     <TextBlock x:Name="txtReceiver" TextWrapping="Wrap" Text="Name and address goes here, its a very long text that will not fit into one line. IT will have embedded newlines." Margin="5">
                         <TextBlock.Background>

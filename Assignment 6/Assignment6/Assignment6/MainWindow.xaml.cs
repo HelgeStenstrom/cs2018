@@ -1,6 +1,9 @@
-﻿using System;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace Assignment6
@@ -10,22 +13,40 @@ namespace Assignment6
     /// </summary>
     public partial class MainWindow
     {
+        /// <summary>
+        /// The invoice that the form works on. Initially an empty default invoice.
+        /// </summary>
         private Invoice _currentInvoice = new Invoice();
+
+        /// <summary>
+        /// True when the current invoice is initialized from an invoice file.
+        /// </summary>
         private bool _initialized = false;
 
+        /// <summary>
+        /// Default constructor. Create the GUI components an do some initialization.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+            _initialized = true;
             InitializeGui();
         }
 
+        /// <summary>
+        /// Do some GUI initialization. For now, the general UpdateGui method is called.
+        /// </summary>
         private void InitializeGui()
         {
-            _initialized = true;
             UpdateGui();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Called when Open Invoice is selected in the menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OpenInvoice_Click(object sender, RoutedEventArgs e)
         {
             // https://stackoverflow.com/questions/10315188/open-file-dialog-and-select-a-file-using-wpf-controls-and-c-sharp 
 
@@ -64,8 +85,11 @@ namespace Assignment6
             }
         }
 
+        /// <summary>
+        /// Update the GUI components, using information from the current invoice
+        /// </summary>
         private void UpdateGui()
-        {
+        {// _initialized &&
             if (_initialized && (null != _currentInvoice)) {
                 var ci = _currentInvoice;
                 lblInvoiceNumber.Content = _currentInvoice.InvoiceNumber;
@@ -91,6 +115,11 @@ namespace Assignment6
             }
         }
 
+        /// <summary>
+        /// Called when the value in the discount box is changed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TxtDiscount_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             try
@@ -105,16 +134,27 @@ namespace Assignment6
             }
         }
 
+        /// <summary>
+        /// Called when the Logo is clicked. The Logo is in a button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ChangeLogo();
         }
 
+        /// <summary>
+        /// Called when the menu item for changing logo is selected.
+        /// </summary>
         private void mnuLogo_Click(object sender, RoutedEventArgs e)
         {
             ChangeLogo();
         }
 
+        /// <summary>
+        /// Changes the logo, by first bringing up a file picker dialog, and then update the source of the log.
+        /// </summary>
         private void ChangeLogo()
         {
             // https://stackoverflow.com/questions/10315188/open-file-dialog-and-select-a-file-using-wpf-controls-and-c-sharp 
@@ -145,6 +185,11 @@ namespace Assignment6
             }
         }
 
+        /// <summary>
+        /// Update the invoice date of the current invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtInvoiceDate_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             // https://www.dotnetperls.com/datepicker-wpf
@@ -154,6 +199,11 @@ namespace Assignment6
             UpdateGui();
         }
 
+        /// <summary>
+        /// Update the due date of the current invoice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtDueDate_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (dpDue.SelectedDate != null)

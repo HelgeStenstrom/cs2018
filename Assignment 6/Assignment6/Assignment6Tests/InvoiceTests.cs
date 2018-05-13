@@ -1,4 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assignment6;
 using System;
 using System.Collections.Generic;

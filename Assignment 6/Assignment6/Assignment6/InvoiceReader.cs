@@ -1,17 +1,36 @@
-﻿using System;
+﻿// Helge Stenström 
+// ah7875
+// C# del II 2018
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 
 namespace Assignment6
 {
+    /// <summary>
+    /// Read a formatted textfile containing an invoice, and produce a instance of the Invoice class.
+    /// Inner classes are used for contacts and items on the invoice.
+    /// </summary>
     public class InvoiceReader
     {
+        /// <summary>
+        /// The name of the file containing the invoice.
+        /// </summary>
         string fileName;
+
+        /// <summary>
+        /// Holds one line of the file per item in the list.
+        /// </summary>
         List<string> lines = new List<string>();
 
-        public InvoiceReader(string fileNameA)
+        /// <summary>
+        /// Reads the given file and puts it in lines.
+        /// </summary>
+        /// <param name="filename">file to read, containing an invoice</param>
+        public InvoiceReader(string filename)
         {
-            var fileName = fileNameA ?? throw new ArgumentNullException(nameof(fileNameA));
+            var fileName = filename ?? throw new ArgumentNullException(nameof(filename));
 
             // TODO: Försök hitta filen och verifiera att den är läsbar.
             // TODO: Acceptera full path till filnament. Det kommer från en fildialog.
@@ -19,10 +38,19 @@ namespace Assignment6
             var file = Path.Combine(projectFolder, fileName);
             // string path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), fileName);
             this.fileName = file;
-            Read();
+
+            using (TextReader reader = new StreamReader(this.fileName))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                    lines.Add(line);
+            }
         }
 
-
+        /// <summary>
+        /// Returns an instance of Invoice, based on the file that has already been read in.
+        /// </summary>
+        /// <returns> an instance of Invoice</returns>
         public Invoice GetInvoice()
         {
             int invoiceNumber;
@@ -69,6 +97,11 @@ namespace Assignment6
             }
         }
 
+        /// <summary>
+        /// Returns an instance of Contact, based on a number of strings from an invoice file.
+        /// </summary>
+        /// <param name="list">Strings that make up the contact.</param>
+        /// <returns>an instance of Contact</returns>
         private Invoice.Contact getContact(List<string> list)
         {
             try
@@ -87,23 +120,5 @@ namespace Assignment6
                 // TODO: Byt ut mot bättre åtgärd.
             }
         }
-
-        public int Size { get; set; }
-
-        private void Read()
-        {
-            using (TextReader reader = new StreamReader(fileName))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    //Console.WriteLine(line);
-                    // TODO: Lägg raderna i en variabel.
-                    lines.Add(line);
-                }
-            }
-        }
-
-
     }
 }

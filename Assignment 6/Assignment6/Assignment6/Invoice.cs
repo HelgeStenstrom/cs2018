@@ -89,7 +89,7 @@ namespace Assignment6
             }
         }
 
-        public double Discount { get; set; } = 0;
+        public double Discount { get; set; }
 
         public Invoice(int invoiceNumber, 
             DateTime invoiceDate, DateTime dueDate, 
@@ -97,14 +97,14 @@ namespace Assignment6
             string phone, string webAddress, 
             List<Item> items)
         {
-            this.InvoiceNumber = invoiceNumber;
-            this.InvoiceDate = invoiceDate;
-            this.DueDate = dueDate;
-            this.Receiver = receiver;
-            this.Sender = sender;
-            this.Phone = phone;
-            this.WebAddress = webAddress;
-            this.Items = items;
+            InvoiceNumber = invoiceNumber;
+            InvoiceDate = invoiceDate;
+            DueDate = dueDate;
+            Receiver = receiver;
+            Sender = sender;
+            Phone = phone;
+            WebAddress = webAddress;
+            Items = items;
         }
 
         public int InvoiceNumber { get; }
@@ -130,9 +130,9 @@ namespace Assignment6
 
         public Invoice()
         {
-            this.Items = new List<Item>();
-            this.Receiver = new Contact();
-            this.Sender = new Contact();
+            Items = new List<Item>();
+            Receiver = new Contact();
+            Sender = new Contact();
         }
     }
 }

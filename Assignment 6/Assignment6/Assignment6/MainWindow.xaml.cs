@@ -7,10 +7,10 @@ namespace Assignment6
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow
     {
-        private Invoice currentInvoice = new Invoice();
-        private bool initialized = false;
+        private Invoice _currentInvoice = new Invoice();
+        private bool _initialized = false;
 
         public MainWindow()
         {
@@ -20,7 +20,7 @@ namespace Assignment6
 
         private void InitializeGui()
         {
-            initialized = true;
+            _initialized = true;
             UpdateGui();
         }
 
@@ -42,21 +42,21 @@ namespace Assignment6
                 string filename = dlg.FileName;
                 try
                 {
-                    currentInvoice = new InvoiceReader(filename).GetInvoice();
+                    _currentInvoice = new InvoiceReader(filename).GetInvoice();
                     panelAll.IsEnabled = true;
                     UpdateGui();
                 }
-                catch (FormatException ex)
+                catch (FormatException)
                 {
                     MessageBox.Show("Invalid invoice file. Try a different file.", "Error: Invalid file");
                 }
 
-                catch (ArgumentOutOfRangeException ex)
+                catch (ArgumentOutOfRangeException)
                 {
                     MessageBox.Show("Invalid invoice file. Try a different file.", "Error: Invalid file");
                 }
 
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Unexpected exception when reading invoice file. Try again.", "Error");
                 }
@@ -65,9 +65,9 @@ namespace Assignment6
 
         private void UpdateGui()
         {
-            if (initialized && (null != currentInvoice)) {
-                var ci = currentInvoice;
-                lblInvoiceNumber.Content = currentInvoice.InvoiceNumber;
+            if (_initialized && (null != _currentInvoice)) {
+                var ci = _currentInvoice;
+                lblInvoiceNumber.Content = _currentInvoice.InvoiceNumber;
                 txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
                 txtDueDate.Text = ci.DueDate.ToShortDateString();
                 txtReceiver.Text = ci.Receiver.ToString();
@@ -91,42 +91,47 @@ namespace Assignment6
         private void TxtDiscount_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
 
-            currentInvoice.Discount = Double.Parse(txtDiscount.Text);
+            _currentInvoice.Discount = Double.Parse(txtDiscount.Text);
             UpdateGui();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangeLogo();
         }
 
         private void mnuLogo_Click(object sender, RoutedEventArgs e)
         {
+            ChangeLogo();
+        }
+
+        private void ChangeLogo()
+        {
             // https://stackoverflow.com/questions/10315188/open-file-dialog-and-select-a-file-using-wpf-controls-and-c-sharp 
 
             // Create OpenFileDialog
-            var dlg = new Microsoft.Win32.OpenFileDialog();
+            var dlg = new Microsoft.Win32.OpenFileDialog
+            {
+                DefaultExt = ".png",
+                Filter = "PNG files (*.png)|*.png"
+            };
 
-            dlg.DefaultExt = ".txt";
-            dlg.Filter = "Image files (*.png)|*.png";
 
             // Display dialog
-            Nullable<bool> result = dlg.ShowDialog();
+            var result = dlg.ShowDialog();
 
-            if (result == true)
+            if (result != true) return;
+            // Open document
+            var filename = dlg.FileName;
+
+            try
             {
-                // Open document
-                string filename = dlg.FileName;
-
-                try
-                {
-                    var uri = new Uri(filename); //, UriKind.Relative);
-                    imgLogo.Source = new BitmapImage(uri);
-                }
-                catch (NotImplementedException ex)
-                {
-                    MessageBox.Show("Bad image file. Try a different file", "Error: Invalid file");
-                }
+                var uri = new Uri(filename); //, UriKind.Relative);
+                imgLogo.Source = new BitmapImage(uri);
+            }
+            catch (NotImplementedException ex)
+            {
+                MessageBox.Show("Bad image file. Try a different file", "Error: Invalid file");
             }
         }
     }

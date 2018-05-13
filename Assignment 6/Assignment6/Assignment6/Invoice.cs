@@ -9,34 +9,34 @@ namespace Assignment6
     /// </summary>
     public class Invoice
     {
+
         /// <summary>
         /// Data for an item of an invoice
         /// </summary>
         public class Item
         {
-            private string description;
-            private int quantity;
-            private double unitPrice;
-            private double taxPercent;
-
-            public Item(string description, int quantity, double unitPrice, double taxPercent)
+            public Item(int itemNo,  string description, int quantity, double unitPrice, double taxPercent)
             {
-                this.description = description;
-                this.quantity = quantity;
-                this.unitPrice = unitPrice;
-                this.taxPercent = taxPercent;
+                ItemNo = itemNo;
+                Description = description;
+                Quantity = quantity;
+                UnitPrice = unitPrice;
+                TaxPercent = taxPercent;
             }
 
-            public double TaxPercent => taxPercent;
+            public int ItemNo { get; set; }
 
-            public double UnitPrice => unitPrice;
 
-            public int Quantity => quantity;
+            public double TaxPercent { get; }
 
-            public string Description => description;
+            public double UnitPrice { get; }
 
-            public double TotalTax => quantity * unitPrice* taxPercent * 0.01;
-            public double Total => quantity * unitPrice + TotalTax;
+            public int Quantity { get; }
+
+            public string Description { get; }
+
+            public double TotalTax => Quantity * UnitPrice* TaxPercent * 0.01;
+            public double Total => Quantity * UnitPrice + TotalTax;
         }
 
         /// <summary>
@@ -59,6 +59,17 @@ namespace Assignment6
                 _zip = zip ?? throw new ArgumentNullException(nameof(zip));
                 _city = city ?? throw new ArgumentNullException(nameof(city));
                 _country = country ?? throw new ArgumentNullException(nameof(country));
+            }
+
+            public Contact()
+            {
+                string u = "unknown";
+                _companyName = u;
+                _personName = u;
+                _street = u;
+                _zip = u;
+                _city = u;
+                _country = u;
             }
 
             public string CompanyName => _companyName;
@@ -119,6 +130,9 @@ namespace Assignment6
 
         public Invoice()
         {
+            this.Items = new List<Item>();
+            this.Receiver = new Contact();
+            this.Sender = new Contact();
         }
     }
 }

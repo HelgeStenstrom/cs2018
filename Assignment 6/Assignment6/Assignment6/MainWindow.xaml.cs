@@ -8,11 +8,19 @@ namespace Assignment6
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Invoice currentInvoice;
+        private Invoice currentInvoice = new Invoice();
+        private bool initialized = false;
 
         public MainWindow()
         {
             InitializeComponent();
+            InitializeGui();
+        }
+
+        private void InitializeGui()
+        {
+            initialized = true;
+            UpdateGui();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -34,6 +42,7 @@ namespace Assignment6
                 try
                 {
                     currentInvoice = new InvoiceReader(filename).GetInvoice();
+                    panelAll.IsEnabled = true;
                     UpdateGui();
                 }
                 catch (FormatException ex)
@@ -55,7 +64,7 @@ namespace Assignment6
 
         private void UpdateGui()
         {
-            if (null != currentInvoice) {
+            if (initialized && (null != currentInvoice)) {
                 var ci = currentInvoice;
                 lblInvoiceNumber.Content = currentInvoice.InvoiceNumber;
                 txtInvoiceDate.Text = ci.InvoiceDate.ToShortDateString();
@@ -64,7 +73,18 @@ namespace Assignment6
                 lblTotalTax.Content = $"{ci.TotalTax:f2}";
                 lblTotalAmount.Content = $"{ci.Total:f2}";
                 lblToPay.Content = $"{ci.ToPay:f2}";
+
+                lvInvoiceItems.ItemsSource = null;
+                lvInvoiceItems.ItemsSource = ci.Items;
             }
         }
+
+        private void TxtDiscount_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+            currentInvoice.Discount = Double.Parse(txtDiscount.Text);
+            UpdateGui();
+        }
+
     }
 }

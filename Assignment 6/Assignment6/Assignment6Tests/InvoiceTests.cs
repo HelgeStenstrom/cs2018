@@ -27,7 +27,7 @@ namespace Assignment6.Tests
         [TestMethod()]
         public void ItemTest1()
         {
-            var i = new Invoice.Item("desc", 7, 3.14, 2.71);
+            var i = new Invoice.Item(0, "desc", 7, 3.14, 2.71);
             Assert.AreEqual("desc", i.Description);
             Assert.AreEqual(7, i.Quantity);
             Assert.AreEqual(3.14, i.UnitPrice);
@@ -46,7 +46,7 @@ namespace Assignment6.Tests
             var total = 249.375; //  quant * up + totalTax;
 
             // Exercise
-            var i = new Invoice.Item(desc, quant, up, tax);
+            var i = new Invoice.Item(0, desc, quant, up, tax);
 
             // Verify
             Assert.AreEqual(desc, i.Description);
@@ -92,8 +92,8 @@ namespace Assignment6.Tests
             var sender = ValidContact();
             
             var items =  new List<Invoice.Item>();
-            items.Add(new Invoice.Item("Strong Bear", 5, 39.9, 25));
-            items.Add(new Invoice.Item("Garlic Bread", 2, 4.99, 6));
+            items.Add(new Invoice.Item(0, "Strong Bear", 5, 39.9, 25));
+            items.Add(new Invoice.Item(0, "Garlic Bread", 2, 4.99, 6));
 
             // Execute
             var invoice = new Invoice(123,
@@ -114,6 +114,21 @@ namespace Assignment6.Tests
         private static Invoice.Contact ValidContact()
         {
             return new Invoice.Contact("sender", "n2", "3", "zip", "5", "6");
+        }
+
+        [TestMethod]
+        public void validDefaultInvoice()
+        {
+            // Setup & Exercise
+
+            Invoice invoice = new Invoice();
+
+            // Verify
+            Assert.AreEqual(0, invoice.Discount);
+            Assert.IsNotNull(invoice.Items);
+            Assert.IsNotNull(invoice.Receiver);
+            Assert.IsNotNull(invoice.Sender);
+
         }
     }
 }

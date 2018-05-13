@@ -16,10 +16,10 @@
             </MenuItem>
             <MenuItem Header="_Help"/>
         </Menu>
-        <StackPanel Orientation="Vertical" >
-            <StackPanel Orientation="Horizontal">
-                <Image Height="128" OpacityMask="#FFE83B3B" Width="128"/>
-                <StackPanel Orientation="Vertical" Width="388">
+        <StackPanel x:Name="panelAll" Orientation="Vertical" IsEnabled="False" Margin="10" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Image Height="128" OpacityMask="#FFE83B3B" Width="128" HorizontalAlignment="Left"/>
+                <StackPanel Orientation="Vertical" Width="388" HorizontalAlignment="Right">
                     <Grid Background="White">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -44,10 +44,17 @@
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
-            <ListView x:Name="invoiceItems" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="517">
+            <ListView x:Name="lvInvoiceItems" Height="100" VerticalAlignment="Top" Width="517">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Header="Item" DisplayMemberBinding="{Binding ItemNo}"/>
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
+                        <GridViewColumn Header="Quantity" DisplayMemberBinding="{Binding Quantity}"/>
+                        <!--xc-->
+                        <GridViewColumn Header="Unit Price" DisplayMemberBinding="{Binding UnitPrice, StringFormat=Now only {0:#.00}!}"/>
+                        <GridViewColumn Header="Tax (%)" DisplayMemberBinding="{Binding TaxPercent}" />
+                        <GridViewColumn Header="Total Tax" DisplayMemberBinding="{Binding TotalTax}"/>
+                        <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Total}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -62,7 +69,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-10,0,0,0">
                     <Label Content="Discount" HorizontalAlignment="Right"/>
-                    <TextBox Height="23" TextWrapping="Wrap" Text="0.00" Width="120" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="txtDiscount" Height="23" TextWrapping="Wrap" Text="0.00" Width="120" HorizontalContentAlignment="Right" TextChanged="TxtDiscount_TextChanged"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="-10,0,0,0">
                     <Label Content="To Pay:" HorizontalAlignment="Right"/>

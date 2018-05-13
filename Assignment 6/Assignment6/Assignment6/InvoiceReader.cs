@@ -49,7 +49,7 @@ namespace Assignment6
                     double price = double.Parse(itemLines[2 + baseIdx]);
                     double tax = double.Parse(itemLines[3 + baseIdx]);
 
-                    items.Add(new Invoice.Item(desc, quantity, price, tax));
+                    items.Add(new Invoice.Item(i+1, desc, quantity, price, tax));
                 }
 
                 int nextLine = 10 + itemCount * linesPerItem ;

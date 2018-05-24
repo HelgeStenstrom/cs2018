@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 
 namespace Assignment6
@@ -74,8 +75,8 @@ namespace Assignment6
                     var baseIdx = linesPerItem * i;
                     string desc = itemLines[0 + baseIdx];
                     int quantity = int.Parse(itemLines[1 + baseIdx]);
-                    double price = double.Parse(itemLines[2 + baseIdx]);
-                    double tax = double.Parse(itemLines[3 + baseIdx]);
+                    double price = double.Parse(itemLines[2 + baseIdx], CultureInfo.InvariantCulture);
+                    double tax = double.Parse(itemLines[3 + baseIdx], CultureInfo.InvariantCulture);
 
                     items.Add(new Invoice.Item(i+1, desc, quantity, price, tax));
                 }
@@ -94,6 +95,7 @@ namespace Assignment6
             {
                 throw e;
                 // TODO: Byt ut mot bättre åtgärd.
+                // Exceptions are handled by calling code.
             }
         }
 
@@ -104,21 +106,13 @@ namespace Assignment6
         /// <returns>an instance of Contact</returns>
         private Invoice.Contact getContact(List<string> list)
         {
-            try
-            {
-                string company = list[0];
-                string person = list[1];
-                string street = list[2];
-                string zip = list[3];
-                string city = list[4];
-                string country = list[5];
-                return new Invoice.Contact(company, person, street, zip, city, country);
-            }
-            catch (Exception e)
-            {
-                throw e;
-                // TODO: Byt ut mot bättre åtgärd.
-            }
+            string company = list[0];
+            string person = list[1];
+            string street = list[2];
+            string zip = list[3];
+            string city = list[4];
+            string country = list[5];
+            return new Invoice.Contact(company, person, street, zip, city, country);
         }
     }
 }

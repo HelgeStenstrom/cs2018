@@ -3,6 +3,7 @@
 // C# del II 2018
 
 using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -124,7 +125,7 @@ namespace Assignment6
         {
             try
             {
-                _currentInvoice.Discount = Double.Parse(txtDiscount.Text);
+                _currentInvoice.Discount = Double.Parse(txtDiscount.Text, CultureInfo.InvariantCulture);
 
                 UpdateGui();
             }
@@ -179,7 +180,7 @@ namespace Assignment6
                 var uri = new Uri(filename); //, UriKind.Relative);
                 imgLogo.Source = new BitmapImage(uri);
             }
-            catch (Exception ex)
+            catch (NotSupportedException ex)
             {
                 MessageBox.Show("Bad image file. Try a different file", "Error: Invalid file");
             }
